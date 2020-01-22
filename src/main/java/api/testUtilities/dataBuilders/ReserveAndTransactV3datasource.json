@@ -1,0 +1,26 @@
+{
+  "reserveandtransactv3suite": {
+    "successcase1": {
+      "accountIdentifier":"64ec8907-f41a-441a-b1b8-355ef",
+      "purchaseAmount":"15000",
+      "channelId":"7",
+      "channelName":"test",
+      "channelSessionId":"ST-8556726170",
+      "clientId":"3",
+      "clientTxnRef":"test123",
+      "productId":"100",
+      "sourceIdentifier":"2341122222221",
+      "targetIdentifier":"2341110000000",
+      "timestamp":"2019-09-03T15:35:26.720+02:00",
+      "feeAmount":"0",
+      "currencyCode":"NGN",
+      "fundingSourceId":"3",
+      "expectedRaasResponseCode": "0000",
+      "expectedMessage": "Processing request (funds reserved)",
+      "expectedHTTPResponseCode": "200",
+      "expectedRaasResultResponseResponseCode": "202",
+      "expectedRaasResultRequestResponseCode": "0000",
+      "expectedCTXTransactionResponseCode": "0"
+    }
+  }
+}

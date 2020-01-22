@@ -1,0 +1,4 @@
+include:
+    - project: devops/deploy-pipelines
+      ref: master
+      file: '/test-automation/bigbrotherautomation/.gitlab-ci.yml'

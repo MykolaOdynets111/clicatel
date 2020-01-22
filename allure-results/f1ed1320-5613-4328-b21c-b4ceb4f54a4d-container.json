@@ -1,0 +1,1 @@
+{"uuid":"f1ed1320-5613-4328-b21c-b4ceb4f54a4d","name":"Get FUNDINGSOURCE Channel Config","children":["10a9b5f1-a001-4733-ad0c-94a1f9a76ef4"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579609165706,"stop":1579609165706}],"afters":[],"links":[],"start":1579609165705,"stop":1579609165938}

@@ -1,0 +1,1 @@
+{"uuid":"7e6fe3d6-7575-40dd-a742-7bf523c74206","name":"Get All Clients VENDORTest","children":["652d9b6e-8d49-4bc1-bc76-10772894531d"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579609166803,"stop":1579609166803}],"afters":[],"links":[],"start":1579609166802,"stop":1579609167050}

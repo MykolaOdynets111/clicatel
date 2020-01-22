@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All USSD GT Bank Test Suite" thread-count="5" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="GT Banks API.USSDTests">
+        <classes>
+            <class name="API.USSDTests.inputTextTests.inputRedirectTest">
+                <methods>
+                    <include name="askForInputRedirectTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.inputTextTests.uddsInputSensitiveTest">
+                <methods>
+                    <include name="askForInputTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.inputTextTests.ussdDisplayPlainTextTest">
+                <methods>
+                    <include name="askForInputTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.inputTextTests.ussdInputTextTest">
+                <methods>
+                    <include name="ussdInputTextTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.isEmptyTests.isEmptySimpleNullTest">
+                <methods>
+                    <include name="ussdIsEmptySimpleNullTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.isEmptyTests.isEmptySimpleTest">
+                <methods>
+                    <include name="ussdIsEmptySimpleNullTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.isNullTests.isNotNullTest">
+                <methods>
+                    <include name="IsNull_SimpleTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.isNullTests.isNullPositiveTest">
+                <methods>
+                    <include name="IsNull_SimpleTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdDateFormatTests.ussdDateFormatSimpleTest">
+                <methods>
+                    <include name="IsNull_SimpleTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdDisplayTextTests.ussdDisplayTextTest">
+                <methods>
+                    <include name="ussdSimpleMenu"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.AirtimeOthersOptionTwo.ussdAirtimeOthersTest">
+                <methods>
+                    <include name="startSession"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdAirtimeSelf.ussdTestAirtimeSelfTest">
+                <methods>
+                    <include name="startSession"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdCardlessTests.ussdCardless">
+                <methods>
+                    <include name="selectCardlessTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdCreatePin.createPinTestActivateDebitCardTest">
+                <methods>
+                    <include name="createPinTestActivateDebitCardTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdCreatePin.createPinTestActivateNOCardTest">
+                <methods>
+                    <include name="createPinTestActivateDebitCardTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdDataOptionThree.selectDataPurchaseForSelfTest">
+                <methods>
+                    <include name="selectDataPurchaseForSelfTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdTrsfGTBankTests.ussdTRSFGTBank">
+                <methods>
+                    <include name="ussdTrsfGTBankTest"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdGTBankTests.ussdTrsfOthers.ussdTrsfOthers">
+                <methods>
+                    <include name="ussdTrsfOthersTests"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdMenuTests.simpleMenuTest">
+                <methods>
+                    <include name="ussdSimpleMenu"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdMenuTests.ussdMenuWithKeyWordsTestOptionsOne">
+                <methods>
+                    <include name="testUsingKeyWordsMenuItemOne"/>
+                </methods>
+            </class>
+            <class name="API.USSDTests.ussdMenuTests.ussdMenuWithKeyWordsTestOptionsTwo">
+                <methods>
+                    <include name="testUsingKeyWordsMenuItemTwo"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

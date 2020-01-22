@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Confirm TestSuite" thread-count="5" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="Confirm Test">
+        <classes>
+            <class name="API.pwmTest.Confirm">
+                <methods>
+                    <include name="confirmTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

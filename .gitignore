@@ -1,0 +1,8 @@
+
+# Project exclude paths
+./.settings
+.settings
+src/test/resources/IsEmptyTest.xml
+.idea
+Reports
+target

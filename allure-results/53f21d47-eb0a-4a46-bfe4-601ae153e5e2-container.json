@@ -1,0 +1,1 @@
+{"uuid":"53f21d47-eb0a-4a46-bfe4-601ae153e5e2","name":"get All Channels VENDORTest","children":["eaf9a83c-0c19-4741-ae7f-7dfcbf50bd21"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608851718,"stop":1579608851718}],"afters":[],"links":[],"start":1579608851718,"stop":1579608851961}

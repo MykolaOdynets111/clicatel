@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="UI .Control Tests" thread-count="3" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="src/test/java/UI/tests/controlRefresh/flows">
+        <classes>
+            <class name="UI.tests.controlRefresh.flows.createNewFlowTest">
+                <methods>
+                    <include name="simpleCreateFlowTest"/>
+                </methods>
+            </class>
+            <class name="UI.tests.controlRefresh.flows.openExistingFlowTest">
+                <methods>
+                    <include name="openExistingFlowCheckForHighLitesTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

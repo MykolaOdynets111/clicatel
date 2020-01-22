@@ -1,0 +1,1 @@
+{"uuid":"f8750457-ec22-4555-bb88-cee90cc76434","name":"get All Channels CLIENT","children":["30c67189-44b9-451e-b152-f67bbadad990"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608850929,"stop":1579608850929}],"afters":[],"links":[],"start":1579608850929,"stop":1579608851321}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Is EmptyTest Suite" thread-count="5" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="is Empty Simple Null Test">
+        <classes>
+            <class name="API.USSDTests.isEmptyTests.isEmptySimpleNullTest">
+                <methods>
+                    <include name="ussdIsEmptySimpleNullTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test name="isEmpty Simple Test">
+        <classes>
+            <class name="API.USSDTests.isEmptyTests.isEmptySimpleTest">
+                <methods>
+                    <include name="ussd IsEmpty Simple NullTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

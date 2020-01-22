@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.clickatell</groupId>
+    <artifactId>bigbrotherAutomation_Control_Engine</artifactId>
+    <version>1.0_BETA</version>
+
+    <properties>
+        <java.version>1.8</java.version>
+
+        <testng.version>6.14.3</testng.version>
+        <selenide.version>5.5.0</selenide.version>
+        <restassured.version>4.1.1</restassured.version>
+
+        <webdriver.manager.version>3.2.0</webdriver.manager.version>
+
+        <selenium.remote.driver.version>3.141.59</selenium.remote.driver.version>
+        <selenium.support.version>3.141.0</selenium.support.version>
+        <selenium.api.version>3.141.0</selenium.api.version>
+
+        <extentreports.version>4.0.6</extentreports.version>
+
+        <jeckson.core.version>2.9.9</jeckson.core.version>
+        <jackson.databind.version>2.9.9.3</jackson.databind.version>
+        <jackson.dataformat.xml.version>2.9.8</jackson.dataformat.xml.version>
+        <jaxb.api>2.2.11</jaxb.api>
+        <json.simple.version>1.1.1</json.simple.version>
+
+        <log4j.version>1.2.17</log4j.version>
+        <slf4j.api.version>1.7.28</slf4j.api.version>
+        <slf4j.log4j12.version>1.7.28</slf4j.log4j12.version>
+
+        <postgresql.version>42.2.8</postgresql.version>
+        <mysql.connector.java.version>8.0.18</mysql.connector.java.version>
+
+        <spring.context.versin>5.2.1.RELEASE</spring.context.versin>
+        <hibernate.core.version>5.4.7.Final</hibernate.core.version>
+        <hibernate.search.orm.version>5.11.3.Final</hibernate.search.orm.version>
+        <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
+        <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
+        <persistence.api.version>1.0.2</persistence.api.version>
+
+        <lombok.version>1.18.10</lombok.version>
+        <javafaker.version>1.0.1</javafaker.version>
+
+        <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
+        <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+        <surefire.argline>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+        </surefire.argline>
+        <surefire.suiteXmlFiles>
+            src${file.separator}test${file.separator}resources${file.separator}suites${file.separator}${suite}.xml
+        </surefire.suiteXmlFiles>
+        <surefire.useDefaultListeners>false</surefire.useDefaultListeners>
+
+        <aspectj.version>1.9.4</aspectj.version>
+        <allure.maven-plugin.version>2.10.0</allure.maven-plugin.version>
+        <allure.version>2.13.0</allure.version>
+        <allure.tms.link>https://jira.clickatell.com/browse/{}</allure.tms.link>
+        <allure.issue.link>https://jira.clickatell.com/browse/{}</allure.issue.link>
+
+        <suite>SuiteofSuites</suite>
+
+
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>qa</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>qa</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>dev</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>uat</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>uat</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>testing</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>testing</env>
+            </properties>
+        </profile>
+    </profiles>
+    <repositories>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/groups/102/-/packages/maven</url>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <repository>
+            <id>gitlab-maven</id>
+            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/projects/308/packages/maven</url>
+        </repository>
+        <snapshotRepository>
+            <id>gitlab-maven</id>
+            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/projects/308/packages/maven</url>
+        </snapshotRepository>
+    </distributionManagement>
+    <dependencies>
+        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>${testng.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>rest-assured</artifactId>
+            <version>${restassured.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.aventstack</groupId>
+            <artifactId>extentreports</artifactId>
+            <version>${extentreports.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jeckson.core.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.databind.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-xml</artifactId>
+            <version>${jackson.dataformat.xml.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.api}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>${selenide.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.googlecode.json-simple</groupId>
+            <artifactId>json-simple</artifactId>
+            <version>${json.simple.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>${postgresql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>${javafaker.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.context.versin}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate.core.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-search-orm</artifactId>
+            <version>${hibernate.search.orm.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate.validator.validator.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.java.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>${persistence.api.version}</version>
+        </dependency>
+
+        <!--library needs to avoid console log4g trash-->
+        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>${log4j.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.api.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>${slf4j.log4j12.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${webdriver.manager.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <filters>
+            <filter>src${file.separator}test${file.separator}resources${file.separator}config.${env}.properties</filter>
+        </filters>
+        <testResources>
+            <testResource>
+                <directory>src${file.separator}test${file.separator}resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+            </testResource>
+        </testResources>
+
+
+        <plugins>
+            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>${surefire.argline}</argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${surefire.suiteXmlFiles}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>${surefire.useDefaultListeners}</value>
+                        </property>
+                    </properties>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}${file.separator}allure-results
+                        </allure.results.directory>
+                        <allure.link.tms.pattern>${allure.tms.link}</allure.link.tms.pattern>
+                        <allure.link.issue.pattern>${allure.issue.link}</allure.link.issue.pattern>
+                    </systemPropertyVariables>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven-plugin.version}</version>
+                <configuration>
+                    <reportDirectory>${project.basedir}${file.separator}allure-report</reportDirectory>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <configuration>
+                            <target>
+                                <copy
+                                        file="src${file.separator}test${file.separator}resources${file.separator}environment.properties"
+                                        overwrite="true"
+                                        todir="${project.build.directory}${file.separator}allure-results"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Channel Tests" thread-count="5" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="get All Channels FUNDINGSOURCE Test">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getAllChannelsFUNDINGSOURCETest">
+                <methods>
+                    <include name="getAllChannelsFUNDINGSOURCESTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test verbose="2" preserve-order="true"
+          name="get Channel FUNDINGSOURCE Default">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getChannelFUNDINGSOURCEDefault">
+                <methods>
+                    <include name="getDefaultChannelsFUNDINGSOURCESTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="get All Channels CLIENT">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getAllChannelsCLIENT">
+                <methods>
+                    <include name="getALLChannelsbyClient"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="get Channels By Id CLIENTS">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getChannelsByIdCLIENTS">
+                <methods>
+                    <include name="getChannelsByIDClientsUSSDTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="get All Channels VENDORTest">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getAllChannelsVENDORTest">
+                <methods>
+                    <include name="getALLChannelsbyVendor"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="get USSD Channel VENDOR Test">
+        <classes>
+            <class name="API.FlowManagerServices.channels.getUSSDChannelVENDORTest">
+                <methods>
+                    <include name="getChannelsByIDVENDORUSSDTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

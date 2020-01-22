@@ -1,0 +1,56 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "expected [0000] but found [2055]",
+      "children" : [ {
+        "name" : "basicTransactV4",
+        "uid" : "9329250d122f3f75",
+        "parentUid" : "d8f63a4f298670855358a189b03c1315",
+        "status" : "failed",
+        "time" : {
+          "start" : 1579676775366,
+          "stop" : 1579676775739,
+          "duration" : 373
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "143", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "30", "27731304703", "27731304703" ]
+      }, {
+        "name" : "basicTransactV4",
+        "uid" : "8c5bf449e7b9bbe6",
+        "parentUid" : "d8f63a4f298670855358a189b03c1315",
+        "status" : "failed",
+        "time" : {
+          "start" : 1579676775366,
+          "stop" : 1579676775739,
+          "duration" : 373
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "TestScenario2", "30", "27731304702", "27731304702" ]
+      } ],
+      "uid" : "d8f63a4f298670855358a189b03c1315"
+    }, {
+      "name" : "expected [0] but found [2601]",
+      "children" : [ {
+        "name" : "basicReserveAndTransactV3",
+        "uid" : "8a40dfd2fded1fc6",
+        "parentUid" : "10300c582b83090ae07af399d0fadd8c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1579676776121,
+          "stop" : 1579676776554,
+          "duration" : 433
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2019-09-03T15:35:26.720+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "100", "2341122222221", "2341110000000" ]
+      } ],
+      "uid" : "10300c582b83090ae07af399d0fadd8c"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}

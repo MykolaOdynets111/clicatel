@@ -1,0 +1,1 @@
+{"uuid":"418b6fb7-a056-405a-9564-4cc93e175cd3","name":"get Channel FUNDINGSOURCE Default","children":["9343fcb4-f88f-48fe-93fb-1c9236993f36"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608850593,"stop":1579608850593}],"afters":[],"links":[],"start":1579608850592,"stop":1579608850912}

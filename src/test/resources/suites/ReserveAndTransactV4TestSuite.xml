@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Reserve and Transact V4 Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/BigBrotherDevelopmentMain/bigbrotherautomation/src/test/java/API/dotCoreTests/regression_Raas_Reserve_and_Transact_V4.java">
+        <classes>
+            <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4">
+                <methods>
+                    <include name="basicReserveAndTransactV4"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

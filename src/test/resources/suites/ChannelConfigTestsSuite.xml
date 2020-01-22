@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Channel Config Tests " thread-count="5" parallel="methods">
+    <listeners>
+        <listener class-name="api.testUtilities.reportBuilder.ListenerResults"></listener>
+        <listener class-name="api.testUtilities.reportBuilder.ISuiteListener"></listener>
+    </listeners>
+    <test verbose="2" preserve-order="true"
+          name="Get FUNDINGSOURCE Channel Config">
+        <classes>
+            <class name="API.FlowManagerServices.channels.channelConfigs.getFUNDINGSOURCEChannelConfig">
+                <methods>
+                    <include name="getFUNDINGSOURCEChannelConfig"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="Get VENDOR WhatsApp Channel Config Test">
+        <classes>
+            <class name="API.FlowManagerServices.channels.channelConfigs.getVENDORDefaultChannelConfigTest">
+                <methods>
+                    <include name="getVENDORWhatsAppChannelConfigTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true"
+          name="Get Clients WhatsApp Channel Config Test">
+        <classes>
+            <class name="API.FlowManagerServices.channels.channelConfigs.getClientsWhatsAppChannelConfigTest">
+                <methods>
+                    <include name="getClientsWhatsAppChannelConfigTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
