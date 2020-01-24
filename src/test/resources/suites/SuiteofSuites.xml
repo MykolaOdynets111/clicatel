@@ -27,6 +27,7 @@
             <suite-file path="TransactV4TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV3TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV4TestSuite.xml"></suite-file>
+            <suite-file path="CtxTestSuite.xml"></suite-file>
     </suite-files>
 </suite>
 

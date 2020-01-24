@@ -1,0 +1,25 @@
+{
+  "ctxsuite": {
+    "successcase1": {
+      "sourceId": "2341111111111",
+      "clientId": "100",
+      "channelIndicator": "01",
+      "productId": "100",
+      "clientTransactionId": "b35dfb97-f79c-46c6-9e7e-3d00",
+      "purchaseAmount": "10000",
+      "alternateClientId": "42",
+      "timeLocalTransaction": "104827",
+      "xmlns": "http://clickatell.com/types",
+      "apiToken": "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf",
+      "originId": "234441122222222",
+      "channelSessionId": "3133827176",
+      "dateLocalTransaction": "0121",
+      "expectedRaasResponseCode": "0000",
+      "expectedMessage": "Processing request (funds reserved)",
+      "expectedHTTPResponseCode": "200",
+      "expectedRaasResultResponseResponseCode": "202",
+      "expectedRaasResultRequestResponseCode": "0000",
+      "expectedCTXTransactionResponseCode": "0"
+    }
+  }
+}
