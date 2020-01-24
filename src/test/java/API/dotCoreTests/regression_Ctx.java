@@ -1,3 +1,8 @@
+/* Regression test suite for CTX
+ *
+ * Author: Juan-Claude Botha
+ */
+
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
@@ -10,6 +15,7 @@ import org.testng.annotations.Test;
 import api.requestLibary.CORE.CtxPOJO;
 
 import api.testUtilities.dataBuilders.testDataFactory;
+import api.testUtilities.dataBuilders.RandomCharGenerator;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -27,13 +33,14 @@ public class regression_Ctx {
     @DataProvider(name = "Ctxtestcases", parallel = true)
     public Object[] createTransactTestData() throws IOException, ParseException {
 
+        String randomnumbers = RandomCharGenerator.getRandomNumbers(1000);
         return new String[][]{
 
                 {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","sourceId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientTransactionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientTransactionId")  + randomnumbers,
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","timeLocalTransaction"),
@@ -86,6 +93,8 @@ public class regression_Ctx {
                         .extract()
                         .response();
 
+
+
         // Create CTX payload object - contains CTX request body
         CtxPOJO CtxPayload = new CtxPOJO(
                 sourceId,
@@ -130,7 +139,7 @@ public class regression_Ctx {
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
-        //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + TransactV4response.path("raasTxnRef") + "-0000", "client_id"));
+        Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
 
         // raas db assertions
         //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
