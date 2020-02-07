@@ -15,11 +15,11 @@ public class RandomCharGenerator {
         // Create instance of Random class
         Random rand = new Random();
 
-        // Generate random integers in range from 0 to 999
-        int rand_int1 = rand.nextInt(numberCount);
-        String RandomNumbers = Integer.toString(rand_int1);
+        // Generate random integers in range from 0 to 9999
+        String rand_int1 = String.format("%04d", rand.nextInt(numberCount));
+        //String RandomNumbers = Integer.toString(rand_int1);
 
-        return RandomNumbers;
+        return rand_int1;
 
     }
 

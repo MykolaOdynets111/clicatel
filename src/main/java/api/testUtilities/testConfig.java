@@ -333,94 +333,94 @@ public class testConfig {
                 .addHeader("Connection", "keep-alive").build();
 
 
-        PWM_ReserveFunds_RequestSpec = new RequestSpecBuilder().
+        /*PWM_ReserveFunds_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_ReserveFunds_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_ReserveFunds_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
                 addHeader("fundingSourceId", "249").
-                build().log().ifValidationFails();
+                build().log().ifValidationFails();*/
 
-        PWM_ReserveFunds_Behaviour_RequestSpec = new RequestSpecBuilder().
+        /*PWM_ReserveFunds_Behaviour_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_ReserveFunds_Behaviour_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_ReserveFunds_Behaviour_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        PWM_Confirmation_RequestSpec = new RequestSpecBuilder().
+        /*PWM_Confirmation_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_Confirmation_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_Confirmation_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
                 addHeader("fundingSourceId", "249").
-                build();
+                build();*/
 
-        PWM_Confirmation_Behaviour_RequestSpec = new RequestSpecBuilder().
+        /*PWM_Confirmation_Behaviour_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_Confirmation_Behaviour_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_Confirmation_Behaviour_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        PWM_Lookup_RequestSpec = new RequestSpecBuilder().
+        /*PWM_Lookup_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_Lookup_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_Lookup_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        PWM_Lookup_Behaviour_RequestSpec = new RequestSpecBuilder().
+        /*PWM_Lookup_Behaviour_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("PWM_Lookup_Behaviour_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("PWM_Lookup_Behaviour_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        MWM_Ping_RequestSpec = new RequestSpecBuilder().
+        /*MWM_Ping_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("MWM_Ping_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("MWM_Ping_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        MWM_Vend_RequestSpec = new RequestSpecBuilder().
+        /*MWM_Vend_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("MWM_Vend_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("MWM_Vend_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
-        MWM_VendLookUp_RequestSpec = new RequestSpecBuilder().
+        /*MWM_VendLookUp_RequestSpec = new RequestSpecBuilder().
                 setBaseUri(qa_minion).
                 setPort(Integer.parseInt(properties.getProperty("MWM_VendLookUp_RequestSpec_Port"))).
                 setBasePath(properties.getProperty("MWM_VendLookUp_RequestSpec_BasePath")).
                 setContentType(ContentType.JSON).
                 addHeader("Content-Type", "json").
-                build();
+                build();*/
 
         /**
          *  dot Core request specs
          */
 
-        CORE_Transact_V4_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion)
-                .setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V4_RequestSpec_Port")))
-                .setBasePath(properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
-                .setContentType(ContentType.JSON)
-                .addHeader("Accept", "*/*")
-                .addHeader("Cache-Control", "no-cache")
-                .addHeader("Host", properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
-                .addHeader("Accept-Encoding", "Accept-Encoding")
-                .addHeader("Connection", "keep-alive").build();
+       // CORE_Transact_V4_RequestSpec = new RequestSpecBuilder().
+       //         setBaseUri(qa_minion)
+       //         .setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V4_RequestSpec_Port")))
+       //         .setBasePath(properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
+       //         .setContentType(ContentType.JSON)
+       //         .addHeader("Accept", "*/*")
+       //         .addHeader("Cache-Control", "no-cache")
+       //         .addHeader("Host", properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
+       //         .addHeader("Accept-Encoding", "Accept-Encoding")
+       //         .addHeader("Connection", "keep-alive").build();
 
 
     }

@@ -4,141 +4,178 @@
   "children" : [ {
     "name" : "Transact V3 Test Suite",
     "children" : [ {
-      "name" : "C:/BigBrotherDevelopmentMain/bigbrotherautomation/src/test/java/API/dotCoreTests/regression_Raas_Transact_V3.java",
+      "name" : "regression_Raas_Transact_V3.java",
       "children" : [ {
         "name" : "API.dotCoreTests.regression_Raas_Transact_V3",
         "children" : [ {
           "name" : "basicTransactV3",
-          "uid" : "48087a727d1eaaac",
-          "parentUid" : "f16942aee11a876671a0ec705c5aab4a",
+          "uid" : "1f22c50cc670a7a0",
+          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
           "status" : "passed",
           "time" : {
-            "start" : 1579676770995,
-            "stop" : 1579676775229,
-            "duration" : 4234
+            "start" : 1580971604193,
+            "stop" : 1580971608035,
+            "duration" : 3842
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "", "40000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "100", "2341110000002", "2341110000002" ]
+          "parameters" : [ "", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
+        }, {
+          "name" : "basicTransactV3",
+          "uid" : "4429b937abaeccc1",
+          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1580971604193,
+            "stop" : 1580971608035,
+            "duration" : 3842
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "", "50000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "test", "2022564675", "2", "test123", "50", "0815793852", "0815793852" ]
         } ],
-        "uid" : "f16942aee11a876671a0ec705c5aab4a"
+        "uid" : "9f578937ef823fa4f0d96ec632cd5a2a"
       } ],
-      "uid" : "64df0a7353c191fdc19f1a093e2bc2a1"
+      "uid" : "1bc6b965859c7ba807c24b69ad8c5c68"
     } ],
     "uid" : "497a246c27e3621edefa09893e508a39"
   }, {
     "name" : "Transact V4 Test Suite",
     "children" : [ {
-      "name" : "C:/BigBrotherDevelopmentMain/bigbrotherautomation/src/test/java/API/dotCoreTests/regression_Raas_Transact_V4.java",
+      "name" : "regression_Raas_Transact_V4.java",
       "children" : [ {
         "name" : "API.dotCoreTests.regression_Raas_Transact_V4",
         "children" : [ {
           "name" : "basicTransactV4",
-          "uid" : "5e19b8f352dd52a0",
-          "parentUid" : "70c7da0dce93f3ce2c394c5d85a5d72a",
-          "status" : "passed",
-          "time" : {
-            "start" : 1579676775366,
-            "stop" : 1579676776036,
-            "duration" : 670
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "99999", "ZAR", "3", "2055", "Invalid Fee Amount", "200", "null", "null", "7", "null", "test", "2022564675", "3", "test123", "30", "27731304702", "27731304702" ]
-        }, {
-          "name" : "basicTransactV4",
-          "uid" : "a34722736fae0d85",
-          "parentUid" : "70c7da0dce93f3ce2c394c5d85a5d72a",
-          "status" : "passed",
-          "time" : {
-            "start" : 1579676775366,
-            "stop" : 1579676776084,
-            "duration" : 718
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ "", "15000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "100", "2341122222222", "2341110000000" ]
-        }, {
-          "name" : "basicTransactV4",
-          "uid" : "9329250d122f3f75",
-          "parentUid" : "70c7da0dce93f3ce2c394c5d85a5d72a",
+          "uid" : "9680faf0c42ee531",
+          "parentUid" : "cba2f8bbebba3243efaef40b3de3a941",
           "status" : "failed",
           "time" : {
-            "start" : 1579676775366,
-            "stop" : 1579676775739,
-            "duration" : 373
+            "start" : 1580971608340,
+            "stop" : 1580971608627,
+            "duration" : 287
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "143", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "30", "27731304703", "27731304703" ]
-        }, {
-          "name" : "basicTransactV4",
-          "uid" : "8c5bf449e7b9bbe6",
-          "parentUid" : "70c7da0dce93f3ce2c394c5d85a5d72a",
-          "status" : "failed",
-          "time" : {
-            "start" : 1579676775366,
-            "stop" : 1579676775739,
-            "duration" : 373
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "TestScenario2", "30", "27731304702", "27731304702" ]
+          "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
         } ],
-        "uid" : "70c7da0dce93f3ce2c394c5d85a5d72a"
+        "uid" : "cba2f8bbebba3243efaef40b3de3a941"
       } ],
-      "uid" : "6d4ada413477498633c3813401d8c9ab"
+      "uid" : "4027cca18312c43dafe968a796d9f94f"
     } ],
     "uid" : "bbd73fb2821e83f05835b391f7b8c977"
   }, {
     "name" : "Reserve and Transact V3 Test Suite",
     "children" : [ {
-      "name" : "C:/BigBrotherDevelopmentMain/bigbrotherautomation/src/test/java/API/dotCoreTests/regression_Raas_Reserve_and_Transact_V3.java",
+      "name" : "regression_Raas_Reserve_and_Transact_V3.java",
       "children" : [ {
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3",
         "children" : [ {
           "name" : "basicReserveAndTransactV3",
-          "uid" : "8a40dfd2fded1fc6",
-          "parentUid" : "783f434bdf15da150607478a3f9e6bed",
+          "uid" : "94d682ffcc5f4225",
+          "parentUid" : "a24b1f313ae3dd70b76b72f44b9cf4fc",
           "status" : "failed",
           "time" : {
-            "start" : 1579676776121,
-            "stop" : 1579676776554,
-            "duration" : 433
+            "start" : 1580971608662,
+            "stop" : 1580971609044,
+            "duration" : 382
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2019-09-03T15:35:26.720+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "100", "2341122222221", "2341110000000" ]
+          "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "10000", "2019-09-03T15:35:26.720+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "917", "2341122222221", "2341110000000" ]
         } ],
-        "uid" : "783f434bdf15da150607478a3f9e6bed"
+        "uid" : "a24b1f313ae3dd70b76b72f44b9cf4fc"
       } ],
-      "uid" : "c7b806b06c3f4529cf6490308e36df20"
+      "uid" : "875864d35765806b161babba242c717c"
     } ],
     "uid" : "64b151ca1d9069580edb9400f477e7c5"
   }, {
     "name" : "Reserve and Transact V4 Test Suite",
     "children" : [ {
-      "name" : "C:/BigBrotherDevelopmentMain/bigbrotherautomation/src/test/java/API/dotCoreTests/regression_Raas_Reserve_and_Transact_V4.java",
+      "name" : "regression_Raas_Reserve_and_Transact_V4.java",
       "children" : [ {
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4",
         "children" : [ {
           "name" : "basicReserveAndTransactV4",
-          "uid" : "e884865d69749aa2",
-          "parentUid" : "ec84579f59fa1ab624f22e1445ebe138",
-          "status" : "passed",
+          "uid" : "b7ca732cfd84fa0e",
+          "parentUid" : "5ee6c5344d5cc8d8655fa40e12ded314",
+          "status" : "failed",
           "time" : {
-            "start" : 1579676776586,
-            "stop" : 1579676777087,
-            "duration" : 501
+            "start" : 1580971609067,
+            "stop" : 1580971609437,
+            "duration" : 370
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2020-01-09T09:58:46.170+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "193103796", "100", "2341122222222", "2341110000000" ]
+          "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "10000", "2020-01-09T09:58:46.170+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "193103796", "917", "2341110000002", "2341110000002" ]
         } ],
-        "uid" : "ec84579f59fa1ab624f22e1445ebe138"
+        "uid" : "5ee6c5344d5cc8d8655fa40e12ded314"
       } ],
-      "uid" : "a66c384cb501737db63f75be35ec7fd8"
+      "uid" : "274857d5c75af170fc0a69e1e3ff780f"
     } ],
     "uid" : "ae1ae325f9f54494734eedf0dcc63924"
+  }, {
+    "name" : "Ctx Test Suite",
+    "children" : [ {
+      "name" : "C:/Automation/bb_kaizen/bigbrotherautomation_kaizentests/src/main/java/api/requestLibary/CORE/CtxPOJO.java",
+      "children" : [ {
+        "name" : "API.dotCoreTests.regression_Ctx",
+        "children" : [ {
+          "name" : "basicCtx",
+          "uid" : "fa4f0f4d46d98d13",
+          "parentUid" : "bfcfe2bc29cab731ee765f5b06497c89",
+          "status" : "passed",
+          "time" : {
+            "start" : 1580971609468,
+            "stop" : 1580971609705,
+            "duration" : 237
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-08250", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+        } ],
+        "uid" : "bfcfe2bc29cab731ee765f5b06497c89"
+      } ],
+      "uid" : "4a49e66e0bcb79eec83cbe7a32214658"
+    } ],
+    "uid" : "241d365fea309dc8cf93a9f950c7706f"
+  }, {
+    "name" : "Fin Terms Calculate Test Suite",
+    "children" : [ {
+      "name" : "regression_Fin_Terms_Calculate.java",
+      "children" : [ {
+        "name" : "API.dotCoreTests.regression_Fin_Terms_Calculate",
+        "children" : [ {
+          "name" : "FinTermsModelASuccessTest",
+          "uid" : "6914af9720ee8698",
+          "parentUid" : "f10b7f955ace732604a3277c42adf605",
+          "status" : "passed",
+          "time" : {
+            "start" : 1580971609739,
+            "stop" : 1580971610090,
+            "duration" : 351
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
+        }, {
+          "name" : "FinTermsModelBSuccessTest",
+          "uid" : "ab6d52156a9714e4",
+          "parentUid" : "f10b7f955ace732604a3277c42adf605",
+          "status" : "passed",
+          "time" : {
+            "start" : 1580971610104,
+            "stop" : 1580971610324,
+            "duration" : 220
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.05", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
+        } ],
+        "uid" : "f10b7f955ace732604a3277c42adf605"
+      } ],
+      "uid" : "bc2a6c18cb79ca8190037d1dcb23f142"
+    } ],
+    "uid" : "ae1676802e9eb5fb4c36aabcf6079514"
   } ]
 }

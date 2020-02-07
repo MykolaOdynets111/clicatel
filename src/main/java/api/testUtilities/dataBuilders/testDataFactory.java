@@ -9,13 +9,22 @@
 
 package api.testUtilities.dataBuilders;
 
+// Json parsers
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+// File IO parsers
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+
+// Xml parsers
+import org.w3c.dom.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.*;
+import java.io.*;
 
 
 public class testDataFactory
@@ -37,5 +46,40 @@ public class testDataFactory
         return testField;
 
     }
+
+    // this method needs some work. on pause for now due to time constraints
+    public static String getXmlTestData(String attribute ,String xmlElement) throws ParserConfigurationException, IOException, SAXException {
+
+        // Create a DocumentBuilder
+        DocumentBuilderFactory xmlFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder builder = xmlFactory.newDocumentBuilder();
+
+        // Create a Document from a file or stream
+        StringBuilder xmlStringBuilder = new StringBuilder();
+        xmlStringBuilder.append("<?xml version="+'"'+1.0+'"'+"?> <class> </class>");
+        ByteArrayInputStream input = new ByteArrayInputStream(
+                xmlStringBuilder.toString().getBytes("UTF-8"));
+        Document doc = builder.parse(input);
+
+        // Extract the root element
+        Element root = doc.getDocumentElement();
+
+        // Examine attributes
+        //returns specific attribute
+        root.getAttribute(attribute);
+
+        //returns a Map (table) of names/values
+        root.getAttributes();
+
+        // Examine sub elements
+        //returns a list of subelements of specified name
+        String xmlElementName = root.getElementsByTagName(xmlElement).toString();
+
+        //returns a list of all child nodes
+        //String nodes = root.getChildNodes().toString();
+
+        return xmlElementName;
+    }
+
 
 }

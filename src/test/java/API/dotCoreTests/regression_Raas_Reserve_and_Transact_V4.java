@@ -31,7 +31,7 @@ public class regression_Raas_Reserve_and_Transact_V4 {
 
     // Data staging for use in test
     @DataProvider(name = "ReserveAndTransactV4testcases", parallel = true)
-    public Object[] createTransactTestData() throws IOException, ParseException {
+    public Object[] createReserveAndTransactV4TestData() throws IOException, ParseException {
 
         return new String[][]{
 

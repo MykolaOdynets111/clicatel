@@ -1,1 +1,0 @@
-{"uuid":"4bc23367-c661-4050-b405-050938bb5164","name":"get Channels By Id CLIENTS","children":["23e3f013-c60c-43ac-ab33-d7d1b756b7c2"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608851335,"stop":1579608851335}],"afters":[],"links":[],"start":1579608851334,"stop":1579608851704}

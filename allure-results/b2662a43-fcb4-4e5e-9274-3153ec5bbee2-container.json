@@ -1,1 +1,0 @@
-{"uuid":"b2662a43-fcb4-4e5e-9274-3153ec5bbee2","name":"Basic Ping Test","children":["cb886f73-51f8-4d4e-8d4e-6b189bdfab3e"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608856538,"stop":1579608856538}],"afters":[],"links":[],"start":1579608856538,"stop":1579608856714}

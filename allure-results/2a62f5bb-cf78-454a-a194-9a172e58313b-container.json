@@ -1,1 +1,0 @@
-{"uuid":"2a62f5bb-cf78-454a-a194-9a172e58313b","name":"API.mwmTests.PING.basicPingTest","children":["eedafe49-f041-46aa-b984-5deb78204bed"],"befores":[{"name":"setUp","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579609169329,"stop":1579609169333}],"afters":[],"links":[],"start":1579609169328,"stop":1579609169817}

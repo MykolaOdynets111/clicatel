@@ -1,1 +1,0 @@
-{"uuid":"554757f6-86eb-40a3-b272-483e23643b8d","name":"get USSD Channel VENDOR Test","children":["1a985c96-dc2a-402a-9f81-7d905631e3d8"],"befores":[{"name":"setExtent","status":"passed","stage":"finished","description":"","steps":[],"attachments":[],"parameters":[],"start":1579608851976,"stop":1579608851976}],"afters":[],"links":[],"start":1579608851976,"stop":1579608852273}

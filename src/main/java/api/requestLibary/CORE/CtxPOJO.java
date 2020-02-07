@@ -1,5 +1,8 @@
 package api.requestLibary.CORE;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class CtxPOJO
 {
 

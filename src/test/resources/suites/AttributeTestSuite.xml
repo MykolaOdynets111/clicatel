@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Reserve and Transact V4 Test Suite">
+<suite name="Attribute Test Suite">
     <test verbose="2" preserve-order="true"
-          name="regression_Raas_Reserve_and_Transact_V4.java">
+          name="regression_product_attributes.java">
         <classes>
-            <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4">
+            <class name="API.dotCoreTests.regression_product_attributes">
                 <methods>
-                    <include name="basicReserveAndTransactV4"/>
+                    <include name="successPostAttributes"/>
                 </methods>
             </class>
         </classes>

@@ -1,0 +1,10 @@
+{
+  "attributeTestSuite": {
+    "successcase1": {
+      "regex": "^[1-0]",
+      "name": "AutomationTestAttribute",
+      "id": "",
+      "type": "string"
+    }
+  }
+}

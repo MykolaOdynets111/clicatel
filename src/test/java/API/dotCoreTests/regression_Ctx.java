@@ -6,8 +6,12 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import com.google.gson.JsonObject;
 import io.restassured.http.ContentType;
+import io.restassured.path.xml.XmlPath;
+import io.restassured.path.xml.element.NodeChildren;
 import io.restassured.response.Response;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -20,9 +24,13 @@ import api.testUtilities.dataBuilders.RandomCharGenerator;
 import java.io.IOException;
 import java.util.Properties;
 
-import static io.restassured.RestAssured.given;
-
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import org.xml.sax.SAXException;
+
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.parsers.ParserConfigurationException;
+
+import static io.restassured.RestAssured.*;
 
 public class regression_Ctx {
 
@@ -33,7 +41,7 @@ public class regression_Ctx {
     @DataProvider(name = "Ctxtestcases", parallel = true)
     public Object[] createTransactTestData() throws IOException, ParseException {
 
-        String randomnumbers = RandomCharGenerator.getRandomNumbers(1000);
+        String randomnumbers = RandomCharGenerator.getRandomNumbers(10001);
         return new String[][]{
 
                 {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","sourceId"),
@@ -49,12 +57,15 @@ public class regression_Ctx {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","originId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","channelSessionId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","dateLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedRaasResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedMessage"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedHTTPResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedRaasResultRequestResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedRaasResultResponseResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedCTXTransactionResponseCode")},
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedCtxResponseCode")},
 
         };
     }
@@ -74,12 +85,15 @@ public class regression_Ctx {
                                           String originId,
                                           String channelSessionId,
                                           String dateLocalTransaction,
-                                          String expectedRaasResponseCode,
-                                          String expectedMessage,
-                                          String expectedHTTPResponseCode,
-                                          String expectedRaasResultRequestResponseCode,
-                                          String expectedRaasResultResponseResponseCode,
-                                          String expectedCTXTransactionResponseCode) throws IOException, InterruptedException {
+                                          String expectedPurchaseAmount,
+                                          String expectedTimeLocalTransaction,
+                                          String expectedDateLocalTransaction,
+                                          String expectedOriginId,
+                                          String expectedProductId,
+                                          String expectedChannelIndicator,
+                                          String expectedTransmissionDateTime,
+                                          String expectedVendorReferenceNo,
+                                          String expectedCtxResponseCode) throws IOException, InterruptedException, ParserConfigurationException, SAXException {
 
         // Financial Terms Calculate GET method call
         Response finTermsCalculateResponse =
@@ -96,7 +110,7 @@ public class regression_Ctx {
 
 
         // Create CTX payload object - contains CTX request body
-        CtxPOJO CtxPayload = new CtxPOJO(
+        /*CtxPOJO CtxPayload = new CtxPOJO(
                 sourceId,
                 clientId,
                 channelIndicator,
@@ -109,18 +123,72 @@ public class regression_Ctx {
                 apiToken,
                 originId,
                 channelSessionId,
-                dateLocalTransaction);
+                dateLocalTransaction);*/
+
+
+        // Stage ctx test data and prepare payload
+        String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
+                "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" +
+                "<S:Body>\r\n" +
+                "<purchase xmlns=\"http://clickatell.com/types\">\r\n" +
+                "<clientId>"+clientId+"</clientId>\r\n" +
+                "<apiToken>"+apiToken+"</apiToken>\r\n" +
+                "<purchaseAmount>"+purchaseAmount+"</purchaseAmount>\r\n" +
+                "<timeLocalTransaction>"+timeLocalTransaction+"</timeLocalTransaction>\r\n" +
+                "<dateLocalTransaction>"+dateLocalTransaction+"</dateLocalTransaction>\r\n" +
+                "<originId>"+originId+"</originId>\r\n" +
+                "<clientTransactionId>"+clientTransactionId+"</clientTransactionId>\r\n" +
+                "<productId>"+productId+"</productId>\r\n" +
+                "<channelIndicator>"+channelIndicator+"</channelIndicator>\r\n" +
+                "<alternateClientId>"+alternateClientId+"</alternateClientId>\r\n" +
+                "<sourceId>"+sourceId+"</sourceId>\r\n" +
+                "<channelSessionId>"+channelSessionId+"</channelSessionId>\r\n" +
+                "</purchase>\r\n" +
+                "</S:Body>\r\n" +
+                "</S:Envelope>";
+
+
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response Ctxresponse =
                 given()
-                        .contentType(ContentType.JSON)
+                        .contentType(ContentType.XML)
+                        .accept(ContentType.XML)
                         .body(CtxPayload)
                         .when()
                         .post(properties.getProperty("CORE_CTX_QA")+":"+properties.getProperty("CORE_CTX_RequestSpec_Port")+properties.getProperty("CORE_CTX_RequestSpec_BasePath"))
                         .then()
                         .extract()
                         .response();
+
+
+
+        Ctxresponse.prettyPrint();
+
+        XmlPath ctxXmlPath = new XmlPath(Ctxresponse.body().asString());
+
+        //String Ctxresponse1 = get("/purchaseResponse").asString();
+        //System.out.println(Ctxresponse1.path("purchaseAmount").toString());
+        //NodeChildren children = ctxXmlPath.getNode("purchaseAmount").children();
+
+        //String childPurchase = children.get("purchaseAmount").toString();
+        //String ret = ctxXmlPath.getString("purchaseAmount");
+
+        //System.out.println(children.get("purchaseAmount").toString());
+        //System.out.println((char[]) ctxXmlPath.get("purchaseResponse.purchaseAmount"));
+
+        //String ctxClientTranResp = Ctxresponse.xmlPath().getString("soapenv:Body.purchaseResponse.clientTransactionId");
+        //System.out.println(ctxClientTranResp);
+        //System.out.println(clientTransactionId);
+        //String ctxClientTransactionIdResponse = get("/purchase").xmlPath().get("purchase.clientTransactionId");
+        //System.out.println(ctxClientTransactionIdResponse);
+        //String xmlClientTran = get("/service").xmlPath().getString("purchaseResponse.clientTransactionId");
+        //System.out.println(xmlClientTran);
+
+        //Object testResponse  = Ctxresponse.path("test");
+        //System.out.println(testResponse);
+        //String response = Ctxresponse.path("purchaseAmount").toString();
+        //String response = Ctxresponse.path("purchaseAmount").toString();
 
         // Assertions
         // Finance Terms Calculate response assertions
@@ -130,21 +198,26 @@ public class regression_Ctx {
         Assert.assertEquals(finTermsCalculateResponse.path("productId").toString(), productId);
         Assert.assertEquals(finTermsCalculateResponse.path("purchaseAmount").toString(), purchaseAmount);
 
-        // Transact V4 response assertions - purchase
-        //Assert.assertEquals(ReserveAndTransactV3response.path("responseCode"), expectedRaasResponseCode);
+        // CTX response assertions
+        //Assert.assertEquals(Ctxresponse.xmlPath(), expectedPurchaseAmount);
+        //Assert.assertEquals(XmlPath.from(Ctxresponse1).get("purchaseAmount"), expectedPurchaseAmount);
+        //Assert.assertEquals(ctxXmlPath.get("Envelope.body.purchaseResponse.purchaseAmount").toString(), expectedPurchaseAmount);
         //Assert.assertEquals(ReserveAndTransactV3response.path("responseMessage"), expectedMessage);
         //Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // CTX DB assertions
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
+        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
+        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + Ctxresponse.path("clientTransactionId").toString(), "transactionResponseCode"), expectedCTXTransactionResponseCode);
+        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
-        Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
+        //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
 
         // raas db assertions
         //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
         //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
         //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
+
 
     }
 

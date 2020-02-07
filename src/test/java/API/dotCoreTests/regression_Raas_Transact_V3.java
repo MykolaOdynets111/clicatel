@@ -54,6 +54,28 @@ public class regression_Raas_Transact_V3 {
                         testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "successcase1", "expectedRaasResultRequestResponseCode"),
                         testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "successcase1", "expectedRaasResultResponseResponseCode"),
                         testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "successcase1", "expectedCTXTransactionResponseCode")},
+
+                {testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "accountIdentifier"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "purchaseAmount"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "channelId"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "channelName"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "channelSessionId"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "clientId"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "clientTxnRef"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "productId"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "sourceIdentifier"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "targetIdentifier"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "timestamp"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "reserveFundsTxnRef"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "feeAmount"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "currencyCode"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "fundingSourceId"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedRaasResponseCode"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedMessage"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedHTTPResponseCode"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedRaasResultRequestResponseCode"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedRaasResultResponseResponseCode"),
+                        testDataFactory.getTestData("TransactV3datasource.json", "transactv3suite", "telkomPurchaseProduct51client2", "expectedCTXTransactionResponseCode")},
         };
 
     }
@@ -117,7 +139,7 @@ public class regression_Raas_Transact_V3 {
                         .contentType(ContentType.JSON)
                         .body(TransactV3payload)
                         .when()
-                        .post(properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_Transact_V4_RequestSpec_Port") + properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
+                        .post(properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_Transact_V3_RequestSpec_Port") + properties.getProperty("CORE_Transact_V3_RequestSpec_BasePath"))
                         .then()
                         .extract()
                         .response();

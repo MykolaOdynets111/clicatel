@@ -4,50 +4,46 @@
   "children" : [ {
     "name" : "Product defects",
     "children" : [ {
-      "name" : "expected [0000] but found [2055]",
-      "children" : [ {
-        "name" : "basicTransactV4",
-        "uid" : "9329250d122f3f75",
-        "parentUid" : "d8f63a4f298670855358a189b03c1315",
-        "status" : "failed",
-        "time" : {
-          "start" : 1579676775366,
-          "stop" : 1579676775739,
-          "duration" : 373
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "143", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "30", "27731304703", "27731304703" ]
-      }, {
-        "name" : "basicTransactV4",
-        "uid" : "8c5bf449e7b9bbe6",
-        "parentUid" : "d8f63a4f298670855358a189b03c1315",
-        "status" : "failed",
-        "time" : {
-          "start" : 1579676775366,
-          "stop" : 1579676775739,
-          "duration" : 373
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "", "500", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "TestScenario2", "30", "27731304702", "27731304702" ]
-      } ],
-      "uid" : "d8f63a4f298670855358a189b03c1315"
-    }, {
       "name" : "expected [0] but found [2601]",
       "children" : [ {
-        "name" : "basicReserveAndTransactV3",
-        "uid" : "8a40dfd2fded1fc6",
+        "name" : "basicTransactV4",
+        "uid" : "9680faf0c42ee531",
         "parentUid" : "10300c582b83090ae07af399d0fadd8c",
         "status" : "failed",
         "time" : {
-          "start" : 1579676776121,
-          "stop" : 1579676776554,
-          "duration" : 433
+          "start" : 1580971608340,
+          "stop" : 1580971608627,
+          "duration" : 287
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2019-09-03T15:35:26.720+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "100", "2341122222221", "2341110000000" ]
+        "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
+      }, {
+        "name" : "basicReserveAndTransactV3",
+        "uid" : "94d682ffcc5f4225",
+        "parentUid" : "10300c582b83090ae07af399d0fadd8c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1580971608662,
+          "stop" : 1580971609044,
+          "duration" : 382
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "10000", "2019-09-03T15:35:26.720+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "917", "2341122222221", "2341110000000" ]
+      }, {
+        "name" : "basicReserveAndTransactV4",
+        "uid" : "b7ca732cfd84fa0e",
+        "parentUid" : "10300c582b83090ae07af399d0fadd8c",
+        "status" : "failed",
+        "time" : {
+          "start" : 1580971609067,
+          "stop" : 1580971609437,
+          "duration" : 370
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "10000", "2020-01-09T09:58:46.170+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "193103796", "917", "2341110000002", "2341110000002" ]
       } ],
       "uid" : "10300c582b83090ae07af399d0fadd8c"
     } ],
