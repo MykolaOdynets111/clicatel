@@ -1,12 +1,12 @@
 {
-  "uid" : "9680faf0c42ee531",
+  "uid" : "a29936baf6b2e640",
   "name" : "basicTransactV4",
   "fullName" : "API.dotCoreTests.regression_Raas_Transact_V4.basicTransactV4",
   "historyId" : "c865b05e8df212e7a1b1fc7e8de31d85",
   "time" : {
-    "start" : 1580971608340,
-    "stop" : 1580971608627,
-    "duration" : 287
+    "start" : 1581179750866,
+    "stop" : 1581179751331,
+    "duration" : 465
   },
   "status" : "failed",
   "statusMessage" : "expected [0] but found [2601]",
@@ -16,17 +16,17 @@
   "beforeStages" : [ {
     "name" : "setUp",
     "time" : {
-      "start" : 1580971608323,
-      "stop" : 1580971608335,
-      "duration" : 12
+      "start" : 1581179750840,
+      "stop" : 1581179750860,
+      "duration" : 20
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "hasContent" : false,
     "stepsCount" : 0,
+    "hasContent" : false,
     "attachmentsCount" : 0,
     "shouldDisplayMessage" : false
   } ],
@@ -54,7 +54,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "9628@FANB0610.TestNG-PoolService-0(19)"
+    "value" : "720@FANB0610.TestNG-PoolService-0(19)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -142,6 +142,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "9680faf0c42ee531.json",
+  "source" : "a29936baf6b2e640.json",
   "parameterValues" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
 }

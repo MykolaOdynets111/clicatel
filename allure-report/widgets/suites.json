@@ -1,19 +1,19 @@
 {
-  "total" : 6,
+  "total" : 8,
   "items" : [ {
-    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
-    "name" : "Transact V4 Test Suite",
+    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
+    "name" : "Fin Terms Calculate Test Suite",
     "statistic" : {
-      "failed" : 1,
+      "failed" : 2,
       "broken" : 0,
       "skipped" : 0,
       "passed" : 0,
       "unknown" : 0,
-      "total" : 1
+      "total" : 2
     }
   }, {
-    "uid" : "64b151ca1d9069580edb9400f477e7c5",
-    "name" : "Reserve and Transact V3 Test Suite",
+    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
+    "name" : "Transact V4 Test Suite",
     "statistic" : {
       "failed" : 1,
       "broken" : 0,
@@ -45,19 +45,41 @@
       "total" : 2
     }
   }, {
-    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
-    "name" : "Fin Terms Calculate Test Suite",
+    "uid" : "64b151ca1d9069580edb9400f477e7c5",
+    "name" : "Reserve and Transact V3 Test Suite",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 2,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 2
+      "total" : 1
     }
   }, {
     "uid" : "241d365fea309dc8cf93a9f950c7706f",
     "name" : "Ctx Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "b23d09bd052c74c220c86e03df86c72a",
+    "name" : "Attribute Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "e384898cac76fa4b1bb274848c7e3858",
+    "name" : "Client Test Suite",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,

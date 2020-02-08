@@ -30,6 +30,7 @@
             <suite-file path="CtxTestSuite.xml"></suite-file>
             <suite-file path="FinTermsCalculateTestSuite.xml"></suite-file>
             <suite-file path="AttributeTestSuite.xml"></suite-file>
+            <suite-file path="ClientTestSuite.xml"></suite-file>
     </suite-files>
 </suite>
 

@@ -1,14 +1,16 @@
 {
-  "uid" : "ab6d52156a9714e4",
+  "uid" : "7548f3409a3c4ffc",
   "name" : "FinTermsModelBSuccessTest",
   "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelBSuccessTest",
   "historyId" : "bc18e2f97504b76a16fbbf47b4a10d02",
   "time" : {
-    "start" : 1580971610104,
-    "stop" : 1580971610324,
-    "duration" : 220
+    "start" : 1581179754540,
+    "stop" : 1581179754772,
+    "duration" : 232
   },
-  "status" : "passed",
+  "status" : "failed",
+  "statusMessage" : "expected [0.05] but found [0.014]",
+  "statusTrace" : "java.lang.AssertionError: expected [0.05] but found [0.014]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelBSuccessTest(regression_Fin_Terms_Calculate.java:221)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ ],
@@ -36,7 +38,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "9628@FANB0610.TestNG-PoolService-0(25)"
+    "value" : "720@FANB0610.TestNG-PoolService-0(25)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -111,9 +113,13 @@
   "extra" : {
     "severity" : "normal",
     "retries" : [ ],
-    "categories" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
     "tags" : [ ]
   },
-  "source" : "ab6d52156a9714e4.json",
+  "source" : "7548f3409a3c4ffc.json",
   "parameterValues" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.05", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
 }

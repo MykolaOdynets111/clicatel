@@ -1,0 +1,62 @@
+{
+  "uid" : "2c37c2a6ba920cc1",
+  "name" : "successPOSTClient",
+  "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
+  "historyId" : "d0c0d16913a3a0c9211258661e2bf939",
+  "time" : {
+    "start" : 1581179754914,
+    "stop" : 1581179755029,
+    "duration" : 115
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testMethod",
+    "value" : "successPOSTClient"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Client Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_client.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "720@FANB0610.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "2c37c2a6ba920cc1.json",
+  "parameterValues" : [ ]
+}

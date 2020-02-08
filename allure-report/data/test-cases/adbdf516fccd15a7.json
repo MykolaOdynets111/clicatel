@@ -1,0 +1,74 @@
+{
+  "uid" : "adbdf516fccd15a7",
+  "name" : "successPostAttributes",
+  "fullName" : "API.dotCoreTests.regression_product_attributes.successPostAttributes",
+  "historyId" : "d01031e8c8ab676dd307d2f900703bc6",
+  "time" : {
+    "start" : 1581179754805,
+    "stop" : 1581179754890,
+    "duration" : 85
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "testMethod",
+    "value" : "successPostAttributes"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Attribute Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_product_attributes.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "720@FANB0610.TestNG-PoolService-0(26)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "^[1-0]"
+  }, {
+    "name" : "arg1",
+    "value" : "AutomationTestAttribute6900"
+  }, {
+    "name" : "arg2",
+    "value" : "6900"
+  }, {
+    "name" : "arg3",
+    "value" : "string"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "adbdf516fccd15a7.json",
+  "parameterValues" : [ "^[1-0]", "AutomationTestAttribute6900", "6900", "string" ]
+}

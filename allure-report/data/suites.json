@@ -9,30 +9,30 @@
         "name" : "API.dotCoreTests.regression_Raas_Transact_V3",
         "children" : [ {
           "name" : "basicTransactV3",
-          "uid" : "1f22c50cc670a7a0",
+          "uid" : "cd52ae336f2bb29f",
           "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
           "status" : "passed",
           "time" : {
-            "start" : 1580971604193,
-            "stop" : 1580971608035,
-            "duration" : 3842
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ "", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
-        }, {
-          "name" : "basicTransactV3",
-          "uid" : "4429b937abaeccc1",
-          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
-          "status" : "passed",
-          "time" : {
-            "start" : 1580971604193,
-            "stop" : 1580971608035,
-            "duration" : 3842
+            "start" : 1581179744457,
+            "stop" : 1581179750758,
+            "duration" : 6301
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ "", "50000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "test", "2022564675", "2", "test123", "50", "0815793852", "0815793852" ]
+        }, {
+          "name" : "basicTransactV3",
+          "uid" : "b67580c559d2d25c",
+          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1581179744457,
+            "stop" : 1581179750758,
+            "duration" : 6301
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
         } ],
         "uid" : "9f578937ef823fa4f0d96ec632cd5a2a"
       } ],
@@ -47,13 +47,13 @@
         "name" : "API.dotCoreTests.regression_Raas_Transact_V4",
         "children" : [ {
           "name" : "basicTransactV4",
-          "uid" : "9680faf0c42ee531",
+          "uid" : "a29936baf6b2e640",
           "parentUid" : "cba2f8bbebba3243efaef40b3de3a941",
           "status" : "failed",
           "time" : {
-            "start" : 1580971608340,
-            "stop" : 1580971608627,
-            "duration" : 287
+            "start" : 1581179750866,
+            "stop" : 1581179751331,
+            "duration" : 465
           },
           "flaky" : false,
           "newFailed" : false,
@@ -72,13 +72,13 @@
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3",
         "children" : [ {
           "name" : "basicReserveAndTransactV3",
-          "uid" : "94d682ffcc5f4225",
+          "uid" : "bada4a2ba782d52",
           "parentUid" : "a24b1f313ae3dd70b76b72f44b9cf4fc",
-          "status" : "failed",
+          "status" : "passed",
           "time" : {
-            "start" : 1580971608662,
-            "stop" : 1580971609044,
-            "duration" : 382
+            "start" : 1581179751374,
+            "stop" : 1581179752800,
+            "duration" : 1426
           },
           "flaky" : false,
           "newFailed" : false,
@@ -97,13 +97,13 @@
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4",
         "children" : [ {
           "name" : "basicReserveAndTransactV4",
-          "uid" : "b7ca732cfd84fa0e",
+          "uid" : "9a447000aba32c51",
           "parentUid" : "5ee6c5344d5cc8d8655fa40e12ded314",
           "status" : "failed",
           "time" : {
-            "start" : 1580971609067,
-            "stop" : 1580971609437,
-            "duration" : 370
+            "start" : 1581179752828,
+            "stop" : 1581179753428,
+            "duration" : 600
           },
           "flaky" : false,
           "newFailed" : false,
@@ -122,17 +122,17 @@
         "name" : "API.dotCoreTests.regression_Ctx",
         "children" : [ {
           "name" : "basicCtx",
-          "uid" : "fa4f0f4d46d98d13",
+          "uid" : "fce920fd9b12ba34",
           "parentUid" : "bfcfe2bc29cab731ee765f5b06497c89",
           "status" : "passed",
           "time" : {
-            "start" : 1580971609468,
-            "stop" : 1580971609705,
-            "duration" : 237
+            "start" : 1581179753463,
+            "stop" : 1581179753956,
+            "duration" : 493
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-08250", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+          "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-03364", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
         } ],
         "uid" : "bfcfe2bc29cab731ee765f5b06497c89"
       } ],
@@ -147,26 +147,26 @@
         "name" : "API.dotCoreTests.regression_Fin_Terms_Calculate",
         "children" : [ {
           "name" : "FinTermsModelASuccessTest",
-          "uid" : "6914af9720ee8698",
+          "uid" : "9059bc14bc276528",
           "parentUid" : "f10b7f955ace732604a3277c42adf605",
-          "status" : "passed",
+          "status" : "failed",
           "time" : {
-            "start" : 1580971609739,
-            "stop" : 1580971610090,
-            "duration" : 351
+            "start" : 1581179754203,
+            "stop" : 1581179754523,
+            "duration" : 320
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
         }, {
           "name" : "FinTermsModelBSuccessTest",
-          "uid" : "ab6d52156a9714e4",
+          "uid" : "7548f3409a3c4ffc",
           "parentUid" : "f10b7f955ace732604a3277c42adf605",
-          "status" : "passed",
+          "status" : "failed",
           "time" : {
-            "start" : 1580971610104,
-            "stop" : 1580971610324,
-            "duration" : 220
+            "start" : 1581179754540,
+            "stop" : 1581179754772,
+            "duration" : 232
           },
           "flaky" : false,
           "newFailed" : false,
@@ -177,5 +177,55 @@
       "uid" : "bc2a6c18cb79ca8190037d1dcb23f142"
     } ],
     "uid" : "ae1676802e9eb5fb4c36aabcf6079514"
+  }, {
+    "name" : "Attribute Test Suite",
+    "children" : [ {
+      "name" : "regression_product_attributes.java",
+      "children" : [ {
+        "name" : "API.dotCoreTests.regression_product_attributes",
+        "children" : [ {
+          "name" : "successPostAttributes",
+          "uid" : "adbdf516fccd15a7",
+          "parentUid" : "04fe1183fa37b7d2f49a4688600d735a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1581179754805,
+            "stop" : 1581179754890,
+            "duration" : 85
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "^[1-0]", "AutomationTestAttribute6900", "6900", "string" ]
+        } ],
+        "uid" : "04fe1183fa37b7d2f49a4688600d735a"
+      } ],
+      "uid" : "40541b2ad523dd55948fe719872df1c4"
+    } ],
+    "uid" : "b23d09bd052c74c220c86e03df86c72a"
+  }, {
+    "name" : "Client Test Suite",
+    "children" : [ {
+      "name" : "regression_client.java",
+      "children" : [ {
+        "name" : "API.dotCoreTests.regression_client",
+        "children" : [ {
+          "name" : "successPOSTClient",
+          "uid" : "2c37c2a6ba920cc1",
+          "parentUid" : "578f3f6108fccee157c20059cc64cbf1",
+          "status" : "passed",
+          "time" : {
+            "start" : 1581179754914,
+            "stop" : 1581179755029,
+            "duration" : 115
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ ]
+        } ],
+        "uid" : "578f3f6108fccee157c20059cc64cbf1"
+      } ],
+      "uid" : "e019a75290d869f8ae18925829930e83"
+    } ],
+    "uid" : "e384898cac76fa4b1bb274848c7e3858"
   } ]
 }
