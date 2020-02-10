@@ -1,5 +1,4 @@
 include:
     - project: devops/deploy-pipelines
       ref: master
-      file: '/test-automation/dotcontrol-tests/.gitlab-ci.yml'
-
+      file: '/test-automation/dotcore-tests/.gitlab-ci.yml'
