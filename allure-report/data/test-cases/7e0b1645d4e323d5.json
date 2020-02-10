@@ -1,12 +1,12 @@
 {
-  "uid" : "2c37c2a6ba920cc1",
+  "uid" : "7e0b1645d4e323d5",
   "name" : "successPOSTClient",
   "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
-  "historyId" : "d0c0d16913a3a0c9211258661e2bf939",
+  "historyId" : "498ed17e66103435bae7d528024adb94",
   "time" : {
-    "start" : 1581179754914,
-    "stop" : 1581179755029,
-    "duration" : 115
+    "start" : 1581337126975,
+    "stop" : 1581337127283,
+    "duration" : 308
   },
   "status" : "passed",
   "flaky" : false,
@@ -36,7 +36,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "720@FANB0610.main(1)"
+    "value" : "25544@FANB0610.TestNG-PoolService-0(27)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -47,7 +47,37 @@
     "name" : "resultFormat",
     "value" : "allure2"
   } ],
-  "parameters" : [ ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "true"
+  }, {
+    "name" : "arg1",
+    "value" : "AUTOTESTCLIENT"
+  }, {
+    "name" : "arg2",
+    "value" : "710"
+  }, {
+    "name" : "arg3",
+    "value" : "50"
+  }, {
+    "name" : "arg4",
+    "value" : "apiKey"
+  }, {
+    "name" : "arg5",
+    "value" : "true"
+  }, {
+    "name" : "arg6",
+    "value" : "inbound"
+  }, {
+    "name" : "arg7",
+    "value" : "outbound"
+  }, {
+    "name" : "arg8",
+    "value" : "integrationId"
+  }, {
+    "name" : "arg9",
+    "value" : "1"
+  } ],
   "links" : [ ],
   "hidden" : false,
   "retry" : false,
@@ -57,6 +87,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "2c37c2a6ba920cc1.json",
-  "parameterValues" : [ ]
+  "source" : "7e0b1645d4e323d5.json",
+  "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
 }

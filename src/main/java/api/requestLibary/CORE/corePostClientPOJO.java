@@ -22,24 +22,6 @@ public class corePostClientPOJO {
 
     private Properties properties;
 
-    public corePostClientPOJO(){
-
-    }
-
-    public corePostClientPOJO(String active, String clickatellAccountId, String[] clickatellSystem, String clientId, String clientName, String countryCode, String ctxLimitTotal, Properties properties, String timezoneId){
-
-        this.ctxLimitTotal = ctxLimitTotal;
-        this.clientId = clientId;
-        this.clickatellSystem = clickatellSystem;
-        this.clickatellAccountId = clickatellAccountId;
-        this.clientName = clientName;
-        this.countryCode = countryCode;
-        this.active = active;
-        this.timezoneId = timezoneId;
-        this.properties = properties;
-
-    }
-
     public String getCtxLimitTotal ()
     {
         return ctxLimitTotal;

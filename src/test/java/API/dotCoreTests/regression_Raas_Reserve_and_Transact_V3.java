@@ -31,7 +31,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
     // Data staging for use in test
     @DataProvider(name = "ReserveAndTransactV3testcases", parallel = true)
-    public Object[] createTransactTestData() throws IOException, ParseException {
+    public Object[] ReserveAndTransactV3testcases() throws IOException, ParseException {
 
         return new String[][]{
 
@@ -137,10 +137,8 @@ public class regression_Raas_Reserve_and_Transact_V3 {
         Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // CTX DB assertions
+        Thread.sleep(5000);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
-        //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + TransactV4response.path("raasTxnRef") + "-0000", "client_id"));
 
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
@@ -149,5 +147,103 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
     }
 
+    // Data staging for use in test
+    @DataProvider(name = "ReserveAndTransactV3Negativetestcases", parallel = true)
+    public Object[] ReserveAndTransactV3Negativetestcases() throws IOException, ParseException {
+
+        return new String[][]{
+
+                {testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","accountIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","purchaseAmount"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","channelId"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","channelName"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","channelSessionId"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","clientId"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","clientTxnRef"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","productId"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","sourceIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","targetIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","timestamp"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","feeAmount"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","currencyCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","fundingSourceId"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedMessage"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedHTTPResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResultRequestResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResultResponseResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedCTXTransactionResponseCode")},
+
+
+
+        };
+    }
+
+    @Test(dataProvider="ReserveAndTransactV3Negativetestcases")
+    public void basicReserveAndTransactV3InvalidPurchaseAmount(String accountIdentifier,
+                                          String purchaseAmount,
+                                          String channelId,
+                                          String channelName,
+                                          String channelSessionId,
+                                          String clientId,
+                                          String clientTxnRef,
+                                          String productId,
+                                          String sourceIdentifier,
+                                          String targetIdentifier,
+                                          String timeStamp,
+                                          String feeAmount,
+                                          String currencyCode,
+                                          String fundingSourceId,
+                                          String expectedRaasResponseCode,
+                                          String expectedMessage,
+                                          String expectedHTTPResponseCode,
+                                          String expectedRaasResultRequestResponseCode,
+                                          String expectedRaasResultResponseResponseCode,
+                                          String expectedCTXTransactionResponseCode) throws IOException, InterruptedException {
+
+        // Create ReserveAndtransactV4 payload object - contains transactV4 request body
+        coreReserveAndTransactV3POJO ReserveAndTransactV3Payload = new coreReserveAndTransactV3POJO(
+                accountIdentifier,
+                purchaseAmount,
+                channelId,
+                channelName,
+                channelSessionId,
+                clientId,
+                clientTxnRef,
+                productId,
+                sourceIdentifier,
+                targetIdentifier,
+                timeStamp,
+                feeAmount,
+                currencyCode,
+                fundingSourceId);
+
+        // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Response ReserveAndTransactV3response =
+                given()
+                        .contentType(ContentType.JSON)
+                        .body(ReserveAndTransactV3Payload)
+                        .when()
+                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_Port")+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_BasePath"))
+                        .then()
+                        .extract()
+                        .response();
+
+        // Assertions
+        // Transact V4 response assertions - purchase
+        Assert.assertEquals(ReserveAndTransactV3response.path("responseCode"), expectedRaasResponseCode);
+        Assert.assertEquals(ReserveAndTransactV3response.path("responseMessage"), expectedMessage);
+        Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
+
+        // CTX DB assertions
+        Thread.sleep(5000);
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
+
+        // raas db assertions
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
+
+    }
 
 }

@@ -7,6 +7,7 @@ package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
 import com.google.gson.JsonObject;
+import groovy.util.XmlSlurper;
 import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.path.xml.element.NodeChildren;
@@ -165,7 +166,10 @@ public class regression_Ctx {
 
         Ctxresponse.prettyPrint();
 
-        XmlPath ctxXmlPath = new XmlPath(Ctxresponse.body().asString());
+        String stringResponse = Ctxresponse.asString();
+        XmlPath ctxXmlPath = new XmlPath(stringResponse);
+        //String trnId = ctxXmlPath.get("clientTransactionId[0]");
+        //System.out.println(trnId);
 
         //String Ctxresponse1 = get("/purchaseResponse").asString();
         //System.out.println(Ctxresponse1.path("purchaseAmount").toString());
@@ -206,17 +210,14 @@ public class regression_Ctx {
         //Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // CTX DB assertions
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
+        Thread.sleep(5000);
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + Ctxresponse.path("clientTransactionId").toString(), "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
         //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
 
-        // raas db assertions
-        //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
-        //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
-        //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
 
 
     }

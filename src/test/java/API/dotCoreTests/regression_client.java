@@ -64,7 +64,7 @@ public class regression_client {
                                   String outbound,
                                   String integrationId,
                                   String timezoneId
-                                  ){
+                                  ) throws IOException {
 
         JSONObject clientPostPayload = new JSONObject();
         clientPostPayload.put("active", Boolean.getBoolean(active));
@@ -91,19 +91,6 @@ public class regression_client {
         clientPostPayload.put("properties", properties);
         clientPostPayload.put("timezoneId", Integer.parseInt(timezoneId));
 
-        //System.out.println(clientPostPayload);
-
-        // Create client payload pojo object
-        /*corePostClientPOJO clientPOSTPayload = new corePostClientPOJO(active,
-                clickatellAccountId,
-                clickatellSystem,
-                clientId,
-                clientName,
-                countryCode,
-                ctxLimitTotal,
-                properties,
-                timezoneId);*/
-
         // Act - Create client POST response object
         Response clientPostResponse =
                 given()
@@ -115,13 +102,47 @@ public class regression_client {
                         .extract()
                         .response();
 
+        // Data stage conversions
+        String rnd = randomnumbers.toString();
+        Integer country = Integer.parseInt(countryCode);
+        Integer ctx = 1;
+        Integer control = 2;
+        Integer core = 3;
+        Integer timezone = Integer.parseInt(timezoneId);
+        Boolean activeclient = Boolean.getBoolean(active);
+        Boolean clientencryption =  Boolean.getBoolean(encryption);
+
         // Assertions
 
         // Client response assertions
         Assert.assertEquals(clientPostResponse.path("clientId"), randomnumbers);
+        Assert.assertEquals(clientPostResponse.path("clickatellAccountId"), randomnumbers.toString());
+        Assert.assertEquals(clientPostResponse.path("clientName"), clientName + randomnumbers.toString());
+        Assert.assertEquals(clientPostResponse.path("countryCode"), country);
+        Assert.assertEquals(clientPostResponse.path("timezoneId"), timezone);
+        Assert.assertEquals(clientPostResponse.path("active"), activeclient);
+        Assert.assertEquals(clientPostResponse.path("properties.whatsapp.integrationId"), integrationId);
+        Assert.assertEquals(clientPostResponse.path("properties.whatsapp.apiKey"), apiKey);
+        Assert.assertEquals(clientPostResponse.path("properties.whatsapp.encryption"), clientencryption);
+        Assert.assertEquals(clientPostResponse.path("properties.whatsapp.encryptionKeys.inbound"), inbound);
+        Assert.assertEquals(clientPostResponse.path("properties.whatsapp.encryptionKeys.outbound"), outbound);
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[0].id"), ctx);
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[0].name"), "CTX");
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[1].id"), control);
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[1].name"), ".CONTROL");
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[2].id"), core);
+        Assert.assertEquals(clientPostResponse.path("clickatellSystems[2].name"), ".CORE");
 
 
+        // Client DB assertions
+        // Raas.payd_common
+
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.client", "client_Id", "=", clientPostResponse.path("clientId").toString()), clientPostResponse.path("clientId").toString());
+
+        // cpgtx.client
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.client WHERE id = " + "'" + clientPostResponse.path("clientId") + "'", "id"), rnd);
     }
+
 
 
 }

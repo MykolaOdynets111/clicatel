@@ -141,6 +141,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
         Assert.assertEquals(TransactV4response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // CTX DB assertions
+        Thread.sleep(5000);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
         // raas db assertions
