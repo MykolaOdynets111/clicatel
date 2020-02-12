@@ -1,5 +1,5 @@
 {
-  "total" : 8,
+  "total" : 9,
   "items" : [ {
     "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
     "name" : "Fin Terms Calculate Test Suite",
@@ -8,6 +8,17 @@
       "broken" : 0,
       "skipped" : 0,
       "passed" : 0,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "ae1ae325f9f54494734eedf0dcc63924",
+    "name" : "Reserve and Transact V4 Test Suite",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 2
     }
@@ -45,17 +56,6 @@
       "total" : 1
     }
   }, {
-    "uid" : "ae1ae325f9f54494734eedf0dcc63924",
-    "name" : "Reserve and Transact V4 Test Suite",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    }
-  }, {
     "uid" : "241d365fea309dc8cf93a9f950c7706f",
     "name" : "Ctx Test Suite",
     "statistic" : {
@@ -80,6 +80,17 @@
   }, {
     "uid" : "e384898cac76fa4b1bb274848c7e3858",
     "name" : "Client Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "78183b152faafd79a37a5d5803ee76da",
+    "name" : "Vendor Test Suite",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
