@@ -7,13 +7,13 @@
       "name" : "expected [0] but found [2520]",
       "children" : [ {
         "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-        "uid" : "8f0245b5e6ed69cb",
+        "uid" : "32fd911e2e360f0b",
         "parentUid" : "6d96b0301dee5b1d22de4ea1675c2eba",
         "status" : "failed",
         "time" : {
-          "start" : 1581498603511,
-          "stop" : 1581498608989,
-          "duration" : 5478
+          "start" : 1581601089001,
+          "stop" : 1581601094464,
+          "duration" : 5463
         },
         "flaky" : false,
         "newFailed" : false,
@@ -24,13 +24,13 @@
       "name" : "expected [14625] but found [14996]",
       "children" : [ {
         "name" : "FinTermsModelASuccessTest",
-        "uid" : "13b51808b3e910cc",
+        "uid" : "d0e0e18c71e2de6f",
         "parentUid" : "49cb54a9bac0da0ce79fd2bf90b31758",
         "status" : "failed",
         "time" : {
-          "start" : 1581498614443,
-          "stop" : 1581498614604,
-          "duration" : 161
+          "start" : 1581601099893,
+          "stop" : 1581601100043,
+          "duration" : 150
         },
         "flaky" : false,
         "newFailed" : false,
@@ -41,13 +41,13 @@
       "name" : "expected [0.05] but found [0.014]",
       "children" : [ {
         "name" : "FinTermsModelBSuccessTest",
-        "uid" : "c36d3bcd08f38ac2",
+        "uid" : "78f98097f8d6cbda",
         "parentUid" : "ffcc652d2b50b1a782d739b68353f0de",
         "status" : "failed",
         "time" : {
-          "start" : 1581498614615,
-          "stop" : 1581498614766,
-          "duration" : 151
+          "start" : 1581601100053,
+          "stop" : 1581601100230,
+          "duration" : 177
         },
         "flaky" : false,
         "newFailed" : false,

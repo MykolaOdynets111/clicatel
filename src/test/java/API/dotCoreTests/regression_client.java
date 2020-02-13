@@ -102,6 +102,8 @@ public class regression_client {
                         .extract()
                         .response();
 
+        System.out.println(clientPostResponse.prettyPrint());
+
         // Data stage conversions
         String rnd = randomnumbers.toString();
         Integer country = Integer.parseInt(countryCode);
@@ -138,6 +140,9 @@ public class regression_client {
         // Raas.payd_common
 
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.client", "client_Id", "=", clientPostResponse.path("clientId").toString()), clientPostResponse.path("clientId").toString());
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.client", "name", "=", clientPostResponse.path("clientName").toString()), clientPostResponse.path("clientName").toString());
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.client", "active", "=", clientPostResponse.path("active").toString()), clientPostResponse.path("active").toString());
+
 
         // cpgtx.client
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.client WHERE id = " + "'" + clientPostResponse.path("clientId") + "'", "id"), rnd);

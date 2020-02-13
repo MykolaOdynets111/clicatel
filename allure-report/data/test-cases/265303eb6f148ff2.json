@@ -1,42 +1,58 @@
 {
-  "uid" : "a313bbcb9b950f5",
-  "name" : "basicTransactV3",
-  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V3.basicTransactV3",
-  "historyId" : "f282ad075bc6cf7891726a5b0b4e2c0a",
+  "uid" : "265303eb6f148ff2",
+  "name" : "basicTransactV4",
+  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V4.basicTransactV4",
+  "historyId" : "c865b05e8df212e7a1b1fc7e8de31d85",
   "time" : {
-    "start" : 1581498581915,
-    "stop" : 1581498586411,
-    "duration" : 4496
+    "start" : 1581601071399,
+    "stop" : 1581601077059,
+    "duration" : 5660
   },
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
-  "beforeStages" : [ ],
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1581601071382,
+      "stop" : 1581601071394,
+      "duration" : 12
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0
+  } ],
   "afterStages" : [ ],
   "labels" : [ {
     "name" : "package",
-    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
   }, {
     "name" : "testClass",
-    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
   }, {
     "name" : "testMethod",
-    "value" : "basicTransactV3"
+    "value" : "basicTransactV4"
   }, {
     "name" : "parentSuite",
-    "value" : "Transact V3 Test Suite"
+    "value" : "Transact V4 Test Suite"
   }, {
     "name" : "suite",
-    "value" : "regression_Raas_Transact_V3.java"
+    "value" : "regression_Raas_Transact_V4.java"
   }, {
     "name" : "subSuite",
-    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
   }, {
     "name" : "host",
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "22016@FANB0610.TestNG-PoolService-0(15)"
+    "value" : "476@FANB0610.TestNG-PoolService-0(19)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -49,7 +65,7 @@
   } ],
   "parameters" : [ {
     "name" : "arg0",
-    "value" : ""
+    "value" : "d3d4ce83-b6b0-4558-a455-fceb1"
   }, {
     "name" : "arg1",
     "value" : "10000"
@@ -120,6 +136,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "a313bbcb9b950f5.json",
-  "parameterValues" : [ "", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
+  "source" : "265303eb6f148ff2.json",
+  "parameterValues" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
 }

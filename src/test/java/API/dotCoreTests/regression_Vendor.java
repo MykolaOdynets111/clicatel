@@ -116,6 +116,11 @@ public class regression_Vendor {
         Assert.assertEquals(POSTCreateVendorResponse.path("currencyId"), currencyId);
         Assert.assertEquals(POSTCreateVendorResponse.path("countryId"), vendorCountryId);
 
+        // DB Assertions - raas
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.vendor", "name", "=", POSTCreateVendorResponse.path("name")), POSTCreateVendorResponse.path("name"));
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.vendor", "currency_id", "=", POSTCreateVendorResponse.path("currencyId")), POSTCreateVendorResponse.path("currencyId"));
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("payd_common.vendor", "country_code", "=", POSTCreateVendorResponse.path("countryId").toString()), POSTCreateVendorResponse.path("countryId").toString());
+
     }
 
 }

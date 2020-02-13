@@ -1,12 +1,12 @@
 {
-  "uid" : "13b51808b3e910cc",
+  "uid" : "d0e0e18c71e2de6f",
   "name" : "FinTermsModelASuccessTest",
   "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest",
   "historyId" : "c91aab8839ea6513799ef902bf001b3a",
   "time" : {
-    "start" : 1581498614443,
-    "stop" : 1581498614604,
-    "duration" : 161
+    "start" : 1581601099893,
+    "stop" : 1581601100043,
+    "duration" : 150
   },
   "status" : "failed",
   "statusMessage" : "expected [14625] but found [14996]",
@@ -38,7 +38,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "22016@FANB0610.TestNG-PoolService-0(25)"
+    "value" : "476@FANB0610.TestNG-PoolService-0(25)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -141,6 +141,6 @@
     } ],
     "tags" : [ ]
   },
-  "source" : "13b51808b3e910cc.json",
+  "source" : "d0e0e18c71e2de6f.json",
   "parameterValues" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
 }

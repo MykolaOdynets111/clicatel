@@ -9,30 +9,30 @@
         "name" : "API.dotCoreTests.regression_Raas_Transact_V3",
         "children" : [ {
           "name" : "basicTransactV3",
-          "uid" : "aa4b65518637cf35",
+          "uid" : "509191c07994ade7",
           "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
           "status" : "passed",
           "time" : {
-            "start" : 1581498581915,
-            "stop" : 1581498586411,
-            "duration" : 4496
-          },
-          "flaky" : false,
-          "newFailed" : false,
-          "parameters" : [ "", "50000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "test", "2022564675", "2", "test123", "50", "0815793852", "0815793852" ]
-        }, {
-          "name" : "basicTransactV3",
-          "uid" : "a313bbcb9b950f5",
-          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
-          "status" : "passed",
-          "time" : {
-            "start" : 1581498581915,
-            "stop" : 1581498586411,
-            "duration" : 4496
+            "start" : 1581601066732,
+            "stop" : 1581601071327,
+            "duration" : 4595
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ "", "10000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "3", "test123", "917", "2341110000002", "2341110000002" ]
+        }, {
+          "name" : "basicTransactV3",
+          "uid" : "5925438abf265912",
+          "parentUid" : "9f578937ef823fa4f0d96ec632cd5a2a",
+          "status" : "passed",
+          "time" : {
+            "start" : 1581601066733,
+            "stop" : 1581601071327,
+            "duration" : 4594
+          },
+          "flaky" : false,
+          "newFailed" : false,
+          "parameters" : [ "", "50000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "test", "2022564675", "2", "test123", "50", "0815793852", "0815793852" ]
         } ],
         "uid" : "9f578937ef823fa4f0d96ec632cd5a2a"
       } ],
@@ -47,13 +47,13 @@
         "name" : "API.dotCoreTests.regression_Raas_Transact_V4",
         "children" : [ {
           "name" : "basicTransactV4",
-          "uid" : "2eddf53d94229d75",
+          "uid" : "265303eb6f148ff2",
           "parentUid" : "cba2f8bbebba3243efaef40b3de3a941",
           "status" : "passed",
           "time" : {
-            "start" : 1581498586500,
-            "stop" : 1581498592004,
-            "duration" : 5504
+            "start" : 1581601071399,
+            "stop" : 1581601077059,
+            "duration" : 5660
           },
           "flaky" : false,
           "newFailed" : false,
@@ -72,13 +72,13 @@
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3",
         "children" : [ {
           "name" : "basicReserveAndTransactV3",
-          "uid" : "56d6294c22a137f0",
+          "uid" : "3b25d2c500a107ec",
           "parentUid" : "a24b1f313ae3dd70b76b72f44b9cf4fc",
           "status" : "passed",
           "time" : {
-            "start" : 1581498592034,
-            "stop" : 1581498597744,
-            "duration" : 5710
+            "start" : 1581601077092,
+            "stop" : 1581601083208,
+            "duration" : 6116
           },
           "flaky" : false,
           "newFailed" : false,
@@ -97,26 +97,26 @@
         "name" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4",
         "children" : [ {
           "name" : "basicReserveAndTransactV4",
-          "uid" : "6209d768cb6378d1",
+          "uid" : "a4b66cc3498e7f99",
           "parentUid" : "5ee6c5344d5cc8d8655fa40e12ded314",
           "status" : "passed",
           "time" : {
-            "start" : 1581498597773,
-            "stop" : 1581498603501,
-            "duration" : 5728
+            "start" : 1581601083243,
+            "stop" : 1581601088992,
+            "duration" : 5749
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2020-01-09T09:58:46.170+02:00", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "3", "193103796", "100", "2341122222221", "2341110000000" ]
         }, {
           "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-          "uid" : "8f0245b5e6ed69cb",
+          "uid" : "32fd911e2e360f0b",
           "parentUid" : "5ee6c5344d5cc8d8655fa40e12ded314",
           "status" : "failed",
           "time" : {
-            "start" : 1581498603511,
-            "stop" : 1581498608989,
-            "duration" : 5478
+            "start" : 1581601089001,
+            "stop" : 1581601094464,
+            "duration" : 5463
           },
           "flaky" : false,
           "newFailed" : false,
@@ -135,17 +135,17 @@
         "name" : "API.dotCoreTests.regression_Ctx",
         "children" : [ {
           "name" : "basicCtx",
-          "uid" : "8b72f2a4bfc6c547",
+          "uid" : "c830a5902dc8524",
           "parentUid" : "bfcfe2bc29cab731ee765f5b06497c89",
           "status" : "passed",
           "time" : {
-            "start" : 1581498609032,
-            "stop" : 1581498614391,
-            "duration" : 5359
+            "start" : 1581601094503,
+            "stop" : 1581601099850,
+            "duration" : 5347
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-02333", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+          "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-01515", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
         } ],
         "uid" : "bfcfe2bc29cab731ee765f5b06497c89"
       } ],
@@ -160,26 +160,26 @@
         "name" : "API.dotCoreTests.regression_Fin_Terms_Calculate",
         "children" : [ {
           "name" : "FinTermsModelASuccessTest",
-          "uid" : "13b51808b3e910cc",
+          "uid" : "d0e0e18c71e2de6f",
           "parentUid" : "f10b7f955ace732604a3277c42adf605",
           "status" : "failed",
           "time" : {
-            "start" : 1581498614443,
-            "stop" : 1581498614604,
-            "duration" : 161
+            "start" : 1581601099893,
+            "stop" : 1581601100043,
+            "duration" : 150
           },
           "flaky" : false,
           "newFailed" : false,
           "parameters" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
         }, {
           "name" : "FinTermsModelBSuccessTest",
-          "uid" : "c36d3bcd08f38ac2",
+          "uid" : "78f98097f8d6cbda",
           "parentUid" : "f10b7f955ace732604a3277c42adf605",
           "status" : "failed",
           "time" : {
-            "start" : 1581498614615,
-            "stop" : 1581498614766,
-            "duration" : 151
+            "start" : 1581601100053,
+            "stop" : 1581601100230,
+            "duration" : 177
           },
           "flaky" : false,
           "newFailed" : false,
@@ -198,17 +198,17 @@
         "name" : "API.dotCoreTests.regression_product_attributes",
         "children" : [ {
           "name" : "successPostAttributes",
-          "uid" : "abaf1c85187f8380",
+          "uid" : "eb733a8fd78619c0",
           "parentUid" : "04fe1183fa37b7d2f49a4688600d735a",
           "status" : "passed",
           "time" : {
-            "start" : 1581498614790,
-            "stop" : 1581498614842,
-            "duration" : 52
+            "start" : 1581601100255,
+            "stop" : 1581601100323,
+            "duration" : 68
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "^[1-0]", "AutomationTestAttribute3078", "3078", "string" ]
+          "parameters" : [ "^[1-0]", "AutomationTestAttribute1407", "1407", "string" ]
         } ],
         "uid" : "04fe1183fa37b7d2f49a4688600d735a"
       } ],
@@ -223,13 +223,13 @@
         "name" : "API.dotCoreTests.regression_client",
         "children" : [ {
           "name" : "successPOSTClient",
-          "uid" : "b1cbe8c0843c3115",
+          "uid" : "fb0a86a727513093",
           "parentUid" : "578f3f6108fccee157c20059cc64cbf1",
           "status" : "passed",
           "time" : {
-            "start" : 1581498614867,
-            "stop" : 1581498615218,
-            "duration" : 351
+            "start" : 1581601100349,
+            "stop" : 1581601100876,
+            "duration" : 527
           },
           "flaky" : false,
           "newFailed" : false,
@@ -248,17 +248,17 @@
         "name" : "API.dotCoreTests.regression_Vendor",
         "children" : [ {
           "name" : "VendorSuccesstestcases",
-          "uid" : "cbd0dcfff3117fd9",
+          "uid" : "4a40659dcb49aa57",
           "parentUid" : "a82ea3fec6fe9e78b7c4edc82a1bf658",
           "status" : "passed",
           "time" : {
-            "start" : 1581498615245,
-            "stop" : 1581498615292,
-            "duration" : 47
+            "start" : 1581601100982,
+            "stop" : 1581601101197,
+            "duration" : 215
           },
           "flaky" : false,
           "newFailed" : false,
-          "parameters" : [ "0", "true", "8542", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor8542", "Nigeria" ]
+          "parameters" : [ "0", "true", "9547", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor9547", "Nigeria" ]
         } ],
         "uid" : "a82ea3fec6fe9e78b7c4edc82a1bf658"
       } ],
