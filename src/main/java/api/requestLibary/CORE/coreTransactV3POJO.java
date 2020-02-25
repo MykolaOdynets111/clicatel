@@ -8,8 +8,6 @@ public class coreTransactV3POJO {
 
     private String sourceIdentifier;
 
-    private String fundingSourceId;
-
     private String productId;
 
     private String accountIdentifier;
@@ -35,7 +33,7 @@ public class coreTransactV3POJO {
     public coreTransactV3POJO() {
     }
 
-    public coreTransactV3POJO(String accountIdentifier, String purchaseAmount, String channelId, String channelName, String channelSessionId, String clientId, String clientTxnRef, String productId, String sourceIdentifier, String targetIdentifier, String timestamp, String reserveFundsTxnRef, String feeAmount, String currencyCode, String fundingSourceId ) {
+    public coreTransactV3POJO(String accountIdentifier, String purchaseAmount, String channelId, String channelName, String channelSessionId, String clientId, String clientTxnRef, String productId, String sourceIdentifier, String targetIdentifier, String timestamp, String reserveFundsTxnRef, String feeAmount, String currencyCode) {
 
         this.accountIdentifier = accountIdentifier;
         this.purchaseAmount = purchaseAmount;
@@ -51,7 +49,6 @@ public class coreTransactV3POJO {
         this.reserveFundsTxnRef = reserveFundsTxnRef;
         this.feeAmount = feeAmount;
         this.currencyCode = currencyCode;
-        this.fundingSourceId = fundingSourceId;
 
     }
 
@@ -83,16 +80,6 @@ public class coreTransactV3POJO {
     public void setSourceIdentifier (String sourceIdentifier)
     {
         this.sourceIdentifier = sourceIdentifier;
-    }
-
-    public String getFundingSourceId ()
-    {
-        return fundingSourceId;
-    }
-
-    public void setFundingSourceId (String fundingSourceId)
-    {
-        this.fundingSourceId = fundingSourceId;
     }
 
     public String getProductId ()
@@ -208,6 +195,6 @@ public class coreTransactV3POJO {
     @Override
     public String toString()
     {
-        return "ClassPojo [reserveFundsTxnRef = "+reserveFundsTxnRef+", clientId = "+clientId+", sourceIdentifier = "+sourceIdentifier+", fundingSourceId = "+fundingSourceId+", productId = "+productId+", accountIdentifier = "+accountIdentifier+", purchaseAmount = "+purchaseAmount+", feeAmount = "+feeAmount+", targetIdentifier = "+targetIdentifier+", clientTxnRef = "+clientTxnRef+", channelSessionId = "+channelSessionId+", channelName = "+channelName+", currencyCode = "+currencyCode+", channelId = "+channelId+", timestamp = "+timestamp+"]";
+        return "ClassPojo [reserveFundsTxnRef = "+reserveFundsTxnRef+", clientId = "+clientId+", sourceIdentifier = "+sourceIdentifier+", productId = "+productId+", accountIdentifier = "+accountIdentifier+", purchaseAmount = "+purchaseAmount+", feeAmount = "+feeAmount+", targetIdentifier = "+targetIdentifier+", clientTxnRef = "+clientTxnRef+", channelSessionId = "+channelSessionId+", channelName = "+channelName+", currencyCode = "+currencyCode+", channelId = "+channelId+", timestamp = "+timestamp+"]";
     }
 }

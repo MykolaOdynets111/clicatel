@@ -1,0 +1,28 @@
+{
+  "ProductTestSuite": {
+    "successcase1": {
+      "active": "true",
+      "attributes": "{\n      \"attributeId\": 1,\n      \"value\": \"string\"\n    },\n    {\n      \"attributeId\": 2,\n      \"value\": \"string\"\n    },\n    {\n      \"attributeId\": 29,\n      \"value\": \"string\"\n    },\n    {\n      \"attributeId\": 14,\n      \"value\": \"string\"\n    },\n    {\n      \"attributeId\": 15,\n      \"value\": \"string\"\n    }",
+      "attributeId1": "1",
+      "attribute1Value": "string",
+      "attributeId2": "2",
+      "attribute2Value": "string",
+      "attributeId29": "29",
+      "attribute29Value": "string",
+      "attributeId14": "14",
+      "attribute14Value": "string",
+      "attributeId15": "15",
+      "attribute15Value": "string",
+      "description": "AUTOMATION_PRODUCT",
+      "pricing": "",
+      "pricingType": "range",
+      "pricingIncrement": "1",
+      "pricingMaximumAmount": "100000",
+      "pricingMinimumAmount": "500",
+      "productId": "7369",
+      "productTypeId": "3",
+      "shortDescription": "AUTOMATION_PRODUCT",
+      "supportToken": "false"
+    }
+  }
+}

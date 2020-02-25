@@ -1,12 +1,12 @@
 {
-  "uid" : "fb0a86a727513093",
+  "uid" : "8125929686b8d4d8",
   "name" : "successPOSTClient",
   "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
   "historyId" : "498ed17e66103435bae7d528024adb94",
   "time" : {
-    "start" : 1581601100349,
-    "stop" : 1581601100876,
-    "duration" : 527
+    "start" : 1582017204899,
+    "stop" : 1582017205529,
+    "duration" : 630
   },
   "status" : "passed",
   "flaky" : false,
@@ -36,7 +36,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "476@FANB0610.TestNG-PoolService-0(28)"
+    "value" : "33196@FANB0610.TestNG-PoolService-0(28)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -87,6 +87,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "fb0a86a727513093.json",
+  "source" : "8125929686b8d4d8.json",
   "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
 }

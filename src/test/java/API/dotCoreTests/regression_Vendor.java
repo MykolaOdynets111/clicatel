@@ -99,7 +99,7 @@ public class regression_Vendor {
                         .contentType(ContentType.JSON)
                         .body(vendorPostPayload)
                         .when()
-                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("Core_Vendor_Port")+properties.getProperty("CORE_Vendor_BasePath"))
+                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Vendor_Port")+properties.getProperty("CORE_Vendor_BasePath"))
                         .then()
                         .extract()
                         .response();
