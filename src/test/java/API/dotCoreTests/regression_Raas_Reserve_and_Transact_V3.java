@@ -163,16 +163,12 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","targetIdentifier"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","timestamp"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","feeAmount"),
-                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","currencyCode"),
-                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","fundingSourceId"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedMessage"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedHTTPResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResultRequestResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedRaasResultResponseResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","invalidAmounttestcase","expectedCTXTransactionResponseCode")},
-
-
 
         };
     }
@@ -228,17 +224,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
         Assert.assertEquals(ReserveAndTransactV3response.path("responseCode"), expectedRaasResponseCode);
         Assert.assertEquals(ReserveAndTransactV3response.path("responseMessage"), expectedMessage);
         Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
-
-        // CTX DB assertions
-        Thread.sleep(5000);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
-
-        // raas db assertions
-        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
-        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
-        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
-        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
-
 
     }
 

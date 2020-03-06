@@ -2,11 +2,11 @@ HTTP/1.1 201
 X-Application-Context: payd-product-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 12:53:51 GMT
+Date: Fri, 06 Mar 2020 13:51:30 GMT
 
 {
-    "clientId": 5882,
-    "clientName": "AUTOTESTCLIENT5882",
+    "clientId": 905,
+    "clientName": "AUTOTESTCLIENT905",
     "properties": {
         "whatsapp": {
             "integrationId": "integrationId",
@@ -35,6 +35,6 @@ Date: Fri, 06 Mar 2020 12:53:51 GMT
             "name": ".CORE"
         }
     ],
-    "timestamp": "2020-03-06T12:53:51.826939Z",
-    "clickatellAccountId": "5882"
+    "timestamp": "2020-03-06T13:51:30.359608Z",
+    "clickatellAccountId": "905"
 }

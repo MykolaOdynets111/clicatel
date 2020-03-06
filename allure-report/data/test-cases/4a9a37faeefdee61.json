@@ -1,12 +1,12 @@
 {
-  "uid" : "dd4047a5ce35c32f",
+  "uid" : "4a9a37faeefdee61",
   "name" : "invalidLargeAmountTransaction",
   "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4.invalidLargeAmountTransaction",
   "historyId" : "7f14593b4bcfd778310c9bafda732173",
   "time" : {
-    "start" : 1583499225552,
-    "stop" : 1583499225625,
-    "duration" : 73
+    "start" : 1583502684820,
+    "stop" : 1583502684914,
+    "duration" : 94
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Negative test cases",
       "time" : {
-        "start" : 1583499225552,
-        "stop" : 1583499225623,
-        "duration" : 71
+        "start" : 1583502684821,
+        "stop" : 1583502684912,
+        "duration" : 91
       },
       "status" : "passed",
       "steps" : [ ],
@@ -85,29 +85,29 @@
         "name" : "expectedCTXTransactionResponseCode",
         "value" : "0"
       } ],
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
       "stepsCount" : 0,
-      "hasContent" : true
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
     } ],
     "attachments" : [ {
-      "uid" : "6790a8d94a622fff",
+      "uid" : "f4cc95fde41f8108",
       "name" : "request",
-      "source" : "6790a8d94a622fff.txt",
+      "source" : "f4cc95fde41f8108.txt",
       "type" : "text/plain",
       "size" : 1216
     }, {
-      "uid" : "c8d17d8ca3e4ae3a",
+      "uid" : "a0a2ed8c61809ef9",
       "name" : "response",
-      "source" : "c8d17d8ca3e4ae3a.txt",
+      "source" : "a0a2ed8c61809ef9.txt",
       "type" : "text/plain",
       "size" : 1133
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 1,
-    "hasContent" : true
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -133,7 +133,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "31608@FANB0610.TestNG-PoolService-0(22)"
+    "value" : "3468@FANB0610.TestNG-PoolService-0(23)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -214,6 +214,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "dd4047a5ce35c32f.json",
+  "source" : "4a9a37faeefdee61.json",
   "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "500000000000000000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "4000", "amount :must be less than or equal to 999999999999", "400", "0000", "400", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
 }

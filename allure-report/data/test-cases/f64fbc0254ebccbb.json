@@ -1,12 +1,12 @@
 {
-  "uid" : "d8a90ed95780096b",
-  "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4.ReserveAndTransactV4MTNZASuccesstestcases",
-  "historyId" : "20b511a69b3bef97467aafdffcd8cb8f",
+  "uid" : "f64fbc0254ebccbb",
+  "name" : "basicReserveAndTransactV4",
+  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4.basicReserveAndTransactV4",
+  "historyId" : "bfe8698878410761aab7b77c7e939564",
   "time" : {
-    "start" : 1583499219957,
-    "stop" : 1583499225546,
-    "duration" : 5589
+    "start" : 1583502673419,
+    "stop" : 1583502679107,
+    "duration" : 5688
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Reserve and Transact V4 Success",
       "time" : {
-        "start" : 1583499219957,
-        "stop" : 1583499225543,
-        "duration" : 5586
+        "start" : 1583502673419,
+        "stop" : 1583502679104,
+        "duration" : 5685
       },
       "status" : "passed",
       "steps" : [ ],
@@ -29,7 +29,7 @@
         "value" : "64ec8907-f41a-441a-b1b8-355ef"
       }, {
         "name" : "purchaseAmount",
-        "value" : "5000"
+        "value" : "5900"
       }, {
         "name" : "channelId",
         "value" : "8"
@@ -47,13 +47,13 @@
         "value" : "193103796"
       }, {
         "name" : "productId",
-        "value" : "30"
+        "value" : "60"
       }, {
         "name" : "sourceIdentifier",
-        "value" : "0815793852"
+        "value" : "27731304702"
       }, {
         "name" : "targetIdentifier",
-        "value" : "0815793852"
+        "value" : "27731304702"
       }, {
         "name" : "timeStamp",
         "value" : "2020-01-09T09:58:46.170+02:00"
@@ -85,29 +85,29 @@
         "name" : "expectedCTXTransactionResponseCode",
         "value" : "0"
       } ],
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
       "stepsCount" : 0,
-      "hasContent" : true
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
     } ],
     "attachments" : [ {
-      "uid" : "c74ebc3a021e54d8",
+      "uid" : "f68a21f23887d63",
       "name" : "request",
-      "source" : "c74ebc3a021e54d8.txt",
+      "source" : "f68a21f23887d63.txt",
       "type" : "text/plain",
-      "size" : 1174
+      "size" : 1176
     }, {
-      "uid" : "575fdb2c41f2ca24",
+      "uid" : "42b48aa51c2632b5",
       "name" : "response",
-      "source" : "575fdb2c41f2ca24.txt",
+      "source" : "42b48aa51c2632b5.txt",
       "type" : "text/plain",
-      "size" : 1100
+      "size" : 1105
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 1,
-    "hasContent" : true
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -118,7 +118,7 @@
     "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4"
   }, {
     "name" : "testMethod",
-    "value" : "ReserveAndTransactV4MTNZASuccesstestcases"
+    "value" : "basicReserveAndTransactV4"
   }, {
     "name" : "parentSuite",
     "value" : "Reserve and Transact V4 Test Suite"
@@ -133,7 +133,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "31608@FANB0610.TestNG-PoolService-0(21)"
+    "value" : "3468@FANB0610.TestNG-PoolService-0(21)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -149,7 +149,7 @@
     "value" : "64ec8907-f41a-441a-b1b8-355ef"
   }, {
     "name" : "arg1",
-    "value" : "5000"
+    "value" : "5900"
   }, {
     "name" : "arg10",
     "value" : "2020-01-09T09:58:46.170+02:00"
@@ -197,13 +197,13 @@
     "value" : "193103796"
   }, {
     "name" : "arg7",
-    "value" : "30"
+    "value" : "60"
   }, {
     "name" : "arg8",
-    "value" : "0815793852"
+    "value" : "27731304702"
   }, {
     "name" : "arg9",
-    "value" : "0815793852"
+    "value" : "27731304702"
   } ],
   "links" : [ ],
   "hidden" : false,
@@ -214,6 +214,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d8a90ed95780096b.json",
-  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
+  "source" : "f64fbc0254ebccbb.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
 }

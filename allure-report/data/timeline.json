@@ -4,209 +4,226 @@
   "children" : [ {
     "name" : "FANB0610",
     "children" : [ {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(19)",
-      "children" : [ {
-        "name" : "basicReserveAndTransactV3",
-        "uid" : "29dcb1dd68fba880",
-        "parentUid" : "b8a033d58795ce8685111bd11880b711",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499208613,
-          "stop" : 1583499214343,
-          "duration" : 5730
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
-      } ],
-      "uid" : "b8a033d58795ce8685111bd11880b711"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(28)",
-      "children" : [ {
-        "name" : "FinTermsModelASuccessTest",
-        "uid" : "6691a97ca95ad85a",
-        "parentUid" : "836b95a312dc8759967dd602b5c986a5",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499231785,
-          "stop" : 1583499232115,
-          "duration" : 330
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
-      } ],
-      "uid" : "836b95a312dc8759967dd602b5c986a5"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(29)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(30)",
       "children" : [ {
         "name" : "FinTermsModelBSuccessTest",
-        "uid" : "c45b15dc4dcdbf92",
-        "parentUid" : "784db2148fe72bdb6d9865c265108935",
+        "uid" : "4d7b24424ddf68fd",
+        "parentUid" : "c8c8db7cfe28a3ece0f99376e007d36f",
         "status" : "passed",
         "time" : {
-          "start" : 1583499232120,
-          "stop" : 1583499232417,
-          "duration" : 297
+          "start" : 1583502691563,
+          "stop" : 1583502691868,
+          "duration" : 305
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.014", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
       } ],
-      "uid" : "784db2148fe72bdb6d9865c265108935"
+      "uid" : "c8c8db7cfe28a3ece0f99376e007d36f"
     }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(20)",
-      "children" : [ {
-        "name" : "basicReserveAndTransactV4",
-        "uid" : "8cadfd6069d2b6b",
-        "parentUid" : "b60119954c3159ba6e717d5e53e87c02",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499214356,
-          "stop" : 1583499219948,
-          "duration" : 5592
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
-      } ],
-      "uid" : "b60119954c3159ba6e717d5e53e87c02"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(25)",
-      "children" : [ {
-        "name" : "successPostAttributes",
-        "uid" : "f8fe9e6c9a275d21",
-        "parentUid" : "25c9bc3538eb8d75c487820b905b078f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499231035,
-          "stop" : 1583499231089,
-          "duration" : 54
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "^[1-0]", "AutomationTestAttribute3118", "3118", "string" ]
-      } ],
-      "uid" : "25c9bc3538eb8d75c487820b905b078f"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(21)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(22)",
       "children" : [ {
         "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-        "uid" : "d8a90ed95780096b",
-        "parentUid" : "f6db22a6a1508a64b3bdc100181f4e55",
+        "uid" : "57f9839949f51a4a",
+        "parentUid" : "4498cf77d99555d7d9a230fbf9ee9bde",
         "status" : "passed",
         "time" : {
-          "start" : 1583499219957,
-          "stop" : 1583499225546,
-          "duration" : 5589
+          "start" : 1583502679118,
+          "stop" : 1583502684812,
+          "duration" : 5694
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
       } ],
-      "uid" : "f6db22a6a1508a64b3bdc100181f4e55"
+      "uid" : "4498cf77d99555d7d9a230fbf9ee9bde"
     }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(24)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(28)",
       "children" : [ {
-        "name" : "basicCtx",
-        "uid" : "fcbeabcaa2fad0d0",
-        "parentUid" : "6d17ac9ada1014daef75cedc7a8f39d5",
+        "name" : "VendorSuccesstestcases",
+        "uid" : "cc3d0afee0df3660",
+        "parentUid" : "8c7a8e152826757d42a16231eb8b59b9",
         "status" : "passed",
         "time" : {
-          "start" : 1583499225635,
-          "stop" : 1583499231027,
-          "duration" : 5392
+          "start" : 1583502690950,
+          "stop" : 1583502691148,
+          "duration" : 198
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-02046", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+        "parameters" : [ "0", "true", "2799", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor2799", "Nigeria" ]
       } ],
-      "uid" : "6d17ac9ada1014daef75cedc7a8f39d5"
+      "uid" : "8c7a8e152826757d42a16231eb8b59b9"
     }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(26)",
-      "children" : [ {
-        "name" : "successPOSTClient",
-        "uid" : "80f383d3086426b",
-        "parentUid" : "c18e4c04a8ca72788702fa320a39e73e",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499231100,
-          "stop" : 1583499231555,
-          "duration" : 455
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
-      } ],
-      "uid" : "c18e4c04a8ca72788702fa320a39e73e"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(22)",
-      "children" : [ {
-        "name" : "invalidLargeAmountTransaction",
-        "uid" : "dd4047a5ce35c32f",
-        "parentUid" : "b66a4e2dbd2d10323e4e1dad3ee84688",
-        "status" : "passed",
-        "time" : {
-          "start" : 1583499225552,
-          "stop" : 1583499225625,
-          "duration" : 73
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "500000000000000000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "4000", "amount :must be less than or equal to 999999999999", "400", "0000", "400", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
-      } ],
-      "uid" : "b66a4e2dbd2d10323e4e1dad3ee84688"
-    }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(15)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(15)",
       "children" : [ {
         "name" : "basicTransactV3",
-        "uid" : "25d255e59d2e1bad",
-        "parentUid" : "a104ee47e7d7a97de7a5146ae5225622",
+        "uid" : "eca93c33d0808730",
+        "parentUid" : "ce104ebe907c81e3ed4199953fc5bdf1",
         "status" : "passed",
         "time" : {
-          "start" : 1583499189095,
-          "stop" : 1583499197824,
-          "duration" : 8729
+          "start" : 1583502648050,
+          "stop" : 1583502656711,
+          "duration" : 8661
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "USSD", "2022564675", "3", "test123", "921", "2341122222221", "2341110000000" ]
       } ],
-      "uid" : "a104ee47e7d7a97de7a5146ae5225622"
+      "uid" : "ce104ebe907c81e3ed4199953fc5bdf1"
     }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(27)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(26)",
       "children" : [ {
-        "name" : "VendorSuccesstestcases",
-        "uid" : "8aa1f60b047492be",
-        "parentUid" : "6926007f57c7869177a0cf135aee5872",
+        "name" : "successPostAttributes",
+        "uid" : "73dcd31f3d4bf1ac",
+        "parentUid" : "449371567756f0e5fea3a824b0ead58d",
         "status" : "passed",
         "time" : {
-          "start" : 1583499231566,
-          "stop" : 1583499231776,
-          "duration" : 210
+          "start" : 1583502690406,
+          "stop" : 1583502690497,
+          "duration" : 91
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "0", "true", "6459", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor6459", "Nigeria" ]
+        "parameters" : [ "^[1-0]", "AutomationTestAttribute1850", "1850", "string" ]
       } ],
-      "uid" : "6926007f57c7869177a0cf135aee5872"
+      "uid" : "449371567756f0e5fea3a824b0ead58d"
     }, {
-      "name" : "31608@FANB0610.TestNG-PoolService-0(18)",
+      "name" : "3468@FANB0610.TestNG-PoolService-0(20)",
       "children" : [ {
-        "name" : "basicTransactV4",
-        "uid" : "78da05ceeb4d6c11",
-        "parentUid" : "a5815b17d19116947fb9c7ba64b922a8",
+        "name" : "basicReserveAndTransactV3InvalidPurchaseAmount",
+        "uid" : "d1b654524f248b7c",
+        "parentUid" : "f9453665f6a933c2f6cf0bda7d76d38a",
         "status" : "passed",
         "time" : {
-          "start" : 1583499197886,
-          "stop" : 1583499208592,
-          "duration" : 10706
+          "start" : 1583502673359,
+          "stop" : 1583502673408,
+          "duration" : 49
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "100000000000000", "2019-09-03T15:35:26.720+02:00", "0", "4000", "amount :must be less than or equal to 999999999999", "400", "null", "null", "null", "7", "test", "ST-8556726170", "2", "test123", "60", "27731304702", "27731304702" ]
+      } ],
+      "uid" : "f9453665f6a933c2f6cf0bda7d76d38a"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(29)",
+      "children" : [ {
+        "name" : "FinTermsModelASuccessTest",
+        "uid" : "fd55b64f8eef9406",
+        "parentUid" : "ffed20206c599fa1d843a096a491d0c0",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502691157,
+          "stop" : 1583502691558,
+          "duration" : 401
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
+      } ],
+      "uid" : "ffed20206c599fa1d843a096a491d0c0"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(23)",
+      "children" : [ {
+        "name" : "invalidLargeAmountTransaction",
+        "uid" : "4a9a37faeefdee61",
+        "parentUid" : "3ed3539f73870317c3fdfe5045570bb7",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502684820,
+          "stop" : 1583502684914,
+          "duration" : 94
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "500000000000000000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "4000", "amount :must be less than or equal to 999999999999", "400", "0000", "400", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
+      } ],
+      "uid" : "3ed3539f73870317c3fdfe5045570bb7"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(21)",
+      "children" : [ {
+        "name" : "basicReserveAndTransactV4",
+        "uid" : "f64fbc0254ebccbb",
+        "parentUid" : "6bb4de047eaf952816af34a4f32ddaf9",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502673419,
+          "stop" : 1583502679107,
+          "duration" : 5688
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
+      } ],
+      "uid" : "6bb4de047eaf952816af34a4f32ddaf9"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(25)",
+      "children" : [ {
+        "name" : "basicCtx",
+        "uid" : "55910c69d25587ad",
+        "parentUid" : "4222a58f6fbfa0f8dc4f2654e57f1ce6",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502684924,
+          "stop" : 1583502690392,
+          "duration" : 5468
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-09312", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+      } ],
+      "uid" : "4222a58f6fbfa0f8dc4f2654e57f1ce6"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(19)",
+      "children" : [ {
+        "name" : "basicReserveAndTransactV3",
+        "uid" : "6e0658c53e955467",
+        "parentUid" : "32822eecebab8187e072ae65d9dd7b44",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502667744,
+          "stop" : 1583502673352,
+          "duration" : 5608
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
+      } ],
+      "uid" : "32822eecebab8187e072ae65d9dd7b44"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(27)",
+      "children" : [ {
+        "name" : "successPOSTClient",
+        "uid" : "cfd38ae2ce77c4e",
+        "parentUid" : "72c4a25a5e7f2752983795c96db9967a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502690506,
+          "stop" : 1583502690940,
+          "duration" : 434
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
+      } ],
+      "uid" : "72c4a25a5e7f2752983795c96db9967a"
+    }, {
+      "name" : "3468@FANB0610.TestNG-PoolService-0(18)",
+      "children" : [ {
+        "name" : "basicTransactV4",
+        "uid" : "8f29f905ca8e632",
+        "parentUid" : "a5cd2bf7ad9dcbd4a333d358be813cc3",
+        "status" : "passed",
+        "time" : {
+          "start" : 1583502656957,
+          "stop" : 1583502667724,
+          "duration" : 10767
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "2", "test123", "60", "27731000000", "27731000000" ]
       } ],
-      "uid" : "a5815b17d19116947fb9c7ba64b922a8"
+      "uid" : "a5cd2bf7ad9dcbd4a333d358be813cc3"
     } ],
     "uid" : "03c05ee1121206dc07c2b9cafa410020"
   } ]

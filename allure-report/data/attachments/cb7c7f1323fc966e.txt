@@ -19,9 +19,9 @@ Body:
     "retryDelay": "0",
     "maxRetries": "3",
     "retryDelayMax": "0",
-    "name": "AUTOMATIONTestVendor6459",
+    "name": "AUTOMATIONTestVendor2799",
     "countryName": "Nigeria",
-    "id": "6459",
+    "id": "2799",
     "currencyId": "566",
     "requestsPeriod": "1000"
 }

@@ -1,12 +1,12 @@
 {
-  "uid" : "c45b15dc4dcdbf92",
-  "name" : "FinTermsModelBSuccessTest",
-  "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelBSuccessTest",
-  "historyId" : "1dc4e32756fe2440686b5e33655bc242",
+  "uid" : "fd55b64f8eef9406",
+  "name" : "FinTermsModelASuccessTest",
+  "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest",
+  "historyId" : "7f13441ffbe62e82d464059ba8e8772c",
   "time" : {
-    "start" : 1583499232120,
-    "stop" : 1583499232417,
-    "duration" : 297
+    "start" : 1583502691157,
+    "stop" : 1583502691558,
+    "duration" : 401
   },
   "status" : "passed",
   "flaky" : false,
@@ -15,96 +15,117 @@
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
-      "name" : "Fin Terms Model B Calculate Success",
+      "name" : "Fin Terms Model A Calculate Success",
       "time" : {
-        "start" : 1583499232120,
-        "stop" : 1583499232414,
-        "duration" : 294
+        "start" : 1583502691157,
+        "stop" : 1583502691555,
+        "duration" : 398
       },
       "status" : "passed",
       "steps" : [ ],
       "attachments" : [ ],
       "parameters" : [ {
         "name" : "clientId",
-        "value" : "103"
+        "value" : "3"
       }, {
         "name" : "productId",
-        "value" : "903"
+        "value" : "100"
       }, {
         "name" : "expectedCurrencyCode",
         "value" : "NGN"
       }, {
         "name" : "purchaseAmount",
-        "value" : "3000000"
+        "value" : "15000"
       }, {
         "name" : "expectedClientId",
-        "value" : "103"
+        "value" : "3"
       }, {
         "name" : "expectedProductId",
-        "value" : "903"
+        "value" : "100"
       }, {
         "name" : "expectedPurchaseAmount",
-        "value" : "3000000"
+        "value" : "15000"
       }, {
         "name" : "expectedTermsreserveAmount",
-        "value" : "3000000"
+        "value" : "15000"
       }, {
         "name" : "expectedTermsVendAmount",
-        "value" : "3000000"
+        "value" : "15000"
       }, {
         "name" : "expectedTermsFeeAmount",
         "value" : "0"
       }, {
         "name" : "expectedTermsSettlementAmount",
-        "value" : "2877000"
+        "value" : "14677"
       }, {
         "name" : "expectedTermsClientShareAmount",
-        "value" : "123000"
+        "value" : "323"
       }, {
         "name" : "expectedTermsVendorShareAmount",
         "value" : "0"
       }, {
+        "name" : "expectedVariablesPAYD_SHARE_AMOUNT",
+        "value" : "427.5"
+      }, {
         "name" : "expectedVariablesREQUESTED_PURCHASE_VALUE",
-        "value" : "3000000"
+        "value" : "15000"
+      }, {
+        "name" : "expectedVariablesPAYD_VAT_LIABILITY",
+        "value" : "10.35503"
       }, {
         "name" : "expectedVariablesVAT_PERC",
         "value" : "0.014"
       }, {
+        "name" : "expectedVariablesPAYD_REVENUE",
+        "value" : "739.645"
+      }, {
+        "name" : "expectedVariablesPAYD_GROSS_PROFIT",
+        "value" : "417.145"
+      }, {
         "name" : "expectedVariablesMNO_DISCOUNT_PERC",
-        "value" : "0.045"
+        "value" : "0.05"
+      }, {
+        "name" : "expectedVariablesCLIENT_REVENUE",
+        "value" : "322.5"
+      }, {
+        "name" : "expectedVariablesPAYD_COST_OF_GOODS_SOLD",
+        "value" : "322.5"
       }, {
         "name" : "expectedVariablesTPV",
-        "value" : "3000000.0"
+        "value" : "15000.0"
       }, {
-        "name" : "expectedVariablesCLIENT_SHARE_OF_TPV",
-        "value" : "0.041"
+        "name" : "expectedVariablesPAYD_SHARE_PERC",
+        "value" : "0.57"
       }, {
-        "name" : "expectedVariablesCLIENT_MARKETING_COMMISSION",
-        "value" : "0"
+        "name" : "expectedVariablesCLIENT_SHARE_OF_MNO_DISCOUNT",
+        "value" : "0.43"
+      }, {
+        "name" : "expectedVariablesCLIENT_SHARE_AMOUNT",
+        "value" : "322.5"
       } ],
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
       "stepsCount" : 0,
-      "hasContent" : true
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false
     } ],
     "attachments" : [ {
-      "uid" : "3e0f9524ef92363f",
+      "uid" : "1cf366aa4020bfff",
       "name" : "request",
-      "source" : "3e0f9524ef92363f.txt",
+      "source" : "1cf366aa4020bfff.txt",
       "type" : "text/plain",
-      "size" : 392
+      "size" : 384
     }, {
-      "uid" : "4bb241f5d0412b97",
+      "uid" : "29b23c656d4dfb66",
       "name" : "response",
-      "source" : "4bb241f5d0412b97.txt",
+      "source" : "29b23c656d4dfb66.txt",
       "type" : "text/plain",
-      "size" : 779
+      "size" : 1056
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "stepsCount" : 1,
-    "hasContent" : true
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -115,7 +136,7 @@
     "value" : "API.dotCoreTests.regression_Fin_Terms_Calculate"
   }, {
     "name" : "testMethod",
-    "value" : "FinTermsModelBSuccessTest"
+    "value" : "FinTermsModelASuccessTest"
   }, {
     "name" : "parentSuite",
     "value" : "Fin Terms Calculate Test Suite"
@@ -130,7 +151,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "31608@FANB0610.TestNG-PoolService-0(29)"
+    "value" : "3468@FANB0610.TestNG-PoolService-0(29)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -143,58 +164,79 @@
   } ],
   "parameters" : [ {
     "name" : "arg0",
-    "value" : "103"
+    "value" : "3"
   }, {
     "name" : "arg1",
-    "value" : "903"
+    "value" : "100"
   }, {
     "name" : "arg10",
-    "value" : "2877000"
+    "value" : "14677"
   }, {
     "name" : "arg11",
-    "value" : "123000"
+    "value" : "323"
   }, {
     "name" : "arg12",
     "value" : "0"
   }, {
     "name" : "arg13",
-    "value" : "3000000"
+    "value" : "427.5"
   }, {
     "name" : "arg14",
-    "value" : "0.014"
+    "value" : "15000"
   }, {
     "name" : "arg15",
-    "value" : "0.045"
+    "value" : "10.35503"
   }, {
     "name" : "arg16",
-    "value" : "3000000.0"
+    "value" : "0.014"
   }, {
     "name" : "arg17",
-    "value" : "0.041"
+    "value" : "739.645"
   }, {
     "name" : "arg18",
-    "value" : "0"
+    "value" : "417.145"
+  }, {
+    "name" : "arg19",
+    "value" : "0.05"
   }, {
     "name" : "arg2",
     "value" : "NGN"
   }, {
+    "name" : "arg20",
+    "value" : "322.5"
+  }, {
+    "name" : "arg21",
+    "value" : "322.5"
+  }, {
+    "name" : "arg22",
+    "value" : "15000.0"
+  }, {
+    "name" : "arg23",
+    "value" : "0.57"
+  }, {
+    "name" : "arg24",
+    "value" : "0.43"
+  }, {
+    "name" : "arg25",
+    "value" : "322.5"
+  }, {
     "name" : "arg3",
-    "value" : "3000000"
+    "value" : "15000"
   }, {
     "name" : "arg4",
-    "value" : "103"
+    "value" : "3"
   }, {
     "name" : "arg5",
-    "value" : "903"
+    "value" : "100"
   }, {
     "name" : "arg6",
-    "value" : "3000000"
+    "value" : "15000"
   }, {
     "name" : "arg7",
-    "value" : "3000000"
+    "value" : "15000"
   }, {
     "name" : "arg8",
-    "value" : "3000000"
+    "value" : "15000"
   }, {
     "name" : "arg9",
     "value" : "0"
@@ -208,6 +250,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "c45b15dc4dcdbf92.json",
-  "parameterValues" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.014", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
+  "source" : "fd55b64f8eef9406.json",
+  "parameterValues" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
 }

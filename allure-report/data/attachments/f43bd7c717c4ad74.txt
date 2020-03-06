@@ -2,14 +2,14 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 12:53:46 GMT
+Date: Fri, 06 Mar 2020 13:51:24 GMT
 
 {
     "clientId": 3,
     "productId": 100,
     "currencyCode": "NGN",
     "purchaseAmount": 10000,
-    "feesAsOf": "2020-03-06T12:53:46.338Z",
+    "feesAsOf": "2020-03-06T13:51:24.763Z",
     "terms": {
         "reserveAmount": 10000,
         "vendAmount": 10000,
@@ -39,7 +39,7 @@ HTTP/1.1 200 OK
 Server: Apache-Coyote/1.1
 Content-Type: text/xml;charset=ISO-8859-1
 Content-Length: 715
-Date: Fri, 06 Mar 2020 12:53:46 GMT
+Date: Fri, 06 Mar 2020 13:51:25 GMT
 
 <soapenv:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
   <soapenv:Header/>
@@ -49,11 +49,11 @@ Date: Fri, 06 Mar 2020 12:53:46 GMT
       <timeLocalTransaction>104827</timeLocalTransaction>
       <dateLocalTransaction>0121</dateLocalTransaction>
       <originId>2341111111111</originId>
-      <clientTransactionId>b35dfb97-f79c-46c6-9e7e-02046</clientTransactionId>
+      <clientTransactionId>b35dfb97-f79c-46c6-9e7e-09312</clientTransactionId>
       <productId>100</productId>
       <channelIndicator>07</channelIndicator>
-      <transmissionDateTime>0306145346</transmissionDateTime>
-      <vendorReferenceNo>7120010001252</vendorReferenceNo>
+      <transmissionDateTime>0306155124</transmissionDateTime>
+      <vendorReferenceNo>7120010001276</vendorReferenceNo>
       <responseCode>0</responseCode>
     </purchaseResponse>
   </soapenv:Body>
