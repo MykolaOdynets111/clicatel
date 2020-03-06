@@ -1,12 +1,12 @@
 {
-  "uid" : "842b8f54209f6862",
+  "uid" : "409c77d914e9fce5",
   "name" : "successPostAttributes",
   "fullName" : "API.dotCoreTests.regression_product_attributes.successPostAttributes",
-  "historyId" : "835292e7fabe20ecbe7bb8a900c54ec9",
+  "historyId" : "3053330e0af6e54040a5f5b8138b456a",
   "time" : {
-    "start" : 1583485918267,
-    "stop" : 1583485918370,
-    "duration" : 103
+    "start" : 1583489046574,
+    "stop" : 1583489046632,
+    "duration" : 58
   },
   "status" : "passed",
   "flaky" : false,
@@ -36,7 +36,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "20264@FANB0610.TestNG-PoolService-0(24)"
+    "value" : "11208@FANB0610.TestNG-PoolService-0(24)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -52,10 +52,10 @@
     "value" : "^[1-0]"
   }, {
     "name" : "arg1",
-    "value" : "AutomationTestAttribute8500"
+    "value" : "AutomationTestAttribute3990"
   }, {
     "name" : "arg2",
-    "value" : "8500"
+    "value" : "3990"
   }, {
     "name" : "arg3",
     "value" : "string"
@@ -69,6 +69,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "842b8f54209f6862.json",
-  "parameterValues" : [ "^[1-0]", "AutomationTestAttribute8500", "8500", "string" ]
+  "source" : "409c77d914e9fce5.json",
+  "parameterValues" : [ "^[1-0]", "AutomationTestAttribute3990", "3990", "string" ]
 }

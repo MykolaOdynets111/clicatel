@@ -1,0 +1,207 @@
+{
+  "uid" : "171195016c360b19",
+  "name" : "basicReserveAndTransactV3",
+  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3.basicReserveAndTransactV3",
+  "historyId" : "ea41d777cc929265ff1f8f5d3e2a9963",
+  "time" : {
+    "start" : 1583489024289,
+    "stop" : 1583489029984,
+    "duration" : 5695
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Reserve and Transact V3 Success",
+      "time" : {
+        "start" : 1583489024290,
+        "stop" : 1583489029981,
+        "duration" : 5691
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "64ec8907-f41a-441a-b1b8-355ef"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "49903"
+      }, {
+        "name" : "channelId",
+        "value" : "7"
+      }, {
+        "name" : "channelName",
+        "value" : "test"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "ST-8556726170"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "test123"
+      }, {
+        "name" : "productId",
+        "value" : "921"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341122222221"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "2341110000000"
+      }, {
+        "name" : "timeStamp",
+        "value" : "2019-09-03T15:35:26.720+02:00"
+      }, {
+        "name" : "feeAmount",
+        "value" : "0"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "Processing request (funds reserved)"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "202"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "0"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "6192266276230b4b",
+      "name" : "request",
+      "source" : "6192266276230b4b.txt",
+      "type" : "text/plain",
+      "size" : 1129
+    }, {
+      "uid" : "a95ed5a80fde603d",
+      "name" : "response",
+      "source" : "a95ed5a80fde603d.txt",
+      "type" : "text/plain",
+      "size" : 1114
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+  }, {
+    "name" : "testMethod",
+    "value" : "basicReserveAndTransactV3"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Reserve and Transact V3 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Reserve_and_Transact_V3.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "11208@FANB0610.TestNG-PoolService-0(19)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "64ec8907-f41a-441a-b1b8-355ef"
+  }, {
+    "name" : "arg1",
+    "value" : "49903"
+  }, {
+    "name" : "arg10",
+    "value" : "2019-09-03T15:35:26.720+02:00"
+  }, {
+    "name" : "arg11",
+    "value" : "0"
+  }, {
+    "name" : "arg12",
+    "value" : "0000"
+  }, {
+    "name" : "arg13",
+    "value" : "Processing request (funds reserved)"
+  }, {
+    "name" : "arg14",
+    "value" : "200"
+  }, {
+    "name" : "arg15",
+    "value" : "0000"
+  }, {
+    "name" : "arg16",
+    "value" : "202"
+  }, {
+    "name" : "arg17",
+    "value" : "0"
+  }, {
+    "name" : "arg2",
+    "value" : "7"
+  }, {
+    "name" : "arg3",
+    "value" : "test"
+  }, {
+    "name" : "arg4",
+    "value" : "ST-8556726170"
+  }, {
+    "name" : "arg5",
+    "value" : "3"
+  }, {
+    "name" : "arg6",
+    "value" : "test123"
+  }, {
+    "name" : "arg7",
+    "value" : "921"
+  }, {
+    "name" : "arg8",
+    "value" : "2341122222221"
+  }, {
+    "name" : "arg9",
+    "value" : "2341110000000"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "171195016c360b19.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
+}

@@ -259,6 +259,7 @@ public class regression_Raas_Reserve_and_Transact_V4 {
 
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV4response.path("raasTxnRef")), ReserveAndTransactV4response.path("raasTxnRef"));
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV4response.path("raasTxnRef")), ReserveAndTransactV4response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV4response.path("raasTxnRef")), ReserveAndTransactV4response.path("raasTxnRef"));
 

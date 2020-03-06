@@ -1,12 +1,12 @@
 {
-  "uid" : "69a8bd69c6c91ed7",
+  "uid" : "c29e5a7d01344fba",
   "name" : "basicTransactV4",
   "fullName" : "API.dotCoreTests.regression_Raas_Transact_V4.basicTransactV4",
   "historyId" : "d304bd055136164c9e395054bde4ddc4",
   "time" : {
-    "start" : 1583485884390,
-    "stop" : 1583485895928,
-    "duration" : 11538
+    "start" : 1583489013682,
+    "stop" : 1583489024273,
+    "duration" : 10591
   },
   "status" : "passed",
   "flaky" : false,
@@ -14,28 +14,28 @@
   "beforeStages" : [ {
     "name" : "setUp",
     "time" : {
-      "start" : 1583485884365,
-      "stop" : 1583485884383,
-      "duration" : 18
+      "start" : 1583489013659,
+      "stop" : 1583489013675,
+      "duration" : 16
     },
     "description" : "",
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ ],
     "parameters" : [ ],
-    "hasContent" : false,
-    "stepsCount" : 0,
+    "attachmentsCount" : 0,
     "shouldDisplayMessage" : false,
-    "attachmentsCount" : 0
+    "hasContent" : false,
+    "stepsCount" : 0
   } ],
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
       "name" : "1. POST successful transact V4 call",
       "time" : {
-        "start" : 1583485884390,
-        "stop" : 1583485895925,
-        "duration" : 11535
+        "start" : 1583489013682,
+        "stop" : 1583489024270,
+        "duration" : 10588
       },
       "status" : "passed",
       "steps" : [ ],
@@ -104,29 +104,29 @@
         "name" : "expectedCTXTransactionResponseCode",
         "value" : "0"
       } ],
-      "hasContent" : true,
-      "stepsCount" : 0,
+      "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
-      "attachmentsCount" : 0
+      "hasContent" : true,
+      "stepsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "f7b047cb8ed9b1c8",
+      "uid" : "ab59307f6e44fe13",
       "name" : "request",
-      "source" : "f7b047cb8ed9b1c8.txt",
+      "source" : "ab59307f6e44fe13.txt",
       "type" : "text/plain",
       "size" : 1220
     }, {
-      "uid" : "21feb1ae432b4d06",
+      "uid" : "55b93b9397a7291c",
       "name" : "response",
-      "source" : "21feb1ae432b4d06.txt",
+      "source" : "55b93b9397a7291c.txt",
       "type" : "text/plain",
       "size" : 1105
     } ],
     "parameters" : [ ],
-    "hasContent" : true,
-    "stepsCount" : 1,
+    "attachmentsCount" : 2,
     "shouldDisplayMessage" : false,
-    "attachmentsCount" : 2
+    "hasContent" : true,
+    "stepsCount" : 1
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -152,7 +152,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "20264@FANB0610.TestNG-PoolService-0(17)"
+    "value" : "11208@FANB0610.TestNG-PoolService-0(18)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -236,6 +236,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "69a8bd69c6c91ed7.json",
+  "source" : "c29e5a7d01344fba.json",
   "parameterValues" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "2", "test123", "60", "27731000000", "27731000000" ]
 }

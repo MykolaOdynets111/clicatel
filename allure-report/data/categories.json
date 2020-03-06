@@ -4,73 +4,22 @@
   "children" : [ {
     "name" : "Product defects",
     "children" : [ {
-      "name" : "expected [0000] but found [0001]",
-      "children" : [ {
-        "name" : "basicTransactV3",
-        "uid" : "38096d29b4cb947e",
-        "parentUid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0",
-        "status" : "failed",
-        "time" : {
-          "start" : 1583485881226,
-          "stop" : 1583485884321,
-          "duration" : 3095
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "testaccount", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "2022564675", "2", "test123", "60", "27731304702", "27731304702" ]
-      } ],
-      "uid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0"
-    }, {
       "name" : "expected [0] but found [2520]",
       "children" : [ {
         "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-        "uid" : "2bfaf18770ab6af2",
+        "uid" : "bae75b09638a3208",
         "parentUid" : "6d96b0301dee5b1d22de4ea1675c2eba",
         "status" : "failed",
         "time" : {
-          "start" : 1583485907387,
-          "stop" : 1583485912758,
-          "duration" : 5371
+          "start" : 1583489035660,
+          "stop" : 1583489041154,
+          "duration" : 5494
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "100000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "400", "0815793852", "0815793852" ]
       } ],
       "uid" : "6d96b0301dee5b1d22de4ea1675c2eba"
-    }, {
-      "name" : "expected [14625] but found [14677]",
-      "children" : [ {
-        "name" : "FinTermsModelASuccessTest",
-        "uid" : "6b2a2c1b021ef91e",
-        "parentUid" : "8b8d5ca4e3975322cedfe2229c30744a",
-        "status" : "failed",
-        "time" : {
-          "start" : 1583485919245,
-          "stop" : 1583485919458,
-          "duration" : 213
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
-      } ],
-      "uid" : "8b8d5ca4e3975322cedfe2229c30744a"
-    }, {
-      "name" : "expected [0.05] but found [0.014]",
-      "children" : [ {
-        "name" : "FinTermsModelBSuccessTest",
-        "uid" : "7d3fd5db657f45d0",
-        "parentUid" : "ffcc652d2b50b1a782d739b68353f0de",
-        "status" : "failed",
-        "time" : {
-          "start" : 1583485919463,
-          "stop" : 1583485919608,
-          "duration" : 145
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.05", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
-      } ],
-      "uid" : "ffcc652d2b50b1a782d739b68353f0de"
     } ],
     "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
   } ]

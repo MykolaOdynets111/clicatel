@@ -1,12 +1,12 @@
 {
-  "uid" : "ecf709ac2e21bac1",
+  "uid" : "9827de97ac1deb1e",
   "name" : "successPOSTClient",
   "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
   "historyId" : "498ed17e66103435bae7d528024adb94",
   "time" : {
-    "start" : 1583485918381,
-    "stop" : 1583485919010,
-    "duration" : 629
+    "start" : 1583489046642,
+    "stop" : 1583489047132,
+    "duration" : 490
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Client POST Success",
       "time" : {
-        "start" : 1583485918381,
-        "stop" : 1583485919008,
-        "duration" : 627
+        "start" : 1583489046642,
+        "stop" : 1583489047129,
+        "duration" : 487
       },
       "status" : "passed",
       "steps" : [ ],
@@ -55,29 +55,29 @@
         "name" : "timezoneId",
         "value" : "1"
       } ],
-      "hasContent" : true,
-      "stepsCount" : 0,
+      "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
-      "attachmentsCount" : 0
+      "hasContent" : true,
+      "stepsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "909dd632d6ee1701",
+      "uid" : "84520ed8b6a6af4c",
       "name" : "request",
-      "source" : "909dd632d6ee1701.txt",
+      "source" : "84520ed8b6a6af4c.txt",
       "type" : "text/plain",
       "size" : 861
     }, {
-      "uid" : "9fd76ef044e5b01f",
+      "uid" : "72842402b9913caa",
       "name" : "response",
-      "source" : "9fd76ef044e5b01f.txt",
+      "source" : "72842402b9913caa.txt",
       "type" : "text/plain",
       "size" : 929
     } ],
     "parameters" : [ ],
-    "hasContent" : true,
-    "stepsCount" : 1,
+    "attachmentsCount" : 2,
     "shouldDisplayMessage" : false,
-    "attachmentsCount" : 2
+    "hasContent" : true,
+    "stepsCount" : 1
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -103,7 +103,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "20264@FANB0610.TestNG-PoolService-0(25)"
+    "value" : "11208@FANB0610.TestNG-PoolService-0(25)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -154,6 +154,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "ecf709ac2e21bac1.json",
+  "source" : "9827de97ac1deb1e.json",
   "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
 }

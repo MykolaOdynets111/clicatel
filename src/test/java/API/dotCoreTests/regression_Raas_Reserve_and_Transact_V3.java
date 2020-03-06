@@ -58,8 +58,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","expectedRaasResultResponseResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","expectedCTXTransactionResponseCode")},
 
-
-
         };
     }
 
@@ -142,7 +140,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
-
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
 
@@ -238,6 +235,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
 

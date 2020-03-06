@@ -127,8 +127,6 @@ public class regression_Raas_Transact_V3 {
                         .extract()
                         .response();
 
-        System.out.println(TransactV3response.prettyPrint());
-
         // Assertions
 
         // Finance Terms Calculate response assertions
@@ -149,6 +147,7 @@ public class regression_Raas_Transact_V3 {
 
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", TransactV3response.path("raasTxnRef")), TransactV3response.path("raasTxnRef"));
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", TransactV3response.path("raasTxnRef")), TransactV3response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", TransactV3response.path("raasTxnRef")), TransactV3response.path("raasTxnRef"));
 

@@ -13,7 +13,7 @@
       "targetIdentifier":"2341110000000",
       "timestamp":"2019-09-03T15:35:26.720+02:00",
       "feeAmount":"0",
-      "currencyCode":"ZAR",
+      "currencyCode":"NGN",
       "fundingSourceId":"3",
       "expectedRaasResponseCode": "0000",
       "expectedMessage": "Processing request (funds reserved)",

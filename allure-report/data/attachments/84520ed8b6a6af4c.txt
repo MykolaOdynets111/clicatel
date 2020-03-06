@@ -12,14 +12,14 @@ Multiparts:		<none>
 Body:
 {
     "ctxLimitTotal": 50,
-    "clientId": 5978,
+    "clientId": 3849,
     "clickatellSystem": [
         1,
         2,
         3
     ],
-    "clickatellAccountId": 5978,
-    "clientName": "AUTOTESTCLIENT5978",
+    "clickatellAccountId": 3849,
+    "clientName": "AUTOTESTCLIENT3849",
     "countryCode": 710,
     "active": false,
     "timezoneId": 1,

@@ -2,14 +2,14 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 09:11:23 GMT
+Date: Fri, 06 Mar 2020 10:03:34 GMT
 
 {
     "clientId": 2,
     "productId": 60,
     "currencyCode": "ZAR",
     "purchaseAmount": 5900,
-    "feesAsOf": "2020-03-06T09:11:23.154Z",
+    "feesAsOf": "2020-03-06T10:03:34.183Z",
     "terms": {
         "reserveAmount": 5900,
         "vendAmount": 5900,
@@ -28,7 +28,7 @@ Date: Fri, 06 Mar 2020 09:11:23 GMT
     }
 }
 HTTP/1.1 200 OK
-content-length: 106
+content-length: 119
 Accept: */*
 Accept-Encoding: gzip,deflate
 User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_221)
@@ -36,7 +36,7 @@ content-type: application/json; charset=UTF-8
 connection: Keep-Alive
 
 {
-    "responseCode": "0001",
-    "responseMessage": "Invalid funding source",
-    "raasTxnRef": "j5xtp6ei7lelj6sb4fvhi3i2"
+    "responseCode": "0000",
+    "responseMessage": "Processing request (funds reserved)",
+    "raasTxnRef": "wbz463p3v4sm7krhauvtv5lt"
 }

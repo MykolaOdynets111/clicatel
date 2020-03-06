@@ -2,26 +2,26 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 09:11:24 GMT
+Date: Fri, 06 Mar 2020 10:03:56 GMT
 
 {
     "clientId": 2,
-    "productId": 60,
+    "productId": 400,
     "currencyCode": "ZAR",
-    "purchaseAmount": 5900,
-    "feesAsOf": "2020-03-06T09:11:24.901Z",
+    "purchaseAmount": 100000,
+    "feesAsOf": "2020-03-06T10:03:56.163Z",
     "terms": {
-        "reserveAmount": 5900,
-        "vendAmount": 5900,
+        "reserveAmount": 100000,
+        "vendAmount": 100000,
         "feeAmount": 0,
-        "settlementAmount": 5900,
+        "settlementAmount": 100000,
         "clientShareAmount": 0,
         "vendorShareAmount": 0
     },
     "variables": {
-        "REQUESTED_PURCHASE_VALUE": 5900,
-        "MNO_DISCOUNT_PERC": 0.0012,
-        "TPV": 5.9E+3,
+        "REQUESTED_PURCHASE_VALUE": 100000,
+        "MNO_DISCOUNT_PERC": 0.05,
+        "TPV": 1E+5,
         "CLIENT_SHARE_OF_TPV": 0.0,
         "VAT_PERC": 0.19,
         "CLIENT_MARKETING_COMMISSION": 0
@@ -38,5 +38,5 @@ connection: Keep-Alive
 {
     "responseCode": "0000",
     "responseMessage": "Processing request (funds reserved)",
-    "raasTxnRef": "3ijiqcc4rvbai5x366hub3xw"
+    "raasTxnRef": "3vkfjbhimjcwtyvxykbsuswx"
 }

@@ -1,17 +1,6 @@
 {
   "total" : 9,
   "items" : [ {
-    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
-    "name" : "Fin Terms Calculate Test Suite",
-    "statistic" : {
-      "failed" : 2,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 0,
-      "unknown" : 0,
-      "total" : 2
-    }
-  }, {
     "uid" : "ae1ae325f9f54494734eedf0dcc63924",
     "name" : "Reserve and Transact V4 Test Suite",
     "statistic" : {
@@ -23,13 +12,24 @@
       "total" : 2
     }
   }, {
+    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
+    "name" : "Fin Terms Calculate Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 2,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
     "uid" : "497a246c27e3621edefa09893e508a39",
     "name" : "Transact V3 Test Suite",
     "statistic" : {
-      "failed" : 1,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 0,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 1
     }
