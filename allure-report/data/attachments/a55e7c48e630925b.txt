@@ -1,9 +1,9 @@
 Request method:	GET
-Request URI:	http://docker-minion01.dev.za01.payd.co:30309/financial-terms/calculate?clientId=2&productId=400&purchaseAmount=100000
+Request URI:	http://docker-minion01.dev.za01.payd.co:30309/financial-terms/calculate?clientId=2&productId=30&purchaseAmount=5000
 Proxy:			<none>
 Request params:	clientId=2
-				productId=400
-				purchaseAmount=100000
+				productId=30
+				purchaseAmount=5000
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
@@ -27,9 +27,9 @@ Body:
     "clientId": "2",
     "sourceIdentifier": "0815793852",
     "fundingSourceId": "3",
-    "productId": "400",
+    "productId": "30",
     "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-    "purchaseAmount": "100000",
+    "purchaseAmount": "5000",
     "feeAmount": "0",
     "targetIdentifier": "0815793852",
     "clientTxnRef": "193103796",

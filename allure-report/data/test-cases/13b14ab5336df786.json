@@ -1,12 +1,12 @@
 {
-  "uid" : "2af37c24638b2f5e",
+  "uid" : "13b14ab5336df786",
   "name" : "VendorSuccesstestcases",
   "fullName" : "API.dotCoreTests.regression_Vendor.VendorSuccesstestcases",
-  "historyId" : "815b943904d3f2fe40bae23b385c8c13",
+  "historyId" : "c29a7c3c930e6ef303b65c4c7f9a8316",
   "time" : {
-    "start" : 1583489047140,
-    "stop" : 1583489047339,
-    "duration" : 199
+    "start" : 1583492552612,
+    "stop" : 1583492552859,
+    "duration" : 247
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "1. Create test vendor",
       "time" : {
-        "start" : 1583489047140,
-        "stop" : 1583489047336,
-        "duration" : 196
+        "start" : 1583492552612,
+        "stop" : 1583492552856,
+        "duration" : 244
       },
       "status" : "passed",
       "steps" : [ ],
@@ -50,13 +50,13 @@
         "value" : "0"
       }, {
         "name" : "name",
-        "value" : "AUTOMATIONTestVendor3725"
+        "value" : "AUTOMATIONTestVendor8308"
       }, {
         "name" : "countryName",
         "value" : "Nigeria"
       }, {
         "name" : "id",
-        "value" : "3725"
+        "value" : "8308"
       }, {
         "name" : "currencyId",
         "value" : "566"
@@ -64,29 +64,29 @@
         "name" : "requestsPeriod",
         "value" : "1000"
       } ],
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
       "hasContent" : true,
-      "stepsCount" : 0
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "e5594979cccc455b",
+      "uid" : "2a3fde0d72e73111",
       "name" : "request",
-      "source" : "e5594979cccc455b.txt",
+      "source" : "2a3fde0d72e73111.txt",
       "type" : "text/plain",
       "size" : 678
     }, {
-      "uid" : "50c7371d69917269",
+      "uid" : "1f1aeac588876ee3",
       "name" : "response",
-      "source" : "50c7371d69917269.txt",
+      "source" : "1f1aeac588876ee3.txt",
       "type" : "text/plain",
       "size" : 352
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "hasContent" : true,
-    "stepsCount" : 1
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -112,7 +112,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "11208@FANB0610.TestNG-PoolService-0(26)"
+    "value" : "30264@FANB0610.TestNG-PoolService-0(26)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -131,7 +131,7 @@
     "value" : "true"
   }, {
     "name" : "arg10",
-    "value" : "3725"
+    "value" : "8308"
   }, {
     "name" : "arg11",
     "value" : "566"
@@ -158,7 +158,7 @@
     "value" : "0"
   }, {
     "name" : "arg8",
-    "value" : "AUTOMATIONTestVendor3725"
+    "value" : "AUTOMATIONTestVendor8308"
   }, {
     "name" : "arg9",
     "value" : "Nigeria"
@@ -172,6 +172,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "2af37c24638b2f5e.json",
-  "parameterValues" : [ "0", "true", "3725", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor3725", "Nigeria" ]
+  "source" : "13b14ab5336df786.json",
+  "parameterValues" : [ "0", "true", "8308", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor8308", "Nigeria" ]
 }

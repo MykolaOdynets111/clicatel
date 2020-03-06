@@ -2,14 +2,14 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 10:03:44 GMT
+Date: Fri, 06 Mar 2020 11:01:53 GMT
 
 {
     "clientId": 3,
     "productId": 921,
     "currencyCode": "NGN",
     "purchaseAmount": 49903,
-    "feesAsOf": "2020-03-06T10:03:44.790Z",
+    "feesAsOf": "2020-03-06T11:01:53.033Z",
     "terms": {
         "reserveAmount": 49903,
         "vendAmount": 49903,
@@ -38,5 +38,5 @@ connection: Keep-Alive
 {
     "responseCode": "0000",
     "responseMessage": "Processing request (funds reserved)",
-    "raasTxnRef": "33vhrpz37pzg3yfoe3zy4tq4"
+    "raasTxnRef": "l4vhl5h4x52nrba7b76qrx5l"
 }

@@ -1,0 +1,169 @@
+{
+  "uid" : "35b69a74168fb50d",
+  "name" : "successPOSTClient",
+  "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
+  "historyId" : "498ed17e66103435bae7d528024adb94",
+  "time" : {
+    "start" : 1583492552486,
+    "stop" : 1583492552590,
+    "duration" : 104
+  },
+  "status" : "failed",
+  "statusMessage" : "expected [64] but found [null]",
+  "statusTrace" : "java.lang.AssertionError: expected [64] but found [null]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:132)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:442)\r\n\tat API.dotCoreTests.regression_client.successPOSTClient(regression_client.java:125)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "expected [64] but found [null]",
+    "statusTrace" : "java.lang.AssertionError: expected [64] but found [null]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:132)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:442)\r\n\tat API.dotCoreTests.regression_client.successPOSTClient(regression_client.java:125)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+    "steps" : [ {
+      "name" : "Client POST Success",
+      "time" : {
+        "start" : 1583492552486,
+        "stop" : 1583492552583,
+        "duration" : 97
+      },
+      "status" : "failed",
+      "statusMessage" : "expected [64] but found [null]",
+      "statusTrace" : "java.lang.AssertionError: expected [64] but found [null]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:132)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:442)\r\n\tat API.dotCoreTests.regression_client.successPOSTClient(regression_client.java:125)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "active",
+        "value" : "true"
+      }, {
+        "name" : "clientName",
+        "value" : "AUTOTESTCLIENT"
+      }, {
+        "name" : "countryCode",
+        "value" : "710"
+      }, {
+        "name" : "ctxLimitTotal",
+        "value" : "50"
+      }, {
+        "name" : "apiKey",
+        "value" : "apiKey"
+      }, {
+        "name" : "encryption",
+        "value" : "true"
+      }, {
+        "name" : "inbound",
+        "value" : "inbound"
+      }, {
+        "name" : "outbound",
+        "value" : "outbound"
+      }, {
+        "name" : "integrationId",
+        "value" : "integrationId"
+      }, {
+        "name" : "timezoneId",
+        "value" : "1"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "25cc0c0833e60609",
+      "name" : "request",
+      "source" : "25cc0c0833e60609.txt",
+      "type" : "text/plain",
+      "size" : 855
+    }, {
+      "uid" : "b215f4e4b316fac8",
+      "name" : "response",
+      "source" : "b215f4e4b316fac8.txt",
+      "type" : "text/plain",
+      "size" : 371
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testMethod",
+    "value" : "successPOSTClient"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Client Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_client.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "30264@FANB0610.TestNG-PoolService-0(25)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "true"
+  }, {
+    "name" : "arg1",
+    "value" : "AUTOTESTCLIENT"
+  }, {
+    "name" : "arg2",
+    "value" : "710"
+  }, {
+    "name" : "arg3",
+    "value" : "50"
+  }, {
+    "name" : "arg4",
+    "value" : "apiKey"
+  }, {
+    "name" : "arg5",
+    "value" : "true"
+  }, {
+    "name" : "arg6",
+    "value" : "inbound"
+  }, {
+    "name" : "arg7",
+    "value" : "outbound"
+  }, {
+    "name" : "arg8",
+    "value" : "integrationId"
+  }, {
+    "name" : "arg9",
+    "value" : "1"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "35b69a74168fb50d.json",
+  "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
+}

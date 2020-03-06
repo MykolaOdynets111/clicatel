@@ -2,14 +2,14 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 10:04:07 GMT
+Date: Fri, 06 Mar 2020 11:02:33 GMT
 
 {
     "clientId": 103,
     "productId": 903,
     "currencyCode": "NGN",
     "purchaseAmount": 3000000,
-    "feesAsOf": "2020-03-06T10:04:08.209Z",
+    "feesAsOf": "2020-03-06T11:02:33.951Z",
     "terms": {
         "reserveAmount": 3000000,
         "vendAmount": 3000000,

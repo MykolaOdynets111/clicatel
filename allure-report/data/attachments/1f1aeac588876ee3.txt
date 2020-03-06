@@ -2,11 +2,11 @@ HTTP/1.1 200
 X-Application-Context: payd-product-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 10:04:07 GMT
+Date: Fri, 06 Mar 2020 11:02:33 GMT
 
 {
-    "id": 227,
-    "name": "AUTOMATIONTestVendor3725",
+    "id": 230,
+    "name": "AUTOMATIONTestVendor8308",
     "active": true,
     "currencyId": "566",
     "maxRetries": 0,

@@ -2,28 +2,28 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 10:03:27 GMT
+Date: Fri, 06 Mar 2020 11:02:22 GMT
 
 {
-    "clientId": 3,
-    "productId": 921,
-    "currencyCode": "NGN",
-    "purchaseAmount": 49903,
-    "feesAsOf": "2020-03-06T10:03:26.922Z",
+    "clientId": 2,
+    "productId": 30,
+    "currencyCode": "ZAR",
+    "purchaseAmount": 5000,
+    "feesAsOf": "2020-03-06T11:02:22.185Z",
     "terms": {
-        "reserveAmount": 49903,
-        "vendAmount": 49903,
+        "reserveAmount": 5000,
+        "vendAmount": 5000,
         "feeAmount": 0,
-        "settlementAmount": 47906,
-        "clientShareAmount": 1997,
+        "settlementAmount": 5000,
+        "clientShareAmount": 0,
         "vendorShareAmount": 0
     },
     "variables": {
-        "REQUESTED_PURCHASE_VALUE": 49903,
-        "MNO_DISCOUNT_PERC": 0.043,
-        "TPV": 49903,
-        "CLIENT_SHARE_OF_TPV": 0.04,
-        "VAT_PERC": 0.014,
+        "REQUESTED_PURCHASE_VALUE": 5000,
+        "MNO_DISCOUNT_PERC": 0.9,
+        "TPV": 5E+3,
+        "CLIENT_SHARE_OF_TPV": 0.0,
+        "VAT_PERC": 0.19,
         "CLIENT_MARKETING_COMMISSION": 0
     }
 }
@@ -38,5 +38,5 @@ connection: Keep-Alive
 {
     "responseCode": "0000",
     "responseMessage": "Processing request (funds reserved)",
-    "raasTxnRef": "grk5jv5ajj2brntgc36s5g6i"
+    "raasTxnRef": "pecgapck5zw4gyacldunowtv"
 }

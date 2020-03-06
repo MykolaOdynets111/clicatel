@@ -1,110 +1,110 @@
 [ {
-  "uid" : "bae75b09638a3208",
+  "uid" : "819c13ff7ccba2fd",
+  "name" : "basicCtx",
+  "time" : {
+    "start" : 1583492547062,
+    "stop" : 1583492552371,
+    "duration" : 5309
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1d362b81f6116a4e",
+  "name" : "basicReserveAndTransactV4",
+  "time" : {
+    "start" : 1583492535846,
+    "stop" : 1583492541457,
+    "duration" : 5611
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d62a37a480ccd5e",
   "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
   "time" : {
-    "start" : 1583489035660,
-    "stop" : 1583489041154,
-    "duration" : 5494
+    "start" : 1583492541464,
+    "stop" : 1583492547053,
+    "duration" : 5589
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dce368e5f4fba5f9",
+  "name" : "basicReserveAndTransactV3",
+  "time" : {
+    "start" : 1583492530134,
+    "stop" : 1583492535833,
+    "duration" : 5699
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "13b14ab5336df786",
+  "name" : "VendorSuccesstestcases",
+  "time" : {
+    "start" : 1583492552612,
+    "stop" : 1583492552859,
+    "duration" : 247
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "35b69a74168fb50d",
+  "name" : "successPOSTClient",
+  "time" : {
+    "start" : 1583492552486,
+    "stop" : 1583492552590,
+    "duration" : 104
   },
   "status" : "failed",
   "severity" : "normal"
 }, {
-  "uid" : "e41d9e81fc5f82b7",
-  "name" : "basicReserveAndTransactV4",
-  "time" : {
-    "start" : 1583489029995,
-    "stop" : 1583489035651,
-    "duration" : 5656
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "2af37c24638b2f5e",
-  "name" : "VendorSuccesstestcases",
-  "time" : {
-    "start" : 1583489047140,
-    "stop" : 1583489047339,
-    "duration" : 199
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "232f7e628e7a10c6",
-  "name" : "basicCtx",
-  "time" : {
-    "start" : 1583489041172,
-    "stop" : 1583489046564,
-    "duration" : 5392
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "171195016c360b19",
-  "name" : "basicReserveAndTransactV3",
-  "time" : {
-    "start" : 1583489024289,
-    "stop" : 1583489029984,
-    "duration" : 5695
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "c29e5a7d01344fba",
-  "name" : "basicTransactV4",
-  "time" : {
-    "start" : 1583489013682,
-    "stop" : 1583489024273,
-    "duration" : 10591
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "2be74ec3fd3ec836",
-  "name" : "basicTransactV3",
-  "time" : {
-    "start" : 1583489005014,
-    "stop" : 1583489013618,
-    "duration" : 8604
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "9827de97ac1deb1e",
-  "name" : "successPOSTClient",
-  "time" : {
-    "start" : 1583489046642,
-    "stop" : 1583489047132,
-    "duration" : 490
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "e7bd931141a35a20",
+  "uid" : "186f31fe55cd229b",
   "name" : "FinTermsModelASuccessTest",
   "time" : {
-    "start" : 1583489047349,
-    "stop" : 1583489047697,
-    "duration" : 348
+    "start" : 1583492552880,
+    "stop" : 1583492553225,
+    "duration" : 345
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "409c77d914e9fce5",
+  "uid" : "4f87649553893bba",
   "name" : "successPostAttributes",
   "time" : {
-    "start" : 1583489046574,
-    "stop" : 1583489046632,
-    "duration" : 58
+    "start" : 1583492552384,
+    "stop" : 1583492552477,
+    "duration" : 93
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "16627ed7acaf404c",
+  "uid" : "3bbe6771ecc5ffbe",
+  "name" : "basicTransactV4",
+  "time" : {
+    "start" : 1583492519534,
+    "stop" : 1583492530113,
+    "duration" : 10579
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3546620e083a13c3",
   "name" : "FinTermsModelBSuccessTest",
   "time" : {
-    "start" : 1583489047705,
-    "stop" : 1583489048000,
-    "duration" : 295
+    "start" : 1583492553231,
+    "stop" : 1583492553432,
+    "duration" : 201
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "1a2fb224a00799a5",
+  "name" : "basicTransactV3",
+  "time" : {
+    "start" : 1583492510876,
+    "stop" : 1583492519457,
+    "duration" : 8581
   },
   "status" : "passed",
   "severity" : "normal"

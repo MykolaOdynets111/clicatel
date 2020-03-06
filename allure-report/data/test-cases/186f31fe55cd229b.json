@@ -1,12 +1,12 @@
 {
-  "uid" : "e7bd931141a35a20",
+  "uid" : "186f31fe55cd229b",
   "name" : "FinTermsModelASuccessTest",
   "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest",
   "historyId" : "7f13441ffbe62e82d464059ba8e8772c",
   "time" : {
-    "start" : 1583489047349,
-    "stop" : 1583489047697,
-    "duration" : 348
+    "start" : 1583492552880,
+    "stop" : 1583492553225,
+    "duration" : 345
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Fin Terms Model A Calculate Success",
       "time" : {
-        "start" : 1583489047349,
-        "stop" : 1583489047694,
-        "duration" : 345
+        "start" : 1583492552880,
+        "stop" : 1583492553223,
+        "duration" : 343
       },
       "status" : "passed",
       "steps" : [ ],
@@ -103,29 +103,29 @@
         "name" : "expectedVariablesCLIENT_SHARE_AMOUNT",
         "value" : "322.5"
       } ],
-      "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false,
       "hasContent" : true,
-      "stepsCount" : 0
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "9cc7717c11369cdd",
+      "uid" : "b18c0000cfbfb2af",
       "name" : "request",
-      "source" : "9cc7717c11369cdd.txt",
+      "source" : "b18c0000cfbfb2af.txt",
       "type" : "text/plain",
       "size" : 384
     }, {
-      "uid" : "b3047db63f66eabb",
+      "uid" : "5f94c906514d28b8",
       "name" : "response",
-      "source" : "b3047db63f66eabb.txt",
+      "source" : "5f94c906514d28b8.txt",
       "type" : "text/plain",
       "size" : 1056
     } ],
     "parameters" : [ ],
-    "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false,
     "hasContent" : true,
-    "stepsCount" : 1
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -151,7 +151,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "11208@FANB0610.TestNG-PoolService-0(27)"
+    "value" : "30264@FANB0610.TestNG-PoolService-0(27)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -250,6 +250,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "e7bd931141a35a20.json",
+  "source" : "186f31fe55cd229b.json",
   "parameterValues" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
 }
