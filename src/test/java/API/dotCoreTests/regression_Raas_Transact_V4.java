@@ -7,11 +7,13 @@
 package API.dotCoreTests;
 
 import api.testUtilities.testConfig;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import api.requestLibary.CORE.coreTransactV4POJO;
 
@@ -24,7 +26,9 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Raas_Transact_V4 extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -63,6 +67,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
     }
 
     // Action step
+    @Step("1. POST successful transact V4 call")
     @Test(dataProvider = "transactV4testcases")
     public void basicTransactV4(String accountIdentifier,
                                 String purchaseAmount,
@@ -141,7 +146,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
         Assert.assertEquals(TransactV4response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // CTX DB assertions
-        Thread.sleep(5000);
+        Thread.sleep(10000);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
         // raas db assertions

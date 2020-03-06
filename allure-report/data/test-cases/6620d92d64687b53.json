@@ -1,0 +1,177 @@
+{
+  "uid" : "6620d92d64687b53",
+  "name" : "VendorSuccesstestcases",
+  "fullName" : "API.dotCoreTests.regression_Vendor.VendorSuccesstestcases",
+  "historyId" : "b98617c4c610fbc42b2a2b449ee83861",
+  "time" : {
+    "start" : 1583485919019,
+    "stop" : 1583485919233,
+    "duration" : 214
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "1. Create test vendor",
+      "time" : {
+        "start" : 1583485919020,
+        "stop" : 1583485919231,
+        "duration" : 211
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "backoff",
+        "value" : "0"
+      }, {
+        "name" : "active",
+        "value" : "true"
+      }, {
+        "name" : "maximumRequestsPerPeriod",
+        "value" : "20"
+      }, {
+        "name" : "countryId",
+        "value" : "566"
+      }, {
+        "name" : "currencyAlphaCode",
+        "value" : "string"
+      }, {
+        "name" : "retryDelay",
+        "value" : "0"
+      }, {
+        "name" : "maxRetries",
+        "value" : "3"
+      }, {
+        "name" : "retryDelayMax",
+        "value" : "0"
+      }, {
+        "name" : "name",
+        "value" : "AUTOMATIONTestVendor7122"
+      }, {
+        "name" : "countryName",
+        "value" : "Nigeria"
+      }, {
+        "name" : "id",
+        "value" : "7122"
+      }, {
+        "name" : "currencyId",
+        "value" : "566"
+      }, {
+        "name" : "requestsPeriod",
+        "value" : "1000"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "dc97d1a0d00e6c34",
+      "name" : "request",
+      "source" : "dc97d1a0d00e6c34.txt",
+      "type" : "text/plain",
+      "size" : 678
+    }, {
+      "uid" : "e0364cbaabe090e1",
+      "name" : "response",
+      "source" : "e0364cbaabe090e1.txt",
+      "type" : "text/plain",
+      "size" : 352
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Vendor"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Vendor"
+  }, {
+    "name" : "testMethod",
+    "value" : "VendorSuccesstestcases"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Vendor Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Vendor.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Vendor"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "20264@FANB0610.TestNG-PoolService-0(26)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "0"
+  }, {
+    "name" : "arg1",
+    "value" : "true"
+  }, {
+    "name" : "arg10",
+    "value" : "7122"
+  }, {
+    "name" : "arg11",
+    "value" : "566"
+  }, {
+    "name" : "arg12",
+    "value" : "1000"
+  }, {
+    "name" : "arg2",
+    "value" : "20"
+  }, {
+    "name" : "arg3",
+    "value" : "566"
+  }, {
+    "name" : "arg4",
+    "value" : "string"
+  }, {
+    "name" : "arg5",
+    "value" : "0"
+  }, {
+    "name" : "arg6",
+    "value" : "3"
+  }, {
+    "name" : "arg7",
+    "value" : "0"
+  }, {
+    "name" : "arg8",
+    "value" : "AUTOMATIONTestVendor7122"
+  }, {
+    "name" : "arg9",
+    "value" : "Nigeria"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "6620d92d64687b53.json",
+  "parameterValues" : [ "0", "true", "7122", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor7122", "Nigeria" ]
+}

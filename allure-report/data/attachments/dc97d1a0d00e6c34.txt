@@ -1,0 +1,27 @@
+Request method:	POST
+Request URI:	http://docker-minion01.dev.za01.payd.co:32000/vendors/create
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "backoff": "0",
+    "active": "true",
+    "maximumRequestsPerPeriod": "20",
+    "countryId": "566",
+    "currencyAlphaCode": "string",
+    "retryDelay": "0",
+    "maxRetries": "3",
+    "retryDelayMax": "0",
+    "name": "AUTOMATIONTestVendor7122",
+    "countryName": "Nigeria",
+    "id": "7122",
+    "currencyId": "566",
+    "requestsPeriod": "1000"
+}

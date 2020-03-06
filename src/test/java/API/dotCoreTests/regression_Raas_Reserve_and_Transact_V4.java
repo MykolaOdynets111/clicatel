@@ -7,11 +7,13 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import api.requestLibary.CORE.coreReserveAndTransactV4POJO;
 
@@ -23,7 +25,9 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Raas_Reserve_and_Transact_V4 {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -59,6 +63,7 @@ public class regression_Raas_Reserve_and_Transact_V4 {
         };
     }
 
+    @Step("Reserve and Transact V4 Success")
     @Test(dataProvider = "ReserveAndTransactV4testcases")
     public void basicReserveAndTransactV4(String accountIdentifier,
                                 String purchaseAmount,

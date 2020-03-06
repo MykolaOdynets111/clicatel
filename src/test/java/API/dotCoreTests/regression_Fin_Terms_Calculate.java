@@ -1,11 +1,13 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import api.testUtilities.dataBuilders.testDataFactory;
@@ -16,9 +18,11 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
 import javax.sql.DataSource;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Fin_Terms_Calculate {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -62,6 +66,7 @@ public class regression_Fin_Terms_Calculate {
         };
     }
 
+    @Step("Fin Terms Model A Calculate Success")
     @Test(dataProvider = "FinTermsCalculateModelATestCases")
     public void FinTermsModelASuccessTest(String clientId,
                                          String productId,
@@ -166,6 +171,7 @@ public class regression_Fin_Terms_Calculate {
         };
     }
 
+    @Step("Fin Terms Model B Calculate Success")
     @Test(dataProvider = "FinTermsCalculateModelBTestCases")
     public void FinTermsModelBSuccessTest(String clientId,
                                           String productId,

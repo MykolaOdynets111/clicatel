@@ -6,8 +6,6 @@ public class coreReserveAndTransactV3POJO {
 
     private String sourceIdentifier;
 
-    private String fundingSourceId;
-
     private String productId;
 
     private String accountIdentifier;
@@ -24,8 +22,6 @@ public class coreReserveAndTransactV3POJO {
 
     private String channelName;
 
-    private String currencyCode;
-
     private String channelId;
 
     private String timestamp;
@@ -34,7 +30,7 @@ public class coreReserveAndTransactV3POJO {
 
     }
 
-    public coreReserveAndTransactV3POJO(String accountIdentifier, String purchaseAmount, String channelId, String channelName, String channelSessionId, String clientId, String clientTxnRef, String productId, String sourceIdentifier, String targetIdentifier, String timestamp, String feeAmount, String currencyCode, String fundingSourceId){
+    public coreReserveAndTransactV3POJO(String accountIdentifier, String purchaseAmount, String channelId, String channelName, String channelSessionId, String clientId, String clientTxnRef, String productId, String sourceIdentifier, String targetIdentifier, String timestamp, String feeAmount){
 
         this.accountIdentifier = accountIdentifier;
         this.purchaseAmount = purchaseAmount;
@@ -48,8 +44,6 @@ public class coreReserveAndTransactV3POJO {
         this.targetIdentifier = targetIdentifier;
         this.timestamp = timestamp;
         this.feeAmount = feeAmount;
-        this.currencyCode = currencyCode;
-        this.fundingSourceId = fundingSourceId;
 
     }
 
@@ -71,16 +65,6 @@ public class coreReserveAndTransactV3POJO {
     public void setSourceIdentifier (String sourceIdentifier)
     {
         this.sourceIdentifier = sourceIdentifier;
-    }
-
-    public String getFundingSourceId ()
-    {
-        return fundingSourceId;
-    }
-
-    public void setFundingSourceId (String fundingSourceId)
-    {
-        this.fundingSourceId = fundingSourceId;
     }
 
     public String getProductId ()
@@ -163,16 +147,6 @@ public class coreReserveAndTransactV3POJO {
         this.channelName = channelName;
     }
 
-    public String getCurrencyCode ()
-    {
-        return currencyCode;
-    }
-
-    public void setCurrencyCode (String currencyCode)
-    {
-        this.currencyCode = currencyCode;
-    }
-
     public String getChannelId ()
     {
         return channelId;
@@ -196,7 +170,7 @@ public class coreReserveAndTransactV3POJO {
     @Override
     public String toString()
     {
-        return "ClassPojo [accountIdentifier = "+accountIdentifier+", purchaseAmount = "+purchaseAmount+", channelId = "+channelId+", channelName = "+channelName+", channelSessionId = "+channelSessionId+", clientId = "+clientId+", clientTxnRef = "+clientTxnRef+", productId = "+productId+", sourceIdentifier = "+sourceIdentifier+", targetIdentifier = "+targetIdentifier+", timestamp = "+timestamp+", feeAmount = "+feeAmount+", currencyCode = "+currencyCode+", fundingSourceId = "+fundingSourceId+"]";
+        return "ClassPojo [accountIdentifier = "+accountIdentifier+", purchaseAmount = "+purchaseAmount+", channelId = "+channelId+", channelName = "+channelName+", channelSessionId = "+channelSessionId+", clientId = "+clientId+", clientTxnRef = "+clientTxnRef+", productId = "+productId+", sourceIdentifier = "+sourceIdentifier+", targetIdentifier = "+targetIdentifier+", timestamp = "+timestamp+", feeAmount = "+feeAmount+"]";
     }
 
 }

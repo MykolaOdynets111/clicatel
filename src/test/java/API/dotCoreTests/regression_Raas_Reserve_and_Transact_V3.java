@@ -7,11 +7,13 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import api.requestLibary.CORE.coreReserveAndTransactV3POJO;
 
@@ -23,7 +25,9 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Raas_Reserve_and_Transact_V3 {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -47,8 +51,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","targetIdentifier"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","timestamp"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","feeAmount"),
-                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","currencyCode"),
-                        testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","fundingSourceId"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","expectedRaasResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","expectedMessage"),
                         testDataFactory.getTestData("ReserveAndTransactV3datasource.json","reserveandtransactv3suite","successcase1","expectedHTTPResponseCode"),
@@ -61,6 +63,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
         };
     }
 
+    @Step("Reserve and Transact V3 Success")
     @Test(dataProvider = "ReserveAndTransactV3testcases")
     public void basicReserveAndTransactV3(String accountIdentifier,
                                           String purchaseAmount,
@@ -74,8 +77,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                                           String targetIdentifier,
                                           String timeStamp,
                                           String feeAmount,
-                                          String currencyCode,
-                                          String fundingSourceId,
                                           String expectedRaasResponseCode,
                                           String expectedMessage,
                                           String expectedHTTPResponseCode,
@@ -108,9 +109,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                 sourceIdentifier,
                 targetIdentifier,
                 timeStamp,
-                feeAmount,
-                currencyCode,
-                fundingSourceId);
+                feeAmount);
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response ReserveAndTransactV3response =
@@ -142,6 +141,8 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
         // raas db assertions
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
+
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), ReserveAndTransactV3response.path("raasTxnRef"));
 
@@ -192,8 +193,6 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                                           String targetIdentifier,
                                           String timeStamp,
                                           String feeAmount,
-                                          String currencyCode,
-                                          String fundingSourceId,
                                           String expectedRaasResponseCode,
                                           String expectedMessage,
                                           String expectedHTTPResponseCode,
@@ -214,9 +213,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
                 sourceIdentifier,
                 targetIdentifier,
                 timeStamp,
-                feeAmount,
-                currencyCode,
-                fundingSourceId);
+                feeAmount);
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response ReserveAndTransactV3response =
@@ -243,6 +240,7 @@ public class regression_Raas_Reserve_and_Transact_V3 {
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.transaction_log", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV3response.path("raasTxnRef")), "null");
+
 
     }
 

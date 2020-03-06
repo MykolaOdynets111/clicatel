@@ -1,0 +1,42 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 06 Mar 2020 09:11:23 GMT
+
+{
+    "clientId": 2,
+    "productId": 60,
+    "currencyCode": "ZAR",
+    "purchaseAmount": 5900,
+    "feesAsOf": "2020-03-06T09:11:23.154Z",
+    "terms": {
+        "reserveAmount": 5900,
+        "vendAmount": 5900,
+        "feeAmount": 0,
+        "settlementAmount": 5900,
+        "clientShareAmount": 0,
+        "vendorShareAmount": 0
+    },
+    "variables": {
+        "REQUESTED_PURCHASE_VALUE": 5900,
+        "MNO_DISCOUNT_PERC": 0.0012,
+        "TPV": 5.9E+3,
+        "CLIENT_SHARE_OF_TPV": 0.0,
+        "VAT_PERC": 0.19,
+        "CLIENT_MARKETING_COMMISSION": 0
+    }
+}
+HTTP/1.1 200 OK
+content-length: 106
+Accept: */*
+Accept-Encoding: gzip,deflate
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_221)
+content-type: application/json; charset=UTF-8
+connection: Keep-Alive
+
+{
+    "responseCode": "0001",
+    "responseMessage": "Invalid funding source",
+    "raasTxnRef": "j5xtp6ei7lelj6sb4fvhi3i2"
+}

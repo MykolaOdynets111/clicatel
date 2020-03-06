@@ -10,11 +10,13 @@ import api.requestLibary.CORE.coreTransactV4POJO;
 import api.testUtilities.dataBuilders.RandomCharGenerator;
 import api.testUtilities.testConfig;
 import com.github.javafaker.Bool;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import api.requestLibary.CORE.corePOSTVendorPOJO;
 
@@ -27,7 +29,9 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Vendor {
 
 
@@ -62,6 +66,7 @@ public class regression_Vendor {
     }
 
     // Action step
+    @Step("1. Create test vendor")
     @Test(dataProvider = "VendorSuccesstestcases")
     public void VendorSuccesstestcases(String backoff,
                                 String active,

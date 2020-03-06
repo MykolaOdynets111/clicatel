@@ -1,0 +1,60 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 06 Mar 2020 09:11:53 GMT
+
+{
+    "clientId": 3,
+    "productId": 100,
+    "currencyCode": "NGN",
+    "purchaseAmount": 10000,
+    "feesAsOf": "2020-03-06T09:11:53.280Z",
+    "terms": {
+        "reserveAmount": 10000,
+        "vendAmount": 10000,
+        "feeAmount": 0,
+        "settlementAmount": 9785,
+        "clientShareAmount": 215,
+        "vendorShareAmount": 0
+    },
+    "variables": {
+        "PAYD_SHARE_AMOUNT": 285,
+        "REQUESTED_PURCHASE_VALUE": 10000,
+        "PAYD_VAT_LIABILITY": 6.903352,
+        "VAT_PERC": 0.014,
+        "PAYD_REVENUE": 493.0966,
+        "MNO_DISC_AMT": 5E+2,
+        "PAYD_GROSS_PROFIT": 278.0966,
+        "MNO_DISCOUNT_PERC": 0.05,
+        "CLIENT_REVENUE": 215,
+        "PAYD_COST_OF_GOODS_SOLD": 215,
+        "TPV": 1E+4,
+        "PAYD_SHARE_PERC": 0.57,
+        "CLIENT_SHARE_OF_MNO_DISCOUNT": 0.43,
+        "CLIENT_SHARE_AMOUNT": 215
+    }
+}
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/xml;charset=ISO-8859-1
+Content-Length: 715
+Date: Fri, 06 Mar 2020 09:11:53 GMT
+
+<soapenv:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <purchaseResponse xmlns="http://clickatell.com/types">
+      <purchaseAmount>10000</purchaseAmount>
+      <timeLocalTransaction>104827</timeLocalTransaction>
+      <dateLocalTransaction>0121</dateLocalTransaction>
+      <originId>2341111111111</originId>
+      <clientTransactionId>b35dfb97-f79c-46c6-9e7e-05898</clientTransactionId>
+      <productId>100</productId>
+      <channelIndicator>07</channelIndicator>
+      <transmissionDateTime>0306111153</transmissionDateTime>
+      <vendorReferenceNo>7120010001061</vendorReferenceNo>
+      <responseCode>0</responseCode>
+    </purchaseResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

@@ -3,6 +3,7 @@ package API.dotCoreTests;
 import api.testUtilities.dataBuilders.RandomCharGenerator;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
 import com.google.gson.JsonObject;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import api.requestLibary.CORE.corePostClientPOJO;
@@ -11,6 +12,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import api.testUtilities.dataBuilders.testDataFactory;
@@ -21,9 +23,11 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
 import javax.sql.DataSource;
 
+@Listeners(allureApiTestListener.class)
 public class regression_client {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -53,6 +57,7 @@ public class regression_client {
         };
     }
 
+    @Step("Client POST Success")
     @Test(dataProvider = "successPOSTClientTestCases")
     public void successPOSTClient(String active,
                                   String clientName,

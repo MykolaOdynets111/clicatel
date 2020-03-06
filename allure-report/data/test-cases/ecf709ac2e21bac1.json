@@ -1,17 +1,84 @@
 {
-  "uid" : "8125929686b8d4d8",
+  "uid" : "ecf709ac2e21bac1",
   "name" : "successPOSTClient",
   "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
   "historyId" : "498ed17e66103435bae7d528024adb94",
   "time" : {
-    "start" : 1582017204899,
-    "stop" : 1582017205529,
-    "duration" : 630
+    "start" : 1583485918381,
+    "stop" : 1583485919010,
+    "duration" : 629
   },
   "status" : "passed",
   "flaky" : false,
   "newFailed" : false,
   "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Client POST Success",
+      "time" : {
+        "start" : 1583485918381,
+        "stop" : 1583485919008,
+        "duration" : 627
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "active",
+        "value" : "true"
+      }, {
+        "name" : "clientName",
+        "value" : "AUTOTESTCLIENT"
+      }, {
+        "name" : "countryCode",
+        "value" : "710"
+      }, {
+        "name" : "ctxLimitTotal",
+        "value" : "50"
+      }, {
+        "name" : "apiKey",
+        "value" : "apiKey"
+      }, {
+        "name" : "encryption",
+        "value" : "true"
+      }, {
+        "name" : "inbound",
+        "value" : "inbound"
+      }, {
+        "name" : "outbound",
+        "value" : "outbound"
+      }, {
+        "name" : "integrationId",
+        "value" : "integrationId"
+      }, {
+        "name" : "timezoneId",
+        "value" : "1"
+      } ],
+      "hasContent" : true,
+      "stepsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "909dd632d6ee1701",
+      "name" : "request",
+      "source" : "909dd632d6ee1701.txt",
+      "type" : "text/plain",
+      "size" : 861
+    }, {
+      "uid" : "9fd76ef044e5b01f",
+      "name" : "response",
+      "source" : "9fd76ef044e5b01f.txt",
+      "type" : "text/plain",
+      "size" : 929
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 1,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
   "afterStages" : [ ],
   "labels" : [ {
     "name" : "package",
@@ -36,7 +103,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "33196@FANB0610.TestNG-PoolService-0(28)"
+    "value" : "20264@FANB0610.TestNG-PoolService-0(25)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -87,6 +154,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "8125929686b8d4d8.json",
+  "source" : "ecf709ac2e21bac1.json",
   "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
 }

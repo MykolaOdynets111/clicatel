@@ -10,18 +10,23 @@ import api.requestLibary.CORE.coreTransactV3POJO;
 import api.testUtilities.dataBuilders.testDataFactory;
 import api.testUtilities.propertyConfigWrapper.configWrapper;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import io.qameta.allure.Description;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import util.Listeners.allureApiTestListener;
 
 import java.io.IOException;
 import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Raas_Transact_V3 {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -57,7 +62,10 @@ public class regression_Raas_Transact_V3 {
 
     }
 
+
     // Action step
+    @Step("Transact V3 Success")
+    @Description("Transact V3 Success test")
     @Test(dataProvider = "transactV3testcases")
     public void basicTransactV3(String accountIdentifier,
                                 String purchaseAmount,

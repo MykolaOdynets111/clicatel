@@ -13,12 +13,14 @@ import api.testUtilities.testConfig;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -32,7 +34,9 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import util.Listeners.allureApiTestListener;
 
+@Listeners(allureApiTestListener.class)
 public class regression_product {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -57,6 +61,7 @@ public class regression_product {
         };
     }
 
+    @Step("Product POST Success")
     // Action step
     @Test
     public void SuccessPOSTProductTestCase() throws IOException, InterruptedException {

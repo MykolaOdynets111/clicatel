@@ -7,56 +7,30 @@
       "name" : "expected [0000] but found [0001]",
       "children" : [ {
         "name" : "basicTransactV3",
-        "uid" : "c92b9b5133a723a0",
+        "uid" : "38096d29b4cb947e",
         "parentUid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0",
         "status" : "failed",
         "time" : {
-          "start" : 1582017176925,
-          "stop" : 1582017180360,
-          "duration" : 3435
+          "start" : 1583485881226,
+          "stop" : 1583485884321,
+          "duration" : 3095
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "", "50000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "test", "2022564675", "2", "test123", "50", "0815793852", "0815793852" ]
-      }, {
-        "name" : "basicTransactV3",
-        "uid" : "1bc46036abd8ce63",
-        "parentUid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0",
-        "status" : "failed",
-        "time" : {
-          "start" : 1582017176928,
-          "stop" : 1582017180360,
-          "duration" : 3432
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "8", "0", "whatsapp", "2022564675", "2", "test123", "60", "27731304702", "27731304702" ]
-      }, {
-        "name" : "basicReserveAndTransactV3",
-        "uid" : "d438faeb9b681bcf",
-        "parentUid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0",
-        "status" : "failed",
-        "time" : {
-          "start" : 1582017186629,
-          "stop" : 1582017186988,
-          "duration" : 359
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2019-09-03T15:35:26.720+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "2", "test123", "60", "27731304702", "27731304702" ]
+        "parameters" : [ "testaccount", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "2022564675", "2", "test123", "60", "27731304702", "27731304702" ]
       } ],
       "uid" : "a463e8ff39cae0e5ef3d93a2a42ca3d0"
     }, {
       "name" : "expected [0] but found [2520]",
       "children" : [ {
         "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-        "uid" : "4d5f224bf2440460",
+        "uid" : "2bfaf18770ab6af2",
         "parentUid" : "6d96b0301dee5b1d22de4ea1675c2eba",
         "status" : "failed",
         "time" : {
-          "start" : 1582017192928,
-          "stop" : 1582017198676,
-          "duration" : 5748
+          "start" : 1583485907387,
+          "stop" : 1583485912758,
+          "duration" : 5371
         },
         "flaky" : false,
         "newFailed" : false,
@@ -64,33 +38,33 @@
       } ],
       "uid" : "6d96b0301dee5b1d22de4ea1675c2eba"
     }, {
-      "name" : "expected [14625] but found [14996]",
+      "name" : "expected [14625] but found [14677]",
       "children" : [ {
         "name" : "FinTermsModelASuccessTest",
-        "uid" : "c8a7406a088b9bf6",
-        "parentUid" : "49cb54a9bac0da0ce79fd2bf90b31758",
+        "uid" : "6b2a2c1b021ef91e",
+        "parentUid" : "8b8d5ca4e3975322cedfe2229c30744a",
         "status" : "failed",
         "time" : {
-          "start" : 1582017204257,
-          "stop" : 1582017204460,
-          "duration" : 203
+          "start" : 1583485919245,
+          "stop" : 1583485919458,
+          "duration" : 213
         },
         "flaky" : false,
         "newFailed" : false,
         "parameters" : [ "3", "100", "14625", "375", "0", "375", "15000", "35.71428", "0.05", "714.2857", "339.2857", "0.05", "NGN", "375", "375", "15000.0", "0.5", "0.5", "375", "15000", "3", "100", "15000", "15000", "15000", "0" ]
       } ],
-      "uid" : "49cb54a9bac0da0ce79fd2bf90b31758"
+      "uid" : "8b8d5ca4e3975322cedfe2229c30744a"
     }, {
       "name" : "expected [0.05] but found [0.014]",
       "children" : [ {
         "name" : "FinTermsModelBSuccessTest",
-        "uid" : "5ac6c9da3cfe3abc",
+        "uid" : "7d3fd5db657f45d0",
         "parentUid" : "ffcc652d2b50b1a782d739b68353f0de",
         "status" : "failed",
         "time" : {
-          "start" : 1582017204474,
-          "stop" : 1582017204692,
-          "duration" : 218
+          "start" : 1583485919463,
+          "stop" : 1583485919608,
+          "duration" : 145
         },
         "flaky" : false,
         "newFailed" : false,

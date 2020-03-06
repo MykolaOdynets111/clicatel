@@ -1,0 +1,29 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 06 Mar 2020 09:11:59 GMT
+
+{
+    "clientId": 103,
+    "productId": 903,
+    "currencyCode": "NGN",
+    "purchaseAmount": 3000000,
+    "feesAsOf": "2020-03-06T09:11:59.967Z",
+    "terms": {
+        "reserveAmount": 3000000,
+        "vendAmount": 3000000,
+        "feeAmount": 0,
+        "settlementAmount": 2877000,
+        "clientShareAmount": 123000,
+        "vendorShareAmount": 0
+    },
+    "variables": {
+        "REQUESTED_PURCHASE_VALUE": 3000000,
+        "MNO_DISCOUNT_PERC": 0.045,
+        "TPV": 3E+6,
+        "CLIENT_SHARE_OF_TPV": 0.041,
+        "VAT_PERC": 0.014,
+        "CLIENT_MARKETING_COMMISSION": 0
+    }
+}

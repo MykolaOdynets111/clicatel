@@ -8,6 +8,7 @@ package API.dotCoreTests;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
 import com.google.gson.JsonObject;
 import groovy.util.XmlSlurper;
+import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.path.xml.element.NodeChildren;
@@ -16,6 +17,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import api.requestLibary.CORE.CtxPOJO;
 
@@ -27,12 +29,14 @@ import java.util.Properties;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
 import org.xml.sax.SAXException;
+import util.Listeners.allureApiTestListener;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.parsers.ParserConfigurationException;
 
 import static io.restassured.RestAssured.*;
 
+@Listeners(allureApiTestListener.class)
 public class regression_Ctx {
 
     // Create properties object in order to inject environment specific variables upon build
@@ -71,6 +75,7 @@ public class regression_Ctx {
         };
     }
 
+    @Step("CTX POST Success")
     @Test(dataProvider = "Ctxtestcases")
     public void basicCtx(
                                           String sourceId,
