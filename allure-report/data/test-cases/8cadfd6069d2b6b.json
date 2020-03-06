@@ -1,12 +1,12 @@
 {
-  "uid" : "dce368e5f4fba5f9",
-  "name" : "basicReserveAndTransactV3",
-  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3.basicReserveAndTransactV3",
-  "historyId" : "ea41d777cc929265ff1f8f5d3e2a9963",
+  "uid" : "8cadfd6069d2b6b",
+  "name" : "basicReserveAndTransactV4",
+  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4.basicReserveAndTransactV4",
+  "historyId" : "bfe8698878410761aab7b77c7e939564",
   "time" : {
-    "start" : 1583492530134,
-    "stop" : 1583492535833,
-    "duration" : 5699
+    "start" : 1583499214356,
+    "stop" : 1583499219948,
+    "duration" : 5592
   },
   "status" : "passed",
   "flaky" : false,
@@ -15,11 +15,11 @@
   "testStage" : {
     "status" : "passed",
     "steps" : [ {
-      "name" : "Reserve and Transact V3 Success",
+      "name" : "Reserve and Transact V4 Success",
       "time" : {
-        "start" : 1583492530134,
-        "stop" : 1583492535830,
-        "duration" : 5696
+        "start" : 1583499214356,
+        "stop" : 1583499219945,
+        "duration" : 5589
       },
       "status" : "passed",
       "steps" : [ ],
@@ -29,10 +29,10 @@
         "value" : "64ec8907-f41a-441a-b1b8-355ef"
       }, {
         "name" : "purchaseAmount",
-        "value" : "49903"
+        "value" : "5900"
       }, {
         "name" : "channelId",
-        "value" : "7"
+        "value" : "8"
       }, {
         "name" : "channelName",
         "value" : "test"
@@ -41,25 +41,31 @@
         "value" : "ST-8556726170"
       }, {
         "name" : "clientId",
-        "value" : "3"
+        "value" : "2"
       }, {
         "name" : "clientTxnRef",
-        "value" : "test123"
+        "value" : "193103796"
       }, {
         "name" : "productId",
-        "value" : "921"
+        "value" : "60"
       }, {
         "name" : "sourceIdentifier",
-        "value" : "2341122222221"
+        "value" : "27731304702"
       }, {
         "name" : "targetIdentifier",
-        "value" : "2341110000000"
+        "value" : "27731304702"
       }, {
         "name" : "timeStamp",
-        "value" : "2019-09-03T15:35:26.720+02:00"
+        "value" : "2020-01-09T09:58:46.170+02:00"
       }, {
         "name" : "feeAmount",
         "value" : "0"
+      }, {
+        "name" : "currencyCode",
+        "value" : "ZAR"
+      }, {
+        "name" : "fundingSourceId",
+        "value" : "3"
       }, {
         "name" : "expectedRaasResponseCode",
         "value" : "0000"
@@ -79,55 +85,55 @@
         "name" : "expectedCTXTransactionResponseCode",
         "value" : "0"
       } ],
-      "hasContent" : true,
-      "stepsCount" : 0,
+      "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
-      "attachmentsCount" : 0
+      "stepsCount" : 0,
+      "hasContent" : true
     } ],
     "attachments" : [ {
-      "uid" : "b1a77e8f8875b1cc",
+      "uid" : "768412f54bc1a858",
       "name" : "request",
-      "source" : "b1a77e8f8875b1cc.txt",
+      "source" : "768412f54bc1a858.txt",
       "type" : "text/plain",
-      "size" : 1129
+      "size" : 1176
     }, {
-      "uid" : "78282c1bea49c3b5",
+      "uid" : "390f5491ed0f123",
       "name" : "response",
-      "source" : "78282c1bea49c3b5.txt",
+      "source" : "390f5491ed0f123.txt",
       "type" : "text/plain",
-      "size" : 1114
+      "size" : 1105
     } ],
     "parameters" : [ ],
-    "hasContent" : true,
-    "stepsCount" : 1,
+    "attachmentsCount" : 2,
     "shouldDisplayMessage" : false,
-    "attachmentsCount" : 2
+    "stepsCount" : 1,
+    "hasContent" : true
   },
   "afterStages" : [ ],
   "labels" : [ {
     "name" : "package",
-    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4"
   }, {
     "name" : "testClass",
-    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4"
   }, {
     "name" : "testMethod",
-    "value" : "basicReserveAndTransactV3"
+    "value" : "basicReserveAndTransactV4"
   }, {
     "name" : "parentSuite",
-    "value" : "Reserve and Transact V3 Test Suite"
+    "value" : "Reserve and Transact V4 Test Suite"
   }, {
     "name" : "suite",
-    "value" : "regression_Raas_Reserve_and_Transact_V3.java"
+    "value" : "regression_Raas_Reserve_and_Transact_V4.java"
   }, {
     "name" : "subSuite",
-    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3"
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4"
   }, {
     "name" : "host",
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "30264@FANB0610.TestNG-PoolService-0(19)"
+    "value" : "31608@FANB0610.TestNG-PoolService-0(20)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -143,34 +149,40 @@
     "value" : "64ec8907-f41a-441a-b1b8-355ef"
   }, {
     "name" : "arg1",
-    "value" : "49903"
+    "value" : "5900"
   }, {
     "name" : "arg10",
-    "value" : "2019-09-03T15:35:26.720+02:00"
+    "value" : "2020-01-09T09:58:46.170+02:00"
   }, {
     "name" : "arg11",
     "value" : "0"
   }, {
     "name" : "arg12",
-    "value" : "0000"
+    "value" : "ZAR"
   }, {
     "name" : "arg13",
-    "value" : "Processing request (funds reserved)"
+    "value" : "3"
   }, {
     "name" : "arg14",
-    "value" : "200"
-  }, {
-    "name" : "arg15",
     "value" : "0000"
   }, {
+    "name" : "arg15",
+    "value" : "Processing request (funds reserved)"
+  }, {
     "name" : "arg16",
-    "value" : "202"
+    "value" : "200"
   }, {
     "name" : "arg17",
+    "value" : "0000"
+  }, {
+    "name" : "arg18",
+    "value" : "202"
+  }, {
+    "name" : "arg19",
     "value" : "0"
   }, {
     "name" : "arg2",
-    "value" : "7"
+    "value" : "8"
   }, {
     "name" : "arg3",
     "value" : "test"
@@ -179,19 +191,19 @@
     "value" : "ST-8556726170"
   }, {
     "name" : "arg5",
-    "value" : "3"
+    "value" : "2"
   }, {
     "name" : "arg6",
-    "value" : "test123"
+    "value" : "193103796"
   }, {
     "name" : "arg7",
-    "value" : "921"
+    "value" : "60"
   }, {
     "name" : "arg8",
-    "value" : "2341122222221"
+    "value" : "27731304702"
   }, {
     "name" : "arg9",
-    "value" : "2341110000000"
+    "value" : "27731304702"
   } ],
   "links" : [ ],
   "hidden" : false,
@@ -202,6 +214,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "dce368e5f4fba5f9.json",
-  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
+  "source" : "8cadfd6069d2b6b.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
 }

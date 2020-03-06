@@ -2,41 +2,40 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 11:02:22 GMT
+Date: Fri, 06 Mar 2020 12:53:46 GMT
 
 {
     "clientId": 2,
     "productId": 30,
     "currencyCode": "ZAR",
-    "purchaseAmount": 5000,
-    "feesAsOf": "2020-03-06T11:02:22.185Z",
+    "purchaseAmount": 500000000000000000,
+    "feesAsOf": "2020-03-06T12:53:46.258Z",
     "terms": {
-        "reserveAmount": 5000,
-        "vendAmount": 5000,
+        "reserveAmount": 500000000000000000,
+        "vendAmount": 500000000000000000,
         "feeAmount": 0,
-        "settlementAmount": 5000,
+        "settlementAmount": 500000000000000000,
         "clientShareAmount": 0,
         "vendorShareAmount": 0
     },
     "variables": {
-        "REQUESTED_PURCHASE_VALUE": 5000,
+        "REQUESTED_PURCHASE_VALUE": 500000000000000000,
         "MNO_DISCOUNT_PERC": 0.9,
-        "TPV": 5E+3,
+        "TPV": 5E+17,
         "CLIENT_SHARE_OF_TPV": 0.0,
         "VAT_PERC": 0.19,
         "CLIENT_MARKETING_COMMISSION": 0
     }
 }
-HTTP/1.1 200 OK
-content-length: 119
+HTTP/1.1 400 Bad Request
+content-length: 94
 Accept: */*
 Accept-Encoding: gzip,deflate
 User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_221)
-content-type: application/json; charset=UTF-8
+content-type: application/json
 connection: Keep-Alive
 
 {
-    "responseCode": "0000",
-    "responseMessage": "Processing request (funds reserved)",
-    "raasTxnRef": "pecgapck5zw4gyacldunowtv"
+    "responseCode": "4000",
+    "responseMessage": "amount :must be less than or equal to 999999999999"
 }

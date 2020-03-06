@@ -1,110 +1,120 @@
 [ {
-  "uid" : "13b14ab5336df786",
-  "name" : "VendorSuccesstestcases",
+  "uid" : "6691a97ca95ad85a",
+  "name" : "FinTermsModelASuccessTest",
   "time" : {
-    "start" : 1583492552612,
-    "stop" : 1583492552859,
-    "duration" : 247
+    "start" : 1583499231785,
+    "stop" : 1583499232115,
+    "duration" : 330
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3546620e083a13c3",
+  "uid" : "78da05ceeb4d6c11",
+  "name" : "basicTransactV4",
+  "time" : {
+    "start" : 1583499197886,
+    "stop" : 1583499208592,
+    "duration" : 10706
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "fcbeabcaa2fad0d0",
+  "name" : "basicCtx",
+  "time" : {
+    "start" : 1583499225635,
+    "stop" : 1583499231027,
+    "duration" : 5392
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "c45b15dc4dcdbf92",
   "name" : "FinTermsModelBSuccessTest",
   "time" : {
-    "start" : 1583492553231,
-    "stop" : 1583492553432,
-    "duration" : 201
+    "start" : 1583499232120,
+    "stop" : 1583499232417,
+    "duration" : 297
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "d62a37a480ccd5e",
+  "uid" : "8cadfd6069d2b6b",
+  "name" : "basicReserveAndTransactV4",
+  "time" : {
+    "start" : 1583499214356,
+    "stop" : 1583499219948,
+    "duration" : 5592
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "dd4047a5ce35c32f",
+  "name" : "invalidLargeAmountTransaction",
+  "time" : {
+    "start" : 1583499225552,
+    "stop" : 1583499225625,
+    "duration" : 73
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "d8a90ed95780096b",
   "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
   "time" : {
-    "start" : 1583492541464,
-    "stop" : 1583492547053,
+    "start" : 1583499219957,
+    "stop" : 1583499225546,
     "duration" : 5589
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "186f31fe55cd229b",
-  "name" : "FinTermsModelASuccessTest",
-  "time" : {
-    "start" : 1583492552880,
-    "stop" : 1583492553225,
-    "duration" : 345
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "dce368e5f4fba5f9",
+  "uid" : "29dcb1dd68fba880",
   "name" : "basicReserveAndTransactV3",
   "time" : {
-    "start" : 1583492530134,
-    "stop" : 1583492535833,
-    "duration" : 5699
+    "start" : 1583499208613,
+    "stop" : 1583499214343,
+    "duration" : 5730
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "3bbe6771ecc5ffbe",
-  "name" : "basicTransactV4",
-  "time" : {
-    "start" : 1583492519534,
-    "stop" : 1583492530113,
-    "duration" : 10579
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "35b69a74168fb50d",
-  "name" : "successPOSTClient",
-  "time" : {
-    "start" : 1583492552486,
-    "stop" : 1583492552590,
-    "duration" : 104
-  },
-  "status" : "failed",
-  "severity" : "normal"
-}, {
-  "uid" : "819c13ff7ccba2fd",
-  "name" : "basicCtx",
-  "time" : {
-    "start" : 1583492547062,
-    "stop" : 1583492552371,
-    "duration" : 5309
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1a2fb224a00799a5",
-  "name" : "basicTransactV3",
-  "time" : {
-    "start" : 1583492510876,
-    "stop" : 1583492519457,
-    "duration" : 8581
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "1d362b81f6116a4e",
-  "name" : "basicReserveAndTransactV4",
-  "time" : {
-    "start" : 1583492535846,
-    "stop" : 1583492541457,
-    "duration" : 5611
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4f87649553893bba",
+  "uid" : "f8fe9e6c9a275d21",
   "name" : "successPostAttributes",
   "time" : {
-    "start" : 1583492552384,
-    "stop" : 1583492552477,
-    "duration" : 93
+    "start" : 1583499231035,
+    "stop" : 1583499231089,
+    "duration" : 54
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "25d255e59d2e1bad",
+  "name" : "basicTransactV3",
+  "time" : {
+    "start" : 1583499189095,
+    "stop" : 1583499197824,
+    "duration" : 8729
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "80f383d3086426b",
+  "name" : "successPOSTClient",
+  "time" : {
+    "start" : 1583499231100,
+    "stop" : 1583499231555,
+    "duration" : 455
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "8aa1f60b047492be",
+  "name" : "VendorSuccesstestcases",
+  "time" : {
+    "start" : 1583499231566,
+    "stop" : 1583499231776,
+    "duration" : 210
   },
   "status" : "passed",
   "severity" : "normal"

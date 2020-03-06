@@ -1,0 +1,159 @@
+{
+  "uid" : "80f383d3086426b",
+  "name" : "successPOSTClient",
+  "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
+  "historyId" : "498ed17e66103435bae7d528024adb94",
+  "time" : {
+    "start" : 1583499231100,
+    "stop" : 1583499231555,
+    "duration" : 455
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Client POST Success",
+      "time" : {
+        "start" : 1583499231100,
+        "stop" : 1583499231552,
+        "duration" : 452
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "active",
+        "value" : "true"
+      }, {
+        "name" : "clientName",
+        "value" : "AUTOTESTCLIENT"
+      }, {
+        "name" : "countryCode",
+        "value" : "710"
+      }, {
+        "name" : "ctxLimitTotal",
+        "value" : "50"
+      }, {
+        "name" : "apiKey",
+        "value" : "apiKey"
+      }, {
+        "name" : "encryption",
+        "value" : "true"
+      }, {
+        "name" : "inbound",
+        "value" : "inbound"
+      }, {
+        "name" : "outbound",
+        "value" : "outbound"
+      }, {
+        "name" : "integrationId",
+        "value" : "integrationId"
+      }, {
+        "name" : "timezoneId",
+        "value" : "1"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "stepsCount" : 0,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "39133aa0af022713",
+      "name" : "request",
+      "source" : "39133aa0af022713.txt",
+      "type" : "text/plain",
+      "size" : 861
+    }, {
+      "uid" : "961e9104fd995005",
+      "name" : "response",
+      "source" : "961e9104fd995005.txt",
+      "type" : "text/plain",
+      "size" : 929
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "stepsCount" : 1,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "testMethod",
+    "value" : "successPOSTClient"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Client Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_client.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_client"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "31608@FANB0610.TestNG-PoolService-0(26)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "true"
+  }, {
+    "name" : "arg1",
+    "value" : "AUTOTESTCLIENT"
+  }, {
+    "name" : "arg2",
+    "value" : "710"
+  }, {
+    "name" : "arg3",
+    "value" : "50"
+  }, {
+    "name" : "arg4",
+    "value" : "apiKey"
+  }, {
+    "name" : "arg5",
+    "value" : "true"
+  }, {
+    "name" : "arg6",
+    "value" : "inbound"
+  }, {
+    "name" : "arg7",
+    "value" : "outbound"
+  }, {
+    "name" : "arg8",
+    "value" : "integrationId"
+  }, {
+    "name" : "arg9",
+    "value" : "1"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "80f383d3086426b.json",
+  "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
+}

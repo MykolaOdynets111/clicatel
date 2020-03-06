@@ -1,26 +1,5 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ {
-    "name" : "Product defects",
-    "children" : [ {
-      "name" : "expected [64] but found [null]",
-      "children" : [ {
-        "name" : "successPOSTClient",
-        "uid" : "35b69a74168fb50d",
-        "parentUid" : "b16ba24c5b28f858c44919f7c351f5c9",
-        "status" : "failed",
-        "time" : {
-          "start" : 1583492552486,
-          "stop" : 1583492552590,
-          "duration" : 104
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
-      } ],
-      "uid" : "b16ba24c5b28f858c44919f7c351f5c9"
-    } ],
-    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
-  } ]
+  "children" : [ ]
 }

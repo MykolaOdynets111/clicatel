@@ -8,6 +8,7 @@
                 <methods>
                     <include name="basicReserveAndTransactV4"/>
                     <include name="ReserveAndTransactV4MTNZASuccesstestcases"/>
+                    <include name="invalidLargeAmountTransaction"/>
                 </methods>
             </class>
         </classes>

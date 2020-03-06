@@ -179,6 +179,7 @@ public class regression_Raas_Reserve_and_Transact_V4 {
         };
     }
 
+    @Step("Reserve and Transact V4 Success")
     @Test(dataProvider = "ReserveAndTransactV4MTNZASuccesstestcases")
     public void ReserveAndTransactV4MTNZASuccesstestcases(String accountIdentifier,
                                           String purchaseAmount,
@@ -262,6 +263,106 @@ public class regression_Raas_Reserve_and_Transact_V4 {
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("select * from raas.transaction_log where raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV4response.path("raasTxnRef")), ReserveAndTransactV4response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV4response.path("raasTxnRef")), ReserveAndTransactV4response.path("raasTxnRef"));
+
+    }
+
+    // Data staging for use in test
+    @DataProvider(name = "NegativeTestCases", parallel = true)
+    public Object[] NegativeTestCases() throws IOException, ParseException {
+
+        return new String[][]{
+
+                {testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","accountIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","purchaseAmount"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","channelId"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","channelName"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","channelSessionId"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","clientId"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","clientTxnRef"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","productId"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","sourceIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","targetIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","timestamp"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","feeAmount"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","currencyCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","fundingSourceId"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedRaasResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedMessage"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedHTTPResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedRaasResultRequestResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedRaasResultResponseResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4NegativeTesting","invalidLargeAmountTransaction","expectedCTXTransactionResponseCode")},
+
+        };
+    }
+
+    @Step("Negative test cases")
+    @Test(dataProvider = "NegativeTestCases")
+    public void invalidLargeAmountTransaction(String accountIdentifier,
+                                                          String purchaseAmount,
+                                                          String channelId,
+                                                          String channelName,
+                                                          String channelSessionId,
+                                                          String clientId,
+                                                          String clientTxnRef,
+                                                          String productId,
+                                                          String sourceIdentifier,
+                                                          String targetIdentifier,
+                                                          String timeStamp,
+                                                          String feeAmount,
+                                                          String currencyCode,
+                                                          String fundingSourceId,
+                                                          String expectedRaasResponseCode,
+                                                          String expectedMessage,
+                                                          String expectedHTTPResponseCode,
+                                                          String expectedRaasResultRequestResponseCode,
+                                                          String expectedRaasResultResponseResponseCode,
+                                                          String expectedCTXTransactionResponseCode) throws IOException, InterruptedException {
+
+        // Financial Terms Calculate GET method call
+        Response finTermsCalculateResponse =
+                given()
+                        .param("clientId",clientId)
+                        .param("productId", productId)
+                        .param("purchaseAmount", purchaseAmount)
+                        .when()
+                        .get(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_FinTermsCalc_Port")+properties.getProperty("CORE_FinTermsCalc_BasePath"))
+                        .then()
+                        .extract()
+                        .response();
+
+        // Create ReserveAndtransactV4 payload object - contains transactV4 request body
+        coreReserveAndTransactV4POJO ReserveAndTransactV4Payload = new coreReserveAndTransactV4POJO(
+                accountIdentifier,
+                purchaseAmount,
+                channelId,
+                channelName,
+                channelSessionId,
+                clientId,
+                clientTxnRef,
+                productId,
+                sourceIdentifier,
+                targetIdentifier,
+                timeStamp,
+                feeAmount,
+                currencyCode,
+                fundingSourceId);
+
+        // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Response ReserveAndTransactV4response =
+                given()
+                        .contentType(ContentType.JSON)
+                        .body(ReserveAndTransactV4Payload)
+                        .when()
+                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Reserve_And_Transact_V4_RequestSpec_Port")+properties.getProperty("CORE_Reserve_And_Transact_V4_RequestSpec_BasePath"))
+                        .then()
+                        .extract()
+                        .response();
+
+        // Transact V4 response assertions - purchase
+        Assert.assertEquals(ReserveAndTransactV4response.path("responseCode"), expectedRaasResponseCode);
+        Assert.assertEquals(ReserveAndTransactV4response.path("responseMessage"), expectedMessage);
+        Assert.assertEquals(ReserveAndTransactV4response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
     }
 

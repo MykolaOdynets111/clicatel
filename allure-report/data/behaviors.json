@@ -3,143 +3,156 @@
   "name" : "behaviors",
   "children" : [ {
     "name" : "basicTransactV3",
-    "uid" : "1a2fb224a00799a5",
+    "uid" : "25d255e59d2e1bad",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492510876,
-      "stop" : 1583492519457,
-      "duration" : 8581
+      "start" : 1583499189095,
+      "stop" : 1583499197824,
+      "duration" : 8729
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "USSD", "2022564675", "3", "test123", "921", "2341122222221", "2341110000000" ]
   }, {
     "name" : "basicTransactV4",
-    "uid" : "3bbe6771ecc5ffbe",
+    "uid" : "78da05ceeb4d6c11",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492519534,
-      "stop" : 1583492530113,
-      "duration" : 10579
+      "start" : 1583499197886,
+      "stop" : 1583499208592,
+      "duration" : 10706
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "2", "test123", "60", "27731000000", "27731000000" ]
   }, {
     "name" : "basicReserveAndTransactV3",
-    "uid" : "dce368e5f4fba5f9",
+    "uid" : "29dcb1dd68fba880",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492530134,
-      "stop" : 1583492535833,
-      "duration" : 5699
+      "start" : 1583499208613,
+      "stop" : 1583499214343,
+      "duration" : 5730
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
   }, {
     "name" : "basicReserveAndTransactV4",
-    "uid" : "1d362b81f6116a4e",
+    "uid" : "8cadfd6069d2b6b",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492535846,
-      "stop" : 1583492541457,
-      "duration" : 5611
+      "start" : 1583499214356,
+      "stop" : 1583499219948,
+      "duration" : 5592
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
   }, {
     "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-    "uid" : "d62a37a480ccd5e",
+    "uid" : "d8a90ed95780096b",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492541464,
-      "stop" : 1583492547053,
+      "start" : 1583499219957,
+      "stop" : 1583499225546,
       "duration" : 5589
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
   }, {
-    "name" : "basicCtx",
-    "uid" : "819c13ff7ccba2fd",
+    "name" : "invalidLargeAmountTransaction",
+    "uid" : "dd4047a5ce35c32f",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492547062,
-      "stop" : 1583492552371,
-      "duration" : 5309
+      "start" : 1583499225552,
+      "stop" : 1583499225625,
+      "duration" : 73
     },
     "flaky" : false,
     "newFailed" : false,
-    "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-02457", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+    "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "500000000000000000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "4000", "amount :must be less than or equal to 999999999999", "400", "0000", "400", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
+  }, {
+    "name" : "basicCtx",
+    "uid" : "fcbeabcaa2fad0d0",
+    "parentUid" : "b1a8273437954620fa374b796ffaacdd",
+    "status" : "passed",
+    "time" : {
+      "start" : 1583499225635,
+      "stop" : 1583499231027,
+      "duration" : 5392
+    },
+    "flaky" : false,
+    "newFailed" : false,
+    "parameters" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "100", "07", "0131104740", "07", "9820002047056", "0", "100", "b35dfb97-f79c-46c6-9e7e-02046", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
   }, {
     "name" : "successPostAttributes",
-    "uid" : "4f87649553893bba",
+    "uid" : "f8fe9e6c9a275d21",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492552384,
-      "stop" : 1583492552477,
-      "duration" : 93
+      "start" : 1583499231035,
+      "stop" : 1583499231089,
+      "duration" : 54
     },
     "flaky" : false,
     "newFailed" : false,
-    "parameters" : [ "^[1-0]", "AutomationTestAttribute7921", "7921", "string" ]
+    "parameters" : [ "^[1-0]", "AutomationTestAttribute3118", "3118", "string" ]
   }, {
     "name" : "successPOSTClient",
-    "uid" : "35b69a74168fb50d",
+    "uid" : "80f383d3086426b",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
-    "status" : "failed",
+    "status" : "passed",
     "time" : {
-      "start" : 1583492552486,
-      "stop" : 1583492552590,
-      "duration" : 104
+      "start" : 1583499231100,
+      "stop" : 1583499231555,
+      "duration" : 455
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
   }, {
     "name" : "VendorSuccesstestcases",
-    "uid" : "13b14ab5336df786",
+    "uid" : "8aa1f60b047492be",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492552612,
-      "stop" : 1583492552859,
-      "duration" : 247
+      "start" : 1583499231566,
+      "stop" : 1583499231776,
+      "duration" : 210
     },
     "flaky" : false,
     "newFailed" : false,
-    "parameters" : [ "0", "true", "8308", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor8308", "Nigeria" ]
+    "parameters" : [ "0", "true", "6459", "566", "1000", "20", "566", "string", "0", "3", "0", "AUTOMATIONTestVendor6459", "Nigeria" ]
   }, {
     "name" : "FinTermsModelASuccessTest",
-    "uid" : "186f31fe55cd229b",
+    "uid" : "6691a97ca95ad85a",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492552880,
-      "stop" : 1583492553225,
-      "duration" : 345
+      "start" : 1583499231785,
+      "stop" : 1583499232115,
+      "duration" : 330
     },
     "flaky" : false,
     "newFailed" : false,
     "parameters" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
   }, {
     "name" : "FinTermsModelBSuccessTest",
-    "uid" : "3546620e083a13c3",
+    "uid" : "c45b15dc4dcdbf92",
     "parentUid" : "b1a8273437954620fa374b796ffaacdd",
     "status" : "passed",
     "time" : {
-      "start" : 1583492553231,
-      "stop" : 1583492553432,
-      "duration" : 201
+      "start" : 1583499232120,
+      "stop" : 1583499232417,
+      "duration" : 297
     },
     "flaky" : false,
     "newFailed" : false,
