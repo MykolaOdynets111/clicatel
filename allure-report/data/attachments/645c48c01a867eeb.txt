@@ -32,7 +32,7 @@ Body:
       <timeLocalTransaction>104827</timeLocalTransaction>
       <dateLocalTransaction>0121</dateLocalTransaction>
       <originId>2341111111111</originId>
-      <clientTransactionId>b35dfb97-f79c-46c6-9e7e-09312</clientTransactionId>
+      <clientTransactionId>b35dfb97-f79c-46c6-9e7e-05987</clientTransactionId>
       <productId>100</productId>
       <channelIndicator>07</channelIndicator>
       <alternateClientId>42</alternateClientId>

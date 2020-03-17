@@ -32,7 +32,7 @@ import api.testUtilities.propertyConfigWrapper.configWrapper;
 import util.Listeners.allureApiTestListener;
 
 @Listeners(allureApiTestListener.class)
-public class regression_Vendor {
+public class regression_Vendor extends testConfig{
 
 
     // Create properties object in order to inject environment specific variables upon build
@@ -100,11 +100,11 @@ public class regression_Vendor {
 
         // Create Vendor POST response body object - contains api response data for use in assertions or other calls
         Response POSTCreateVendorResponse =
-                given()
+                given(CORE_getEndPoints_VendorPOST)
                         .contentType(ContentType.JSON)
                         .body(vendorPostPayload)
                         .when()
-                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Vendor_Port")+properties.getProperty("CORE_Vendor_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();

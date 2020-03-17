@@ -11,6 +11,7 @@ import api.testUtilities.dataBuilders.testDataFactory;
 import api.testUtilities.dataBuilders.RandomCharGenerator;
 import api.testUtilities.propertyConfigWrapper.configWrapper;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import api.testUtilities.testConfig;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.json.simple.parser.ParseException;
@@ -23,7 +24,7 @@ import java.util.Properties;
 
 import static io.restassured.RestAssured.given;
 
-public class regression_product_attributes {
+public class regression_product_attributes extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
     Properties properties = configWrapper.loadPropertiesFile("config.properties");
@@ -55,16 +56,13 @@ public class regression_product_attributes {
         // Create Attribute POST payload object
         corePostAttributesPOJO AttributePayload = new corePostAttributesPOJO(regex, name, id, type);
 
-        // Set attribute properties
-        String attributeProperty = properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_Attribute_Port") + properties.getProperty("CORE_Attribute_BasePath");
-
         // Create Attribute response object
         Response AttributeResponse =
-                given()
+                given(CORE_getEndPoints_AttributePOST)
                 .contentType(ContentType.JSON)
                 .body(AttributePayload)
                 .when()
-                .post(attributeProperty)
+                .post()
                 .then()
                 .extract()
                 .response();

@@ -1,12 +1,12 @@
 {
-  "uid" : "cfd38ae2ce77c4e",
+  "uid" : "a730883dfa11dcef",
   "name" : "successPOSTClient",
   "fullName" : "API.dotCoreTests.regression_client.successPOSTClient",
   "historyId" : "498ed17e66103435bae7d528024adb94",
   "time" : {
-    "start" : 1583502690506,
-    "stop" : 1583502690940,
-    "duration" : 434
+    "start" : 1584432065221,
+    "stop" : 1584432065634,
+    "duration" : 413
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Client POST Success",
       "time" : {
-        "start" : 1583502690506,
-        "stop" : 1583502690936,
-        "duration" : 430
+        "start" : 1584432065221,
+        "stop" : 1584432065632,
+        "duration" : 411
       },
       "status" : "passed",
       "steps" : [ ],
@@ -55,29 +55,29 @@
         "name" : "timezoneId",
         "value" : "1"
       } ],
-      "stepsCount" : 0,
-      "hasContent" : true,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "ba9f65fe2c7f06d",
+      "uid" : "d0145830beeaf215",
       "name" : "request",
-      "source" : "ba9f65fe2c7f06d.txt",
+      "source" : "d0145830beeaf215.txt",
       "type" : "text/plain",
-      "size" : 858
+      "size" : 861
     }, {
-      "uid" : "96d3e141c732a3b4",
+      "uid" : "b8b429d5a6394111",
       "name" : "response",
-      "source" : "96d3e141c732a3b4.txt",
+      "source" : "b8b429d5a6394111.txt",
       "type" : "text/plain",
-      "size" : 926
+      "size" : 929
     } ],
     "parameters" : [ ],
-    "stepsCount" : 1,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -103,7 +103,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "3468@FANB0610.TestNG-PoolService-0(27)"
+    "value" : "32472@FANB0610.TestNG-PoolService-0(27)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -154,6 +154,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "cfd38ae2ce77c4e.json",
+  "source" : "a730883dfa11dcef.json",
   "parameterValues" : [ "true", "AUTOTESTCLIENT", "710", "50", "apiKey", "true", "inbound", "outbound", "integrationId", "1" ]
 }

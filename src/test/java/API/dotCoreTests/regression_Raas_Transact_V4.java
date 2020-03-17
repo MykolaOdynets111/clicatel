@@ -93,12 +93,12 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // Financial Terms Calculate GET method call
         Response finTermsCalculateResponse =
-                given()
+                given(CORE_getEndPoints_FinancialTermsCalculate)
                 .param("clientId",clientId)
                 .param("productId", productId)
                 .param("purchaseAmount", purchaseAmount)
                 .when()
-                .get(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_FinTermsCalc_Port")+properties.getProperty("CORE_FinTermsCalc_BasePath"))
+                .get()
                 .then()
                 .extract()
                 .response();
@@ -122,14 +122,17 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response TransactV4response =
-        given()
+        given(CORE_getEndPoints_TransactV4)
         .contentType(ContentType.JSON)
         .body(TransactV4payload)
+        //.log().all()
         .when()
-        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Transact_V4_RequestSpec_Port")+properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
+        .post()
         .then()
         .extract()
         .response();
+
+        System.out.println( );
 
         // Assertions
 

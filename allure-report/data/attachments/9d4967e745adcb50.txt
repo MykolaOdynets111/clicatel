@@ -1,0 +1,107 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Tue, 17 Mar 2020 08:00:48 GMT
+
+{
+    "clientId": 2,
+    "productId": 60,
+    "currencyCode": "ZAR",
+    "purchaseAmount": 5900,
+    "feesAsOf": "2020-03-17T08:00:48.792Z",
+    "terms": {
+        "reserveAmount": 5900,
+        "vendAmount": 5900,
+        "feeAmount": 0,
+        "settlementAmount": 5900,
+        "clientShareAmount": 0,
+        "vendorShareAmount": 0
+    },
+    "variables": {
+        "REQUESTED_PURCHASE_VALUE": 5900,
+        "MNO_DISCOUNT_PERC": 0.0012,
+        "TPV": 5.9E+3,
+        "CLIENT_SHARE_OF_TPV": 0.0,
+        "VAT_PERC": 0.19,
+        "CLIENT_MARKETING_COMMISSION": 0
+    }
+}
+HTTP/1.1 500 Internal Server Error
+content-length: 6131
+Accept: */*
+Accept-Encoding: gzip,deflate
+breadcrumbId: ID-payd-raas-gateway-4184066253-vwnkt-42744-1583927762362-0-3239726
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_221)
+content-type: text/plain
+connection: Keep-Alive
+
+org.apache.camel.CamelExecutionException: Exception occurred during execution on the exchange: Exchange[ID-payd-raas-gateway-4184066253-vwnkt-42744-1583927762362-0-3239731]
+	at org.apache.camel.util.ObjectHelper.wrapCamelExecutionException(ObjectHelper.java:1795)
+	at org.apache.camel.util.ExchangeHelper.extractResultBody(ExchangeHelper.java:677)
+	at org.apache.camel.impl.DefaultProducerTemplate.extractResultBody(DefaultProducerTemplate.java:515)
+	at org.apache.camel.impl.DefaultProducerTemplate.extractResultBody(DefaultProducerTemplate.java:511)
+	at org.apache.camel.impl.DefaultProducerTemplate.requestBodyAndHeader(DefaultProducerTemplate.java:344)
+	at co.payd.raas.gateway.service.CtxRaasTransactionService.transact(CtxRaasTransactionService.java:274)
+	at sun.reflect.GeneratedMethodAccessor785.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.camel.component.bean.MethodInfo.invoke(MethodInfo.java:458)
+	at org.apache.camel.component.bean.MethodInfo$1.doProceed(MethodInfo.java:289)
+	at org.apache.camel.component.bean.MethodInfo$1.proceed(MethodInfo.java:262)
+	at org.apache.camel.component.bean.BeanProcessor.process(BeanProcessor.java:178)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.direct.DirectProducer.process(DirectProducer.java:62)
+	at org.apache.camel.processor.SendProcessor.process(SendProcessor.java:145)
+	at org.apache.camel.management.InstrumentationProcessor.process(InstrumentationProcessor.java:77)
+	at org.apache.camel.processor.RedeliveryErrorHandler.process(RedeliveryErrorHandler.java:542)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:120)
+	at org.apache.camel.processor.Pipeline.process(Pipeline.java:83)
+	at org.apache.camel.processor.CamelInternalProcessor.process(CamelInternalProcessor.java:197)
+	at org.apache.camel.component.netty4.handlers.ServerChannelHandler.processAsynchronously(ServerChannelHandler.java:138)
+	at org.apache.camel.component.netty4.handlers.ServerChannelHandler.channelRead0(ServerChannelHandler.java:109)
+	at org.apache.camel.component.netty4.http.handlers.HttpServerChannelHandler.channelRead0(HttpServerChannelHandler.java:214)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at org.apache.camel.component.netty4.http.handlers.HttpServerMultiplexChannelHandler.channelRead0(HttpServerMultiplexChannelHandler.java:113)
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:372)
+	at io.netty.channel.AbstractChannelHandlerContext.access$600(AbstractChannelHandlerContext.java:38)
+	at io.netty.channel.AbstractChannelHandlerContext$7.run(AbstractChannelHandlerContext.java:363)
+	at io.netty.util.concurrent.DefaultEventExecutor.run(DefaultEventExecutor.java:66)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873)
+	at java.lang.Thread.run(Thread.java:748)
+Caused by: java.net.ConnectException: connection timed out: /172.20.0.91:80
+	at org.asynchttpclient.netty.channel.NettyConnectListener.onFailure(NettyConnectListener.java:160)
+	at org.asynchttpclient.netty.request.NettyChannelConnector$1.onFailure(NettyChannelConnector.java:103)
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:28)
+	at org.asynchttpclient.netty.SimpleChannelFutureListener.operationComplete(SimpleChannelFutureListener.java:20)
+	at io.netty.util.concurrent.DefaultPromise.notifyListener0(DefaultPromise.java:514)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners0(DefaultPromise.java:507)
+	at io.netty.util.concurrent.DefaultPromise.notifyListenersNow(DefaultPromise.java:486)
+	at io.netty.util.concurrent.DefaultPromise.notifyListeners(DefaultPromise.java:427)
+	at io.netty.util.concurrent.DefaultPromise.tryFailure(DefaultPromise.java:129)
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:269)
+	at io.netty.util.concurrent.PromiseTask$RunnableAdapter.call(PromiseTask.java:38)
+	at io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:120)
+	at io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:418)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:440)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:144)
+	... 1 more
+Caused by: io.netty.channel.ConnectTimeoutException: connection timed out: /172.20.0.91:80
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe$1.run(AbstractNioChannel.java:267)
+	... 8 more
+

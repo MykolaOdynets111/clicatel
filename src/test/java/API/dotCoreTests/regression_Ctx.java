@@ -6,6 +6,7 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import api.testUtilities.testConfig;
 import com.google.gson.JsonObject;
 import groovy.util.XmlSlurper;
 import io.qameta.allure.Step;
@@ -37,7 +38,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import static io.restassured.RestAssured.*;
 
 @Listeners(allureApiTestListener.class)
-public class regression_Ctx {
+public class regression_Ctx extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
     Properties properties = configWrapper.loadPropertiesFile("config.properties");
@@ -157,12 +158,12 @@ public class regression_Ctx {
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response Ctxresponse =
-                given()
+                given(CORE_getEndPoints_CTX)
                         .contentType(ContentType.XML)
                         .accept(ContentType.XML)
                         .body(CtxPayload)
                         .when()
-                        .post(properties.getProperty("CORE_CTX_QA")+":"+properties.getProperty("CORE_CTX_RequestSpec_Port")+properties.getProperty("CORE_CTX_RequestSpec_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();

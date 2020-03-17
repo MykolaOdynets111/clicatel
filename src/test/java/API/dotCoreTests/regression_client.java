@@ -2,6 +2,7 @@ package API.dotCoreTests;
 
 import api.testUtilities.dataBuilders.RandomCharGenerator;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import api.testUtilities.testConfig;
 import com.google.gson.JsonObject;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
@@ -28,7 +29,7 @@ import util.Listeners.allureApiTestListener;
 import javax.sql.DataSource;
 
 @Listeners(allureApiTestListener.class)
-public class regression_client {
+public class regression_client extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
     Properties clientProperties = configWrapper.loadPropertiesFile("config.properties");
@@ -98,16 +99,14 @@ public class regression_client {
 
         // Act - Create client POST response object
         Response clientPostResponse =
-                given()
+                given(CORE_getEndPoints_ClientPOST)
                         .contentType(ContentType.JSON)
                         .body(clientPostPayload)
                         .when()
-                        .post(clientProperties.getProperty("QA_MINION") + ":" + clientProperties.getProperty("CORE_Client_Port") + clientProperties.getProperty("CORE_Client_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();
-
-        System.out.println(clientPostResponse.prettyPrint());
 
         // Data stage conversions
         String rnd = randomnumbers.toString();

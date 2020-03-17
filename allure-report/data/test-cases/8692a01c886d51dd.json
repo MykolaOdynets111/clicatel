@@ -1,12 +1,12 @@
 {
-  "uid" : "4d7b24424ddf68fd",
+  "uid" : "8692a01c886d51dd",
   "name" : "FinTermsModelBSuccessTest",
   "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelBSuccessTest",
   "historyId" : "1dc4e32756fe2440686b5e33655bc242",
   "time" : {
-    "start" : 1583502691563,
-    "stop" : 1583502691868,
-    "duration" : 305
+    "start" : 1584432066047,
+    "stop" : 1584432066297,
+    "duration" : 250
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Fin Terms Model B Calculate Success",
       "time" : {
-        "start" : 1583502691563,
-        "stop" : 1583502691862,
-        "duration" : 299
+        "start" : 1584432066047,
+        "stop" : 1584432066294,
+        "duration" : 247
       },
       "status" : "passed",
       "steps" : [ ],
@@ -82,29 +82,29 @@
         "name" : "expectedVariablesCLIENT_MARKETING_COMMISSION",
         "value" : "0"
       } ],
-      "stepsCount" : 0,
-      "hasContent" : true,
       "attachmentsCount" : 0,
-      "shouldDisplayMessage" : false
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "9f1277a6da27a929",
+      "uid" : "c90286be120830a5",
       "name" : "request",
-      "source" : "9f1277a6da27a929.txt",
+      "source" : "c90286be120830a5.txt",
       "type" : "text/plain",
       "size" : 392
     }, {
-      "uid" : "7552a1ddc2aa6cc0",
+      "uid" : "1f5d7b9b50b93fc",
       "name" : "response",
-      "source" : "7552a1ddc2aa6cc0.txt",
+      "source" : "1f5d7b9b50b93fc.txt",
       "type" : "text/plain",
       "size" : 779
     } ],
     "parameters" : [ ],
-    "stepsCount" : 1,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -130,7 +130,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "3468@FANB0610.TestNG-PoolService-0(30)"
+    "value" : "32472@FANB0610.TestNG-PoolService-0(30)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -208,6 +208,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "4d7b24424ddf68fd.json",
+  "source" : "8692a01c886d51dd.json",
   "parameterValues" : [ "103", "903", "2877000", "123000", "0", "3000000", "0.014", "0.045", "3000000.0", "0.041", "0", "NGN", "3000000", "103", "903", "3000000", "3000000", "3000000", "0" ]
 }

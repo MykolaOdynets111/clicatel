@@ -2,14 +2,14 @@ HTTP/1.1 200
 X-Application-Context: financial-terms-lookup:8080
 Content-Type: application/json;charset=UTF-8
 Transfer-Encoding: chunked
-Date: Fri, 06 Mar 2020 13:51:24 GMT
+Date: Tue, 17 Mar 2020 08:00:59 GMT
 
 {
     "clientId": 2,
     "productId": 30,
     "currencyCode": "ZAR",
     "purchaseAmount": 500000000000000000,
-    "feesAsOf": "2020-03-06T13:51:24.665Z",
+    "feesAsOf": "2020-03-17T08:00:59.349Z",
     "terms": {
         "reserveAmount": 500000000000000000,
         "vendAmount": 500000000000000000,

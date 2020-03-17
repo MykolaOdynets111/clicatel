@@ -7,6 +7,7 @@
 package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import api.testUtilities.testConfig;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
@@ -28,7 +29,7 @@ import api.testUtilities.propertyConfigWrapper.configWrapper;
 import util.Listeners.allureApiTestListener;
 
 @Listeners(allureApiTestListener.class)
-public class regression_Raas_Reserve_and_Transact_V3 {
+public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
     Properties properties = configWrapper.loadPropertiesFile("config.properties");
@@ -84,12 +85,12 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
         // Financial Terms Calculate GET method call
         Response finTermsCalculateResponse =
-                given()
+                given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
                         .param("productId", productId)
                         .param("purchaseAmount", purchaseAmount)
                         .when()
-                        .get(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_FinTermsCalc_Port")+properties.getProperty("CORE_FinTermsCalc_BasePath"))
+                        .get()
                         .then()
                         .extract()
                         .response();
@@ -111,11 +112,11 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response ReserveAndTransactV3response =
-                given()
+                given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
                         .body(ReserveAndTransactV3Payload)
                         .when()
-                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_Port")+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();
@@ -210,11 +211,11 @@ public class regression_Raas_Reserve_and_Transact_V3 {
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response ReserveAndTransactV3response =
-                given()
+                given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
                         .body(ReserveAndTransactV3Payload)
                         .when()
-                        .post(properties.getProperty("QA_MINION")+":"+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_Port")+properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();

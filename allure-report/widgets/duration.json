@@ -1,131 +1,131 @@
 [ {
-  "uid" : "57f9839949f51a4a",
-  "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
-  "time" : {
-    "start" : 1583502679118,
-    "stop" : 1583502684812,
-    "duration" : 5694
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cfd38ae2ce77c4e",
-  "name" : "successPOSTClient",
-  "time" : {
-    "start" : 1583502690506,
-    "stop" : 1583502690940,
-    "duration" : 434
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "cc3d0afee0df3660",
-  "name" : "VendorSuccesstestcases",
-  "time" : {
-    "start" : 1583502690950,
-    "stop" : 1583502691148,
-    "duration" : 198
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "f64fbc0254ebccbb",
-  "name" : "basicReserveAndTransactV4",
-  "time" : {
-    "start" : 1583502673419,
-    "stop" : 1583502679107,
-    "duration" : 5688
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "4d7b24424ddf68fd",
-  "name" : "FinTermsModelBSuccessTest",
-  "time" : {
-    "start" : 1583502691563,
-    "stop" : 1583502691868,
-    "duration" : 305
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "73dcd31f3d4bf1ac",
-  "name" : "successPostAttributes",
-  "time" : {
-    "start" : 1583502690406,
-    "stop" : 1583502690497,
-    "duration" : 91
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "fd55b64f8eef9406",
-  "name" : "FinTermsModelASuccessTest",
-  "time" : {
-    "start" : 1583502691157,
-    "stop" : 1583502691558,
-    "duration" : 401
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "55910c69d25587ad",
-  "name" : "basicCtx",
-  "time" : {
-    "start" : 1583502684924,
-    "stop" : 1583502690392,
-    "duration" : 5468
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "d1b654524f248b7c",
-  "name" : "basicReserveAndTransactV3InvalidPurchaseAmount",
-  "time" : {
-    "start" : 1583502673359,
-    "stop" : 1583502673408,
-    "duration" : 49
-  },
-  "status" : "passed",
-  "severity" : "normal"
-}, {
-  "uid" : "eca93c33d0808730",
+  "uid" : "6c8ed0b4847f79d1",
   "name" : "basicTransactV3",
   "time" : {
-    "start" : 1583502648050,
-    "stop" : 1583502656711,
-    "duration" : 8661
+    "start" : 1584432023964,
+    "stop" : 1584432032959,
+    "duration" : 8995
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "4a9a37faeefdee61",
+  "uid" : "8692a01c886d51dd",
+  "name" : "FinTermsModelBSuccessTest",
+  "time" : {
+    "start" : 1584432066047,
+    "stop" : 1584432066297,
+    "duration" : 250
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "a730883dfa11dcef",
+  "name" : "successPOSTClient",
+  "time" : {
+    "start" : 1584432065221,
+    "stop" : 1584432065634,
+    "duration" : 413
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "3d1b2c11735f6f3c",
   "name" : "invalidLargeAmountTransaction",
   "time" : {
-    "start" : 1583502684820,
-    "stop" : 1583502684914,
-    "duration" : 94
+    "start" : 1584432059658,
+    "stop" : 1584432059770,
+    "duration" : 112
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "8f29f905ca8e632",
-  "name" : "basicTransactV4",
+  "uid" : "dbd2681c5ddaf4f0",
+  "name" : "basicCtx",
   "time" : {
-    "start" : 1583502656957,
-    "stop" : 1583502667724,
-    "duration" : 10767
+    "start" : 1584432059782,
+    "stop" : 1584432065152,
+    "duration" : 5370
   },
   "status" : "passed",
   "severity" : "normal"
 }, {
-  "uid" : "6e0658c53e955467",
+  "uid" : "ddacc6fd676bd935",
+  "name" : "basicReserveAndTransactV3InvalidPurchaseAmount",
+  "time" : {
+    "start" : 1584432049023,
+    "stop" : 1584432049086,
+    "duration" : 63
+  },
+  "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "47c87ab123c17881",
+  "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
+  "time" : {
+    "start" : 1584432054378,
+    "stop" : 1584432059651,
+    "duration" : 5273
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "9f03134f1804edc",
+  "name" : "successPostAttributes",
+  "time" : {
+    "start" : 1584432065166,
+    "stop" : 1584432065210,
+    "duration" : 44
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "a468829319f404d",
   "name" : "basicReserveAndTransactV3",
   "time" : {
-    "start" : 1583502667744,
-    "stop" : 1583502673352,
-    "duration" : 5608
+    "start" : 1584432043720,
+    "stop" : 1584432049008,
+    "duration" : 5288
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "3ff190489aadc6cc",
+  "name" : "VendorSuccesstestcases",
+  "time" : {
+    "start" : 1584432065643,
+    "stop" : 1584432065847,
+    "duration" : 204
   },
   "status" : "passed",
+  "severity" : "normal"
+}, {
+  "uid" : "30e6f08dce45816f",
+  "name" : "basicReserveAndTransactV4",
+  "time" : {
+    "start" : 1584432049099,
+    "stop" : 1584432054370,
+    "duration" : 5271
+  },
+  "status" : "broken",
+  "severity" : "normal"
+}, {
+  "uid" : "e7f5c82f1d32348",
+  "name" : "basicTransactV4",
+  "time" : {
+    "start" : 1584432033026,
+    "stop" : 1584432043694,
+    "duration" : 10668
+  },
+  "status" : "failed",
+  "severity" : "normal"
+}, {
+  "uid" : "aff47cb16a352aa9",
+  "name" : "FinTermsModelASuccessTest",
+  "time" : {
+    "start" : 1584432065857,
+    "stop" : 1584432066039,
+    "duration" : 182
+  },
+  "status" : "failed",
   "severity" : "normal"
 } ]

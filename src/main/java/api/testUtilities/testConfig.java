@@ -77,7 +77,15 @@ public class testConfig {
      *  All dotCore test specifications
      */
 
-    public static RequestSpecification CORE_Transact_V4_RequestSpec;
+    public static RequestSpecification CORE_getEndPoints_FinancialTermsCalculate;
+    public static RequestSpecification CORE_getEndPoints_TransactV4;
+    public static RequestSpecification CORE_getEndPoints_TransactV3;
+    public static RequestSpecification CORE_getEndPoints_ReserveAndTransactV4;
+    public static RequestSpecification CORE_getEndPoints_ReserveAndTransactV3;
+    public static RequestSpecification CORE_getEndPoints_ClientPOST;
+    public static RequestSpecification CORE_getEndPoints_VendorPOST;
+    public static RequestSpecification CORE_getEndPoints_CTX;
+    public static RequestSpecification CORE_getEndPoints_AttributePOST;
 
     /**
      * Runs before the TestNG class
@@ -89,6 +97,7 @@ public class testConfig {
         Properties properties = configWrapper.loadPropertiesFile("config.properties");
         String qa_refresh_Backend = properties.getProperty("QA_Refresh_BackEnd");
         String qa_minion = properties.getProperty("QA_MINION");
+        String qa_ctx = properties.getProperty("CORE_CTX_QA");
 
         /**
          * https://www.telerik.com/fiddler
@@ -141,6 +150,7 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
+
         FM_getKeyWords_CLIENT = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
                 .setBasePath("/api/dev/CLIENT/42/keyword/8")
@@ -149,7 +159,6 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
-
 
         FM_getFlowName_FUNDINGSOURCE = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
@@ -186,7 +195,6 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
-
 
         FM_getEndPoints_VENDOR = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
@@ -332,96 +340,85 @@ public class testConfig {
                 .addHeader("Accept-Encoding", "gzip, deflate")
                 .addHeader("Connection", "keep-alive").build();
 
+        CORE_getEndPoints_TransactV4 = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V4_RequestSpec_Port")))
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("content-type", "application/json")
+                .addHeader("Connection", "keep-alive").build();
 
-        /*PWM_ReserveFunds_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_ReserveFunds_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_ReserveFunds_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                addHeader("fundingSourceId", "249").
-                build().log().ifValidationFails();*/
+        CORE_getEndPoints_TransactV3 = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Transact_V3_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V3_RequestSpec_Port")))
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("content-type", "application/json")
+                .addHeader("Connection", "keep-alive").build();
 
-        /*PWM_ReserveFunds_Behaviour_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_ReserveFunds_Behaviour_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_ReserveFunds_Behaviour_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
+        CORE_getEndPoints_FinancialTermsCalculate = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_FinTermsCalc_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_FinTermsCalc_Port")))
+                .addHeader("content-type", "application/json")
+                .addHeader("transfer-encoding", "chunked")
+                .addHeader("Accept", "*/*").build();
 
-        /*PWM_Confirmation_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_Confirmation_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_Confirmation_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                addHeader("fundingSourceId", "249").
-                build();*/
+        CORE_getEndPoints_ReserveAndTransactV4 = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Reserve_And_Transact_V4_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Reserve_And_Transact_V4_RequestSpec_Port")))
+                .addHeader("content-type", "application/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("connection", "keep-alive")
+                .addHeader("Accept-Encoding", "gzip, deflate, br")
+                .build();
 
-        /*PWM_Confirmation_Behaviour_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_Confirmation_Behaviour_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_Confirmation_Behaviour_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
+        CORE_getEndPoints_ReserveAndTransactV3 = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Reserve_And_Transact_V3_RequestSpec_Port")))
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("content-type", "application/json")
+                .addHeader("Connection", "keep-alive").build();
 
-        /*PWM_Lookup_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_Lookup_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_Lookup_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
+        CORE_getEndPoints_ClientPOST = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Client_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Client_Port")))
+                .addHeader("content-type", "Appliction/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .build();
 
-        /*PWM_Lookup_Behaviour_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("PWM_Lookup_Behaviour_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("PWM_Lookup_Behaviour_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
+        CORE_getEndPoints_VendorPOST = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Vendor_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Vendor_Port")))
+                .addHeader("content-type", "Appliction/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .build();
 
-        /*MWM_Ping_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("MWM_Ping_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("MWM_Ping_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
+        CORE_getEndPoints_CTX = new RequestSpecBuilder()
+                .setBaseUri(qa_ctx)
+                .setBasePath(properties.getProperty("CORE_CTX_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_CTX_RequestSpec_Port")))
+                .addHeader("Server", "Apache-Coyote/1.1")
+                .addHeader("Content-Type", "text/xml;charset=ISO-8859-1")
+                .build();
 
-        /*MWM_Vend_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("MWM_Vend_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("MWM_Vend_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
-
-        /*MWM_VendLookUp_RequestSpec = new RequestSpecBuilder().
-                setBaseUri(qa_minion).
-                setPort(Integer.parseInt(properties.getProperty("MWM_VendLookUp_RequestSpec_Port"))).
-                setBasePath(properties.getProperty("MWM_VendLookUp_RequestSpec_BasePath")).
-                setContentType(ContentType.JSON).
-                addHeader("Content-Type", "json").
-                build();*/
-
-        /**
-         *  dot Core request specs
-         */
-
-       // CORE_Transact_V4_RequestSpec = new RequestSpecBuilder().
-       //         setBaseUri(qa_minion)
-       //         .setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V4_RequestSpec_Port")))
-       //         .setBasePath(properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
-       //         .setContentType(ContentType.JSON)
-       //         .addHeader("Accept", "*/*")
-       //         .addHeader("Cache-Control", "no-cache")
-       //         .addHeader("Host", properties.getProperty("CORE_Transact_V4_RequestSpec_BasePath"))
-       //         .addHeader("Accept-Encoding", "Accept-Encoding")
-       //         .addHeader("Connection", "keep-alive").build();
-
+        CORE_getEndPoints_AttributePOST = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Attribute_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Attribute_Port")))
+                .addHeader("content-type", "Appliction/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .build();
 
     }
 

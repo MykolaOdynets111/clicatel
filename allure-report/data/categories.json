@@ -1,5 +1,107 @@
 {
   "uid" : "4b4757e66a1912dae1a509f688f20b0f",
   "name" : "categories",
-  "children" : [ ]
+  "children" : [ {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "expected [0000] but found [null]",
+      "children" : [ {
+        "name" : "basicTransactV4",
+        "uid" : "e7f5c82f1d32348",
+        "parentUid" : "0d23f3b6e1862fbc2c6550f09fbb0252",
+        "status" : "failed",
+        "time" : {
+          "start" : 1584432033026,
+          "stop" : 1584432043694,
+          "duration" : 10668
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "5900", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "7", "0", "test", "2022564675", "2", "test123", "60", "27731000000", "27731000000" ]
+      } ],
+      "uid" : "0d23f3b6e1862fbc2c6550f09fbb0252"
+    }, {
+      "name" : "expected [^[1-0]] but found [null]",
+      "children" : [ {
+        "name" : "successPostAttributes",
+        "uid" : "9f03134f1804edc",
+        "parentUid" : "75ea28c7168f7418e13cd2128fdaa2af",
+        "status" : "failed",
+        "time" : {
+          "start" : 1584432065166,
+          "stop" : 1584432065210,
+          "duration" : 44
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "^[1-0]", "AutomationTestAttribute8795", "8795", "string" ]
+      } ],
+      "uid" : "75ea28c7168f7418e13cd2128fdaa2af"
+    }, {
+      "name" : "expected [14677] but found [14625]",
+      "children" : [ {
+        "name" : "FinTermsModelASuccessTest",
+        "uid" : "aff47cb16a352aa9",
+        "parentUid" : "49c1a13440aa5e1cf006531fb92f428d",
+        "status" : "failed",
+        "time" : {
+          "start" : 1584432065857,
+          "stop" : 1584432066039,
+          "duration" : 182
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
+      } ],
+      "uid" : "49c1a13440aa5e1cf006531fb92f428d"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  }, {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "Cannot determine which path implementation to use because the content-type text/plain doesn't map to a path implementation.",
+      "children" : [ {
+        "name" : "basicReserveAndTransactV3",
+        "uid" : "a468829319f404d",
+        "parentUid" : "4cf88395a0c59e247a6689615c342510",
+        "status" : "broken",
+        "time" : {
+          "start" : 1584432043720,
+          "stop" : 1584432049008,
+          "duration" : 5288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "0", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "test", "ST-8556726170", "3", "test123", "921", "2341122222221", "2341110000000" ]
+      }, {
+        "name" : "basicReserveAndTransactV4",
+        "uid" : "30e6f08dce45816f",
+        "parentUid" : "4cf88395a0c59e247a6689615c342510",
+        "status" : "broken",
+        "time" : {
+          "start" : 1584432049099,
+          "stop" : 1584432054370,
+          "duration" : 5271
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5900", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "60", "27731304702", "27731304702" ]
+      }, {
+        "name" : "ReserveAndTransactV4MTNZASuccesstestcases",
+        "uid" : "47c87ab123c17881",
+        "parentUid" : "4cf88395a0c59e247a6689615c342510",
+        "status" : "broken",
+        "time" : {
+          "start" : 1584432054378,
+          "stop" : 1584432059651,
+          "duration" : 5273
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
+      } ],
+      "uid" : "4cf88395a0c59e247a6689615c342510"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  } ]
 }

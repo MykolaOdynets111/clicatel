@@ -7,7 +7,9 @@ Request params:	clientId=2
 Query params:	<none>
 Form params:	<none>
 Path params:	<none>
-Headers:		Accept=*/*
+Headers:		transfer-encoding=chunked
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
 Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
@@ -19,6 +21,10 @@ Query params:	<none>
 Form params:	<none>
 Path params:	<none>
 Headers:		Accept=*/*
+				Cache-Control=no-cache
+				Accept-Encoding=gzip, deflate
+				Cookie=__cfduid=d8b6fc575ee9c162aeb71583994d6ca551573471137
+				Connection=keep-alive
 				Content-Type=application/json; charset=UTF-8
 Cookies:		<none>
 Multiparts:		<none>

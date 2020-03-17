@@ -1,12 +1,12 @@
 {
-  "uid" : "d1b654524f248b7c",
+  "uid" : "ddacc6fd676bd935",
   "name" : "basicReserveAndTransactV3InvalidPurchaseAmount",
   "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3.basicReserveAndTransactV3InvalidPurchaseAmount",
   "historyId" : "7af6be3de1263af6b6660d9e017294c9",
   "time" : {
-    "start" : 1583502673359,
-    "stop" : 1583502673408,
-    "duration" : 49
+    "start" : 1584432049023,
+    "stop" : 1584432049086,
+    "duration" : 63
   },
   "status" : "passed",
   "flaky" : false,
@@ -16,23 +16,23 @@
     "status" : "passed",
     "steps" : [ ],
     "attachments" : [ {
-      "uid" : "ca5cd03124a1157d",
+      "uid" : "786f3197a8a62bba",
       "name" : "request",
-      "source" : "ca5cd03124a1157d.txt",
+      "source" : "786f3197a8a62bba.txt",
       "type" : "text/plain",
       "size" : 750
     }, {
-      "uid" : "8844eaae3c82c442",
+      "uid" : "718cc8ddf768cf5a",
       "name" : "response",
-      "source" : "8844eaae3c82c442.txt",
+      "source" : "718cc8ddf768cf5a.txt",
       "type" : "text/plain",
       "size" : 311
     } ],
     "parameters" : [ ],
-    "stepsCount" : 0,
-    "hasContent" : true,
     "attachmentsCount" : 2,
-    "shouldDisplayMessage" : false
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 0
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -58,7 +58,7 @@
     "value" : "FANB0610"
   }, {
     "name" : "thread",
-    "value" : "3468@FANB0610.TestNG-PoolService-0(20)"
+    "value" : "32472@FANB0610.TestNG-PoolService-0(20)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -133,6 +133,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "d1b654524f248b7c.json",
+  "source" : "ddacc6fd676bd935.json",
   "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "100000000000000", "2019-09-03T15:35:26.720+02:00", "0", "4000", "amount :must be less than or equal to 999999999999", "400", "null", "null", "null", "7", "test", "ST-8556726170", "2", "test123", "60", "27731304702", "27731304702" ]
 }

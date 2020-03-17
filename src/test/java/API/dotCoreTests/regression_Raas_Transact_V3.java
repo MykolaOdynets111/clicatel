@@ -10,6 +10,7 @@ import api.requestLibary.CORE.coreTransactV3POJO;
 import api.testUtilities.dataBuilders.testDataFactory;
 import api.testUtilities.propertyConfigWrapper.configWrapper;
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
+import api.testUtilities.testConfig;
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
@@ -27,7 +28,7 @@ import java.util.Properties;
 import static io.restassured.RestAssured.given;
 
 @Listeners(allureApiTestListener.class)
-public class regression_Raas_Transact_V3 {
+public class regression_Raas_Transact_V3 extends testConfig {
 
     // Create properties object in order to inject environment specific variables upon build
     Properties properties = configWrapper.loadPropertiesFile("config.properties");
@@ -90,12 +91,12 @@ public class regression_Raas_Transact_V3 {
 
         // Financial Terms Calculate GET method call
         Response finTermsCalculateResponse =
-                given()
+                given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId", clientId)
                         .param("productId", productId)
                         .param("purchaseAmount", purchaseAmount)
                         .when()
-                        .get(properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_FinTermsCalc_Port") + properties.getProperty("CORE_FinTermsCalc_BasePath"))
+                        .get()
                         .then()
                         .extract()
                         .response();
@@ -118,11 +119,11 @@ public class regression_Raas_Transact_V3 {
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
         Response TransactV3response =
-                given()
+                given(CORE_getEndPoints_TransactV3)
                         .contentType(ContentType.JSON)
                         .body(TransactV3payload)
                         .when()
-                        .post(properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_Transact_V3_RequestSpec_Port") + properties.getProperty("CORE_Transact_V3_RequestSpec_BasePath"))
+                        .post()
                         .then()
                         .extract()
                         .response();

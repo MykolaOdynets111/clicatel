@@ -1,13 +1,46 @@
 {
   "total" : 9,
   "items" : [ {
+    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
+    "name" : "Fin Terms Calculate Test Suite",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 2
+    }
+  }, {
+    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
+    "name" : "Transact V4 Test Suite",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "b23d09bd052c74c220c86e03df86c72a",
+    "name" : "Attribute Test Suite",
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
     "uid" : "ae1ae325f9f54494734eedf0dcc63924",
     "name" : "Reserve and Transact V4 Test Suite",
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
+      "broken" : 2,
       "skipped" : 0,
-      "passed" : 3,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 3
     }
@@ -16,20 +49,9 @@
     "name" : "Reserve and Transact V3 Test Suite",
     "statistic" : {
       "failed" : 0,
-      "broken" : 0,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 2,
-      "unknown" : 0,
-      "total" : 2
-    }
-  }, {
-    "uid" : "ae1676802e9eb5fb4c36aabcf6079514",
-    "name" : "Fin Terms Calculate Test Suite",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 2,
+      "passed" : 1,
       "unknown" : 0,
       "total" : 2
     }
@@ -45,30 +67,8 @@
       "total" : 1
     }
   }, {
-    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
-    "name" : "Transact V4 Test Suite",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    }
-  }, {
     "uid" : "241d365fea309dc8cf93a9f950c7706f",
     "name" : "Ctx Test Suite",
-    "statistic" : {
-      "failed" : 0,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 1,
-      "unknown" : 0,
-      "total" : 1
-    }
-  }, {
-    "uid" : "b23d09bd052c74c220c86e03df86c72a",
-    "name" : "Attribute Test Suite",
     "statistic" : {
       "failed" : 0,
       "broken" : 0,
