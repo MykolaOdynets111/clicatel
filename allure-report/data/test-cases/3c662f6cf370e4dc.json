@@ -1,0 +1,265 @@
+{
+  "uid" : "3c662f6cf370e4dc",
+  "name" : "FinTermsModelASuccessTest",
+  "fullName" : "API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest",
+  "historyId" : "7f13441ffbe62e82d464059ba8e8772c",
+  "time" : {
+    "start" : 1584946328188,
+    "stop" : 1584946328406,
+    "duration" : 218
+  },
+  "status" : "failed",
+  "statusMessage" : "expected [14677] but found [14625]",
+  "statusTrace" : "java.lang.AssertionError: expected [14677] but found [14625]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest(regression_Fin_Terms_Calculate.java:123)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "expected [14677] but found [14625]",
+    "statusTrace" : "java.lang.AssertionError: expected [14677] but found [14625]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest(regression_Fin_Terms_Calculate.java:123)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+    "steps" : [ {
+      "name" : "Fin Terms Model A Calculate Success",
+      "time" : {
+        "start" : 1584946328188,
+        "stop" : 1584946328401,
+        "duration" : 213
+      },
+      "status" : "failed",
+      "statusMessage" : "expected [14677] but found [14625]",
+      "statusTrace" : "java.lang.AssertionError: expected [14677] but found [14625]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Fin_Terms_Calculate.FinTermsModelASuccessTest(regression_Fin_Terms_Calculate.java:123)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "expectedCurrencyCode",
+        "value" : "NGN"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "15000"
+      }, {
+        "name" : "expectedClientId",
+        "value" : "3"
+      }, {
+        "name" : "expectedProductId",
+        "value" : "100"
+      }, {
+        "name" : "expectedPurchaseAmount",
+        "value" : "15000"
+      }, {
+        "name" : "expectedTermsreserveAmount",
+        "value" : "15000"
+      }, {
+        "name" : "expectedTermsVendAmount",
+        "value" : "15000"
+      }, {
+        "name" : "expectedTermsFeeAmount",
+        "value" : "0"
+      }, {
+        "name" : "expectedTermsSettlementAmount",
+        "value" : "14677"
+      }, {
+        "name" : "expectedTermsClientShareAmount",
+        "value" : "323"
+      }, {
+        "name" : "expectedTermsVendorShareAmount",
+        "value" : "0"
+      }, {
+        "name" : "expectedVariablesPAYD_SHARE_AMOUNT",
+        "value" : "427.5"
+      }, {
+        "name" : "expectedVariablesREQUESTED_PURCHASE_VALUE",
+        "value" : "15000"
+      }, {
+        "name" : "expectedVariablesPAYD_VAT_LIABILITY",
+        "value" : "10.35503"
+      }, {
+        "name" : "expectedVariablesVAT_PERC",
+        "value" : "0.014"
+      }, {
+        "name" : "expectedVariablesPAYD_REVENUE",
+        "value" : "739.645"
+      }, {
+        "name" : "expectedVariablesPAYD_GROSS_PROFIT",
+        "value" : "417.145"
+      }, {
+        "name" : "expectedVariablesMNO_DISCOUNT_PERC",
+        "value" : "0.05"
+      }, {
+        "name" : "expectedVariablesCLIENT_REVENUE",
+        "value" : "322.5"
+      }, {
+        "name" : "expectedVariablesPAYD_COST_OF_GOODS_SOLD",
+        "value" : "322.5"
+      }, {
+        "name" : "expectedVariablesTPV",
+        "value" : "15000.0"
+      }, {
+        "name" : "expectedVariablesPAYD_SHARE_PERC",
+        "value" : "0.57"
+      }, {
+        "name" : "expectedVariablesCLIENT_SHARE_OF_MNO_DISCOUNT",
+        "value" : "0.43"
+      }, {
+        "name" : "expectedVariablesCLIENT_SHARE_AMOUNT",
+        "value" : "322.5"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "46a7822cae9c0aa9",
+      "name" : "request",
+      "source" : "46a7822cae9c0aa9.txt",
+      "type" : "text/plain",
+      "size" : 384
+    }, {
+      "uid" : "1cfca6d51b241dd0",
+      "name" : "response",
+      "source" : "1cfca6d51b241dd0.txt",
+      "type" : "text/plain",
+      "size" : 1046
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Fin_Terms_Calculate"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Fin_Terms_Calculate"
+  }, {
+    "name" : "testMethod",
+    "value" : "FinTermsModelASuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Fin Terms Calculate Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Fin_Terms_Calculate.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Fin_Terms_Calculate"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "19528@FANB0610.TestNG-PoolService-0(33)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "3"
+  }, {
+    "name" : "arg1",
+    "value" : "100"
+  }, {
+    "name" : "arg10",
+    "value" : "14677"
+  }, {
+    "name" : "arg11",
+    "value" : "323"
+  }, {
+    "name" : "arg12",
+    "value" : "0"
+  }, {
+    "name" : "arg13",
+    "value" : "427.5"
+  }, {
+    "name" : "arg14",
+    "value" : "15000"
+  }, {
+    "name" : "arg15",
+    "value" : "10.35503"
+  }, {
+    "name" : "arg16",
+    "value" : "0.014"
+  }, {
+    "name" : "arg17",
+    "value" : "739.645"
+  }, {
+    "name" : "arg18",
+    "value" : "417.145"
+  }, {
+    "name" : "arg19",
+    "value" : "0.05"
+  }, {
+    "name" : "arg2",
+    "value" : "NGN"
+  }, {
+    "name" : "arg20",
+    "value" : "322.5"
+  }, {
+    "name" : "arg21",
+    "value" : "322.5"
+  }, {
+    "name" : "arg22",
+    "value" : "15000.0"
+  }, {
+    "name" : "arg23",
+    "value" : "0.57"
+  }, {
+    "name" : "arg24",
+    "value" : "0.43"
+  }, {
+    "name" : "arg25",
+    "value" : "322.5"
+  }, {
+    "name" : "arg3",
+    "value" : "15000"
+  }, {
+    "name" : "arg4",
+    "value" : "3"
+  }, {
+    "name" : "arg5",
+    "value" : "100"
+  }, {
+    "name" : "arg6",
+    "value" : "15000"
+  }, {
+    "name" : "arg7",
+    "value" : "15000"
+  }, {
+    "name" : "arg8",
+    "value" : "15000"
+  }, {
+    "name" : "arg9",
+    "value" : "0"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "3c662f6cf370e4dc.json",
+  "parameterValues" : [ "3", "100", "14677", "323", "0", "427.5", "15000", "10.35503", "0.014", "739.645", "417.145", "0.05", "NGN", "322.5", "322.5", "15000.0", "0.57", "0.43", "322.5", "15000", "3", "100", "15000", "15000", "15000", "0" ]
+}

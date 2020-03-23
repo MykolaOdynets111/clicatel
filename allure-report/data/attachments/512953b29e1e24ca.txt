@@ -1,0 +1,12 @@
+HTTP/1.1 400 Bad Request
+content-length: 94
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_221)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "amount :must be less than or equal to 999999999999"
+}

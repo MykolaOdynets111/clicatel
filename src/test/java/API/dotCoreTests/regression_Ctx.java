@@ -7,6 +7,7 @@ package API.dotCoreTests;
 
 import api.testUtilities.sqlDataAccessLayer.sqlDataAccess;
 import api.testUtilities.testConfig;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import groovy.util.XmlSlurper;
 import io.qameta.allure.Step;
@@ -14,7 +15,8 @@ import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.path.xml.element.NodeChildren;
 import io.restassured.response.Response;
-import org.json.simple.JSONObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -26,14 +28,22 @@ import api.testUtilities.dataBuilders.testDataFactory;
 import api.testUtilities.dataBuilders.RandomCharGenerator;
 
 import java.io.IOException;
+import java.io.StringReader;
 import java.util.Properties;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import util.Listeners.allureApiTestListener;
 
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import org.json.XML;
 
 import static io.restassured.RestAssured.*;
 
@@ -72,6 +82,98 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedTransmissionDateTime"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedVendorReferenceNo"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedCtxResponseCode")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","expectedCtxResponseCode")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","expectedCtxResponseCode")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","expectedCtxResponseCode")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","expectedCtxResponseCode")},
 
         };
     }
@@ -168,37 +270,13 @@ public class regression_Ctx extends testConfig {
                         .extract()
                         .response();
 
+        String xmlCTX = Ctxresponse.asString();
 
+        System.out.println(xmlCTX);
 
-        Ctxresponse.prettyPrint();
-
-        String stringResponse = Ctxresponse.asString();
-        XmlPath ctxXmlPath = new XmlPath(stringResponse);
-        //String trnId = ctxXmlPath.get("clientTransactionId[0]");
-        //System.out.println(trnId);
-
-        //String Ctxresponse1 = get("/purchaseResponse").asString();
-        //System.out.println(Ctxresponse1.path("purchaseAmount").toString());
-        //NodeChildren children = ctxXmlPath.getNode("purchaseAmount").children();
-
-        //String childPurchase = children.get("purchaseAmount").toString();
-        //String ret = ctxXmlPath.getString("purchaseAmount");
-
-        //System.out.println(children.get("purchaseAmount").toString());
-        //System.out.println((char[]) ctxXmlPath.get("purchaseResponse.purchaseAmount"));
-
-        //String ctxClientTranResp = Ctxresponse.xmlPath().getString("soapenv:Body.purchaseResponse.clientTransactionId");
-        //System.out.println(ctxClientTranResp);
-        //System.out.println(clientTransactionId);
-        //String ctxClientTransactionIdResponse = get("/purchase").xmlPath().get("purchase.clientTransactionId");
-        //System.out.println(ctxClientTransactionIdResponse);
-        //String xmlClientTran = get("/service").xmlPath().getString("purchaseResponse.clientTransactionId");
-        //System.out.println(xmlClientTran);
-
-        //Object testResponse  = Ctxresponse.path("test");
-        //System.out.println(testResponse);
-        //String response = Ctxresponse.path("purchaseAmount").toString();
-        //String response = Ctxresponse.path("purchaseAmount").toString();
+       DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+       DocumentBuilder builder = factory.newDocumentBuilder();
+       Document document = builder.parse(new InputSource(new StringReader(xmlCTX)));
 
         // Assertions
         // Finance Terms Calculate response assertions
@@ -209,24 +287,34 @@ public class regression_Ctx extends testConfig {
         Assert.assertEquals(finTermsCalculateResponse.path("purchaseAmount").toString(), purchaseAmount);
 
         // CTX response assertions
-        //Assert.assertEquals(Ctxresponse.xmlPath(), expectedPurchaseAmount);
-        //Assert.assertEquals(XmlPath.from(Ctxresponse1).get("purchaseAmount"), expectedPurchaseAmount);
-        //Assert.assertEquals(ctxXmlPath.get("Envelope.body.purchaseResponse.purchaseAmount").toString(), expectedPurchaseAmount);
-        //Assert.assertEquals(ReserveAndTransactV3response.path("responseMessage"), expectedMessage);
-        //Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
+        Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
+        Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
+        Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
+        Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
 
         // CTX DB assertions
         Thread.sleep(5000);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
+        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + Ctxresponse.path("clientTransactionId").toString(), "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
         //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
         //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
 
-
-
     }
 
+    protected String getString(String tagName, Element element) {
+        NodeList list = element.getElementsByTagName(tagName);
+        if (list != null && list.getLength() > 0) {
+            NodeList subList = list.item(0).getChildNodes();
+
+            if (subList != null && subList.getLength() > 0) {
+                return subList.item(0).getNodeValue();
+            }
+        }
+
+        return null;
+    }
 
 }

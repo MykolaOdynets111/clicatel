@@ -1,0 +1,257 @@
+{
+  "uid" : "e7d77db7e227b5d0",
+  "name" : "basicCtx",
+  "fullName" : "API.dotCoreTests.regression_Ctx.basicCtx",
+  "historyId" : "5092732387d7fcc5c4863516c11c4374",
+  "time" : {
+    "start" : 1584946321411,
+    "stop" : 1584946326848,
+    "duration" : 5437
+  },
+  "status" : "failed",
+  "statusMessage" : "expected [0] but found [2520]",
+  "statusTrace" : "java.lang.AssertionError: expected [0] but found [2520]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Ctx.basicCtx(regression_Ctx.java:297)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1584946321379,
+      "stop" : 1584946321384,
+      "duration" : 5
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "expected [0] but found [2520]",
+    "statusTrace" : "java.lang.AssertionError: expected [0] but found [2520]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Ctx.basicCtx(regression_Ctx.java:297)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+    "steps" : [ {
+      "name" : "CTX POST Success",
+      "time" : {
+        "start" : 1584946321412,
+        "stop" : 1584946326846,
+        "duration" : 5434
+      },
+      "status" : "failed",
+      "statusMessage" : "expected [0] but found [2520]",
+      "statusTrace" : "java.lang.AssertionError: expected [0] but found [2520]\r\n\tat org.testng.Assert.fail(Assert.java:96)\r\n\tat org.testng.Assert.failNotEquals(Assert.java:776)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:137)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:453)\r\n\tat org.testng.Assert.assertEquals(Assert.java:463)\r\n\tat API.dotCoreTests.regression_Ctx.basicCtx(regression_Ctx.java:297)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)\r\n\tat org.testng.internal.Invoker.invokeMethod(Invoker.java:583)\r\n\tat org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:71)\r\n\tat org.testng.internal.TestMethodWithDataProviderMethodWorker.call(TestMethodWithDataProviderMethodWorker.java:14)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)\r\n\tat java.util.concurrent.FutureTask.run(FutureTask.java:266)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "sourceId",
+        "value" : "2341111111111"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "channelIndicator",
+        "value" : "07"
+      }, {
+        "name" : "productId",
+        "value" : "130"
+      }, {
+        "name" : "clientTransactionId",
+        "value" : "b35dfb97-f79c-46c6-9e7e-01974"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "10000"
+      }, {
+        "name" : "alternateClientId",
+        "value" : "42"
+      }, {
+        "name" : "timeLocalTransaction",
+        "value" : "104827"
+      }, {
+        "name" : "xmlns",
+        "value" : "http://clickatell.com/types"
+      }, {
+        "name" : "apiToken",
+        "value" : "r6FgU7yIArFWonHK3ZyGa3WNET9cozxMEQ1Wkx9LmOZBIPSmnd2bYGXG5xudVCKo"
+      }, {
+        "name" : "originId",
+        "value" : "2341111111111"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "3133827176"
+      }, {
+        "name" : "dateLocalTransaction",
+        "value" : "0121"
+      }, {
+        "name" : "expectedPurchaseAmount",
+        "value" : "10000"
+      }, {
+        "name" : "expectedTimeLocalTransaction",
+        "value" : "104827"
+      }, {
+        "name" : "expectedDateLocalTransaction",
+        "value" : "0121"
+      }, {
+        "name" : "expectedOriginId",
+        "value" : "2341111111111"
+      }, {
+        "name" : "expectedProductId",
+        "value" : "130"
+      }, {
+        "name" : "expectedChannelIndicator",
+        "value" : "07"
+      }, {
+        "name" : "expectedTransmissionDateTime",
+        "value" : "0131104740"
+      }, {
+        "name" : "expectedVendorReferenceNo",
+        "value" : "9820002047056"
+      }, {
+        "name" : "expectedCtxResponseCode",
+        "value" : "0"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "7be6e5ec254f7700",
+      "name" : "request",
+      "source" : "7be6e5ec254f7700.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "6796a1783609c967",
+      "name" : "response",
+      "source" : "6796a1783609c967.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "testMethod",
+    "value" : "basicCtx"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Ctx Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "C:/Automation/bb_kaizen/bigbrotherautomation_kaizentests/src/main/java/api/requestLibary/CORE/CtxPOJO.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "19528@FANB0610.TestNG-PoolService-1(26)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg1",
+    "value" : "3"
+  }, {
+    "name" : "arg10",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg11",
+    "value" : "3133827176"
+  }, {
+    "name" : "arg12",
+    "value" : "0121"
+  }, {
+    "name" : "arg13",
+    "value" : "10000"
+  }, {
+    "name" : "arg14",
+    "value" : "104827"
+  }, {
+    "name" : "arg15",
+    "value" : "0121"
+  }, {
+    "name" : "arg16",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg17",
+    "value" : "130"
+  }, {
+    "name" : "arg18",
+    "value" : "07"
+  }, {
+    "name" : "arg19",
+    "value" : "0131104740"
+  }, {
+    "name" : "arg2",
+    "value" : "07"
+  }, {
+    "name" : "arg20",
+    "value" : "9820002047056"
+  }, {
+    "name" : "arg21",
+    "value" : "0"
+  }, {
+    "name" : "arg3",
+    "value" : "130"
+  }, {
+    "name" : "arg4",
+    "value" : "b35dfb97-f79c-46c6-9e7e-01974"
+  }, {
+    "name" : "arg5",
+    "value" : "10000"
+  }, {
+    "name" : "arg6",
+    "value" : "42"
+  }, {
+    "name" : "arg7",
+    "value" : "104827"
+  }, {
+    "name" : "arg8",
+    "value" : "http://clickatell.com/types"
+  }, {
+    "name" : "arg9",
+    "value" : "r6FgU7yIArFWonHK3ZyGa3WNET9cozxMEQ1Wkx9LmOZBIPSmnd2bYGXG5xudVCKo"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "e7d77db7e227b5d0.json",
+  "parameterValues" : [ "2341111111111", "3", "2341111111111", "3133827176", "0121", "10000", "104827", "0121", "2341111111111", "130", "07", "0131104740", "07", "9820002047056", "0", "130", "b35dfb97-f79c-46c6-9e7e-01974", "10000", "42", "104827", "http://clickatell.com/types", "r6FgU7yIArFWonHK3ZyGa3WNET9cozxMEQ1Wkx9LmOZBIPSmnd2bYGXG5xudVCKo" ]
+}

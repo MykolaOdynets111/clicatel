@@ -1,0 +1,90 @@
+{
+  "uid" : "b21df756da9459f1",
+  "name" : "successPostAttributes",
+  "fullName" : "API.dotCoreTests.regression_product_attributes.successPostAttributes",
+  "historyId" : "990d25a44ba613b4ea44b67c348b06cc",
+  "time" : {
+    "start" : 1584946326884,
+    "stop" : 1584946326964,
+    "duration" : 80
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1584946326878,
+      "stop" : 1584946326881,
+      "duration" : 3
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "stepsCount" : 0,
+    "hasContent" : false,
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : false
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "testMethod",
+    "value" : "successPostAttributes"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Attribute Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_product_attributes.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_product_attributes"
+  }, {
+    "name" : "host",
+    "value" : "FANB0610"
+  }, {
+    "name" : "thread",
+    "value" : "19528@FANB0610.TestNG-PoolService-0(30)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "^[1-0]"
+  }, {
+    "name" : "arg1",
+    "value" : "AutomationTestAttribute8121"
+  }, {
+    "name" : "arg2",
+    "value" : "8121"
+  }, {
+    "name" : "arg3",
+    "value" : "string"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "b21df756da9459f1.json",
+  "parameterValues" : [ "^[1-0]", "AutomationTestAttribute8121", "8121", "string" ]
+}
