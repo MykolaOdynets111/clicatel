@@ -57,14 +57,15 @@ public class regression_Ctx extends testConfig {
     @DataProvider(name = "Ctxtestcases", parallel = true)
     public Object[] createTransactTestData() throws IOException, ParseException {
 
-        String randomnumbers = RandomCharGenerator.getRandomNumbers(10001);
+        String randomnumbers = RandomCharGenerator.getRandomNumbers(1000111111);
+        String randomnumbers1 = RandomCharGenerator.getRandomNumbers(1000111111);
         return new String[][]{
 
                 {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","sourceId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","timeLocalTransaction"),
@@ -87,7 +88,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","timeLocalTransaction"),
@@ -110,7 +111,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","timeLocalTransaction"),
@@ -133,7 +134,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","timeLocalTransaction"),
@@ -156,7 +157,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientTransactionId")  + randomnumbers,
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","timeLocalTransaction"),
@@ -216,25 +217,6 @@ public class regression_Ctx extends testConfig {
                         .extract()
                         .response();
 
-
-
-        // Create CTX payload object - contains CTX request body
-        /*CtxPOJO CtxPayload = new CtxPOJO(
-                sourceId,
-                clientId,
-                channelIndicator,
-                productId,
-                clientTransactionId,
-                purchaseAmount,
-                alternateClientId,
-                timeLocalTransaction,
-                xmlns,
-                apiToken,
-                originId,
-                channelSessionId,
-                dateLocalTransaction);*/
-
-
         // Stage ctx test data and prepare payload
         String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
                 "<S:Envelope xmlns:S=\"http://schemas.xmlsoap.org/soap/envelope/\">\r\n" +
@@ -291,16 +273,26 @@ public class regression_Ctx extends testConfig {
         Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
         Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
         Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
+        Assert.assertEquals(getString("responseCode", document.getDocumentElement()), expectedCtxResponseCode);
+        Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);
 
         // CTX DB assertions
         Thread.sleep(5000);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + Ctxresponse.path("clientTransactionId").toString(), "transactionResponseCode"), expectedCTXTransactionResponseCode);
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + Ctxresponse.path("clientTransactionId"), "transactionResponseCode"), expectedCTXTransactionResponseCode);
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "clientTransactionId"), TransactV4response.path("raasTxnRef") + "-0000");
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'" , "product_id"), productId);
-        //Assert.assertEquals(clientId, sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = '" + Ctxresponse.path("clientTransactionId"), "client_id"));
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "clientStan"));
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originId"), getString("originId", document.getDocumentElement()));
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originatingService"));
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "purchaseAmount"), expectedPurchaseAmount);
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionState"), "C");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionType"), "P");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorReference"));
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorResponseCode"));
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorStan"));
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "client_id"), clientId);
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "systemResponseCode"), "0");
+
 
     }
 

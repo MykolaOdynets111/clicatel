@@ -97,7 +97,8 @@ public class testConfig {
         Properties properties = configWrapper.loadPropertiesFile("config.properties");
         String qa_refresh_Backend = properties.getProperty("QA_Refresh_BackEnd");
         String qa_minion = properties.getProperty("QA_MINION");
-        String qa_ctx = properties.getProperty("CORE_CTX_QA");
+        String qa_ctx = properties.getProperty("CORE_CTX_HOST");
+
 
         /**
          * https://www.telerik.com/fiddler
