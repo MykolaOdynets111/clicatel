@@ -96,14 +96,23 @@
             </properties>
         </profile>
         <profile>
-            <id>testing</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
-            <properties>
-                <env>testing</env>
-            </properties>
-        </profile>
+        <id>testing</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+            <env>testing</env>
+        </properties>
+    </profile>
+    <profile>
+        <id>awsdev</id>
+        <activation>
+            <activeByDefault>false</activeByDefault>
+        </activation>
+        <properties>
+            <env>awsdev</env>
+        </properties>
+    </profile>
     </profiles>
     <repositories>
         <repository>
@@ -277,6 +286,12 @@
             <groupId>org.json</groupId>
             <artifactId>json</artifactId>
             <version>20180813</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.55</version>
         </dependency>
 
     </dependencies>

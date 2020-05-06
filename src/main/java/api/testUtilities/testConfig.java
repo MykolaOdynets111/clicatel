@@ -37,8 +37,6 @@ public class testConfig {
     public static RequestSpecification MWM_Vend_RequestSpec;
     public static RequestSpecification MWM_VendLookUp_RequestSpec;
 
-
-
     public static RequestSpecification FM_GetClients_CLIENTS;
     public static RequestSpecification FM_GetClients_VENDORS;
     public static RequestSpecification FM_GetClients_FUNDINGSOURCES;
@@ -98,7 +96,8 @@ public class testConfig {
         String qa_refresh_Backend = properties.getProperty("QA_Refresh_BackEnd");
         String qa_minion = properties.getProperty("QA_MINION");
         String qa_ctx = properties.getProperty("CORE_CTX_HOST");
-
+        //String aws_product_lookup = properties.getProperty("AWS_PRODUCT_LOOKUP");
+        //String aws_financial_terms = properties.getProperty("AWS_FINANCIAL_TERMS");
 
         /**
          * https://www.telerik.com/fiddler

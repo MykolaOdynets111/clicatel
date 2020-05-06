@@ -119,6 +119,31 @@
       "expectedTransmissionDateTime": "0131104740",
       "expectedVendorReferenceNo": "9820002047056",
       "expectedCtxResponseCode": "0"
+    },
+    "MTNPurchaseFailInvalidAmount": {
+      "sourceId": "2341111111111",
+      "clientId": "3",
+      "channelIndicator": "07",
+      "productId": "100",
+      "clientTransactionId": "MTNNGT",
+      "purchaseAmount": "15000",
+      "alternateClientId": "42",
+      "timeLocalTransaction": "104827",
+      "xmlns": "http://clickatell.com/types",
+      "apiToken": "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf",
+      "originId": "2349000300000",
+      "channelSessionId": "3133827176",
+      "dateLocalTransaction": "0121",
+      "expectedPurchaseAmount": "15000",
+      "expectedTimeLocalTransaction": "104827",
+      "expectedDateLocalTransaction": "0121",
+      "expectedOriginId": "2349000300000",
+      "expectedProductId": "100",
+      "expectedChannelIndicator": "07",
+      "expectedTransmissionDateTime": "0131104740",
+      "expectedVendorReferenceNo": "9820002047056",
+      "expectedCtxResponseCode": "0",
+      "expectedFaultString": "org.xml.sax.SAXParseException; cvc-pattern-valid: Value '100000000000000000000000000000000000000000' is not facet-valid with respect to pattern '[0-9]{1,12}' for type 'numberMaxSize12'."
     }
   }
 }
