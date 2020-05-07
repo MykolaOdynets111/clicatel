@@ -1,3 +1,9 @@
+/* Class name: startSimulator.java
+ * Function: The startSimulator class has been created in order to call the vendorSim.sh shell and invoke certain failed
+ *           or success scenarios.
+ * Author: Juan-Claude Botha
+ */
+
 package api.testUtilities.Simulators;
 
 import com.google.common.io.CharStreams;
@@ -19,7 +25,6 @@ public class startSimulator {
 
         JSch jsch = new JSch();
 
-
         Properties config = new Properties();
         config.put("StrictHostKeyChecking", "no");
         config.put("compression.s2c", "zlib,none");
@@ -32,9 +37,7 @@ public class startSimulator {
         session.connect();
 
         //setup channel connection and shell execution to setup and start the simulator
-        //String command = "./vendorSim.sh MTNNG SUCCESS";
         String command = "./vendorSim.sh " + vendScenario;
-        //log.info(command);
         System.out.println(command);
         Channel channel = session.openChannel("exec");
         ((ChannelExec) channel).setCommand(command);

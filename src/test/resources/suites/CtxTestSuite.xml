@@ -6,7 +6,9 @@
         <classes>
             <class name="API.dotCoreTests.regression_Ctx">
                 <methods>
-                    <include name="basicCtx"/>
+                    <include name="CtxSuccessScenarios"/>
+                    <include name="CTXVendorSimNegativeTests"/>
+                    <include name="CTXNullFieldsNegativeTests"/>
                 </methods>
             </class>
         </classes>

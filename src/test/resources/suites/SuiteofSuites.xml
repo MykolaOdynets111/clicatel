@@ -22,16 +22,16 @@
 <!--        <suite-file path="PingTestsSuite.xml"></suite-file>-->
 <!--        <suite-file path="PWMReserveFundsTestSuite.xml"></suite-file>-->
 <!--        <suite-file path="USSDTestSuite.xml"></suite-file>-->
-<!--        <suite-file path="multiplechoicenodesuite.xml"></suite-file>-->
+<!--        <suite-file path="multiplechoicenodesuite.xml"></suite-file>
             <suite-file path="TransactV3TestSuite.xml"></suite-file>
             <suite-file path="TransactV4TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV3TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV4TestSuite.xml"></suite-file>
-            <suite-file path="CtxTestSuite.xml"></suite-file>
             <suite-file path="AttributeTestSuite.xml"></suite-file>
             <suite-file path="ClientTestSuite.xml"></suite-file>
             <suite-file path="VendorTestSuite.xml"></suite-file>
-            <suite-file path="FinTermsCalculateTestSuite.xml"></suite-file>
+            <suite-file path="FinTermsCalculateTestSuite.xml"></suite-file>-->
+            <suite-file path="CtxTestSuite.xml"></suite-file>
     </suite-files>
 </suite>
 
