@@ -65,31 +65,8 @@ public class regression_Ctx extends testConfig {
 
         String randomnumbers = RandomCharGenerator.getRandomNumbers(1000111111);
         String randomnumbers1 = RandomCharGenerator.getRandomNumbers(1000111111);
+        String randomnumbers22 = RandomCharGenerator.getRandomNumbers(1000000111);
         return new String[][]{
-
-                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","sourceId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","channelIndicator"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","purchaseAmount"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","alternateClientId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","timeLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","xmlns"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","apiToken"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","originId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","channelSessionId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","dateLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedPurchaseAmount"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedTimeLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedDateLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedOriginId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedProductId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedChannelIndicator"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedTransmissionDateTime"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedVendorReferenceNo"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","expectedCtxResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","successcase1","simulatorScenario")},
 
                 {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","sourceId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseSuccess","clientId"),
@@ -119,7 +96,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","clientTransactionId")  + randomnumbers1 + randomnumbers1 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseSuccess","timeLocalTransaction"),
@@ -143,7 +120,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","clientTransactionId")  + randomnumbers22 + randomnumbers + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseSuccess","timeLocalTransaction"),
@@ -167,7 +144,7 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","channelIndicator"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers1 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","clientTransactionId")  + randomnumbers + randomnumbers22 + "-0000",
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","purchaseAmount"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","alternateClientId"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseSuccess","timeLocalTransaction"),
@@ -219,6 +196,7 @@ public class regression_Ctx extends testConfig {
 
         // Start simulator and set all scenarios for vendors to return success
         startsim.SimulatorScenario(simulatorScenario);
+        Thread.sleep(5000);
 
         // Stage ctx test data and prepare payload
         String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
@@ -240,7 +218,6 @@ public class regression_Ctx extends testConfig {
                 "</purchase>\r\n" +
                 "</S:Body>\r\n" +
                 "</S:Envelope>";
-
 
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
@@ -413,37 +390,90 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseFailTimeOut","simulatorScenario"),
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","GloPurchaseFailTimeOut","simulatorResetState")},
 
-                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","sourceId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","clientId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","channelIndicator"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","productId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","clientTransactionId")  + randomnumbers3 + randomnumbers5 + "-0000",
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","purchaseAmount"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","alternateClientId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","timeLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","xmlns"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","apiToken"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","originId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","channelSessionId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","dateLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedPurchaseAmount"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedTimeLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedDateLocalTransaction"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedOriginId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedProductId"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedChannelIndicator"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedTransmissionDateTime"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedVendorReferenceNo"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedCtxResponseCode"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","expectedFaultString"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","simulatorScenario"),
-                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","airtelPurchaseFailTimeOut","simulatorResetState")}
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","clientTransactionId")  + randomnumbers6 + randomnumbers5 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedCtxResponseCode"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","expectedFaultString"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","simulatorScenario"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailErrorInvalidMSISDN","simulatorResetState")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","clientTransactionId")  + randomnumbers6 + randomnumbers3 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedCtxResponseCode"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","expectedFaultString"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","simulatorScenario"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","CellCPurchaseFailException","simulatorResetState")},
+
+                {testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","sourceId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","clientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","channelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","productId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","clientTransactionId")  + randomnumbers4 + randomnumbers4 + "-0000",
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","purchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","alternateClientId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","timeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","xmlns"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","apiToken"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","originId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","channelSessionId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","dateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedPurchaseAmount"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedTimeLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedDateLocalTransaction"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedOriginId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedProductId"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedChannelIndicator"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedTransmissionDateTime"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedVendorReferenceNo"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedCtxResponseCode"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","expectedFaultString"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","simulatorScenario"),
+                        testDataFactory.getTestData("CtxDataSource.json","ctxsuite","etisalatPurchaseFailInvalidMSISDN","simulatorResetState")}
 
 
         };
     }
 
-    @Step("CTX POST negative test cases")
+    @Step("CTX POST Vendor Sim negative test cases")
     @Test(dataProvider = "CtxVendorSimNegativeTestCases")
     public void CTXVendorSimNegativeTests(
             String sourceId,
@@ -537,15 +567,12 @@ public class regression_Ctx extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "purchaseAmount"), expectedPurchaseAmount);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionState"), "C");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionType"), "P");
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorReference"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorResponseCode"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorStan"));
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "client_id"), clientId);
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
-        //Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "systemResponseCode"), expectedCtxResponseCode);
 
         // reset simulator behaviour to success
         startsim.SimulatorScenario(simulatorResetState);
+        Thread.sleep(5000);
     }
 
     @DataProvider(name = "CtxNullFieldsNegativeTestCases", parallel = true)
@@ -872,9 +899,6 @@ public class regression_Ctx extends testConfig {
                         testDataFactory.getTestData("CtxDataSource.json","ctxsuite","MTNPurchaseFailNullChannelSessionId","expectedFaultString")}
 
 
-
-
-
         };
     }
 
@@ -904,9 +928,6 @@ public class regression_Ctx extends testConfig {
             String expectedVendorReferenceNo,
             String expectedCtxResponseCode,
             String expectedFaultString) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException {
-
-        // Start simulator and set all scenarios for vendors to return failures
-        //startsim.SimulatorScenario(simulatorScenario);
 
         // Stage ctx test data and prepare payload
         String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
