@@ -79,7 +79,7 @@ public class sqlDataAccess{
         try{
             Properties properties = configWrapper.loadPropertiesFile("config.properties");
             String connectionUrl = properties.getProperty("MYSQL_CONNECTION_URL");
-            Class.forName("com.mysql.jdbc.Driver");
+            Class.forName(properties.getProperty("MYSQL_DRIVER"));
             Connection connection = DriverManager.getConnection(connectionUrl, properties.getProperty("CTX_USER"),properties.getProperty("CTX_PWD"));
             Statement statement = connection.createStatement();
             ResultSet resultSet;
@@ -107,7 +107,7 @@ public class sqlDataAccess{
 
         try {
             String connectionUrl = properties.getProperty("MYSQL_CONNECTION_URL");
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName(properties.getProperty("MYSQL_DRIVER"));
             Connection connection = DriverManager.getConnection(connectionUrl, properties.getProperty("CTX_USER"), properties.getProperty("CTX_PWD"));
             Statement statement = connection.createStatement();
             ResultSet resultSet;
@@ -122,7 +122,7 @@ public class sqlDataAccess{
         }
         catch (Exception e){
             e.printStackTrace();
-        }
+    }
 
         return dbValue;
 
