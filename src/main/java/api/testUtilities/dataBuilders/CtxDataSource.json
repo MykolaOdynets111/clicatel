@@ -257,7 +257,7 @@
       "expectedTransmissionDateTime": "0131104740",
       "expectedVendorReferenceNo": "9820002047056",
       "expectedCtxResponseCode": "2236",
-      "simulatorScenario": "MTNNG DELAY 15000",
+      "simulatorScenario": "MTNNG DELAY 30000",
       "simulatorResetState": "MTNNG SUCCESS"
     },
     "MTNPurchaseFailTimeOut": {
@@ -283,7 +283,7 @@
       "expectedTransmissionDateTime": "0131104740",
       "expectedVendorReferenceNo": "9820002047056",
       "expectedCtxResponseCode": "2236",
-      "simulatorScenario": "MTNNG DELAY 15000",
+      "simulatorScenario": "MTNNG DELAY 30000",
       "simulatorResetState": "MTNNG SUCCESS"
     },
     "MTNPurchaseFailErrorInvalidMSISDN": {

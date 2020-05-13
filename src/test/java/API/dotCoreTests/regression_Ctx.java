@@ -60,18 +60,18 @@ public class regression_Ctx extends testConfig {
     startSimulator startsim = new startSimulator();
 
     // Random number generation
-    String randomnumbers = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers1 = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers22 = RandomCharGenerator.getRandomNumbers(1000000111);
-    String randomnumbers3 = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers4 = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers5 = RandomCharGenerator.getRandomNumbers(1000000011);
+    String randomnumbers = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers1 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers22 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers3 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers4 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers5 = RandomCharGenerator.getRandomNumbers(1000000000);
     String randomnumbers6 = RandomCharGenerator.getRandomNumbers(1000000000);
-    String randomnumbers7 = RandomCharGenerator.getRandomNumbers(1111100000);
-    String randomnumbers11 = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers12 = RandomCharGenerator.getRandomNumbers(1000111111);
-    String randomnumbers13 = RandomCharGenerator.getRandomNumbers(1111100011);
-    String randomnumbers14 = RandomCharGenerator.getRandomNumbers(1000110000);
+    String randomnumbers7 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers11 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers12 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers13 = RandomCharGenerator.getRandomNumbers(1000000000);
+    String randomnumbers14 = RandomCharGenerator.getRandomNumbers(1000000000);
 
     // Data staging for use in test
     @DataProvider(name = "Ctxtestcases", parallel = false)
@@ -467,27 +467,6 @@ public class regression_Ctx extends testConfig {
         Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);
         Assert.assertNotNull(getString("timeLocalTransaction", document.getDocumentElement()));
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
-
-        // CTX DB assertions
-       /* Thread.sleep(5000);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "clientStan"));
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originId"), getString("originId", document.getDocumentElement()));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originatingService"));
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "purchaseAmount"), expectedPurchaseAmount);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionState"), "C");
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionType"), "P");
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorReference"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorResponseCode"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorStan"));
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "client_id"), clientId);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
-        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "systemResponseCode"), "0");
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "endDate"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "endVendorDate"));
-        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "startDate")); */
-
 
     }
 
