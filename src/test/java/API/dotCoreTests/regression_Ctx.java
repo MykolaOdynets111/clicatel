@@ -16,10 +16,12 @@ import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
 import io.restassured.path.xml.element.NodeChildren;
 import io.restassured.response.Response;
+import org.apache.commons.configuration.ConfigurationException;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.testng.Assert;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -31,6 +33,7 @@ import api.testUtilities.dataBuilders.RandomCharGenerator;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.Properties;
+import java.util.*;
 
 import api.testUtilities.propertyConfigWrapper.configWrapper;
 import org.w3c.dom.Document;
@@ -47,6 +50,7 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.json.XML;
 
 import api.testUtilities.Simulators.startSimulator;
+import util.SetReportEnvironmentProperties;
 
 import static io.restassured.RestAssured.*;
 
@@ -179,6 +183,7 @@ public class regression_Ctx extends testConfig {
         };
     }
 
+
     @Step("CTX POST Success")
     @Test(dataProvider = "Ctxtestcases", priority = 0)
     public void CtxSuccessScenarios(
@@ -204,7 +209,7 @@ public class regression_Ctx extends testConfig {
                                           String expectedTransmissionDateTime,
                                           String expectedVendorReferenceNo,
                                           String expectedCtxResponseCode,
-                                          String simulatorScenario) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException {
+                                          String simulatorScenario) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException, ConfigurationException {
 
         // Start simulator and set all scenarios for vendors to return success
         startsim.SimulatorScenario(simulatorScenario);
@@ -472,8 +477,6 @@ public class regression_Ctx extends testConfig {
 
     @DataProvider(name = "CtxVendorSimNegativeTestCases", parallel = false)
     public Object[] CtxVendorSimNegativeTestCases() throws IOException, ParseException {
-
-
 
         return new String[][]{
 
