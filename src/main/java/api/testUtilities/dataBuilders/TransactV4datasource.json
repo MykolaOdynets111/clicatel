@@ -22,6 +22,7 @@
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0",
+      "expectedRaasStatus": "SUCCESS",
       "simulatorScenario": "MTNNG SUCCESS",
       "simulatorResetState": "MTNNG SUCCESS"
     },
@@ -47,6 +48,7 @@
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0",
+      "expectedRaasStatus": "SUCCESS",
       "simulatorScenario": "GLO SUCCESS",
       "simulatorResetState": "GLO SUCCESS"
     },
@@ -72,6 +74,7 @@
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0",
+      "expectedRaasStatus": "SUCCESS",
       "simulatorScenario": "ETISALAT SUCCESS",
       "simulatorResetState": "ETISALAT SUCCESS"
     },
@@ -97,6 +100,7 @@
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0",
+      "expectedRaasStatus": "SUCCESS",
       "simulatorScenario": "AIRTEL SUCCESS",
       "simulatorResetState": "AIRTEL SUCCESS"
     },
