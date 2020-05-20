@@ -8,6 +8,9 @@
                 <methods>
                     <include name="TransactV4SuccessTests"/>
                     <include name="transactV4VendorSimNegativeTests"/>
+                    <include name="transactV4NullFieldNegativeTestCase"/>
+                    <include name="transactV4VendorRetryableDeclineToOKTests"/>
+                    <include name="transactV4PendingToOKTestcases"/>
                 </methods>
             </class>
         </classes>
