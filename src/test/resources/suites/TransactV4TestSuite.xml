@@ -11,6 +11,7 @@
                     <include name="transactV4NullFieldNegativeTestCase"/>
                     <include name="transactV4VendorRetryableDeclineToOKTests"/>
                     <include name="transactV4PendingToOKTestcases"/>
+                    <include name="transactV4VendorPendingToROKTests"/>
                 </methods>
             </class>
         </classes>
