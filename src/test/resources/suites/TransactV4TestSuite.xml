@@ -13,6 +13,9 @@
                     <include name="transactV4PendingToOKTestcases"/>
                     <include name="transactV4VendorPendingToROKTests"/>
                     <include name="transactV4VendorPendingToStuckInProcessingTests"/>
+                    <include name="transactV4VendorPendingToRetryableDeclineToDeclineTests"/>
+                    <include name="transactV4VendorPendingToRetryableDeclineToNonRetryableDeclineTests"/>
+                    <include name="transactV4VendorTransactionInProgressTests"/>
                 </methods>
             </class>
         </classes>
