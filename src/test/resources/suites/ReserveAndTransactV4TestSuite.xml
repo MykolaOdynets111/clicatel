@@ -6,9 +6,9 @@
         <classes>
             <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V4">
                 <methods>
-                    <include name="basicReserveAndTransactV4"/>
-                    <include name="ReserveAndTransactV4MTNZASuccesstestcases"/>
-                    <include name="invalidLargeAmountTransaction"/>
+                    <include name="ReserveAndTransactV4StandardSuccessTests"/>
+                    <include name="ReserveAndTransactV4NullFieldNegativeTests"/>
+                    <include name="ReserveAndTransactV4ResponseCodesNegativeTests"/>
                 </methods>
             </class>
         </classes>
