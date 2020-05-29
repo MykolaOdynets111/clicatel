@@ -9,6 +9,9 @@
                     <include name="ReserveAndTransactV4StandardSuccessTests"/>
                     <include name="ReserveAndTransactV4NullFieldNegativeTests"/>
                     <include name="ReserveAndTransactV4ResponseCodesNegativeTests"/>
+                    <include name="ReserveAndTransactV4NonRetryableDeclineTests"/>
+                    <include name="ReserveAndTransactV4LookupBackOffTests"/>
+                    <include name="ReserveAndTransactV4RetryableDeclineToOKTests"/>
                 </methods>
             </class>
         </classes>
