@@ -1833,7 +1833,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "created"));
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "event_type"));
 
-        // SQL - UPDATE run recon
+        // SQL - UPDATE response code
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
         Thread.sleep(10000);
 

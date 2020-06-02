@@ -12,6 +12,12 @@
                     <include name="ReserveAndTransactV4NonRetryableDeclineTests"/>
                     <include name="ReserveAndTransactV4LookupBackOffTests"/>
                     <include name="ReserveAndTransactV4RetryableDeclineToOKTests"/>
+                    <include name="ReserveAndTransactV4RetryableDeclineToNonRetryableDeclineTests"/>
+                    <include name="ReserveAndTransactV4PendingToRetryableDeclineToNonRetryableDeclineTests"/>
+                    <include name="ReserveAndTransactV4PendingToOKTests"/>
+                    <include name="ReserveAndTransactV4PendingToRetryableOKTests"/>
+                    <include name="ReserveAndTransactV4PendingToStuckInProcessingTests"/>
+                    <include name="ReserveAndTransactV4PendingToRetryableDeclineToDeclineTests"/>
                 </methods>
             </class>
         </classes>
