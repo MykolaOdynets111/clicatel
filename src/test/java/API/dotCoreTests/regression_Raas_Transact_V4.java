@@ -40,7 +40,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
     // Data staging for use in test
     @DataProvider(name = "transactV4SuccessTestcases", parallel = false)
-    public Object[] transactV4SuccessTestcases() throws IOException, ParseException { //expectedRaasStatus
+    public Object[] transactV4SuccessTestcases() throws IOException, ParseException {
 
         return new String[][]{
 

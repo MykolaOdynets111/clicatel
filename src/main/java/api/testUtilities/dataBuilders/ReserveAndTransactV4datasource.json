@@ -617,7 +617,7 @@
       "expectedMessage": "Processing request (funds reserved)",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
-      "expectedRaasResultRequestResponseCode": "0000",
+      "expectedRaasResultRequestResponseCode": "2240",
       "expectedCTXTransactionResponseCode": "2240",
       "simulatorScenario": "MTNNG EXCEPTION",
       "simulatorResetState": "MTNNG ERROR ERROR_VENDOR_SYSTEM"

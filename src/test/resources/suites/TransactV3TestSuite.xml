@@ -6,8 +6,8 @@
         <classes>
             <class name="API.dotCoreTests.regression_Raas_Transact_V3">
                 <methods>
-                    <include name="basicTransactV3"/>
-                   <!-- <include name="transactDbCheck"/> -->
+                    <include name="TransactV3StandardSuccessTests"/>
+                    <include name="TransactV3NullFieldTests"/>
                 </methods>
             </class>
         </classes>
