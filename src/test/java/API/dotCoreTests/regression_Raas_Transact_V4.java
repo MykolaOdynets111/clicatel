@@ -669,7 +669,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelIdNullNegativeTest","simulatorScenario"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelIdNullNegativeTest","simulatorResetState")},
 
-                /* {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","accountIdentifier"),
+                  {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","purchaseAmount"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","channelId"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","channelName"),
@@ -692,7 +692,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","expectedCTXTransactionResponseCode"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","expectedRaasStatus"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","simulatorScenario"),
-                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","simulatorResetState")}, */
+                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelNameNullNegativeTest","simulatorResetState")},
 
                 {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelSessionIdNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","channelSessionIdNullNegativeTest","purchaseAmount"),
@@ -794,7 +794,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","productIdNullNegativeTest","simulatorScenario"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","productIdNullNegativeTest","simulatorResetState")},
 
-                /* {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","accountIdentifier"),
+                 {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","purchaseAmount"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","channelId"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","channelName"),
@@ -817,9 +817,9 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","expectedCTXTransactionResponseCode"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","expectedRaasStatus"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","simulatorScenario"),
-                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","simulatorResetState")}, */
+                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","sourceIdentifierNullNegativeTest","simulatorResetState")},
 
-                /* {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","accountIdentifier"),
+                 {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","purchaseAmount"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","channelId"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","channelName"),
@@ -842,9 +842,9 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","expectedCTXTransactionResponseCode"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","expectedRaasStatus"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorScenario"),
-                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorResetState")}, */
+                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorResetState")},
 
-                /*{testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","accountIdentifier"),
+                {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","purchaseAmount"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","channelId"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","channelName"),
@@ -867,7 +867,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","expectedCTXTransactionResponseCode"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","expectedRaasStatus"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorScenario"),
-                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorResetState")}, */
+                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","targetIdentifierNullNegativeTest","simulatorResetState")},
 
                 {testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","accountIdentifier"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","purchaseAmount"),
@@ -892,7 +892,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","expectedCTXTransactionResponseCode"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","expectedRaasStatus"),
                         testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","simulatorScenario"),
-                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","simulatorResetState")},
+                        testDataFactory.getTestData("TransactV4datasource.json","transactv4suite","timestampNullNegativeTest","simulatorResetState")}
 
         };
     }
@@ -1093,7 +1093,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // raas db assertions
         //Transaction_log
-        Thread.sleep(5000);
+        Thread.sleep(15000);
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref"), TransactV4response.path("raasTxnRef"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "amount"), purchaseAmount);

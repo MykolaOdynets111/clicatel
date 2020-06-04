@@ -428,7 +428,7 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_productId_Test","expectedRaasResultResponseResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_productId_Test","expectedCTXTransactionResponseCode")},
 
-               /* {testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_sourceIdentifier_Test","accountIdentifier"),
+                {testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_sourceIdentifier_Test","accountIdentifier"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_sourceIdentifier_Test","purchaseAmount"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_sourceIdentifier_Test","channelId"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_sourceIdentifier_Test","channelName"),
@@ -468,7 +468,7 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_targetIdentifier_Test","expectedHTTPResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_targetIdentifier_Test","expectedRaasResultRequestResponseCode"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_targetIdentifier_Test","expectedRaasResultResponseResponseCode"),
-                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_targetIdentifier_Test","expectedCTXTransactionResponseCode")}, */
+                        testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_targetIdentifier_Test","expectedCTXTransactionResponseCode")},
 
                 {testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_timestamp_Test","accountIdentifier"),
                         testDataFactory.getTestData("ReserveAndTransactV4datasource.json","reserveandtransactv4suite","MTNNG_Null_timestamp_Test","purchaseAmount"),

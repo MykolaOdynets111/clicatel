@@ -625,7 +625,7 @@
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
-      "expectedCTXTransactionResponseCode": "2240",
+      "expectedCTXTransactionResponseCode": "0",
       "simulatorScenario": "MTNNG EXCEPTION",
       "simulatorResetState": "MTNNG SUCCESS"
     },
