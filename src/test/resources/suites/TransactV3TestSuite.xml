@@ -8,6 +8,8 @@
                 <methods>
                     <include name="TransactV3StandardSuccessTests"/>
                     <include name="TransactV3NullFieldTests"/>
+                    <include name="TransactV3RetryableDeclineToOkTests"/>
+                    <include name="TransactV3PendingToRetryableOkTests"/>
                 </methods>
             </class>
         </classes>
