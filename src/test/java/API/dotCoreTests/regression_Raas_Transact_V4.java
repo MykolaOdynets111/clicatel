@@ -1308,7 +1308,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // Reset simulator to OK (success) for vendor to test ok scenario
         startSim.SimulatorScenario(simulatorResetState);
-        Thread.sleep(15000);
+        Thread.sleep(20000);
         // Assertions
 
         // Finance Terms Calculate response assertions

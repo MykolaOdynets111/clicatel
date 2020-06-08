@@ -446,7 +446,7 @@
       "currencyCode": "NGN",
       "fundingSourceId": "3",
       "expectedRaasResponseCode": "4000",
-      "expectedMessage": "targetIdentifier :size must be between 1 and 32",
+      "expectedMessage": "sourceIdentifier :size must be between 1 and 32",
       "expectedHTTPResponseCode": "400",
       "expectedRaasResultResponseResponseCode": "null",
       "expectedRaasResultRequestResponseCode": "null",

@@ -10,6 +10,7 @@
                     <include name="TransactV3NullFieldTests"/>
                     <include name="TransactV3RetryableDeclineToOkTests"/>
                     <include name="TransactV3PendingToRetryableOkTests"/>
+                    <include name="TransactV3PendingToStuckInProcessingTests"/>
                 </methods>
             </class>
         </classes>
