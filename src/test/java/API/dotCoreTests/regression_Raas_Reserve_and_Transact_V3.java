@@ -35,7 +35,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
     Properties properties = configWrapper.loadPropertiesFile("config.properties");
 
     // Data staging for use in test
-    @DataProvider(name = "ReserveAndTransactV3testcases", parallel = true)
+    @DataProvider(name = "ReserveAndTransactV3testcases", parallel = false)
     public Object[] ReserveAndTransactV3testcases() throws IOException, ParseException {
 
         return new String[][]{
@@ -147,7 +147,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
     }
 
     // Data staging for use in test
-    @DataProvider(name = "ReserveAndTransactV3Negativetestcases", parallel = true)
+    @DataProvider(name = "ReserveAndTransactV3Negativetestcases", parallel = false)
     public Object[] ReserveAndTransactV3Negativetestcases() throws IOException, ParseException {
 
         return new String[][]{
