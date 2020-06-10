@@ -6,8 +6,9 @@
     <classes>
         <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V3">
             <methods>
-                <include name="basicReserveAndTransactV3"/>
-                <include name="basicReserveAndTransactV3InvalidPurchaseAmount"/>
+                <include name="ReserveAndTransactV3StandardSuccessTestCases"/>
+                <include name="ReserveAndTransactV3ResponseCodesNegativeTests"/>
+                <include name="ReserveAndTransactV3NullFieldNegativeTests"/>
             </methods>
         </class>
     </classes>
