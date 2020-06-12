@@ -13,6 +13,7 @@
                 <include name="ReserveAndTransactV3BankTests"/>
                 <include name="ReserveAndTransactV3RetryableDeclineToOKTests"/>
                 <include name="ReserveAndTransactV3RetryableDeclineToNonRetryableDeclineTests"/>
+                <include name="ReserveAndTransactV3PendingToRetryableDeclineToNonRetryableDeclineTests"/>
             </methods>
         </class>
     </classes>
