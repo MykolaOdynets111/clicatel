@@ -9,6 +9,10 @@
                 <include name="ReserveAndTransactV3StandardSuccessTestCases"/>
                 <include name="ReserveAndTransactV3ResponseCodesNegativeTests"/>
                 <include name="ReserveAndTransactV3NullFieldNegativeTests"/>
+                <include name="ReserveAndTransactV3LookupBackOffTests"/>
+                <include name="ReserveAndTransactV3BankTests"/>
+                <include name="ReserveAndTransactV3RetryableDeclineToOKTests"/>
+                <include name="ReserveAndTransactV3RetryableDeclineToNonRetryableDeclineTests"/>
             </methods>
         </class>
     </classes>
