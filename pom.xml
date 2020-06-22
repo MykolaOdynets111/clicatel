@@ -96,23 +96,23 @@
             </properties>
         </profile>
         <profile>
-        <id>testing</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-        </activation>
-        <properties>
-            <env>testing</env>
-        </properties>
-    </profile>
-    <profile>
-        <id>awsdev</id>
-        <activation>
-            <activeByDefault>false</activeByDefault>
-        </activation>
-        <properties>
-            <env>awsdev</env>
-        </properties>
-    </profile>
+            <id>testing</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>testing</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>awsdev</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <env>awsdev</env>
+            </properties>
+        </profile>
     </profiles>
     <repositories>
         <repository>
@@ -346,7 +346,7 @@
                             <value>${surefire.useDefaultListeners}</value>
                         </property>
                     </properties>
-                    <systemPropertyVariables>
+                    <systemPropertyVariables combine.children="append">
                         <allure.results.directory>${project.build.directory}${file.separator}allure-results
                         </allure.results.directory>
                         <allure.link.tms.pattern>${allure.tms.link}</allure.link.tms.pattern>

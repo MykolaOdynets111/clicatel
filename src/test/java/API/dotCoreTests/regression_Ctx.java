@@ -11,6 +11,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.jcraft.jsch.JSchException;
 import groovy.util.XmlSlurper;
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import io.restassured.http.ContentType;
 import io.restassured.path.xml.XmlPath;
@@ -260,9 +261,18 @@ public class regression_Ctx extends testConfig {
         // Assertions
 
         // CTX response assertions
+
+        Allure.step("Validate purchase amount");
         Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
+
+        Allure.step("Validate originId");
         Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
+
+        Allure.step("Validate productId");
         Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
+
+
+
         Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
         Assert.assertEquals(getString("responseCode", document.getDocumentElement()), expectedCtxResponseCode);
         Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);

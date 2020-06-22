@@ -15,6 +15,9 @@
                 <include name="ReserveAndTransactV3RetryableDeclineToNonRetryableDeclineTests"/>
                 <include name="ReserveAndTransactV3PendingToRetryableDeclineToNonRetryableDeclineTests"/>
                 <include name="ReserveAndTransactV3PendingToOKTests"/>
+                <include name="ReserveAndTransactV3PendingToRetryableOKTests"/>
+                <include name="ReserveAndTransactV3PendingToStuckInProcessingTests"/>
+                <include name="ReserveAndTransactV3PendingToRetryableDeclineToDeclineTests"/>
             </methods>
         </class>
     </classes>
