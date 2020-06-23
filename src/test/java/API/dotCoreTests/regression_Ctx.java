@@ -262,41 +262,81 @@ public class regression_Ctx extends testConfig {
 
         // CTX response assertions
 
-        Allure.step("Validate purchase amount");
+        Allure.step("Step.1 --> CTX soap response assertions --> Validate purchase amount is correct (same as request)");
         Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
 
-        Allure.step("Validate originId");
+        Allure.step("Step.2 --> CTX soap response assertions --> Validate originId is correct (same as request)");
         Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
 
-        Allure.step("Validate productId");
+        Allure.step("Step.3 --> CTX soap response assertions -->Validate productId is correct (same as request)");
         Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
 
-
-
+        Allure.step("Step.4 --> CTX soap response assertions -->Validate channelIndicator is correct (same as request)");
         Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
+
+        Allure.step("Step.5 --> CTX soap response assertions -->Validate responseCode is correct (same as request)");
         Assert.assertEquals(getString("responseCode", document.getDocumentElement()), expectedCtxResponseCode);
+
+        Allure.step("Step.6 --> CTX soap response assertions -->Validate clientTransactionId is correct (same as request)");
         Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);
+
+        Allure.step("Step.7 --> CTX soap response assertions -->Validate timeLocalTransaction exists");
         Assert.assertNotNull(getString("timeLocalTransaction", document.getDocumentElement()));
+
+        Allure.step("Step.8 --> CTX soap response assertions -->Validate dateLocalTransaction exists");
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
         // CTX DB assertions
         Thread.sleep(5000);
+        Allure.step("Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
+
+        Allure.step("Step.10 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
+
+        Allure.step("Step.11 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "clientStan"));
+
+        Allure.step("Step.12 --> CTX DB assertions --> Table: tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originId"), getString("originId", document.getDocumentElement()));
+
+        Allure.step("Step.13 --> CTX DB assertions --> Table: tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originatingService"));
+
+        Allure.step("Step.14 --> CTX DB assertions --> Table: tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "purchaseAmount"), expectedPurchaseAmount);
+
+        Allure.step("Step.15 --> CTX DB assertions --> Table: tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionState"), "C");
+
+        Allure.step("Step.16 --> CTX DB assertions --> Table: tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionType"), "P");
+
+        Allure.step("Step.17 --> CTX DB assertions --> Table: tran_log --> Validate vendorReference field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorReference"));
+
+        Allure.step("Step.18 --> CTX DB assertions --> Table: tran_log --> Validate vendorResponseCode field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorResponseCode"));
+
+        Allure.step("Step.19 --> CTX DB assertions --> Table: tran_log --> Validate vendorStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "vendorStan"));
+
+        Allure.step("Step.20 --> CTX DB assertions --> Table: tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "client_id"), clientId);
+
+        Allure.step("Step.21 --> CTX DB assertions --> Table: tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
+
+        Allure.step("Step.22 --> CTX DB assertions --> Table: tran_log --> Validate systemResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "systemResponseCode"), "0");
+
+        Allure.step("Step.23 --> CTX DB assertions --> Table: tran_log --> Validate endDate field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "endDate"));
+
+        Allure.step("Step.24 --> CTX DB assertions --> Table: tran_log --> Validate endVendorDate field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "endVendorDate"));
+
+        Allure.step("Step.25 --> CTX DB assertions --> Table: tran_log --> Validate startDate field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "startDate"));
 
 
@@ -474,13 +514,28 @@ public class regression_Ctx extends testConfig {
         // Assertions
 
         // CTX response assertions
+        Allure.step("Step.1 --> CTX soap response assertions --> Validate purchaseAmount field is correct");
         Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
+
+        Allure.step("Step.2 --> CTX soap response assertions --> Validate originId field is correct");
         Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
+
+        Allure.step("Step.3 --> CTX soap response assertions --> Validate productId field is correct");
         Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
+
+        Allure.step("Step.4 --> CTX soap response assertions --> Validate channelIndicator field is correct");
         Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
+
+        Allure.step("Step.5 --> CTX soap response assertions --> Validate responseCode field is correct");
         Assert.assertEquals(getString("responseCode", document.getDocumentElement()), expectedCtxResponseCode);
+
+        Allure.step("Step.6 --> CTX soap response assertions --> Validate clientTransactionId field is correct");
         Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);
+
+        Allure.step("Step.7 --> CTX soap response assertions --> Validate timeLocalTransaction field exists");
         Assert.assertNotNull(getString("timeLocalTransaction", document.getDocumentElement()));
+
+        Allure.step("Step.8 --> CTX soap response assertions --> Validate dateLocalTransaction field exists");
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
     }
@@ -752,26 +807,60 @@ public class regression_Ctx extends testConfig {
 
         // Assertions
         // CTX response assertions
+        Allure.step("Step.1 --> CTX soap response assertions --> Validate purchaseAmount field is correct");
         Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
+
+        Allure.step("Step.2 --> CTX soap response assertions --> Validate originId field is correct");
         Assert.assertEquals(getString("originId", document.getDocumentElement()), expectedOriginId);
+
+        Allure.step("Step.3 --> CTX soap response assertions --> Validate productId field is correct");
         Assert.assertEquals(getString("productId", document.getDocumentElement()), expectedProductId);
+
+        Allure.step("Step.4 --> CTX soap response assertions --> Validate channelIndicator field is correct");
         Assert.assertEquals(getString("channelIndicator", document.getDocumentElement()), expectedChannelIndicator);
+
+        Allure.step("Step.6 --> CTX soap response assertions --> Validate responseCode field is correct");
         Assert.assertEquals(getString("responseCode", document.getDocumentElement()), expectedCtxResponseCode);
+
+        Allure.step("Step.6 --> CTX soap response assertions --> Validate clientTransactionId field is correct");
         Assert.assertEquals(getString("clientTransactionId", document.getDocumentElement()), clientTransactionId);
+
+        Allure.step("Step.7 --> CTX soap response assertions --> Validate timeLocalTransaction field exists");
         Assert.assertNotNull(getString("timeLocalTransaction", document.getDocumentElement()));
+
+        Allure.step("Step.8 --> CTX soap response assertions --> Validate dateLocalTransaction field exists");
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
         // CTX DB assertions
         Thread.sleep(5000);
+        Allure.step("Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
+
+        Allure.step("Step.10 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), getString("vendorReferenceNo", document.getDocumentElement()));
+
+        Allure.step("Step.11 --> CTX DB assertions --> Table: tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "clientStan"));
+
+        Allure.step("Step.12 --> CTX DB assertions --> Table: tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originId"), getString("originId", document.getDocumentElement()));
+
+        Allure.step("Step.13 --> CTX DB assertions --> Table: tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "originatingService"));
+
+        Allure.step("Step.14 --> CTX DB assertions --> Table: tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "purchaseAmount"), expectedPurchaseAmount);
+
+        Allure.step("Step.15 --> CTX DB assertions --> Table: tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionState"), "C");
+
+        Allure.step("Step.16 --> CTX DB assertions --> Table: tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionType"), "P");
+
+        Allure.step("Step.17 --> CTX DB assertions --> Table: tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "client_id"), clientId);
+
+        Allure.step("Step.18 --> CTX DB assertions --> Table: tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
 
         // reset simulator behaviour to success
@@ -1173,10 +1262,12 @@ public class regression_Ctx extends testConfig {
 
         // Assertions
         // CTX response assertions
+        Allure.step("Step.1 --> CTX soap response assertions --> Validate faultstring field is correct");
         Assert.assertEquals(getString("faultstring", document.getDocumentElement()), expectedFaultString);
 
         // CTX DB assertions
         Thread.sleep(5000);
+        Allure.step("Step.2 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), "null");
 
     }
