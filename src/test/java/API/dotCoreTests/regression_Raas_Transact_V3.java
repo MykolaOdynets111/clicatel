@@ -1037,7 +1037,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
-        Thread.sleep(5000);
+        Thread.sleep(15000);
 
         Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
