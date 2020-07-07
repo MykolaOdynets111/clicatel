@@ -97,10 +97,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                          String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to success
+        Allure.step("Action Test Step 1 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for vendor simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -128,6 +132,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 3 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -174,6 +179,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 4 : Wait 10 second before executing raas DB assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.11 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -356,6 +362,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 5 : Wait 5 seconds before executing CTX DB assertions");
         Thread.sleep(5000);
 
         Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -748,17 +755,6 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                            String expectedMessage,
                                                            String expectedHTTPResponseCode) throws IOException, InterruptedException {
 
-        // Financial Terms Calculate GET method call
-        Response finTermsCalculateResponse =
-                given(CORE_getEndPoints_FinancialTermsCalculate)
-                        .param("clientId",clientId)
-                        .param("productId", productId)
-                        .param("purchaseAmount", purchaseAmount)
-                        .when()
-                        .get()
-                        .then()
-                        .extract()
-                        .response();
 
         // Create ReserveAndtransactV3 payload object - contains transactV3 request body
         coreReserveAndTransactV3POJO ReserveAndTransactV3Payload = new coreReserveAndTransactV3POJO(
@@ -776,6 +772,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 1 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -877,10 +874,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                                String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to failure
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -908,6 +909,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -954,6 +956,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -1122,6 +1125,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 6 : Wait 5 second before executing the CTX DB assertions");
         Thread.sleep(5000);
 
         Allure.step("Step.56 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -1262,7 +1266,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
 
         // Reset simulator
+        Allure.step("Action Test Step 7 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 8 : Wait 5 second for the vendor simulator to reset to SUCCESS");
         Thread.sleep(5000);
 
     }
@@ -1324,10 +1331,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                        String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to failure
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -1355,6 +1366,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -1400,13 +1412,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(ReserveAndTransactV3response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // Reset simulator
+        Allure.step("Action Test Step 5 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
-        Thread.sleep(5000);
 
         // raas db assertions
         //Transaction_log
 
-        Thread.sleep(15000);
+        Allure.step("Action Test Step 6 : Wait 20 seconds for simulator to run before executing RAAS DB Assertions");
+        Thread.sleep(20000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV3response.path("raasTxnRef"));
@@ -1574,6 +1587,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 7 : Wait 15 seconds before executing CTX DB Assertions");
         Thread.sleep(15000);
 
         Allure.step("Step.56 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -1713,6 +1727,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "response_code"), "202");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
 
+        Allure.step("Action Test Step 8 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
 
     }
@@ -1773,10 +1788,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                               String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to success
+        Allure.step("Action Test Step 1 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -1804,6 +1823,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -1850,6 +1870,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -2032,6 +2053,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 6 : Wait 5 seconds before executing CTX DB Assertions");
         Thread.sleep(5000);
 
         Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -2206,7 +2228,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
+        Allure.step("Action Test Step 7 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 8 : Wait 5 seconds for vendor simulator to reset");
+        Thread.sleep(5000);
     }
 
     // Data staging for use in test
@@ -2265,10 +2291,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                               String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_VENDOR_SYSTEM)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -2296,6 +2326,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -2307,7 +2338,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                         .response();
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 5 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 6 : Wait 5 seconds for simulator to run and transaction data to process");
         Thread.sleep(5000);
 
         // Assertions
@@ -2346,6 +2380,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 7 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -2528,6 +2563,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 8 : Wait 15 seconds before executing CTX DB Assertions");
         Thread.sleep(15000);
 
         Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -2702,7 +2738,6 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        startSim.SimulatorScenario(simulatorResetState);
     }
 
     // Data staging for use in test
@@ -2761,10 +2796,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                                                String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_VENDOR_SYSTEM)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -2792,6 +2831,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -2803,7 +2843,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                         .response();
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 5 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 6 : Wait 15 seconds for simulator to run and transaction data to process");
         Thread.sleep(5000);
 
         // Assertions
@@ -2842,6 +2885,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 7 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -3024,6 +3068,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 8 : Wait 15 seconds before executing CTX DB Assertions");
         Thread.sleep(15000);
 
         Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -3198,7 +3243,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
+        Allure.step("Action Test Step 9 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario("MTNNG SUCCESS");
+
+        Allure.step("Action Test Step 10 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(5000);
     }
 
     // Data staging for use in test
@@ -3257,10 +3306,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                                                         String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for vendor simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -3288,6 +3341,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -3299,7 +3353,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                         .response();
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 5 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 6 : Wait 5 seconds for vendor simulator to run");
         Thread.sleep(5000);
 
         // Assertions
@@ -3338,6 +3395,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 6 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -3511,6 +3569,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 7 : Wait 20 seconds before executing CTX DB Assertions");
         Thread.sleep(20000);
 
         Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -3544,7 +3603,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 8 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 9 : Wait 10 seconds for pending transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -3721,7 +3783,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Allure.step("Step.121 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
+        Allure.step("Action Test Step 10 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario("MTNNG SUCCESS");
+
+        Allure.step("Action Test Step 11 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(5000);
     }
 
     // Data staging for use in test
@@ -3780,10 +3846,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                      String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for vendor simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -3811,6 +3881,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -3822,7 +3893,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                         .response();
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 5 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 6 : Wait 5 seconds for vendor simulator to run");
         Thread.sleep(5000);
 
         // Assertions
@@ -3861,6 +3935,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 7 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -4034,6 +4109,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
 
         // CTX DB assertions
 
+        Allure.step("Action Test Step 8 : Wait 20 seconds before executing CTX DB Assertions");
         Thread.sleep(20000);
 
         Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
@@ -4067,7 +4143,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 9 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 10 : Wait 10 seconds for pending transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -4301,10 +4380,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                               String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -4332,6 +4415,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -4343,7 +4427,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                         .response();
 
         // Set simulator to fail (RD)
+        Allure.step("Action Test Step 5 : Set Vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 6 : Wait 15 seconds for simulator to run and transaction data to process");
         Thread.sleep(5000);
 
         // Assertions
@@ -4382,6 +4469,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 7 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -4554,7 +4642,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "event_type"));
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 8 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 9 : Wait 20 seconds for pending transaction to process");
         Thread.sleep(20000);
 
         // CTX DB assertions
@@ -4590,7 +4681,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 10 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 11 : Wait 10 seconds for pending transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -4767,7 +4861,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Allure.step("Step.120 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
+        Allure.step("Action Test Step 12 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario("MTNNG SUCCESS");
+
+        Allure.step("Action Test Step 13 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(5000);
 
     }
 
@@ -4827,10 +4925,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                                     String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -4857,7 +4959,8 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 timeStamp,
                 feeAmount);
 
-        // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        // Create reserve and transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -4905,6 +5008,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing RAAS DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -5077,7 +5181,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "event_type"));
 
         // SQL - UPDATE response code
+        Allure.step("Action Test Step 6 : update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 6 : Wait 10 seconds for stuck in processing to complete processing");
         Thread.sleep(10000);
 
         // CTX DB assertions
@@ -5113,7 +5220,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 8 : Wait 10 seconds for pending transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -5253,7 +5363,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "response_code"), "202");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
 
+        Allure.step("Action Test Step 9 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 10 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(5000);
 
     }
 
@@ -5313,10 +5427,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                                                                             String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to fail
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
         startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
         Response finTermsCalculateResponse =
                 given(CORE_getEndPoints_FinancialTermsCalculate)
                         .param("clientId",clientId)
@@ -5344,6 +5462,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
                 feeAmount);
 
         // Create transactV3 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V3 REST Request");
         Response ReserveAndTransactV3response =
                 given(CORE_getEndPoints_ReserveAndTransactV3)
                         .contentType(ContentType.JSON)
@@ -5391,6 +5510,7 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         // raas db assertions
         //Transaction_log
 
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing the RAAS Transaction_Log DB Assertions");
         Thread.sleep(10000);
 
         Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
@@ -5563,10 +5683,14 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "event_type"));
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 6 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 7 : Wait 10 seconds for the pending transaction to process");
         Thread.sleep(10000);
 
         //Set simulator to fail ERROR_VENDOR_SYSTEM
+        Allure.step("Action Test Step 8 : Set Vendor simulator to fail (MTNNG ERROR ERROR_VENDOR_SYSTEM)");
         startSim.SimulatorScenario(simulatorResetState);
 
         // CTX DB assertions
@@ -5602,7 +5726,10 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
+        Allure.step("Action Test Step 9 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 10 : Wait 10 seconds for pedning transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -5742,7 +5869,11 @@ public class regression_Raas_Reserve_and_Transact_V3 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "response_code"), "202");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
 
+        Allure.step("Action Test Step 11 : Reset vendor simulator to SUCCESS");
         startSim.SimulatorScenario("MTNNG SUCCESS");
+
+        Allure.step("Action Test Step 12 : Wait 5 seconds for vendor simulator to reset");
+        Thread.sleep(5000);
 
     }
 

@@ -213,7 +213,10 @@ public class regression_Ctx extends testConfig {
                                           String simulatorScenario) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException, ConfigurationException {
 
         // Start simulator and set all scenarios for vendors to return success
+        Allure.step("Action Test Step 1 : Set Vendor simulator to Success");
         startsim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Stage ctx test data and prepare payload
@@ -239,6 +242,7 @@ public class regression_Ctx extends testConfig {
 
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 3 : Execute CTX SOAP Request");
         Response Ctxresponse =
                 given(CORE_getEndPoints_CTX)
                         .contentType(ContentType.XML)
@@ -287,7 +291,10 @@ public class regression_Ctx extends testConfig {
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
         // CTX DB assertions
+
+        Allure.step("Action Test Step 4 : Wait 5 seconds before executing CTX DB assertions");
         Thread.sleep(5000);
+
         Allure.step("Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
 
@@ -466,7 +473,10 @@ public class regression_Ctx extends testConfig {
             String simulatorScenario) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException {
 
         // Start simulator and set all scenarios for vendors to return success
+        Allure.step("Action Test Step 1 : Set Vendor simulator to Success");
         startsim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
         Thread.sleep(5000);
 
         // Stage ctx test data and prepare payload
@@ -492,6 +502,7 @@ public class regression_Ctx extends testConfig {
 
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 3 : Execute CTX SOAP Request");
         Response Ctxresponse =
                 given(CORE_getEndPoints_CTX)
                         .contentType(ContentType.XML)
@@ -762,6 +773,7 @@ public class regression_Ctx extends testConfig {
             String simulatorResetState) throws IOException, InterruptedException, ParserConfigurationException, SAXException, JSchException {
 
         // Start simulator and set all scenarios for vendors to return failures
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)");
         startsim.SimulatorScenario(simulatorScenario);
 
         // Stage ctx test data and prepare payload
@@ -786,6 +798,7 @@ public class regression_Ctx extends testConfig {
                 "</S:Envelope>";
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 2 : Execute CTX SOAP Request");
         Response Ctxresponse =
                 given(CORE_getEndPoints_CTX)
                         .contentType(ContentType.XML)
@@ -832,7 +845,11 @@ public class regression_Ctx extends testConfig {
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
         // CTX DB assertions
+
+        Allure.step("Action Test Step 3 : Wait 5 seconds before executing CTX DB assertions");
         Thread.sleep(5000);
+
+
         Allure.step("Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
 
@@ -864,7 +881,11 @@ public class regression_Ctx extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "product_id"), productId);
 
         // reset simulator behaviour to success
+
+        Allure.step("Action Test Step 4 : Set Vendor simulator to SUCCESS");
         startsim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action Test Step 5 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
         Thread.sleep(5000);
     }
 
@@ -1241,6 +1262,7 @@ public class regression_Ctx extends testConfig {
                 "</S:Envelope>";
 
         // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 1 : Execute CTX SOAP Request");
         Response Ctxresponse =
                 given(CORE_getEndPoints_CTX)
                         .contentType(ContentType.XML)
@@ -1262,11 +1284,15 @@ public class regression_Ctx extends testConfig {
 
         // Assertions
         // CTX response assertions
+
         Allure.step("Step.1 --> CTX soap response assertions --> Validate faultstring field is correct");
         Assert.assertEquals(getString("faultstring", document.getDocumentElement()), expectedFaultString);
 
         // CTX DB assertions
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds before executing CTX DB assertions");
         Thread.sleep(5000);
+
         Allure.step("Step.2 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), "null");
 
