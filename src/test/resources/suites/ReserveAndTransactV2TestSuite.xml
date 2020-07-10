@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Reserve and Transact V2 Test Suite">
+<test verbose="2" preserve-order="true"
+      name="regression_Raas_Reserve_and_Transact_V2.java">
+    <classes>
+        <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2">
+            <methods>
+                <include name="ReserveAndTransactV2StandardSuccessTests"/>
+                <include name="ReserveAndTransactV2NullFielTests"/>
+
+            </methods>
+        </class>
+    </classes>
+</test>
+</suite>

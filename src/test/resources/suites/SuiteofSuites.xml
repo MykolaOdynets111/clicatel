@@ -35,6 +35,7 @@
             <suite-file path="TransactV3TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV4TestSuite.xml"></suite-file>
             <suite-file path="ReserveAndTransactV3TestSuite.xml"></suite-file>
+            <suite-file path="ReserveAndTransactV2TestSuite.xml"></suite-file>
     </suite-files>
 </suite>
 
