@@ -7,8 +7,8 @@
         <class name="API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2">
             <methods>
                 <include name="ReserveAndTransactV2StandardSuccessTests"/>
-                <include name="ReserveAndTransactV2NullFielTests"/>
-
+                <include name="ReserveAndTransactV2NullFieldTests"/>
+                <include name="ReserveAndTransactV2ResponseCodesNegativeTests"/>
             </methods>
         </class>
     </classes>
