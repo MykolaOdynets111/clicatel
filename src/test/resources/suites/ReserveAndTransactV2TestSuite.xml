@@ -9,6 +9,7 @@
                 <include name="ReserveAndTransactV2StandardSuccessTests"/>
                 <include name="ReserveAndTransactV2NullFieldTests"/>
                 <include name="ReserveAndTransactV2ResponseCodesNegativeTests"/>
+                <include name="ReserveAndTransactV2NonRetryableDeclineTests"/>
             </methods>
         </class>
     </classes>
