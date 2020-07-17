@@ -1442,7 +1442,7 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
                                                              String simulatorResetState) throws IOException, InterruptedException, JSchException {
 
         // Set simulator to failure
-        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)");
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail " + simulatorScenario);
         startSim.SimulatorScenario(simulatorScenario);
 
         Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
@@ -4220,7 +4220,7 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
         Allure.step("Action Test Step 9 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
-        Allure.step("Action Test Step 10 : Wait 10 seconds for pedning transaction to process");
+        Allure.step("Action Test Step 10 : Wait 10 seconds for pending transaction to process");
         Thread.sleep(10000);
 
         // CTX DB (Recheck after update)
@@ -6514,12 +6514,6 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "event_type"));
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "response_code"), "202");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
-
-        Allure.step("Action Test Step 10 : Reset vendor simulator to SUCCESS");
-        startSim.SimulatorScenario("MTNNG SUCCESS");
-
-        Allure.step("Action Test Step 11 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
-        Thread.sleep(5000);
 
     }
 }

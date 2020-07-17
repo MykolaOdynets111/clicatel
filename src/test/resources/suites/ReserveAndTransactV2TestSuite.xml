@@ -10,6 +10,9 @@
                 <include name="ReserveAndTransactV2NullFieldTests"/>
                 <include name="ReserveAndTransactV2ResponseCodesNegativeTests"/>
                 <include name="ReserveAndTransactV2NonRetryableDeclineTests"/>
+                <include name="ReserveAndTransactV2BankSuccessTests"/>
+                <include name="ReserveAndTransactV2RetryableDeclineToOkTests"/>
+                <include name="ReserveAndTransactV2RetryableDeclineToNonRetryableDeclineTests"/>
             </methods>
         </class>
     </classes>
