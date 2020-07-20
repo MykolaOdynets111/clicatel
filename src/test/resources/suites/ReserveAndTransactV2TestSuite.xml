@@ -13,6 +13,9 @@
                 <include name="ReserveAndTransactV2BankSuccessTests"/>
                 <include name="ReserveAndTransactV2RetryableDeclineToOkTests"/>
                 <include name="ReserveAndTransactV2RetryableDeclineToNonRetryableDeclineTests"/>
+                <include name="ReserveAndTransactV2PendingToRetryableDeclineToNonRetryableDeclineTests"/>
+                <include name="ReserveAndTransactV2PendingToOKTests"/>
+                <include name="ReserveAndTransactV2PendingToStuckInProcessingTests"/>
             </methods>
         </class>
     </classes>

@@ -4767,8 +4767,7 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
-        Allure.step("Action Test Step 9 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+
 
         Allure.step("Action Test Step 10 : Wait 10 seconds before executing CTX DB Assertions (Recheck)");
         Thread.sleep(10000);
