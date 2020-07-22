@@ -131,10 +131,6 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
                         .extract()
                         .response();
 
-        System.out.println(ReserveAndTransactV2response);
-
-        Thread.sleep(10000);
-
         // Assertions
 
         // Finance Terms Calculate response assertions
@@ -278,57 +274,57 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -338,13 +334,13 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.58 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
@@ -352,78 +348,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         Allure.step("Action Test Step 6 : Wait 5 seconds before executing the CTX DB Assertions");
         Thread.sleep(5000);
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.71 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.72 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -446,82 +442,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
     }
@@ -2199,10 +2195,6 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
                         .extract()
                         .response();
 
-        System.out.println(ReserveAndTransactV2response);
-
-        Thread.sleep(10000);
-
         // Assertions
 
         // Finance Terms Calculate response assertions
@@ -2346,57 +2338,57 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -2406,13 +2398,13 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.58 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
@@ -2420,78 +2412,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         Allure.step("Action Test Step 6 : Wait 5 seconds before executing the CTX DB Assertions");
         Thread.sleep(5000);
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.71 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.72 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -2514,82 +2506,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
     }
@@ -2843,57 +2835,57 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -2903,13 +2895,13 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.58 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
@@ -2917,78 +2909,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         Allure.step("Action Test Step 8 : Wait 15 seconds before executing the CTX DB Assertions");
         Thread.sleep(15000);
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.71 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.72 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -3011,82 +3003,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
     }
@@ -3340,57 +3332,57 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -3400,13 +3392,13 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.58 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
@@ -3414,78 +3406,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         Allure.step("Action Test Step 8 : Wait 15 seconds before executing the CTX DB Assertions");
         Thread.sleep(15000);
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0001'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.71 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.72 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -3508,82 +3500,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         Allure.step("Action Test Step 9 : Reset vendor simulator to SUCCESS");
@@ -3824,10 +3816,10 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_created field exists");
         //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_created"));
 
-        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
+        Allure.step("Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
+        Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_message"), expectedMessage);
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_response_code"), "null");
@@ -3838,62 +3830,62 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_response_code field is correct");
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_response_code"), "202");
 
-        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
+        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "additional_data_financial_calculations"));
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -3903,45 +3895,45 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.57 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.59 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.60 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
@@ -3953,78 +3945,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // CTX DB assertions (Re-Check after update)
 
-        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.77 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.78 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.79 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.80 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.81 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.82 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -4047,82 +4039,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.117 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.118 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.119 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.120 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         Allure.step("Action Test Step 10 : Reset vendor simulator to SUCCESS");
@@ -4363,10 +4355,10 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_created field exists");
         //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_created"));
 
-        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
+        Allure.step("Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
+        Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_message"), expectedMessage);
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_response_code"), "null");
@@ -4377,62 +4369,62 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_response_code field is correct");
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_response_code"), "202");
 
-        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
+        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "additional_data_financial_calculations"));
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -4442,49 +4434,49 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // CTX DB assertions
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.57 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.59 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.60 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
-        Allure.step("Action Test Step 9 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'");
+        Allure.step("Action Test Step 8 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'");
         sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 9 : Wait 15 seconds for pending transaction to process and before executing the CTX DB Assertions");
@@ -4492,78 +4484,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // CTX DB assertions (Re-Check after update)
 
-        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.77 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.78 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.79 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.80 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.81 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.82 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -4586,82 +4578,82 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request
 
-        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
 
-        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
 
-        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
 
-        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
 
-        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
 
-        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
 
-        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
 
         // Transaction_result_response
 
-        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
 
-        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.117 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.118 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.119 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
 
-        Allure.step("Step.120 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
     }
@@ -4887,10 +4879,10 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_created field exists");
         //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_created"));
 
-        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
+        Allure.step("Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
+        Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_message"), expectedMessage);
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_response_code"), "null");
@@ -4901,62 +4893,62 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
         //Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_response_code field is correct");
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_response_code"), "202");
 
-        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
+        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "additional_data_financial_calculations"));
 
         // Raas_Request
 
-        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Allure.step("Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
 
-        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
 
-        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
-        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
         //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
 
-        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
-        Allure.step("Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.59 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
 
         // Raas_request
@@ -4966,13 +4958,13 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // Raas_Response
 
-        Allure.step("Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.61 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.62 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
 
         // SQL - UPDATE response code
@@ -4985,34 +4977,34 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // CTX DB assertions
 
-        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.57 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.59 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.60 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // SQL - UPDATE run recon
@@ -5024,78 +5016,78 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // CTX DB assertions (Re-Check after update)
 
-        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
 
-        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
 
-        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
 
-        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
 
-        Allure.step("Step.77 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
 
-        Allure.step("Step.78 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
 
-        Allure.step("Step.79 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
 
-        Allure.step("Step.80 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
 
-        Allure.step("Step.81 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
 
-        Allure.step("Step.82 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         // raas reserve_fund_request
 
-        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
 
-        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
 
-        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
 
-        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
 
-        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
 
-        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
 
-        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
 
-        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
 
-        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
 
-        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
 
-        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
 
-        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
@@ -5118,22 +5110,564 @@ public class regression_Raas_Reserve_and_Transact_V2 extends testConfig {
 
         // raas reserve_fund_response
 
-        Allure.step("Step.97 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
 
-        Allure.step("Step.98 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
 
-        Allure.step("Step.99 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
 
-        Allure.step("Step.100 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
 
-        Allure.step("Step.101 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
 
-        Allure.step("Step.102 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        // Transaction_result_request
+
+        /*Allure.step("Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);
+
+        Allure.step("Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
+
+        Allure.step("Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
+
+        Allure.step("Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        Allure.step("Step.109 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
+
+        Allure.step("Step.110 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
+
+        Allure.step("Step.111 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
+
+        Allure.step("Step.112 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
+
+        Allure.step("Step.113 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
+
+        Allure.step("Step.114 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
+
+        // Transaction_result_response
+
+        Allure.step("Step.115 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultResponseResponseCode);
+
+        Allure.step("Step.116 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.117 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.118 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
+
+        Allure.step("Step.119 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), "202");
+
+        Allure.step("Step.120 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));*/
+
+        Allure.step("Action test step 10 : Reset vendor simulator to SUCCESS");
+        startSim.SimulatorScenario(simulatorResetState);
+
+        Allure.step("Action test step 11 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(5000);
+
+    }
+
+    // Data staging for use in test
+    @DataProvider(name = "ReserveAndTransactV2PendingToRetryableDeclineToDeclineTestCases", parallel = false)
+    public Object[] ReserveAndTransactV2PendingToRetryableDeclineToDeclineTestCases() throws IOException, ParseException {
+
+        return new String[][]{
+
+                {testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "accountIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "amount"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "channelId"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "channelName"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "channelSessionId"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "clientId"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "clientTxnRef"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "productId"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "sourceIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "targetIdentifier"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "timestamp"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedRaasResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedMessage"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedHTTPResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedRaasResultRequestResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedRaasResultResponseResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "expectedCTXTransactionResponseCode"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "simulatorScenario"),
+                        testDataFactory.getTestData("ReserveAndTransactV2datasource.json", "reserveandtransactv2suite", "MTNNG_Pending_To_Retryable_Decline_To_Decline_Test", "simulatorResetState")},
+
+        };
+    }
+
+    @Step("Reserve and Transact V2 Pending To Retryable Decline To Decline test cases")
+    @Test(dataProvider = "ReserveAndTransactV2PendingToRetryableDeclineToDeclineTestCases", priority = 12)
+    public void ReserveAndTransactV2PendingToRetryableDeclineToDeclineTests(String accountIdentifier,
+                                                                    String amount,
+                                                                    String channelId,
+                                                                    String channelName,
+                                                                    String channelSessionId,
+                                                                    String clientId,
+                                                                    String clientTxnRef,
+                                                                    String productId,
+                                                                    String sourceIdentifier,
+                                                                    String targetIdentifier,
+                                                                    String timeStamp,
+                                                                    String expectedRaasResponseCode,
+                                                                    String expectedMessage,
+                                                                    String expectedHTTPResponseCode,
+                                                                    String expectedRaasResultRequestResponseCode,
+                                                                    String expectedRaasResultResponseResponseCode,
+                                                                    String expectedCTXTransactionResponseCode,
+                                                                    String simulatorScenario,
+                                                                    String simulatorResetState) throws IOException, InterruptedException, JSchException {
+
+        // Set simulator to fail (RD)
+        Allure.step("Action Test Step 1 : Set Vendor simulator to fail (MTNNG EXCEPTION)");
+        startSim.SimulatorScenario(simulatorScenario);
+
+        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
+        Thread.sleep(5000);
+
+        // Financial Terms Calculate GET method call
+        Allure.step("Action Test Step 3 : Execute Fin Terms Calculate REST Request");
+        Response finTermsCalculateResponse =
+                given(CORE_getEndPoints_FinancialTermsCalculate)
+                        .param("clientId", clientId)
+                        .param("productId", productId)
+                        .param("purchaseAmount", amount)
+                        .when()
+                        .get()
+                        .then()
+                        .extract()
+                        .response();
+
+        // Create ReserveAndtransactV2 payload object - contains transactV4 request body
+        coreReserveAndTransactV2POJO ReserveAndTransactV2Payload = new coreReserveAndTransactV2POJO(
+                accountIdentifier,
+                amount,
+                channelId,
+                channelName,
+                channelSessionId,
+                clientId,
+                clientTxnRef,
+                productId,
+                sourceIdentifier,
+                targetIdentifier,
+                timeStamp);
+
+        // Create reserve and transact V2 response body object - contains api response data for use in assertions or other calls
+        Allure.step("Action Test Step 4 : Execute Reserve and Transact V2 REST Request");
+        Response ReserveAndTransactV2response =
+                given(CORE_getEndPoints_ReserveAndTransactV2)
+                        .contentType(ContentType.JSON)
+                        .body(ReserveAndTransactV2Payload)
+                        .when()
+                        .post()
+                        .then()
+                        .extract()
+                        .response();
+
+        // Assertions
+
+        // Finance Terms Calculate response assertions
+
+        Allure.step("Step.1 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not empty)");
+        Assert.assertNotEquals(finTermsCalculateResponse.path("clientId"), "");
+
+        Allure.step("Step.2 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not null)");
+        Assert.assertNotEquals(finTermsCalculateResponse.path("clientId"), "null");
+
+        Allure.step("Step.3 --> Financial Terms Calculate response assertions --> Validate clientId field is correct");
+        Assert.assertEquals(finTermsCalculateResponse.path("clientId").toString(), clientId);
+
+        Allure.step("Step.4 --> Financial Terms Calculate response assertions --> Validate productId field is correct");
+        Assert.assertEquals(finTermsCalculateResponse.path("productId").toString(), productId);
+
+        Allure.step("Step.5 --> Financial Terms Calculate response assertions --> Validate purchaseAmount field is correct");
+        Assert.assertEquals(finTermsCalculateResponse.path("purchaseAmount").toString(), amount);
+
+        // Reserve and Transact V2 response assertions - purchase
+
+        Allure.step("Step.6 --> Reserve and Transact V2 REST response assertions --> Validate responseCode field is correct");
+        Assert.assertEquals(ReserveAndTransactV2response.path("responseCode"), expectedRaasResponseCode);
+
+        Allure.step("Step.7 --> Reserve and Transact V2 REST response assertions --> Validate responseMessage field is correct");
+        Assert.assertEquals(ReserveAndTransactV2response.path("responseMessage"), expectedMessage);
+
+        Allure.step("Step.8 --> Reserve and Transact V2 REST response assertions --> Validate raasTxnRef field exists");
+        Assert.assertNotNull(ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.9 --> Reserve and Transact V2 REST response assertions --> Validate HTTPResponseCode field is correct");
+        Assert.assertEquals(ReserveAndTransactV2response.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
+
+        // raas db assertions
+        //Transaction_log
+
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing the RAAS Transaction_Log DB Assertions");
+        Thread.sleep(10000);
+
+        Allure.step("Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.11 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
+
+        Allure.step("Step.12 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
+
+        Allure.step("Step.13 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
+
+        Allure.step("Step.14 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
+
+        Allure.step("Step.15 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
+
+        Allure.step("Step.16 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
+
+        Allure.step("Step.17 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.18 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
+
+        Allure.step("Step.19 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
+
+        Allure.step("Step.20 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
+
+        Allure.step("Step.21 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
+
+        Allure.step("Step.22 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
+
+        Allure.step("Step.23 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        Allure.step("Step.24 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
+
+        Allure.step("Step.25 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
+
+        Allure.step("Step.26 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
+
+        Allure.step("Step.27 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate fee_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
+
+        Allure.step("Step.28 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate fee_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
+
+        Allure.step("Step.29 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate settlement_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
+
+        Allure.step("Step.30 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate settlement_amount field exists");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
+
+        Allure.step("Step.31 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate vendor_share_amount field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "status"), expectedRaasStatus);
+
+        Allure.step("Step.32 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_request_created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_request_created"));
+
+        Allure.step("Step.33 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_created"));
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_request_created"), "null");
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_response_created"), "null");
+
+        //Allure.step("Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_request_created field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_request_created"));
+
+        //Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_created field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_created"));
+
+        Allure.step("Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_response_code"), expectedRaasResponseCode);
+
+        Allure.step("Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_response_message"), expectedMessage);
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "reserve_fund_response_code"), "null");
+
+        //Allure.step("Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_request_response_code field is correct");
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_request_response_code"), expectedCTXTransactionResponseCode);
+
+        //Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_response_code field is correct");
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "transaction_result_response_response_code"), "202");
+
+        Allure.step("Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_log WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "additional_data_financial_calculations"));
+
+        // Raas_Request
+
+        Allure.step("Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_request", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "account_identifier"), accountIdentifier);
+
+        Allure.step("Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
+
+        Allure.step("Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
+
+        Allure.step("Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
+
+        Allure.step("Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_id"), clientId);
+
+        Allure.step("Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
+
+        Allure.step("Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
+
+        Allure.step("Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
+
+        Allure.step("Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
+
+        Allure.step("Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
+
+        Allure.step("Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
+
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"), reserveFundsTxnRef);
+
+        Allure.step("Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        Allure.step("Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
+
+        Allure.step("Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "api_call"), "reserveAndTransact-v2");
+
+        // Raas_request
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_request WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "response_message"), expectedMessage);
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + TransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        // Raas_Response
+
+        Allure.step("Step.54 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreDb("raas.raas_response", "raas_txn_ref", "=", ReserveAndTransactV2response.path("raasTxnRef")), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.55 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.56 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.raas_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"));
+
+        // SQL - UPDATE run recon
+        Allure.step("Action Test Step 6 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'");
+        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 7 : Wait 10 seconds for pending transaction to process");
+        Thread.sleep(10000);
+
+        //Set simulator to fail ERROR_VENDOR_SYSTEM
+        Allure.step("Action Test Step 8 : Reset vendor simulator to fail (MTNNG ERROR ERROR_VENDOR_SYSTEM)");
+        startSim.SimulatorScenario(simulatorResetState);
+
+
+        // CTX DB assertions
+
+        Allure.step("Step.57 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
+
+        Allure.step("Step.58 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
+
+        Allure.step("Step.59 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
+
+        Allure.step("Step.60 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
+
+        Allure.step("Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
+
+        Allure.step("Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
+
+        Allure.step("Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
+
+        Allure.step("Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
+
+        Allure.step("Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
+
+        Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
+
+        // SQL - UPDATE run recon
+        Allure.step("Action Test Step 8 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'");
+        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref");
+
+        Allure.step("Action Test Step 9 : Wait 10 seconds for pending transaction to process");
+        Thread.sleep(10000);
+
+        // CTX DB assertions (Re-Check after update)
+
+        Allure.step("Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
+
+        Allure.step("Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionId"));
+
+        Allure.step("Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "clientStan"));
+
+        Allure.step("Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originId"), sourceIdentifier);
+
+        Allure.step("Step.71 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "originatingService"));
+
+        Allure.step("Step.72 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "purchaseAmount"), amount);
+
+        Allure.step("Step.73 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionState"), "C");
+
+        Allure.step("Step.74 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "transactionType"), "P");
+
+        Allure.step("Step.75 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "client_id"), clientId);
+
+        Allure.step("Step.76 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "-0000'", "product_id"), productId);
+
+        // raas reserve_fund_request
+
+        Allure.step("Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "amount"), amount);
+
+        Allure.step("Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_id"), channelId);
+
+        Allure.step("Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_name"), channelName);
+
+        Allure.step("Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "channel_session_id"), channelSessionId);
+
+        Allure.step("Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_txn_ref"), clientTxnRef);
+
+        Allure.step("Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_REQUEST_EVENT");
+
+        Allure.step("Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_id"), productId);
+
+        Allure.step("Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "product_type"), "3");
+
+        Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "source_identifier"), sourceIdentifier);
+
+        Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "target_identifier"), targetIdentifier);
+
+        Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "timestamp"));
+
+        Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
+
+        //Allure.step("Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate reserve_amount field is correct");
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_amount"), amount);
+
+        //Allure.step("Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate fee_amount field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "fee_amount"));
+
+        //Allure.step("Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_share_amount field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "client_share_amount"));
+
+        //Allure.step("Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate settlement_amount field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "settlement_amount"));
+
+        //Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate vend_amount field is correct");
+        //Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vend_amount"), amount);
+
+        //Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate vendor_share_amount field exists");
+        //Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "vendor_share_amount"));
+
+        // raas reserve_fund_response
+
+        Allure.step("Step.91 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "raas_txn_ref"), ReserveAndTransactV2response.path("raasTxnRef"));
+
+        Allure.step("Step.92 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "created"));
+
+        Allure.step("Step.93 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "event_type"), "RESERVE_FUND_RESPONSE_EVENT");
+
+        Allure.step("Step.94 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists");
+        Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_request WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "reserve_funds_txn_ref"));
+
+        Allure.step("Step.95 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct");
+        Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "response_code"), expectedRaasResponseCode);
+
+        Allure.step("Step.96 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.reserve_fund_response WHERE raas_txn_ref = " + "'" + ReserveAndTransactV2response.path("raasTxnRef") + "'", "cdc_update_timestamp"));
 
         // Transaction_result_request

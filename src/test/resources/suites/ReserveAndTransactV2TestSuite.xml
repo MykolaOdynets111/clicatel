@@ -16,6 +16,7 @@
                 <include name="ReserveAndTransactV2PendingToRetryableDeclineToNonRetryableDeclineTests"/>
                 <include name="ReserveAndTransactV2PendingToOKTests"/>
                 <include name="ReserveAndTransactV2PendingToStuckInProcessingTests"/>
+                <include name="ReserveAndTransactV2PendingToRetryableDeclineToDeclineTests"/>
             </methods>
         </class>
     </classes>

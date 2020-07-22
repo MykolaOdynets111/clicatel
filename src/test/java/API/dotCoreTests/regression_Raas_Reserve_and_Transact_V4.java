@@ -6514,5 +6514,10 @@ public class regression_Raas_Reserve_and_Transact_V4 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "response_code"), "202");
         Assert.assertNotNull(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_response WHERE raas_txn_ref = '" + ReserveAndTransactV4response.path("raasTxnRef") + "'", "cdc_update_timestamp")); */
 
+        Allure.step("Action Test Step 10 : Reset vendor simulator to SUCCESS");
+        startSim.SimulatorScenario("MTNNG SUCCESS");
+
+        Allure.step("Action Test Step 11 : Wait 5 seconds for simulator to run");
+        Thread.sleep(5000);
     }
 }
