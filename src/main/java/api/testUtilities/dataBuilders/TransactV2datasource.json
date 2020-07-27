@@ -1,8 +1,8 @@
 {
-  "transactv3suite": {
+  "transactv2suite": {
     "successcase1": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "49903",
+      "amount": "49903",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -16,15 +16,18 @@
       "feeAmount": "0",
       "currencyCode": "NGN",
       "expectedRaasResponseCode": "0000",
-      "expectedMessage": "Processing request (funds reserved)",
+      "expectedMessage": "Processing request",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
-      "expectedCTXTransactionResponseCode": "0"
+      "expectedCTXTransactionResponseCode": "0",
+      "simulatorScenario": "MTNNG SUCCESS",
+      "simulatorResetState": "MTNNG SUCCESS"
+
     },
     "MTNNG_Success_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -38,15 +41,17 @@
       "feeAmount": "0",
       "currencyCode": "NGN",
       "expectedRaasResponseCode": "0000",
-      "expectedMessage": "Processing request (funds reserved)",
+      "expectedMessage": "Processing request",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
-      "expectedCTXTransactionResponseCode": "0"
+      "expectedCTXTransactionResponseCode": "0",
+      "simulatorScenario": "MTNNG SUCCESS",
+      "simulatorResetState": "MTNNG SUCCESS"
     },
     "MTNNG_Null_Field_PurchaseAmount_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "",
+      "amount": "",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -68,7 +73,7 @@
     },
     "MTNNG_Null_Field_ChannelId_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -90,7 +95,7 @@
     },
     "MTNNG_Null_Field_ChannelName_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "",
       "channelSessionId": "2022564675",
@@ -112,7 +117,7 @@
     },
     "MTNNG_Null_Field_ChannelSessionId_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "",
@@ -134,7 +139,7 @@
     },
     "MTNNG_Null_Field_ClientId_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -156,7 +161,7 @@
     },
     "MTNNG_Null_Field_clientTxnRef_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -178,7 +183,7 @@
     },
     "MTNNG_Null_Field_productId_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -200,7 +205,7 @@
     },
     "MTNNG_Null_Field_sourceIdentifier_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -222,7 +227,7 @@
     },
     "MTNNG_Null_Field_targetIdentifier_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -244,7 +249,7 @@
     },
     "MTNNG_Null_Field_Timestamp_TestCase": {
       "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "USSD",
       "channelSessionId": "2022564675",
@@ -264,7 +269,7 @@
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0"
     },
-    "MTNNG_Pending_To_Retryable_OK": {
+    "MTNNG_Retryable_Decline_To_OK": {
       "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
       "purchaseAmount": "15000",
       "channelId": "7",
@@ -286,12 +291,12 @@
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
       "expectedCTXTransactionResponseCode": "0",
-      "simulatorScenario": "MTNNG EXCEPTION",
+      "simulatorScenario": "MTNNG ERROR ERROR_VENDOR_SYSTEM",
       "simulatorResetState": "MTNNG SUCCESS"
     },
-    "MTNNG_Pending_To_Stuck_In_Processing": {
+    "MTNNG_Pending_To_Retryable_OK": {
       "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "test",
       "channelSessionId": "2022564675",
@@ -306,7 +311,32 @@
       "currencyCode": "NGN",
       "fundingSourceId": "3",
       "expectedRaasResponseCode": "0000",
-      "expectedMessage": "Processing request (funds reserved)",
+      "expectedMessage": "Processing request",
+      "expectedHTTPResponseCode": "200",
+      "expectedRaasResultResponseResponseCode": "202",
+      "expectedRaasResultRequestResponseCode": "0000",
+      "expectedCTXTransactionResponseCode": "0",
+      "simulatorScenario": "MTNNG EXCEPTION",
+      "simulatorResetState": "MTNNG SUCCESS"
+    },
+    "MTNNG_Pending_To_Stuck_In_Processing": {
+      "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
+      "amount": "15000",
+      "channelId": "7",
+      "channelName": "test",
+      "channelSessionId": "2022564675",
+      "clientId": "3",
+      "clientTxnRef": "test123",
+      "productId": "100",
+      "sourceIdentifier": "2341111111111",
+      "targetIdentifier": "2341111111111",
+      "timestamp": "2019-09-03T15:35:26.720+02:00",
+      "reserveFundsTxnRef": "54840679064361690040001",
+      "feeAmount": "0",
+      "currencyCode": "NGN",
+      "fundingSourceId": "3",
+      "expectedRaasResponseCode": "0000",
+      "expectedMessage": "Processing request",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
@@ -316,7 +346,7 @@
     },
     "MTNNG_Pending_To_Retryable_Decline_To_Decline": {
       "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "test",
       "channelSessionId": "2022564675",
@@ -331,7 +361,7 @@
       "currencyCode": "NGN",
       "fundingSourceId": "3",
       "expectedRaasResponseCode": "0000",
-      "expectedMessage": "Processing request (funds reserved)",
+      "expectedMessage": "Processing request",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
@@ -341,7 +371,7 @@
     },
     "MTNNG_Pending_To_Retryable_Decline_To_Non_Retryable_Decline": {
       "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
-      "purchaseAmount": "15000",
+      "amount": "15000",
       "channelId": "7",
       "channelName": "test",
       "channelSessionId": "2022564675",
@@ -356,11 +386,11 @@
       "currencyCode": "NGN",
       "fundingSourceId": "3",
       "expectedRaasResponseCode": "0000",
-      "expectedMessage": "Processing request (funds reserved)",
+      "expectedMessage": "Processing request",
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
-      "expectedCTXTransactionResponseCode": "2213",
+      "expectedCTXTransactionResponseCode": "2240",
       "simulatorScenario": "MTNNG EXCEPTION",
       "simulatorResetState": "MTNNG ERROR ERROR_INV_MSISDN"
     }

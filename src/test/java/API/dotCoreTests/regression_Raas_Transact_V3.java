@@ -137,7 +137,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
                         .extract()
                         .response();
 
-        // Create transactV4 payload object - contains transactV4 request body
+        // Create transactV3 payload object - contains transactV3 request body
         coreTransactV3POJO TransactV3payload = new coreTransactV3POJO(accountIdentifier,
                 purchaseAmount,
                 channelId,
@@ -153,7 +153,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
                 feeAmount,
                 currencyCode);
 
-        // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        // Create transactV3 response body object - contains api response data for use in assertions or other calls
         Allure.step("Action Test Step 3 : Execute Transact V3 REST Request");
         Response TransactV3response =
                 given(CORE_getEndPoints_TransactV3)
@@ -670,7 +670,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
                                                String expectedCTXTransactionResponseCode) throws IOException, InterruptedException {
 
 
-        // Create transactV4 payload object - contains transactV4 request body
+        // Create transactV3 payload object - contains transactV3 request body
         coreTransactV3POJO TransactV3payload = new coreTransactV3POJO(accountIdentifier,
                 purchaseAmount,
                 channelId,
@@ -686,7 +686,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
                 feeAmount,
                 currencyCode);
 
-        // Create transactV4 response body object - contains api response data for use in assertions or other calls
+        // Create transactV3 response body object - contains api response data for use in assertions or other calls
         Allure.step("Action Test Step 1 : Execute Transact V3 REST Request");
         Response TransactV3response =
                 given(CORE_getEndPoints_TransactV3)
@@ -700,7 +700,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
 
         // Assertions
 
-        // Transact V4 response assertions - purchase
+        // Transact V3 response assertions - purchase
 
         Allure.step("Step.1 --> Transact V3 REST response assertions --> Validate responseCode field is correct");
         Assert.assertEquals(TransactV3response.path("responseCode"), expectedRaasResponseCode);

@@ -78,6 +78,7 @@ public class testConfig {
     public static RequestSpecification CORE_getEndPoints_FinancialTermsCalculate;
     public static RequestSpecification CORE_getEndPoints_TransactV4;
     public static RequestSpecification CORE_getEndPoints_TransactV3;
+    public static RequestSpecification CORE_getEndPoints_TransactV2;
     public static RequestSpecification CORE_getEndPoints_ReserveAndTransactV4;
     public static RequestSpecification CORE_getEndPoints_ReserveAndTransactV3;
     public static RequestSpecification CORE_getEndPoints_ReserveAndTransactV2;
@@ -353,6 +354,15 @@ public class testConfig {
         CORE_getEndPoints_TransactV3 = new RequestSpecBuilder()
                 .setBaseUri(qa_minion)
                 .setBasePath(properties.getProperty("CORE_Transact_V3_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V3_RequestSpec_Port")))
+                .addHeader("Accept", "*/*")
+                .addHeader("Cache-Control", "no-cache")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("content-type", "application/json")
+                .addHeader("Connection", "keep-alive").build();
+
+        CORE_getEndPoints_TransactV2 = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Transact_V2_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Transact_V2_RequestSpec_Port")))
                 .addHeader("Accept", "*/*")
                 .addHeader("Cache-Control", "no-cache")
                 .addHeader("Accept-Encoding", "gzip, deflate")

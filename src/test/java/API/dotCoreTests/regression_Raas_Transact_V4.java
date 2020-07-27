@@ -1572,7 +1572,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
         // CTX DB assertions
 
         Allure.step("Action Test Step 8 : Wait 5 seconds before executing CTX DB Assertions");
-        Thread.sleep(5000);
+        Thread.sleep(10000);
 
         Allure.step("Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "transactionResponseCode"), expectedCTXTransactionResponseCode);
@@ -3672,7 +3672,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "-0000'", "product_id"), productId);
 
         Allure.step("Action Test Step 9 : Wait 10 seconds before executing RAAS Transaction_Log DB Assertions");
-        Thread.sleep(10000);
+        Thread.sleep(15000);
 
         // Transaction_result_request
         /*Assert.assertEquals(sqlDataAccess.verifyPostgreCustomSql("SELECT * FROM raas.transaction_result_request WHERE raas_txn_ref = '" + TransactV4response.path("raasTxnRef") + "'", "response_code"), expectedRaasResultRequestResponseCode);

@@ -700,7 +700,7 @@
       "expectedHTTPResponseCode": "200",
       "expectedRaasResultResponseResponseCode": "202",
       "expectedRaasResultRequestResponseCode": "0000",
-      "expectedCTXTransactionResponseCode": "2240",
+      "expectedCTXTransactionResponseCode": "2213",
       "simulatorScenario": "MTNNG EXCEPTION",
       "simulatorResetState": "MTNNG ERROR ERROR_INV_MSISDN"
     },

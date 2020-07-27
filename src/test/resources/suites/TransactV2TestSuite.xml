@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Transact V2 Test Suite" parallel="methods" thread-count="5">
+    <test verbose="2" preserve-order="true"
+          name="regression_Raas_Transact_V2.java">
+        <classes>
+            <class name="API.dotCoreTests.regression_Raas_Transact_V2">
+                <methods>
+                    <include name="TransactV2StandardSuccessTests"/>
+                    <include name="TransactV2NullFieldTests"/>
+                    <include name="TransactV2RetryableDeclineToOKTests"/>
+                    <include name="TransactV2transactV2PendingToOKTests"/>
+                    <include name="TransactV2transactV2PendingToROKTests"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
