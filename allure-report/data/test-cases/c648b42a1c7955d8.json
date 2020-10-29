@@ -1,0 +1,833 @@
+{
+  "uid" : "c648b42a1c7955d8",
+  "name" : "TransactV3StandardSuccessTests",
+  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V3.TransactV3StandardSuccessTests",
+  "historyId" : "cfc8d861f24c219c53ad85894d6c6dee",
+  "time" : {
+    "start" : 1603988993819,
+    "stop" : 1603989018490,
+    "duration" : 24671
+  },
+  "description" : "Transact V3 Success test",
+  "descriptionHtml" : "<p>Transact V3 Success test</p>\n",
+  "status" : "failed",
+  "statusMessage" : "expected object to not be null",
+  "statusTrace" : "java.lang.AssertionError: expected object to not be null\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:874)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:858)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V3.TransactV3StandardSuccessTests(regression_Raas_Transact_V3.java:287)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603988993799,
+      "stop" : 1603988993803,
+      "duration" : 4
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Transact V3 Success test",
+    "status" : "failed",
+    "statusMessage" : "expected object to not be null",
+    "statusTrace" : "java.lang.AssertionError: expected object to not be null\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:874)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:858)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V3.TransactV3StandardSuccessTests(regression_Raas_Transact_V3.java:287)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+    "steps" : [ {
+      "name" : "Transact V3 Success",
+      "time" : {
+        "start" : 1603988993819,
+        "stop" : 1603989018477,
+        "duration" : 24658
+      },
+      "status" : "failed",
+      "statusMessage" : "expected object to not be null",
+      "statusTrace" : "java.lang.AssertionError: expected object to not be null\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:874)\r\n\tat org.testng.Assert.assertNotNull(Assert.java:858)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V3.TransactV3StandardSuccessTests(regression_Raas_Transact_V3.java:287)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Set Vendor simulator to SUCCESS",
+        "time" : {
+          "start" : 1603988993819,
+          "stop" : 1603988993819,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 2 : Execute Fin Terms Calculate REST Request",
+        "time" : {
+          "start" : 1603988996181,
+          "stop" : 1603988996181,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 3 : Execute Transact V3 REST Request",
+        "time" : {
+          "start" : 1603988996297,
+          "stop" : 1603988996297,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not empty)",
+        "time" : {
+          "start" : 1603988996490,
+          "stop" : 1603988996490,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not null)",
+        "time" : {
+          "start" : 1603988996496,
+          "stop" : 1603988996496,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> Financial Terms Calculate response assertions --> Validate clientId field is correct",
+        "time" : {
+          "start" : 1603988996502,
+          "stop" : 1603988996502,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.4 --> Financial Terms Calculate response assertions --> Validate productId field is correct",
+        "time" : {
+          "start" : 1603988996509,
+          "stop" : 1603988996509,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.5 --> Financial Terms Calculate response assertions --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603988996515,
+          "stop" : 1603988996515,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.6 --> Transact V3 REST response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603988996521,
+          "stop" : 1603988996521,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.7 --> Transact V3 REST response assertions --> Validate responseMessage field is correct",
+        "time" : {
+          "start" : 1603988996527,
+          "stop" : 1603988996527,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.8 --> Transact V3 REST response assertions --> Validate raasTxnRef field exists",
+        "time" : {
+          "start" : 1603988996533,
+          "stop" : 1603988996533,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.9 --> Transact V3 REST response assertions --> Validate HTTPResponseCode field exists",
+        "time" : {
+          "start" : 1603988996539,
+          "stop" : 1603988996539,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 4 : Wait 15 seconds before executing RAAS Transaction_Log DB assertions",
+        "time" : {
+          "start" : 1603988996539,
+          "stop" : 1603988996539,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.10 --> RAAS DB assertions --> Table: transaction_log --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603989011546,
+          "stop" : 1603989011546,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.11 --> RAAS DB assertions --> Table: transaction_log --> Validate account_identifier field is correct",
+        "time" : {
+          "start" : 1603989011837,
+          "stop" : 1603989011837,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.12 --> RAAS DB assertions --> Table: transaction_log --> Validate amount field is correct",
+        "time" : {
+          "start" : 1603989012090,
+          "stop" : 1603989012090,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.13 --> RAAS DB assertions --> Table: transaction_log --> Validate channel_id field is correct",
+        "time" : {
+          "start" : 1603989012354,
+          "stop" : 1603989012354,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.14 --> RAAS DB assertions --> Table: transaction_log --> Validate channel_session_id field is correct",
+        "time" : {
+          "start" : 1603989012619,
+          "stop" : 1603989012619,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.15 --> RAAS DB assertions --> Table: transaction_log --> Validate client_id field is correct",
+        "time" : {
+          "start" : 1603989012904,
+          "stop" : 1603989012904,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.16 --> RAAS DB assertions --> Table: transaction_log --> Validate client_txn_ref field is correct",
+        "time" : {
+          "start" : 1603989013164,
+          "stop" : 1603989013164,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.17 --> RAAS DB assertions --> Table: transaction_log --> Validate created field exists",
+        "time" : {
+          "start" : 1603989013433,
+          "stop" : 1603989013433,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.18 --> RAAS DB assertions --> Table: transaction_log --> Validate event_type field exists",
+        "time" : {
+          "start" : 1603989013694,
+          "stop" : 1603989013694,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.19 --> RAAS DB assertions --> Table: transaction_log --> Validate product_id field is correct",
+        "time" : {
+          "start" : 1603989013941,
+          "stop" : 1603989013941,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.20 --> RAAS DB assertions --> Table: transaction_log --> Validate source_identifier field is correct",
+        "time" : {
+          "start" : 1603989014200,
+          "stop" : 1603989014200,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.21 --> RAAS DB assertions --> Table: transaction_log --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603989014508,
+          "stop" : 1603989014508,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.22 --> RAAS DB assertions --> Table: transaction_log --> Validate timestamp field exists",
+        "time" : {
+          "start" : 1603989014812,
+          "stop" : 1603989014812,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.23 --> RAAS DB assertions --> Table: transaction_log --> Validate reserve_funds_txn_ref field is correct",
+        "time" : {
+          "start" : 1603989015066,
+          "stop" : 1603989015066,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.24 --> RAAS DB assertions --> Table: transaction_log --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603989015350,
+          "stop" : 1603989015350,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.25 --> RAAS DB assertions --> Table: transaction_log --> Validate channel_name field is correct",
+        "time" : {
+          "start" : 1603989015630,
+          "stop" : 1603989015630,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.26 --> RAAS DB assertions --> Table: transaction_log --> Validate reserve_amount field is correct",
+        "time" : {
+          "start" : 1603989015885,
+          "stop" : 1603989015885,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.27 --> RAAS DB assertions --> Table: transaction_log --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603989016143,
+          "stop" : 1603989016143,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.28 --> RAAS DB assertions --> Table: transaction_log --> Validate fee_amount field is correct",
+        "time" : {
+          "start" : 1603989016406,
+          "stop" : 1603989016406,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.29 --> RAAS DB assertions --> Table: transaction_log --> Validate client_share_amount field exists",
+        "time" : {
+          "start" : 1603989016665,
+          "stop" : 1603989016665,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.30 --> RAAS DB assertions --> Table: transaction_log --> Validate settlement_amount field exists",
+        "time" : {
+          "start" : 1603989016917,
+          "stop" : 1603989016917,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.31 --> RAAS DB assertions --> Table: transaction_log --> Validate vend_amount field is correct",
+        "time" : {
+          "start" : 1603989017189,
+          "stop" : 1603989017189,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.32 --> RAAS DB assertions --> Table: transaction_log --> Validate vendor_share_amount field exists",
+        "time" : {
+          "start" : 1603989017446,
+          "stop" : 1603989017446,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.34 --> RAAS DB assertions --> Table: transaction_log --> Validate raas_request_created field exists",
+        "time" : {
+          "start" : 1603989017711,
+          "stop" : 1603989017711,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.35 --> RAAS DB assertions --> Table: transaction_log --> Validate raas_response_created field exists",
+        "time" : {
+          "start" : 1603989017971,
+          "stop" : 1603989017971,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.36 --> RAAS DB assertions --> Table: transaction_log --> Validate transaction_result_request_created field exists",
+        "time" : {
+          "start" : 1603989018232,
+          "stop" : 1603989018232,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "64ec8907-f41a-441a-b1b8-355ef"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "49903"
+      }, {
+        "name" : "channelId",
+        "value" : "7"
+      }, {
+        "name" : "channelName",
+        "value" : "USSD"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "2022564675"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "test123"
+      }, {
+        "name" : "productId",
+        "value" : "921"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341110000000"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "2341110000000"
+      }, {
+        "name" : "timeStamp",
+        "value" : "2019-09-03T15:35:26.720+02:00"
+      }, {
+        "name" : "reserveFundsTxnRef",
+        "value" : "de1cb702-10a7-4656-8598-f9ebd"
+      }, {
+        "name" : "feeAmount",
+        "value" : "0"
+      }, {
+        "name" : "currencyCode",
+        "value" : "NGN"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "Processing request (funds reserved)"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "202"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "0"
+      } ],
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0,
+      "stepsCount" : 39,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "ff98bc4c1bc68864",
+      "name" : "request",
+      "source" : "ff98bc4c1bc68864.txt",
+      "type" : "text/plain",
+      "size" : 6869
+    }, {
+      "uid" : "a1a1b42c5d44d9a8",
+      "name" : "response",
+      "source" : "a1a1b42c5d44d9a8.txt",
+      "type" : "text/plain",
+      "size" : 7771
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 40,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "testMethod",
+    "value" : "TransactV3StandardSuccessTests"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Transact V3 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Transact_V3.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.TestNG-test=regression_Raas_Transact_V3.java-1(76)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "64ec8907-f41a-441a-b1b8-355ef"
+  }, {
+    "name" : "arg1",
+    "value" : "49903"
+  }, {
+    "name" : "arg10",
+    "value" : "2019-09-03T15:35:26.720+02:00"
+  }, {
+    "name" : "arg11",
+    "value" : "de1cb702-10a7-4656-8598-f9ebd"
+  }, {
+    "name" : "arg12",
+    "value" : "0"
+  }, {
+    "name" : "arg13",
+    "value" : "NGN"
+  }, {
+    "name" : "arg14",
+    "value" : "0000"
+  }, {
+    "name" : "arg15",
+    "value" : "Processing request (funds reserved)"
+  }, {
+    "name" : "arg16",
+    "value" : "200"
+  }, {
+    "name" : "arg17",
+    "value" : "0000"
+  }, {
+    "name" : "arg18",
+    "value" : "202"
+  }, {
+    "name" : "arg19",
+    "value" : "0"
+  }, {
+    "name" : "arg2",
+    "value" : "7"
+  }, {
+    "name" : "arg3",
+    "value" : "USSD"
+  }, {
+    "name" : "arg4",
+    "value" : "2022564675"
+  }, {
+    "name" : "arg5",
+    "value" : "3"
+  }, {
+    "name" : "arg6",
+    "value" : "test123"
+  }, {
+    "name" : "arg7",
+    "value" : "921"
+  }, {
+    "name" : "arg8",
+    "value" : "2341110000000"
+  }, {
+    "name" : "arg9",
+    "value" : "2341110000000"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "c648b42a1c7955d8.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "49903", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "0000", "Processing request (funds reserved)", "200", "0000", "202", "0", "7", "USSD", "2022564675", "3", "test123", "921", "2341110000000", "2341110000000" ]
+}

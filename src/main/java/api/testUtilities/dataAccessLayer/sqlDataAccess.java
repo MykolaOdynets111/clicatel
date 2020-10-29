@@ -1,9 +1,6 @@
 package api.testUtilities.dataAccessLayer;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.*;
-import java.util.Properties;
 
 public class sqlDataAccess{
 
@@ -13,7 +10,7 @@ public class sqlDataAccess{
 
         try {
             String connectionUrl = "jdbc:postgresql://pgdb.qa.za01.payd.co:5432/raas";
-            Connection conn = DriverManager.getConnection(connectionUrl, "qa_appl_w_readyapi", "api_rite");
+            Connection conn = DriverManager.getConnection(connectionUrl, "kaizen_qa_admin_user", "5Of#ZAVvGa27bD");
             Statement stmt = conn.createStatement();
             ResultSet rs;
 

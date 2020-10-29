@@ -1,0 +1,13 @@
+HTTP/1.1 200 OK
+content-length: 105
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json; charset=UTF-8
+connection: keep-alive
+
+{
+    "responseCode": "2055",
+    "responseMessage": "No feeAmount provided",
+    "raasTxnRef": "xkd2cxjkczzq4hzqlqeimjwx"
+}

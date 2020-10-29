@@ -6,25 +6,25 @@
 
     <groupId>com.clickatell</groupId>
     <artifactId>bigbrotherAutomation_Control_Engine</artifactId>
-    <version>1.0_BETA</version>
+    <version>1.0-SNAPSHOT</version>
 
     <properties>
         <java.version>1.8</java.version>
 
-        <testng.version>6.14.3</testng.version>
-        <selenide.version>5.5.0</selenide.version>
+        <testng.version>7.0.0-beta3</testng.version>
+        <selenide.version>5.13.0</selenide.version>
+        <assertj.core>3.14.0</assertj.core>
         <restassured.version>4.1.1</restassured.version>
 
-        <webdriver.manager.version>3.2.0</webdriver.manager.version>
+        <webdriver.manager.version>4.1.0</webdriver.manager.version>
 
         <selenium.remote.driver.version>3.141.59</selenium.remote.driver.version>
         <selenium.support.version>3.141.0</selenium.support.version>
         <selenium.api.version>3.141.0</selenium.api.version>
 
         <extentreports.version>4.0.6</extentreports.version>
-
-        <jeckson.core.version>2.9.9</jeckson.core.version>
         <jackson.databind.version>2.9.9.3</jackson.databind.version>
+        <jeckson.core.version>2.9.9</jeckson.core.version>
         <jackson.dataformat.xml.version>2.9.8</jackson.dataformat.xml.version>
         <jaxb.api>2.2.11</jaxb.api>
         <json.simple.version>1.1.1</json.simple.version>
@@ -41,6 +41,7 @@
         <hibernate.search.orm.version>5.11.3.Final</hibernate.search.orm.version>
         <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
         <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
+        <hibernate.c3p0.version>5.4.10.Final</hibernate.c3p0.version>
         <persistence.api.version>1.0.2</persistence.api.version>
 
         <lombok.version>1.18.10</lombok.version>
@@ -48,6 +49,7 @@
 
         <maven.compiler.plugin.version>3.8.0</maven.compiler.plugin.version>
         <maven.surefire.plugin.version>2.22.1</maven.surefire.plugin.version>
+        <maven.clean.plugin.version>3.1.0</maven.clean.plugin.version>
         <surefire.argline>
             -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
         </surefire.argline>
@@ -59,11 +61,13 @@
         <aspectj.version>1.9.4</aspectj.version>
         <allure.maven-plugin.version>2.10.0</allure.maven-plugin.version>
         <allure.version>2.13.0</allure.version>
+        <allure.selenide.version>2.13.1</allure.selenide.version>
         <allure.tms.link>https://jira.clickatell.com/browse/{}</allure.tms.link>
         <allure.issue.link>https://jira.clickatell.com/browse/{}</allure.issue.link>
+        <jira.rest.java.client.core.version>5.1.6</jira.rest.java.client.core.version>
+        <fugue.version>4.7.2</fugue.version>
 
         <suite>SuiteofSuites</suite>
-
 
     </properties>
 
@@ -114,10 +118,15 @@
             </properties>
         </profile>
     </profiles>
+
     <repositories>
         <repository>
             <id>gitlab-maven</id>
             <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/groups/102/-/packages/maven</url>
+        </repository>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven/repository/public</url>
         </repository>
     </repositories>
     <distributionManagement>
@@ -264,16 +273,43 @@
             <version>${slf4j.log4j12.version}</version>
         </dependency>
 
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-selenide</artifactId>
+            <version>${allure.selenide.version}</version>
         </dependency>
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
             <version>${webdriver.manager.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.atlassian.jira</groupId>
+            <artifactId>jira-rest-java-client-core</artifactId>
+            <version>${jira.rest.java.client.core.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>io.atlassian.fugue</groupId>
+            <artifactId>fugue</artifactId>
+            <version>${fugue.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>net.lingala.zip4j</groupId>
+            <artifactId>zip4j</artifactId>
+            <version>2.1.3</version>
         </dependency>
 
         <dependency>
@@ -298,6 +334,18 @@
             <groupId>commons-configuration</groupId>
             <artifactId>commons-configuration</artifactId>
             <version>1.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox-tools</artifactId>
+            <version>2.0.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.sf.cssbox</groupId>
+            <artifactId>pdf2dom</artifactId>
+            <version>1.6</version>
         </dependency>
 
     </dependencies>
@@ -335,6 +383,7 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.plugin.version}</version>
                 <configuration>
+                    <argLine>-Xms512m -Xmx8192m</argLine>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>${surefire.argline}</argLine>
                     <suiteXmlFiles>

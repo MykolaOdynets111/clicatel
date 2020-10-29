@@ -1491,7 +1491,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 8 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 9 : Wait 10 seconds for SQL Update to take affect");
         Thread.sleep(10000);
@@ -2217,7 +2217,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
 
         // SQL - UPDATE response code
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef"));
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 10 seconds for the CPGTX.Tran_Log processing to retry the pending transaction");
         Thread.sleep(10000);
@@ -2661,7 +2661,7 @@ public class regression_Raas_Transact_V3 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef"));
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV3response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 10 seconds for the pending transaction to process then continue with CTX DB assertion steps");
         Thread.sleep(10000);

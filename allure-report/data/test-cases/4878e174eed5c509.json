@@ -1,0 +1,610 @@
+{
+  "uid" : "4878e174eed5c509",
+  "name" : "CTXVendorSimNegativeTests",
+  "fullName" : "API.dotCoreTests.regression_Ctx.CTXVendorSimNegativeTests",
+  "historyId" : "8652bf6a52e9ad660f53f8d893b0e746",
+  "time" : {
+    "start" : 1603988656247,
+    "stop" : 1603988680009,
+    "duration" : 23762
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603988655773,
+      "stop" : 1603988655972,
+      "duration" : 199
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "CTX POST Vendor Sim negative test cases",
+      "time" : {
+        "start" : 1603988656260,
+        "stop" : 1603988680006,
+        "duration" : 23746
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)",
+        "time" : {
+          "start" : 1603988656261,
+          "stop" : 1603988656261,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 2 : Execute CTX SOAP Request",
+        "time" : {
+          "start" : 1603988658476,
+          "stop" : 1603988658477,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> CTX soap response assertions --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> CTX soap response assertions --> Validate originId field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> CTX soap response assertions --> Validate productId field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.4 --> CTX soap response assertions --> Validate channelIndicator field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.6 --> CTX soap response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.6 --> CTX soap response assertions --> Validate clientTransactionId field is correct",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.7 --> CTX soap response assertions --> Validate timeLocalTransaction field exists",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.8 --> CTX soap response assertions --> Validate dateLocalTransaction field exists",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 3 : Wait 5 seconds before executing CTX DB assertions",
+        "time" : {
+          "start" : 1603988660652,
+          "stop" : 1603988660652,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct",
+        "time" : {
+          "start" : 1603988665660,
+          "stop" : 1603988665660,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.10 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct",
+        "time" : {
+          "start" : 1603988666191,
+          "stop" : 1603988666191,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.11 --> CTX DB assertions --> Table: tran_log --> Validate clientStan field exists",
+        "time" : {
+          "start" : 1603988666431,
+          "stop" : 1603988666432,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.12 --> CTX DB assertions --> Table: tran_log --> Validate originId field is correct",
+        "time" : {
+          "start" : 1603988666707,
+          "stop" : 1603988666708,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.13 --> CTX DB assertions --> Table: tran_log --> Validate originatingService field exists",
+        "time" : {
+          "start" : 1603988667001,
+          "stop" : 1603988667001,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.14 --> CTX DB assertions --> Table: tran_log --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603988667267,
+          "stop" : 1603988667268,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.15 --> CTX DB assertions --> Table: tran_log --> Validate transactionState field is correct",
+        "time" : {
+          "start" : 1603988667549,
+          "stop" : 1603988667549,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.16 --> CTX DB assertions --> Table: tran_log --> Validate transactionType field is correct",
+        "time" : {
+          "start" : 1603988667783,
+          "stop" : 1603988667783,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.17 --> CTX DB assertions --> Table: tran_log --> Validate client_id field is correct",
+        "time" : {
+          "start" : 1603988668088,
+          "stop" : 1603988668088,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.18 --> CTX DB assertions --> Table: tran_log --> Validate product_id field is correct",
+        "time" : {
+          "start" : 1603988668435,
+          "stop" : 1603988668435,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 4 : Set Vendor simulator to SUCCESS",
+        "time" : {
+          "start" : 1603988668675,
+          "stop" : 1603988668675,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 5 : Wait 10 seconds for vendor simulator to reset to SUCCESS",
+        "time" : {
+          "start" : 1603988670003,
+          "stop" : 1603988670003,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "sourceId",
+        "value" : "2349000300000"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "channelIndicator",
+        "value" : "07"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "clientTransactionId",
+        "value" : "MTNNGT353657921999731097-0000"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "10000"
+      }, {
+        "name" : "alternateClientId",
+        "value" : "42"
+      }, {
+        "name" : "timeLocalTransaction",
+        "value" : "104827"
+      }, {
+        "name" : "xmlns",
+        "value" : "http://clickatell.com/types"
+      }, {
+        "name" : "apiToken",
+        "value" : "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf"
+      }, {
+        "name" : "originId",
+        "value" : "2349000300000"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "3133827176"
+      }, {
+        "name" : "dateLocalTransaction",
+        "value" : "0121"
+      }, {
+        "name" : "expectedPurchaseAmount",
+        "value" : "10000"
+      }, {
+        "name" : "expectedTimeLocalTransaction",
+        "value" : "104827"
+      }, {
+        "name" : "expectedDateLocalTransaction",
+        "value" : "0121"
+      }, {
+        "name" : "expectedOriginId",
+        "value" : "2349000300000"
+      }, {
+        "name" : "expectedProductId",
+        "value" : "100"
+      }, {
+        "name" : "expectedChannelIndicator",
+        "value" : "07"
+      }, {
+        "name" : "expectedTransmissionDateTime",
+        "value" : "0131104740"
+      }, {
+        "name" : "expectedVendorReferenceNo",
+        "value" : "9820002047056"
+      }, {
+        "name" : "expectedCtxResponseCode",
+        "value" : "2236"
+      }, {
+        "name" : "expectedFaultString",
+        "value" : "null"
+      }, {
+        "name" : "simulatorScenario",
+        "value" : "MTNNG DELAY 30000"
+      }, {
+        "name" : "simulatorResetState",
+        "value" : "MTNNG SUCCESS"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 23,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "dc7b36101f636388",
+      "name" : "request",
+      "source" : "dc7b36101f636388.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    }, {
+      "uid" : "6695b372c9cd00c2",
+      "name" : "response",
+      "source" : "6695b372c9cd00c2.bin",
+      "type" : "application/octet-stream",
+      "size" : 0
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 24,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "testMethod",
+    "value" : "CTXVendorSimNegativeTests"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Ctx Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "C:/Automation/API/bigbrotherautomation_kaizentests/src/main/java/api/requestLibary/CORE/CtxPOJO.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Ctx"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.TestNG-test=C:/Automation/API/bigbrotherautomation_kaizentests/src/main/java/api/requestLibary/CORE/CtxPOJO.java-3(16)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "2349000300000"
+  }, {
+    "name" : "arg1",
+    "value" : "3"
+  }, {
+    "name" : "arg10",
+    "value" : "2349000300000"
+  }, {
+    "name" : "arg11",
+    "value" : "3133827176"
+  }, {
+    "name" : "arg12",
+    "value" : "0121"
+  }, {
+    "name" : "arg13",
+    "value" : "10000"
+  }, {
+    "name" : "arg14",
+    "value" : "104827"
+  }, {
+    "name" : "arg15",
+    "value" : "0121"
+  }, {
+    "name" : "arg16",
+    "value" : "2349000300000"
+  }, {
+    "name" : "arg17",
+    "value" : "100"
+  }, {
+    "name" : "arg18",
+    "value" : "07"
+  }, {
+    "name" : "arg19",
+    "value" : "0131104740"
+  }, {
+    "name" : "arg2",
+    "value" : "07"
+  }, {
+    "name" : "arg20",
+    "value" : "9820002047056"
+  }, {
+    "name" : "arg21",
+    "value" : "2236"
+  }, {
+    "name" : "arg22",
+    "value" : "null"
+  }, {
+    "name" : "arg23",
+    "value" : "MTNNG DELAY 30000"
+  }, {
+    "name" : "arg24",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg3",
+    "value" : "100"
+  }, {
+    "name" : "arg4",
+    "value" : "MTNNGT353657921999731097-0000"
+  }, {
+    "name" : "arg5",
+    "value" : "10000"
+  }, {
+    "name" : "arg6",
+    "value" : "42"
+  }, {
+    "name" : "arg7",
+    "value" : "104827"
+  }, {
+    "name" : "arg8",
+    "value" : "http://clickatell.com/types"
+  }, {
+    "name" : "arg9",
+    "value" : "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4878e174eed5c509.json",
+  "parameterValues" : [ "2349000300000", "3", "2349000300000", "3133827176", "0121", "10000", "104827", "0121", "2349000300000", "100", "07", "0131104740", "07", "9820002047056", "2236", "null", "MTNNG DELAY 30000", "MTNNG SUCCESS", "100", "MTNNGT353657921999731097-0000", "10000", "42", "104827", "http://clickatell.com/types", "tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf" ]
+}
