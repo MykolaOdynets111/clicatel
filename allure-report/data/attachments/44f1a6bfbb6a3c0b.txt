@@ -1,0 +1,44 @@
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/xml;charset=ISO-8859-1
+Content-Length: 717
+Date: Thu, 29 Oct 2020 16:26:31 GMT
+
+<soapenv:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <purchaseResponse xmlns="http://clickatell.com/types">
+      <purchaseAmount>10000</purchaseAmount>
+      <timeLocalTransaction>104827</timeLocalTransaction>
+      <dateLocalTransaction>0121</dateLocalTransaction>
+      <originId>2341111111111</originId>
+      <clientTransactionId>CELLC1353657921550314216-0000</clientTransactionId>
+      <productId>60</productId>
+      <channelIndicator>07</channelIndicator>
+      <transmissionDateTime>1029182631</transmissionDateTime>
+      <vendorReferenceNo>7120014205216</vendorReferenceNo>
+      <responseCode>2501</responseCode>
+    </purchaseResponse>
+  </soapenv:Body>
+</soapenv:Envelope>
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+Content-Type: text/xml;charset=ISO-8859-1
+Content-Length: 611
+Date: Thu, 29 Oct 2020 16:26:34 GMT
+
+<soapenv:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
+  <soapenv:Header/>
+  <soapenv:Body>
+    <purchaseResponse xmlns="http://clickatell.com/types">
+      <purchaseAmount>10000</purchaseAmount>
+      <timeLocalTransaction>104827</timeLocalTransaction>
+      <dateLocalTransaction>0121</dateLocalTransaction>
+      <originId>2341111111111</originId>
+      <clientTransactionId>MTNTES625019657367035759-0000</clientTransactionId>
+      <productId>100</productId>
+      <channelIndicator>07</channelIndicator>
+      <responseCode>2604</responseCode>
+    </purchaseResponse>
+  </soapenv:Body>
+</soapenv:Envelope>

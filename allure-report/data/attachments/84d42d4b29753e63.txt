@@ -1,0 +1,48 @@
+HTTP/1.1 400 Bad Request
+content-length: 77
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "targetIdentifier :may not be null"
+}
+HTTP/1.1 500 Internal Server Error
+content-length: 70
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "Currency Code is mandatory"
+}
+HTTP/1.1 400 Bad Request
+content-length: 67
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "amount :may not be null"
+}
+HTTP/1.1 400 Bad Request
+content-length: 77
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "channelSessionId :may not be null"
+}

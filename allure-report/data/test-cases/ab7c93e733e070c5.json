@@ -1,0 +1,317 @@
+{
+  "uid" : "ab7c93e733e070c5",
+  "name" : "transactV4NullFieldNegativeTestCase",
+  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V4.transactV4NullFieldNegativeTestCase",
+  "historyId" : "482c5a217e63a206546b0be68346b7d1",
+  "time" : {
+    "start" : 1603988834116,
+    "stop" : 1603988834247,
+    "duration" : 131
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603988831751,
+      "stop" : 1603988831756,
+      "duration" : 5
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "3. POST transact V4 null field test cases, testing all fields with negative values",
+      "time" : {
+        "start" : 1603988834116,
+        "stop" : 1603988834235,
+        "duration" : 119
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Execute Transact V4 REST Request",
+        "time" : {
+          "start" : 1603988834116,
+          "stop" : 1603988834116,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> Transact V4 REST response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603988834217,
+          "stop" : 1603988834217,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> Transact V4 REST response assertions --> Validate responseMessage field is correct",
+        "time" : {
+          "start" : 1603988834225,
+          "stop" : 1603988834225,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> Transact V4 REST response assertions --> Validate HTTPResponseCode is correct",
+        "time" : {
+          "start" : 1603988834235,
+          "stop" : 1603988834235,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "d3d4ce83-b6b0-4558-a455-fceb1"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "15000"
+      }, {
+        "name" : "channelId",
+        "value" : "7"
+      }, {
+        "name" : "channelName",
+        "value" : "test"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "2022564675"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "test123"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "null"
+      }, {
+        "name" : "timeStamp",
+        "value" : "2019-09-03T15:35:26.720+02:00"
+      }, {
+        "name" : "reserveFundsTxnRef",
+        "value" : "54840679064361690040001"
+      }, {
+        "name" : "feeAmount",
+        "value" : "0"
+      }, {
+        "name" : "currencyCode",
+        "value" : "NGN"
+      }, {
+        "name" : "fundingSourceId",
+        "value" : "3"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "4000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "targetIdentifier :may not be null"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "400"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "null"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "null"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "2236"
+      }, {
+        "name" : "expectedRaasStatus",
+        "value" : "null"
+      }, {
+        "name" : "simulatorScenario",
+        "value" : "MTNNG SUCCESS"
+      }, {
+        "name" : "simulatorResetState",
+        "value" : "MTNNG SUCCESS"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 4,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "2d080144ef036d3e",
+      "name" : "request",
+      "source" : "2d080144ef036d3e.txt",
+      "type" : "text/plain",
+      "size" : 919
+    }, {
+      "uid" : "7fda70ece97f6dcc",
+      "name" : "response",
+      "source" : "7fda70ece97f6dcc.txt",
+      "type" : "text/plain",
+      "size" : 295
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 5,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "testMethod",
+    "value" : "transactV4NullFieldNegativeTestCase"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Transact V4 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Transact_V4.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.TestNG-test=regression_Raas_Transact_V4.java-3(53)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "d3d4ce83-b6b0-4558-a455-fceb1"
+  }, {
+    "name" : "arg1",
+    "value" : "15000"
+  }, {
+    "name" : "arg10",
+    "value" : "2019-09-03T15:35:26.720+02:00"
+  }, {
+    "name" : "arg11",
+    "value" : "54840679064361690040001"
+  }, {
+    "name" : "arg12",
+    "value" : "0"
+  }, {
+    "name" : "arg13",
+    "value" : "NGN"
+  }, {
+    "name" : "arg14",
+    "value" : "3"
+  }, {
+    "name" : "arg15",
+    "value" : "4000"
+  }, {
+    "name" : "arg16",
+    "value" : "targetIdentifier :may not be null"
+  }, {
+    "name" : "arg17",
+    "value" : "400"
+  }, {
+    "name" : "arg18",
+    "value" : "null"
+  }, {
+    "name" : "arg19",
+    "value" : "null"
+  }, {
+    "name" : "arg2",
+    "value" : "7"
+  }, {
+    "name" : "arg20",
+    "value" : "2236"
+  }, {
+    "name" : "arg21",
+    "value" : "null"
+  }, {
+    "name" : "arg22",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg23",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg3",
+    "value" : "test"
+  }, {
+    "name" : "arg4",
+    "value" : "2022564675"
+  }, {
+    "name" : "arg5",
+    "value" : "3"
+  }, {
+    "name" : "arg6",
+    "value" : "test123"
+  }, {
+    "name" : "arg7",
+    "value" : "100"
+  }, {
+    "name" : "arg8",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg9",
+    "value" : "null"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "ab7c93e733e070c5.json",
+  "parameterValues" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "15000", "2019-09-03T15:35:26.720+02:00", "54840679064361690040001", "0", "NGN", "3", "4000", "targetIdentifier :may not be null", "400", "null", "null", "7", "2236", "null", "MTNNG SUCCESS", "MTNNG SUCCESS", "test", "2022564675", "3", "test123", "100", "2341111111111", "null" ]
+}

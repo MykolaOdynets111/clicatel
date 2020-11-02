@@ -1,0 +1,1939 @@
+{
+  "uid" : "3651ee90056c4cf3",
+  "name" : "ReserveAndTransactV2StandardSuccessTests",
+  "fullName" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2.ReserveAndTransactV2StandardSuccessTests",
+  "historyId" : "b9ad8584cad091508b9303306fca3362",
+  "time" : {
+    "start" : 1603990722964,
+    "stop" : 1603990771551,
+    "duration" : 48587
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603990722951,
+      "stop" : 1603990722953,
+      "duration" : 2
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Reserve and Transact V2 Standard Success test cases",
+      "time" : {
+        "start" : 1603990722964,
+        "stop" : 1603990771549,
+        "duration" : 48585
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Set Vendor simulator to SUCCESS",
+        "time" : {
+          "start" : 1603990722964,
+          "stop" : 1603990722964,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 2 : Wait 5 seconds for simulator to run",
+        "time" : {
+          "start" : 1603990724268,
+          "stop" : 1603990724268,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 3 : Execute Fin Terms Calculate REST Request",
+        "time" : {
+          "start" : 1603990729280,
+          "stop" : 1603990729280,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 4 : Execute Reserve and Transact V2 REST Request",
+        "time" : {
+          "start" : 1603990729405,
+          "stop" : 1603990729405,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not empty)",
+        "time" : {
+          "start" : 1603990730161,
+          "stop" : 1603990730161,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not null)",
+        "time" : {
+          "start" : 1603990730182,
+          "stop" : 1603990730182,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> Financial Terms Calculate response assertions --> Validate clientId field is correct",
+        "time" : {
+          "start" : 1603990730192,
+          "stop" : 1603990730192,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.4 --> Financial Terms Calculate response assertions --> Validate productId field is correct",
+        "time" : {
+          "start" : 1603990730199,
+          "stop" : 1603990730199,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.5 --> Financial Terms Calculate response assertions --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603990730206,
+          "stop" : 1603990730206,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.6 --> Reserve and Transact V2 REST response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603990730211,
+          "stop" : 1603990730211,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.7 --> Reserve and Transact V2 REST response assertions --> Validate responseMessage field is correct",
+        "time" : {
+          "start" : 1603990730216,
+          "stop" : 1603990730216,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.8 --> Reserve and Transact V2 REST response assertions --> Validate raasTxnRef field exists",
+        "time" : {
+          "start" : 1603990730225,
+          "stop" : 1603990730225,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.9 --> Reserve and Transact V2 REST response assertions --> Validate HTTPResponseCode field is correct",
+        "time" : {
+          "start" : 1603990730232,
+          "stop" : 1603990730232,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 5 : Wait 10 seconds before executing the RAAS Transaction_Log DB Assertions",
+        "time" : {
+          "start" : 1603990730232,
+          "stop" : 1603990730232,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.10 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990740245,
+          "stop" : 1603990740245,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.11 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct",
+        "time" : {
+          "start" : 1603990740555,
+          "stop" : 1603990740555,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.12 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct",
+        "time" : {
+          "start" : 1603990740829,
+          "stop" : 1603990740829,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.13 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct",
+        "time" : {
+          "start" : 1603990741105,
+          "stop" : 1603990741105,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.14 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct",
+        "time" : {
+          "start" : 1603990741369,
+          "stop" : 1603990741369,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.15 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct",
+        "time" : {
+          "start" : 1603990741645,
+          "stop" : 1603990741645,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.16 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990741966,
+          "stop" : 1603990741966,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.17 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists",
+        "time" : {
+          "start" : 1603990742224,
+          "stop" : 1603990742224,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.18 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists",
+        "time" : {
+          "start" : 1603990742471,
+          "stop" : 1603990742471,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.19 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct",
+        "time" : {
+          "start" : 1603990742742,
+          "stop" : 1603990742742,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.20 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct",
+        "time" : {
+          "start" : 1603990743016,
+          "stop" : 1603990743016,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.21 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603990743259,
+          "stop" : 1603990743259,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.22 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists",
+        "time" : {
+          "start" : 1603990743523,
+          "stop" : 1603990743523,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.23 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990743780,
+          "stop" : 1603990743780,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.24 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field is correct",
+        "time" : {
+          "start" : 1603990744031,
+          "stop" : 1603990744031,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.25 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field is correct",
+        "time" : {
+          "start" : 1603990744284,
+          "stop" : 1603990744284,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.26 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603990744547,
+          "stop" : 1603990744547,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.27 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate fee_amount field exists",
+        "time" : {
+          "start" : 1603990744795,
+          "stop" : 1603990744795,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.28 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate fee_amount field exists",
+        "time" : {
+          "start" : 1603990745051,
+          "stop" : 1603990745051,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.29 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate settlement_amount field exists",
+        "time" : {
+          "start" : 1603990745305,
+          "stop" : 1603990745305,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.30 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate settlement_amount field exists",
+        "time" : {
+          "start" : 1603990745567,
+          "stop" : 1603990745567,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.31 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate vendor_share_amount field exists",
+        "time" : {
+          "start" : 1603990745836,
+          "stop" : 1603990745836,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.32 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_request_created field exists",
+        "time" : {
+          "start" : 1603990746100,
+          "stop" : 1603990746100,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.33 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_created field exists",
+        "time" : {
+          "start" : 1603990746356,
+          "stop" : 1603990746356,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.34 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_request_created field exists",
+        "time" : {
+          "start" : 1603990746607,
+          "stop" : 1603990746607,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.35 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_created field exists",
+        "time" : {
+          "start" : 1603990746863,
+          "stop" : 1603990746863,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.36 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_response_code field is correct",
+        "time" : {
+          "start" : 1603990747120,
+          "stop" : 1603990747120,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.37 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_response_message field is correct",
+        "time" : {
+          "start" : 1603990747372,
+          "stop" : 1603990747372,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.38 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_request_response_code field is correct",
+        "time" : {
+          "start" : 1603990747635,
+          "stop" : 1603990747635,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.39 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate transaction_result_response_response_code field is correct",
+        "time" : {
+          "start" : 1603990747910,
+          "stop" : 1603990747910,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.40 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate additional_data_financial_calculations field exists",
+        "time" : {
+          "start" : 1603990748171,
+          "stop" : 1603990748171,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.41 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990748426,
+          "stop" : 1603990748426,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.42 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate account_identifier field is correct",
+        "time" : {
+          "start" : 1603990748685,
+          "stop" : 1603990748685,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.43 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate amount field is correct",
+        "time" : {
+          "start" : 1603990748955,
+          "stop" : 1603990748955,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.44 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_id field is correct",
+        "time" : {
+          "start" : 1603990749219,
+          "stop" : 1603990749219,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.45 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_session_id field is correct",
+        "time" : {
+          "start" : 1603990749478,
+          "stop" : 1603990749478,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.46 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_id field is correct",
+        "time" : {
+          "start" : 1603990749734,
+          "stop" : 1603990749734,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.47 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate client_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990749986,
+          "stop" : 1603990749986,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.48 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists",
+        "time" : {
+          "start" : 1603990750249,
+          "stop" : 1603990750249,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.49 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate event_type field exists",
+        "time" : {
+          "start" : 1603990750499,
+          "stop" : 1603990750499,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.50 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate created field exists",
+        "time" : {
+          "start" : 1603990750767,
+          "stop" : 1603990750767,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.51 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate product_id field is correct",
+        "time" : {
+          "start" : 1603990751026,
+          "stop" : 1603990751026,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.52 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate source_identifier field is correct",
+        "time" : {
+          "start" : 1603990751295,
+          "stop" : 1603990751295,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.53 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603990751550,
+          "stop" : 1603990751550,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.54 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate timestamp field exists",
+        "time" : {
+          "start" : 1603990751821,
+          "stop" : 1603990751821,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.55 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990752073,
+          "stop" : 1603990752073,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.56 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate channel_name field exists",
+        "time" : {
+          "start" : 1603990752338,
+          "stop" : 1603990752338,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.57 --> RAAS DB assertions --> Table: raas.transaction_log --> Validate api_call field is correct",
+        "time" : {
+          "start" : 1603990752582,
+          "stop" : 1603990752582,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.58 --> RAAS DB assertions --> Table: raas.raas_response --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990752837,
+          "stop" : 1603990752837,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.59 --> RAAS DB assertions --> Table: raas.raas_response --> Validate created field exists",
+        "time" : {
+          "start" : 1603990753094,
+          "stop" : 1603990753094,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.60 --> RAAS DB assertions --> Table: raas.raas_response --> Validate event_type field exists",
+        "time" : {
+          "start" : 1603990753341,
+          "stop" : 1603990753341,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 6 : Wait 5 seconds before executing the CTX DB Assertions",
+        "time" : {
+          "start" : 1603990753599,
+          "stop" : 1603990753599,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.61 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct",
+        "time" : {
+          "start" : 1603990758612,
+          "stop" : 1603990758612,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.62 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionId field exists",
+        "time" : {
+          "start" : 1603990758942,
+          "stop" : 1603990758942,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.63 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate clientStan field exists",
+        "time" : {
+          "start" : 1603990759193,
+          "stop" : 1603990759193,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.64 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originId field is correct",
+        "time" : {
+          "start" : 1603990759436,
+          "stop" : 1603990759436,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.65 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate originatingService field exists",
+        "time" : {
+          "start" : 1603990759677,
+          "stop" : 1603990759677,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.66 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603990759969,
+          "stop" : 1603990759969,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.67 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionState field is correct",
+        "time" : {
+          "start" : 1603990760211,
+          "stop" : 1603990760211,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.68 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionType field is correct",
+        "time" : {
+          "start" : 1603990760458,
+          "stop" : 1603990760458,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.69 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate client_id field is correct",
+        "time" : {
+          "start" : 1603990760716,
+          "stop" : 1603990760716,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.70 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate product_id field is correct",
+        "time" : {
+          "start" : 1603990760972,
+          "stop" : 1603990760972,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.71 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990761224,
+          "stop" : 1603990761224,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.72 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate amount field is correct",
+        "time" : {
+          "start" : 1603990761498,
+          "stop" : 1603990761498,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.73 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_id field is correct",
+        "time" : {
+          "start" : 1603990761742,
+          "stop" : 1603990761742,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.74 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_name field is correct",
+        "time" : {
+          "start" : 1603990762007,
+          "stop" : 1603990762007,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.75 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate channel_session_id field is correct",
+        "time" : {
+          "start" : 1603990762354,
+          "stop" : 1603990762354,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.76 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate client_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990762620,
+          "stop" : 1603990762620,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.77 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate created field exists",
+        "time" : {
+          "start" : 1603990762881,
+          "stop" : 1603990762881,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.78 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct",
+        "time" : {
+          "start" : 1603990763134,
+          "stop" : 1603990763134,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.79 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate event_type field is correct",
+        "time" : {
+          "start" : 1603990763557,
+          "stop" : 1603990763558,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.80 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate product_type field is correct",
+        "time" : {
+          "start" : 1603990764014,
+          "stop" : 1603990764014,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.81 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate source_identifier field is correct",
+        "time" : {
+          "start" : 1603990764262,
+          "stop" : 1603990764262,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.82 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate target_identifier field is correct",
+        "time" : {
+          "start" : 1603990764553,
+          "stop" : 1603990764553,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.83 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate timestamp field exists",
+        "time" : {
+          "start" : 1603990764822,
+          "stop" : 1603990764822,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.84 --> RAAS DB assertions --> Table: raas.reserve_fund_request --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990765078,
+          "stop" : 1603990765078,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.85 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990765337,
+          "stop" : 1603990765337,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.86 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field exists",
+        "time" : {
+          "start" : 1603990765591,
+          "stop" : 1603990765591,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.87 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate created field is correct",
+        "time" : {
+          "start" : 1603990765846,
+          "stop" : 1603990765846,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.88 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate reserve_funds_txn_ref field exists",
+        "time" : {
+          "start" : 1603990766098,
+          "stop" : 1603990766098,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.89 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate response_code field is correct",
+        "time" : {
+          "start" : 1603990766382,
+          "stop" : 1603990766382,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.90 --> RAAS DB assertions --> Table: raas.reserve_fund_response --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990766637,
+          "stop" : 1603990766637,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.91 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate response_code field is correct",
+        "time" : {
+          "start" : 1603990766887,
+          "stop" : 1603990766887,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.92 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists",
+        "time" : {
+          "start" : 1603990767165,
+          "stop" : 1603990767166,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.93 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate created field exists",
+        "time" : {
+          "start" : 1603990767423,
+          "stop" : 1603990767423,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.94 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990767675,
+          "stop" : 1603990767675,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.95 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate timestamp field exists",
+        "time" : {
+          "start" : 1603990767949,
+          "stop" : 1603990767949,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.96 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990768189,
+          "stop" : 1603990768189,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.97 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate cdc_update_timestamp field is correct",
+        "time" : {
+          "start" : 1603990768459,
+          "stop" : 1603990768459,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.98 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate fee_amount field exists",
+        "time" : {
+          "start" : 1603990768714,
+          "stop" : 1603990768714,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.99 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate client_share_amount field exists",
+        "time" : {
+          "start" : 1603990768974,
+          "stop" : 1603990768974,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.100 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate settlement_amount field exists",
+        "time" : {
+          "start" : 1603990769221,
+          "stop" : 1603990769221,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.101 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vend_amount field is correct",
+        "time" : {
+          "start" : 1603990769467,
+          "stop" : 1603990769467,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.102 --> RAAS DB assertions --> Table: raas.transaction_result_request --> Validate vendor_share_amount field exists",
+        "time" : {
+          "start" : 1603990769727,
+          "stop" : 1603990769727,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.103 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct",
+        "time" : {
+          "start" : 1603990769983,
+          "stop" : 1603990769983,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.104 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate raas_txn_ref field is correct",
+        "time" : {
+          "start" : 1603990770226,
+          "stop" : 1603990770226,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.105 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate created field exists",
+        "time" : {
+          "start" : 1603990770483,
+          "stop" : 1603990770483,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.106 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate event_type field exists",
+        "time" : {
+          "start" : 1603990770761,
+          "stop" : 1603990770761,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.107 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate response_code field is correct",
+        "time" : {
+          "start" : 1603990771045,
+          "stop" : 1603990771045,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.108 --> RAAS DB assertions --> Table: raas.transaction_result_response --> Validate cdc_update_timestamp field exists",
+        "time" : {
+          "start" : 1603990771286,
+          "stop" : 1603990771286,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "64ec8907-f41a-441a-b1b8-355ef"
+      }, {
+        "name" : "amount",
+        "value" : "15000"
+      }, {
+        "name" : "channelId",
+        "value" : "8"
+      }, {
+        "name" : "channelName",
+        "value" : "test"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "ST-8556726170"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "193103796"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "timeStamp",
+        "value" : "2020-01-09T09:58:46.170+02:00"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "Processing request"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "202"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "0"
+      }, {
+        "name" : "simulatorScenario",
+        "value" : "MTNNG SUCCESS"
+      }, {
+        "name" : "simulatorResetState",
+        "value" : "MTNNG SUCCESS"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 114,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "f9621fbecfe4a0c6",
+      "name" : "request",
+      "source" : "f9621fbecfe4a0c6.txt",
+      "type" : "text/plain",
+      "size" : 1272
+    }, {
+      "uid" : "b6f3407835feaf27",
+      "name" : "response",
+      "source" : "b6f3407835feaf27.txt",
+      "type" : "text/plain",
+      "size" : 1533
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 115,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2"
+  }, {
+    "name" : "testMethod",
+    "value" : "ReserveAndTransactV2StandardSuccessTests"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Reserve and Transact V2 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Reserve_and_Transact_V2.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Reserve_and_Transact_V2"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "64ec8907-f41a-441a-b1b8-355ef"
+  }, {
+    "name" : "arg1",
+    "value" : "15000"
+  }, {
+    "name" : "arg10",
+    "value" : "2020-01-09T09:58:46.170+02:00"
+  }, {
+    "name" : "arg11",
+    "value" : "0000"
+  }, {
+    "name" : "arg12",
+    "value" : "Processing request"
+  }, {
+    "name" : "arg13",
+    "value" : "200"
+  }, {
+    "name" : "arg14",
+    "value" : "0000"
+  }, {
+    "name" : "arg15",
+    "value" : "202"
+  }, {
+    "name" : "arg16",
+    "value" : "0"
+  }, {
+    "name" : "arg17",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg18",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg2",
+    "value" : "8"
+  }, {
+    "name" : "arg3",
+    "value" : "test"
+  }, {
+    "name" : "arg4",
+    "value" : "ST-8556726170"
+  }, {
+    "name" : "arg5",
+    "value" : "3"
+  }, {
+    "name" : "arg6",
+    "value" : "193103796"
+  }, {
+    "name" : "arg7",
+    "value" : "100"
+  }, {
+    "name" : "arg8",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg9",
+    "value" : "2341111111111"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "3651ee90056c4cf3.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "2020-01-09T09:58:46.170+02:00", "0000", "Processing request", "200", "0000", "202", "0", "MTNNG SUCCESS", "MTNNG SUCCESS", "8", "test", "ST-8556726170", "3", "193103796", "100", "2341111111111", "2341111111111" ]
+}

@@ -2325,7 +2325,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 15 seconds for pending transaction to process before executing CTX DB Assertions ");
         Thread.sleep(15000);
@@ -2777,7 +2777,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // SQL - UPDATE response code
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2603, transactionType = 'P' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 15 seconds for pending transaction to process before executing CTX DB Assertions");
         Thread.sleep(15000);
@@ -3225,7 +3225,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 10 seconds for pending transaction to process before executing CTX DB Assertions");
         Thread.sleep(10000);
@@ -3634,10 +3634,10 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionResponseCode = 2201, transactionType = 'PCH' where transactionResponseCode in (2236, 2240, 2213) and clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
-        Allure.step("Action Test Step 8 : Wait 10 seconds for pending transaction to process");
-        Thread.sleep(10000);
+        Allure.step("Action Test Step 8 : Wait 5 seconds for pending transaction to process");
+        Thread.sleep(5000);
 
         // CTX DB assertions (CTX - Lookup Check for success)
 
@@ -3852,7 +3852,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
     }
 
 
-    @Step("8. POST Vendor Simulator, Pending to Retryable Decline To Non Retryable Decline scenarios")
+    @Step("9. POST Vendor Simulator, Transaction in progess scenarios")
     @Test(dataProvider = "transactV4TransactionInProgressTestcases", priority = 8)
     public void transactV4VendorTransactionInProgressTests(String accountIdentifier,
                                                                                     String purchaseAmount,
@@ -4045,7 +4045,7 @@ public class regression_Raas_Transact_V4 extends testConfig {
 
         // SQL - UPDATE run recon
         Allure.step("Action Test Step 7 : update cpgtx.tran_log set transactionState = 'P' where clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'");
-        sqlDataAccess.verifyPostgreCustomSql("update cpgtx.tran_log set transactionState = 'P' where clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
+        sqlDataAccess.verifyMySQLUpdateSql("update cpgtx.tran_log set transactionState = 'P' where clientTransactionId = " + "'" + TransactV4response.path("raasTxnRef") + "'", "raas_txn_ref");
 
         Allure.step("Action Test Step 8 : Wait 10 seconds before executing CTX DB Assertions");
         Thread.sleep(10000);

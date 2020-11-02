@@ -1,0 +1,298 @@
+{
+  "uid" : "4beb7ccde84e5546",
+  "name" : "TransactV3NullFieldTests",
+  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V3.TransactV3NullFieldTests",
+  "historyId" : "faad6b94bc51ad1f8b8c408658fa45f1",
+  "time" : {
+    "start" : 1603988995033,
+    "stop" : 1603988995155,
+    "duration" : 122
+  },
+  "description" : "Transact V3 Null Field tests",
+  "descriptionHtml" : "<p>Transact V3 Null Field tests</p>\n",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603988993799,
+      "stop" : 1603988993803,
+      "duration" : 4
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "description" : "Transact V3 Null Field tests",
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Transact V3 Null Field Negative Test Cases",
+      "time" : {
+        "start" : 1603988995033,
+        "stop" : 1603988995153,
+        "duration" : 120
+      },
+      "status" : "passed",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Execute Transact V3 REST Request",
+        "time" : {
+          "start" : 1603988995033,
+          "stop" : 1603988995033,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> Transact V3 REST response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603988995142,
+          "stop" : 1603988995142,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> Transact V3 REST response assertions --> Validate responseMessage field is correct",
+        "time" : {
+          "start" : 1603988995148,
+          "stop" : 1603988995148,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> Transact V3 REST response assertions --> Validate HTTPResponseCode field is correct",
+        "time" : {
+          "start" : 1603988995153,
+          "stop" : 1603988995153,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "64ec8907-f41a-441a-b1b8-355ef"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "15000"
+      }, {
+        "name" : "channelId",
+        "value" : "7"
+      }, {
+        "name" : "channelName",
+        "value" : "USSD"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "2022564675"
+      }, {
+        "name" : "clientId",
+        "value" : "100"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "test123"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341110000000"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "2341110000000"
+      }, {
+        "name" : "timeStamp",
+        "value" : "null"
+      }, {
+        "name" : "reserveFundsTxnRef",
+        "value" : "de1cb702-10a7-4656-8598-f9ebd"
+      }, {
+        "name" : "feeAmount",
+        "value" : "0"
+      }, {
+        "name" : "currencyCode",
+        "value" : "NGN"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "4000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "timestamp :may not be null"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "400"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "202"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "0"
+      } ],
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0,
+      "stepsCount" : 4,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "e5ecb8c4943b06b5",
+      "name" : "request",
+      "source" : "e5ecb8c4943b06b5.txt",
+      "type" : "text/plain",
+      "size" : 883
+    }, {
+      "uid" : "dea0dedcd666b2c3",
+      "name" : "response",
+      "source" : "dea0dedcd666b2c3.txt",
+      "type" : "text/plain",
+      "size" : 288
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 5,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "testMethod",
+    "value" : "TransactV3NullFieldTests"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Transact V3 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Transact_V3.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V3"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.TestNG-test=regression_Raas_Transact_V3.java-2(77)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "64ec8907-f41a-441a-b1b8-355ef"
+  }, {
+    "name" : "arg1",
+    "value" : "15000"
+  }, {
+    "name" : "arg10",
+    "value" : "null"
+  }, {
+    "name" : "arg11",
+    "value" : "de1cb702-10a7-4656-8598-f9ebd"
+  }, {
+    "name" : "arg12",
+    "value" : "0"
+  }, {
+    "name" : "arg13",
+    "value" : "NGN"
+  }, {
+    "name" : "arg14",
+    "value" : "4000"
+  }, {
+    "name" : "arg15",
+    "value" : "timestamp :may not be null"
+  }, {
+    "name" : "arg16",
+    "value" : "400"
+  }, {
+    "name" : "arg17",
+    "value" : "0000"
+  }, {
+    "name" : "arg18",
+    "value" : "202"
+  }, {
+    "name" : "arg19",
+    "value" : "0"
+  }, {
+    "name" : "arg2",
+    "value" : "7"
+  }, {
+    "name" : "arg3",
+    "value" : "USSD"
+  }, {
+    "name" : "arg4",
+    "value" : "2022564675"
+  }, {
+    "name" : "arg5",
+    "value" : "100"
+  }, {
+    "name" : "arg6",
+    "value" : "test123"
+  }, {
+    "name" : "arg7",
+    "value" : "100"
+  }, {
+    "name" : "arg8",
+    "value" : "2341110000000"
+  }, {
+    "name" : "arg9",
+    "value" : "2341110000000"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "4beb7ccde84e5546.json",
+  "parameterValues" : [ "64ec8907-f41a-441a-b1b8-355ef", "15000", "null", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "4000", "timestamp :may not be null", "400", "0000", "202", "0", "7", "USSD", "2022564675", "100", "test123", "100", "2341110000000", "2341110000000" ]
+}

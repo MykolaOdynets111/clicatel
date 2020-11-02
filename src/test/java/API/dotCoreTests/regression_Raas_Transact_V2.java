@@ -1053,26 +1053,25 @@ public class regression_Raas_Transact_V2 extends testConfig {
 
         return new String[][]{
 
-                {testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "accountIdentifier"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "amount"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "channelId"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "channelName"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "channelSessionId"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "clientId"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "clientTxnRef"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "productId"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "sourceIdentifier"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "targetIdentifier"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "timestamp"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "reserveFundsTxnRef"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedRaasResponseCode"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedMessage"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedHTTPResponseCode"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedRaasResultRequestResponseCode"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedRaasResultResponseResponseCode"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "expectedCTXTransactionResponseCode"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "simulatorScenario"),
-                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Retryable_Decline_To_OK", "simulatorResetState")}
+                {testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "accountIdentifier"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "amount"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "channelId"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "channelName"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "channelSessionId"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "clientId"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "clientTxnRef"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "productId"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "sourceIdentifier"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "targetIdentifier"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "timestamp"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "reserveFundsTxnRef"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "expectedMessage"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "expectedHTTPResponseCode"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "expectedRaasResultRequestResponseCode"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "expectedRaasResultResponseResponseCode"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "expectedCTXTransactionResponseCode"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "simulatorScenario"),
+                        testDataFactory.getTestData("TransactV2datasource.json", "transactv2suite", "MTNNG_Pending_To_OK_Test", "simulatorResetState")}
         };
 
     }

@@ -1,0 +1,488 @@
+{
+  "uid" : "293517ca3295d1f5",
+  "name" : "transactV4VendorSimNegativeTests",
+  "fullName" : "API.dotCoreTests.regression_Raas_Transact_V4.transactV4VendorSimNegativeTests",
+  "historyId" : "3c030f7f2bb7c7a6cb5044fcc334f52b",
+  "time" : {
+    "start" : 1603988831839,
+    "stop" : 1603988845144,
+    "duration" : 13305
+  },
+  "status" : "failed",
+  "statusMessage" : "expected [2236] but found [2240]",
+  "statusTrace" : "java.lang.AssertionError: expected [2236] but found [2240]\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:136)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:575)\r\n\tat org.testng.Assert.assertEquals(Assert.java:585)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V4.transactV4VendorSimNegativeTests(regression_Raas_Transact_V4.java:792)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "setUp",
+    "time" : {
+      "start" : 1603988831751,
+      "stop" : 1603988831756,
+      "duration" : 5
+    },
+    "description" : "",
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "failed",
+    "statusMessage" : "expected [2236] but found [2240]",
+    "statusTrace" : "java.lang.AssertionError: expected [2236] but found [2240]\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:136)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:575)\r\n\tat org.testng.Assert.assertEquals(Assert.java:585)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V4.transactV4VendorSimNegativeTests(regression_Raas_Transact_V4.java:792)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+    "steps" : [ {
+      "name" : "2. POST Vendor Simulator, once off fail against sim failure: Negative testing transact V4 call",
+      "time" : {
+        "start" : 1603988831839,
+        "stop" : 1603988845140,
+        "duration" : 13301
+      },
+      "status" : "failed",
+      "statusMessage" : "expected [2236] but found [2240]",
+      "statusTrace" : "java.lang.AssertionError: expected [2236] but found [2240]\r\n\tat org.testng.Assert.fail(Assert.java:97)\r\n\tat org.testng.Assert.assertEqualsImpl(Assert.java:136)\r\n\tat org.testng.Assert.assertEquals(Assert.java:118)\r\n\tat org.testng.Assert.assertEquals(Assert.java:575)\r\n\tat org.testng.Assert.assertEquals(Assert.java:585)\r\n\tat API.dotCoreTests.regression_Raas_Transact_V4.transactV4VendorSimNegativeTests(regression_Raas_Transact_V4.java:792)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)\r\n\tat sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)\r\n\tat java.lang.reflect.Method.invoke(Method.java:498)\r\n\tat org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)\r\n\tat org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:570)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:170)\r\n\tat org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)\r\n\tat org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:790)\r\n\tat org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:143)\r\n\tat org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)\r\n\tat org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)\r\n\tat java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)\r\n\tat java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)\r\n\tat java.lang.Thread.run(Thread.java:748)\r\n",
+      "steps" : [ {
+        "name" : "Action Test Step 1 : Set Vendor simulator to fail (MTNNG ERROR ERROR_INV_MSISDN)",
+        "time" : {
+          "start" : 1603988831839,
+          "stop" : 1603988831839,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 2 : Wait 5 seconds for simulator to run",
+        "time" : {
+          "start" : 1603988834213,
+          "stop" : 1603988834213,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 3 : Execute Fin Terms Calculate REST Request",
+        "time" : {
+          "start" : 1603988839218,
+          "stop" : 1603988839218,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 4 : Execute Transact V4 REST Request",
+        "time" : {
+          "start" : 1603988839408,
+          "stop" : 1603988839409,
+          "duration" : 1
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.1 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not empty)",
+        "time" : {
+          "start" : 1603988839718,
+          "stop" : 1603988839718,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.2 --> Financial Terms Calculate response assertions --> Validate clientId field exists (not null)",
+        "time" : {
+          "start" : 1603988839731,
+          "stop" : 1603988839731,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.3 --> Financial Terms Calculate response assertions --> Validate clientId field is correct",
+        "time" : {
+          "start" : 1603988839742,
+          "stop" : 1603988839742,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.4 --> Financial Terms Calculate response assertions --> Validate productId field is correct",
+        "time" : {
+          "start" : 1603988839754,
+          "stop" : 1603988839754,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.5 --> Financial Terms Calculate response assertions --> Validate purchaseAmount field is correct",
+        "time" : {
+          "start" : 1603988839762,
+          "stop" : 1603988839762,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.6 --> Transact V4 REST response assertions --> Validate responseCode field is correct",
+        "time" : {
+          "start" : 1603988839774,
+          "stop" : 1603988839774,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.7 --> Transact V4 REST response assertions --> Validate responseMessage field is correct",
+        "time" : {
+          "start" : 1603988839788,
+          "stop" : 1603988839788,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.8 --> Transact V4 REST response assertions --> Validate raasTxnRef field exists",
+        "time" : {
+          "start" : 1603988839804,
+          "stop" : 1603988839804,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.9 --> Transact V4 REST response assertions --> Validate HTTPResponseCode is correct",
+        "time" : {
+          "start" : 1603988839821,
+          "stop" : 1603988839821,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Action Test Step 5 : Wait 5 seconds before executing CTX DB Assertions",
+        "time" : {
+          "start" : 1603988839821,
+          "stop" : 1603988839821,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      }, {
+        "name" : "Step.10 --> CTX DB assertions --> Table: cpgtx.tran_log --> Validate transactionResponseCode field is correct",
+        "time" : {
+          "start" : 1603988844831,
+          "stop" : 1603988844831,
+          "duration" : 0
+        },
+        "status" : "passed",
+        "steps" : [ ],
+        "attachments" : [ ],
+        "parameters" : [ ],
+        "shouldDisplayMessage" : false,
+        "attachmentsCount" : 0,
+        "stepsCount" : 0,
+        "hasContent" : false
+      } ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "accountIdentifier",
+        "value" : "d3d4ce83-b6b0-4558-a455-fceb1"
+      }, {
+        "name" : "purchaseAmount",
+        "value" : "15000"
+      }, {
+        "name" : "channelId",
+        "value" : "7"
+      }, {
+        "name" : "channelName",
+        "value" : "test"
+      }, {
+        "name" : "channelSessionId",
+        "value" : "2022564675"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "clientTxnRef",
+        "value" : "test123"
+      }, {
+        "name" : "productId",
+        "value" : "100"
+      }, {
+        "name" : "sourceIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "targetIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "timeStamp",
+        "value" : "2019-09-03T15:35:26.720+02:00"
+      }, {
+        "name" : "reserveFundsTxnRef",
+        "value" : "de1cb702-10a7-4656-8598-f9ebd"
+      }, {
+        "name" : "feeAmount",
+        "value" : "0"
+      }, {
+        "name" : "currencyCode",
+        "value" : "NGN"
+      }, {
+        "name" : "fundingSourceId",
+        "value" : "3"
+      }, {
+        "name" : "expectedRaasResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedMessage",
+        "value" : "Processing request (funds reserved)"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      }, {
+        "name" : "expectedRaasResultRequestResponseCode",
+        "value" : "null"
+      }, {
+        "name" : "expectedRaasResultResponseResponseCode",
+        "value" : "null"
+      }, {
+        "name" : "expectedCTXTransactionResponseCode",
+        "value" : "2236"
+      }, {
+        "name" : "simulatorScenario",
+        "value" : "MTNNG DELAY 30000"
+      }, {
+        "name" : "simulatorResetState",
+        "value" : "MTNNG SUCCESS"
+      } ],
+      "shouldDisplayMessage" : true,
+      "attachmentsCount" : 0,
+      "stepsCount" : 15,
+      "hasContent" : true
+    } ],
+    "attachments" : [ {
+      "uid" : "cee075229d434e0e",
+      "name" : "request",
+      "source" : "cee075229d434e0e.txt",
+      "type" : "text/plain",
+      "size" : 6987
+    }, {
+      "uid" : "3c122d37279a855d",
+      "name" : "response",
+      "source" : "3c122d37279a855d.txt",
+      "type" : "text/plain",
+      "size" : 7750
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2,
+    "stepsCount" : 16,
+    "hasContent" : true
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "testClass",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "testMethod",
+    "value" : "transactV4VendorSimNegativeTests"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Transact V4 Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "regression_Raas_Transact_V4.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.dotCoreTests.regression_Raas_Transact_V4"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "12740@FANB0716.TestNG-test=regression_Raas_Transact_V4.java-2(52)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "d3d4ce83-b6b0-4558-a455-fceb1"
+  }, {
+    "name" : "arg1",
+    "value" : "15000"
+  }, {
+    "name" : "arg10",
+    "value" : "2019-09-03T15:35:26.720+02:00"
+  }, {
+    "name" : "arg11",
+    "value" : "de1cb702-10a7-4656-8598-f9ebd"
+  }, {
+    "name" : "arg12",
+    "value" : "0"
+  }, {
+    "name" : "arg13",
+    "value" : "NGN"
+  }, {
+    "name" : "arg14",
+    "value" : "3"
+  }, {
+    "name" : "arg15",
+    "value" : "0000"
+  }, {
+    "name" : "arg16",
+    "value" : "Processing request (funds reserved)"
+  }, {
+    "name" : "arg17",
+    "value" : "200"
+  }, {
+    "name" : "arg18",
+    "value" : "null"
+  }, {
+    "name" : "arg19",
+    "value" : "null"
+  }, {
+    "name" : "arg2",
+    "value" : "7"
+  }, {
+    "name" : "arg20",
+    "value" : "2236"
+  }, {
+    "name" : "arg21",
+    "value" : "MTNNG DELAY 30000"
+  }, {
+    "name" : "arg22",
+    "value" : "MTNNG SUCCESS"
+  }, {
+    "name" : "arg3",
+    "value" : "test"
+  }, {
+    "name" : "arg4",
+    "value" : "2022564675"
+  }, {
+    "name" : "arg5",
+    "value" : "3"
+  }, {
+    "name" : "arg6",
+    "value" : "test123"
+  }, {
+    "name" : "arg7",
+    "value" : "100"
+  }, {
+    "name" : "arg8",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg9",
+    "value" : "2341111111111"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Product defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "tags" : [ ]
+  },
+  "source" : "293517ca3295d1f5.json",
+  "parameterValues" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "15000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "null", "null", "7", "2236", "MTNNG DELAY 30000", "MTNNG SUCCESS", "test", "2022564675", "3", "test123", "100", "2341111111111", "2341111111111" ]
+}

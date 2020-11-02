@@ -216,8 +216,8 @@ public class regression_Ctx extends testConfig {
         Allure.step("Action Test Step 1 : Set Vendor simulator to Success");
         startsim.SimulatorScenario(simulatorScenario);
 
-        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
-        Thread.sleep(5000);
+        Allure.step("Action Test Step 2 : Wait 15 seconds for simulator to run");
+        Thread.sleep(15000);
 
         // Stage ctx test data and prepare payload
         String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
@@ -255,15 +255,16 @@ public class regression_Ctx extends testConfig {
                         .response();
 
         String xmlCTX = Ctxresponse.asString();
-
         System.out.println(xmlCTX);
 
        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
        DocumentBuilder builder = factory.newDocumentBuilder();
        Document document = builder.parse(new InputSource(new StringReader(xmlCTX)));
 
-        // Assertions
+        Allure.step("Action Test Step 4 : Wait 15 seconds for data to be committed to DB");
+        Thread.sleep(15000);
 
+        // Assertions
         // CTX response assertions
 
         Allure.step("Step.1 --> CTX soap response assertions --> Validate purchase amount is correct (same as request)");
@@ -292,8 +293,8 @@ public class regression_Ctx extends testConfig {
 
         // CTX DB assertions
 
-        Allure.step("Action Test Step 4 : Wait 5 seconds before executing CTX DB assertions");
-        Thread.sleep(5000);
+        Allure.step("Action Test Step 5 : Wait 10 seconds before executing CTX DB assertions");
+        Thread.sleep(10000);
 
         Allure.step("Step.9 --> CTX DB assertions --> Table: tran_log --> Validate transactionResponseCode field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionResponseCode"), expectedCtxResponseCode);
@@ -346,6 +347,8 @@ public class regression_Ctx extends testConfig {
         Allure.step("Step.25 --> CTX DB assertions --> Table: tran_log --> Validate startDate field exists");
         Assert.assertNotNull(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "startDate"));
 
+        Allure.step("Action Test Step 6 : Wait 10 seconds before running next testscenario");
+        Thread.sleep(10000);
 
     }
 
@@ -476,8 +479,8 @@ public class regression_Ctx extends testConfig {
         Allure.step("Action Test Step 1 : Set Vendor simulator to Success");
         startsim.SimulatorScenario(simulatorScenario);
 
-        Allure.step("Action Test Step 2 : Wait 5 seconds for simulator to run");
-        Thread.sleep(5000);
+        Allure.step("Action Test Step 2 : Wait 15 seconds for simulator to run");
+        Thread.sleep(15000);
 
         // Stage ctx test data and prepare payload
         String CtxPayload = "<?xml version=\"1.0\" ?>\r\n" +
@@ -515,15 +518,16 @@ public class regression_Ctx extends testConfig {
                         .response();
 
         String xmlCTX = Ctxresponse.asString();
-
         System.out.println(xmlCTX);
+
+        Allure.step("Action Test Step 4 : Wait 15 seconds for before assertions");
+        Thread.sleep(15000);
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(new InputSource(new StringReader(xmlCTX)));
 
         // Assertions
-
         // CTX response assertions
         Allure.step("Step.1 --> CTX soap response assertions --> Validate purchaseAmount field is correct");
         Assert.assertEquals(getString("purchaseAmount", document.getDocumentElement()), expectedPurchaseAmount);
@@ -549,6 +553,8 @@ public class regression_Ctx extends testConfig {
         Allure.step("Step.8 --> CTX soap response assertions --> Validate dateLocalTransaction field exists");
         Assert.assertNotNull(getString("dateLocalTransaction", document.getDocumentElement()));
 
+        Allure.step("Action Test Step 5 : Wait 15 seconds for after assertions");
+        Thread.sleep(15000);
     }
 
     @DataProvider(name = "CtxVendorSimNegativeTestCases", parallel = false)
@@ -885,8 +891,8 @@ public class regression_Ctx extends testConfig {
         Allure.step("Action Test Step 4 : Set Vendor simulator to SUCCESS");
         startsim.SimulatorScenario(simulatorResetState);
 
-        Allure.step("Action Test Step 5 : Wait 5 seconds for vendor simulator to reset to SUCCESS");
-        Thread.sleep(5000);
+        Allure.step("Action Test Step 5 : Wait 10 seconds for vendor simulator to reset to SUCCESS");
+        Thread.sleep(10000);
     }
 
     @DataProvider(name = "CtxNullFieldsNegativeTestCases", parallel = true)
@@ -1275,7 +1281,6 @@ public class regression_Ctx extends testConfig {
                         .response();
 
         String xmlCTX = Ctxresponse.asString();
-
         System.out.println(xmlCTX);
 
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -1290,8 +1295,8 @@ public class regression_Ctx extends testConfig {
 
         // CTX DB assertions
 
-        Allure.step("Action Test Step 2 : Wait 5 seconds before executing CTX DB assertions");
-        Thread.sleep(5000);
+        Allure.step("Action Test Step 2 : Wait 10 seconds before executing CTX DB assertions");
+        Thread.sleep(10000);
 
         Allure.step("Step.2 --> CTX DB assertions --> Table: tran_log --> Validate transactionId field is correct");
         Assert.assertEquals(sqlDataAccess.verifyMySQLCustomSql("SELECT * FROM cpgtx.tran_log WHERE clientTransactionId = " + "'" + clientTransactionId + "'", "transactionId"), "null");
