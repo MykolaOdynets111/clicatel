@@ -1,0 +1,111 @@
+{
+  "uid" : "42c9c043160da18d",
+  "name" : "Get3lineSimulatorPingSuccessTest",
+  "fullName" : "API.smokeTests.smoke_3line_Simulator_Ping.Get3lineSimulatorPingSuccessTest",
+  "historyId" : "ee1f2754e8305be347548e4b7042873c",
+  "time" : {
+    "start" : 1605268474645,
+    "stop" : 1605268475292,
+    "duration" : 647
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "3line Simulator Ping Success",
+      "time" : {
+        "start" : 1605268474645,
+        "stop" : 1605268475290,
+        "duration" : 645
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      }, {
+        "name" : "expectedHTTPResponseBody",
+        "value" : "ok"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "6979ccf089d36128",
+      "name" : "request",
+      "source" : "6979ccf089d36128.txt",
+      "type" : "text/plain",
+      "size" : 278
+    }, {
+      "uid" : "728999a6fd0f44d9",
+      "name" : "response",
+      "source" : "728999a6fd0f44d9.txt",
+      "type" : "text/plain",
+      "size" : 180
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_3line_Simulator_Ping"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_3line_Simulator_Ping"
+  }, {
+    "name" : "testMethod",
+    "value" : "Get3lineSimulatorPingSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "3line Simulator Ping Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_3line_Simulator_Ping.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_3line_Simulator_Ping"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "30804@FANB0716.TestNG-PoolService-0(21)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "200"
+  }, {
+    "name" : "arg1",
+    "value" : "ok"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "42c9c043160da18d.json",
+  "parameterValues" : [ "200", "ok" ]
+}

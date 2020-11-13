@@ -1,0 +1,44 @@
+HTTP/1.1 200 
+X-Application-Context: application:default:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 13 Nov 2020 11:54:40 GMT
+
+[
+    {
+        "id": 1,
+        "description": "POS"
+    },
+    {
+        "id": 2,
+        "description": "Internet"
+    },
+    {
+        "id": 3,
+        "description": "Mobile"
+    },
+    {
+        "id": 4,
+        "description": "ATM"
+    },
+    {
+        "id": 5,
+        "description": "Not Applicable"
+    },
+    {
+        "id": 6,
+        "description": "SMS"
+    },
+    {
+        "id": 7,
+        "description": "USSD"
+    },
+    {
+        "id": 8,
+        "description": "WhatsApp"
+    },
+    {
+        "id": 13,
+        "description": "Apple Business Chat"
+    }
+]

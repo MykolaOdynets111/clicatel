@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="All smoke automation tests">
+    <suite-files>
+            <suite-file path="TransactV4SmokeTestSuite.xml"></suite-file>
+            <suite-file path="ReserveAndTransactV4SmokeTestSuite.xml"></suite-file>
+            <suite-file path="ClientMNOLookupTestSuite.xml"></suite-file>
+            <suite-file path="GetUserTransactionsTestSuite.xml"></suite-file>
+            <suite-file path="3lineSimulatorPingTestSuite.xml"></suite-file>
+            <suite-file path="GetNotificationServiceTestSuite.xml"></suite-file>
+            <suite-file path="FundingSourceConfigTestSuite.xml"></suite-file>
+            <suite-file path="GetProductLookupTestSuite.xml"></suite-file>
+            <suite-file path="AirtelProxyPingTestSuite.xml"></suite-file>
+            <suite-file path="GetChannelsLookupTestSuite.xml"></suite-file>
+            <suite-file path="FinancialTermsLookupTestSuite.xml"></suite-file>
+            <suite-file path="MWMSimulatorDeleteTestSuite.xml"></suite-file>
+
+    </suite-files>
+</suite>
+

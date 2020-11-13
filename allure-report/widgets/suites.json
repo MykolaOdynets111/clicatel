@@ -1,70 +1,114 @@
 {
-  "total" : 6,
+  "total" : 12,
   "items" : [ {
-    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
-    "name" : "Transact V4 Test Suite",
+    "uid" : "da2a98689b358153747b2455540b64d0",
+    "name" : "Reserve And Transact V4 Smoke Test Suite",
     "statistic" : {
-      "failed" : 9,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 14,
+      "passed" : 0,
       "unknown" : 0,
-      "total" : 23
+      "total" : 1
     }
   }, {
-    "uid" : "241d365fea309dc8cf93a9f950c7706f",
-    "name" : "Ctx Test Suite",
+    "uid" : "3e606948ac489ea9edb3366af7c6bfde",
+    "name" : "Get User Transactions Test Suite",
     "statistic" : {
-      "failed" : 6,
-      "broken" : 0,
+      "failed" : 0,
+      "broken" : 1,
       "skipped" : 0,
-      "passed" : 21,
+      "passed" : 0,
       "unknown" : 0,
-      "total" : 27
+      "total" : 1
     }
   }, {
-    "uid" : "497a246c27e3621edefa09893e508a39",
-    "name" : "Transact V3 Test Suite",
+    "uid" : "9a56ff1c9e572a7f4109eb53b587cf02",
+    "name" : "Transact V4 Smoke Test Suite",
     "statistic" : {
-      "failed" : 5,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 11,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 16
+      "total" : 1
     }
   }, {
-    "uid" : "ae1ae325f9f54494734eedf0dcc63924",
-    "name" : "Reserve and Transact V4 Test Suite",
+    "uid" : "1c89e8c400630189771c1433649e0ed6",
+    "name" : "Client MNO Lookup Test Suite",
     "statistic" : {
-      "failed" : 2,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 23,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 25
+      "total" : 1
     }
   }, {
-    "uid" : "64b151ca1d9069580edb9400f477e7c5",
-    "name" : "Reserve and Transact V3 Test Suite",
+    "uid" : "0da8991a3aa5aea67f195578946d6e20",
+    "name" : "3line Simulator Ping Test Suite",
     "statistic" : {
-      "failed" : 1,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 21,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 22
+      "total" : 1
     }
   }, {
-    "uid" : "874ffb07aac8c847839e6cfd67b8af77",
-    "name" : "Reserve and Transact V2 Test Suite",
+    "uid" : "01c9bc7cc80c12606a8e1695ab6cc66b",
+    "name" : "Get Notification Service Test Suite",
     "statistic" : {
-      "failed" : 1,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 20,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 21
+      "total" : 1
+    }
+  }, {
+    "uid" : "36e17248522a3d0486f5b75d359815f4",
+    "name" : "Funding Source Config Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "fc6692c37568d6dcde95843667101dc9",
+    "name" : "Product Lookup Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "1048124d04030e34e85d497743b98bea",
+    "name" : "Airtel Proxy Ping Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    }
+  }, {
+    "uid" : "7a9f5fd6c6a1fa0a30941f981379056c",
+    "name" : "Get Channels Lookup Test Suite",
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
     }
   } ]
 }

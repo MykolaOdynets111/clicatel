@@ -1,0 +1,7 @@
+{
+  "mwmSimulatorDeleteTestSuite": {
+    "successcase": {
+      "expectedHTTPResponseCode": "200"
+    }
+  }
+}

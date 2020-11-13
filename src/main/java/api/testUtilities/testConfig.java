@@ -86,10 +86,12 @@ public class testConfig {
     public static RequestSpecification CORE_getEndPoints_VendorPOST;
     public static RequestSpecification CORE_getEndPoints_CTX;
     public static RequestSpecification CORE_getEndPoints_AttributePOST;
+    public static RequestSpecification CORE_getEndPoints_ClientMNOLookup;
+    public static RequestSpecification CORE_getEndPoints_GetNotificationService;
 
     /**
      * Runs before the TestNG class
-     * used to read in configs adn set the environments
+     * used to read in configs and set the environments
      * Author: Adam Bethlehem
      */
     @BeforeClass
@@ -133,7 +135,6 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
-
 
         FM_getKeyWords_FUNDINGSOURCE = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
@@ -216,7 +217,6 @@ public class testConfig {
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
 
-
         FM_getFlowSteps_FUNDINGSOURCE = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
                 .setBasePath("/api/dev/FUNDING_SOURCE/249/steps/")
@@ -225,6 +225,7 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
+
         FM_getFlowSteps_CLIENT = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
                 .setBasePath("/api/dev/CLIENT/42/steps/")
@@ -243,7 +244,6 @@ public class testConfig {
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
 
-
         FM_getChannels_CLIENT = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
                 .setBasePath("/api/dev/CLIENT/42/channels")
@@ -261,6 +261,7 @@ public class testConfig {
                 .addHeader("Host", "control-ui-backend.qa.za01.payd.co")
                 .addHeader("Accept-Encoding", "Accept-Encoding")
                 .addHeader("Connection", "keep-alive").build();
+
         FM_GetFlowSingle_FUNDING_SOURCE = new RequestSpecBuilder()
                 .setBaseUri(qa_refresh_Backend)
                 .setBasePath("/api/dev/FUNDING_SOURCE/249/flows")
@@ -440,7 +441,21 @@ public class testConfig {
                 .addHeader("Connection", "keep-alive")
                 .build();
 
-    }
+        CORE_getEndPoints_ClientMNOLookup = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Client_MNO_Lookup_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Client_MNO_Lookup_RequestSpec_Port")))
+                .addHeader("content-type", "application/json")
+                .addHeader("Accept", "*/*")
+                .addHeader("Accept-Encoding", "gzip, deflate")
+                .addHeader("Connection", "keep-alive")
+                .build();
 
+        CORE_getEndPoints_GetNotificationService = new RequestSpecBuilder()
+                .setBaseUri(qa_minion)
+                .setBasePath(properties.getProperty("CORE_Get_Notification_Service_RequestSpec_BasePath")).setPort(Integer.parseInt(properties.getProperty("CORE_Get_Notification_Service_RequestSpec_Port")))
+                .addHeader("Server", "Apache-Coyote/1.1")
+                .addHeader("Content-Type", "text/xml;charset=ISO-8859-1")
+                .build();
+    }
 }
 

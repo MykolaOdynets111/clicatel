@@ -1,0 +1,22 @@
+{
+  "fundingSourceConfigTestSuite": {
+    "successcase": {
+      "fundingSourceId": "3",
+      "expectedHTTPResponseCode": "200",
+      "expectedPaymentProviderId": "3",
+      "expectedFundingSourceName": "PaydWhitelistFundingSource",
+      "expectedTransactResultEndpoint": "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/transactResult",
+      "expectedMaxRetries": "3",
+      "expectedReserveFundsEndpoint": "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/reserveFunds",
+      "expectedReservationTimeout": "12000",
+      "expectedRetryDelay": "10000",
+      "expectedInitialRetryDelay": "0",
+      "expectedServiceWindowSizeSeconds": "3600",
+      "expectedConfirmationWindowSizeSeconds": "604800",
+      "expectedRaasTransactionHistoryEnabled": "false",
+      "expectedActive": "true",
+      "expectedSupportToken": "true",
+      "expectedTimestamp": "2018-04-17T06:36:28Z"
+    }
+  }
+}

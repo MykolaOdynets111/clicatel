@@ -1,0 +1,105 @@
+{
+  "uid" : "64606936dc2717ac",
+  "name" : "GetChannelsLookupSuccessTest",
+  "fullName" : "API.smokeTests.smoke_Get_Channels_Lookup.GetChannelsLookupSuccessTest",
+  "historyId" : "658f5dce131a20e9eebaa45b0734ca3e",
+  "time" : {
+    "start" : 1605268478528,
+    "stop" : 1605268481012,
+    "duration" : 2484
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Get Channels Lookup Success",
+      "time" : {
+        "start" : 1605268478528,
+        "stop" : 1605268481010,
+        "duration" : 2482
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "expectedHttpResponseCode",
+        "value" : "200"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "d7c879742d2ac49",
+      "name" : "request",
+      "source" : "d7c879742d2ac49.txt",
+      "type" : "text/plain",
+      "size" : 272
+    }, {
+      "uid" : "9d8e7b55d45f2545",
+      "name" : "response",
+      "source" : "9d8e7b55d45f2545.txt",
+      "type" : "text/plain",
+      "size" : 754
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_Get_Channels_Lookup"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_Get_Channels_Lookup"
+  }, {
+    "name" : "testMethod",
+    "value" : "GetChannelsLookupSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Get Channels Lookup Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_Get_Channels_Lookup.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_Get_Channels_Lookup"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "30804@FANB0716.TestNG-PoolService-0(26)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "64606936dc2717ac.json",
+  "parameterValues" : [ "200" ]
+}

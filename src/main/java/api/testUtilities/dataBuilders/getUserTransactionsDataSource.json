@@ -1,0 +1,15 @@
+{
+  "getUserTransactionsTestSuite": {
+    "successcase": {
+      "userIdentifier": "2344832008221",
+      "clientId": "3",
+      "expectedChannelId": "8",
+      "expectedClientId": "3",
+      "expectedProductId": "130",
+      "expectedDescription": "Airtel Airtime",
+      "expectedPurchaseAmount": "1500",
+      "expectedTargetIdentifier": "2347832008221",
+      "expectedHTTPResponseCode": "200"
+    }
+  }
+}

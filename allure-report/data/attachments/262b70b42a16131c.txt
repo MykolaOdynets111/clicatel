@@ -1,0 +1,22 @@
+HTTP/1.1 400 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 13 Nov 2020 11:54:31 GMT
+Connection: close
+
+{
+    "message": "An unexpected error occurred - Unable to locate correct model: clientId=2, productId=30, vendorId=23"
+}
+HTTP/1.1 500 Internal Server Error
+content-length: 75
+Accept: */*
+Accept-Encoding: gzip, deflate, br
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json
+connection: keep-alive
+
+{
+    "responseCode": "4000",
+    "responseMessage": "Service temporarily unavailable"
+}

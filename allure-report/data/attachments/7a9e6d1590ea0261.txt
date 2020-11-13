@@ -1,0 +1,16 @@
+HTTP/1.1 200 
+X-Application-Context: application:default:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Fri, 13 Nov 2020 11:54:33 GMT
+
+{
+    "msisdn": "2348038382068",
+    "countryCallingCode": "234",
+    "countryCode": "NG",
+    "operatorCode": "MTN-NG",
+    "operatorName": "Mobile Telecommunications Network Nigeria",
+    "lookupRef": "84590e7d-650e-4257-8b21-69d1389c58f5",
+    "responseCode": "0000",
+    "responseMessage": "SUCCESS"
+}

@@ -61,7 +61,7 @@ public class sqlDataAccess{
             resultSet = statement.executeQuery(sqlQuery);
             while (resultSet.next()){
                 dbValue = resultSet.getString(columnName);
-                System.out.println("***************  verifyPostgreCustomSql dbValue  ******************  " + dbValue);
+                //System.out.println("***************  verifyPostgreCustomSql dbValue  ******************  " + dbValue);
 
             }
             connection.close();
@@ -78,7 +78,7 @@ public class sqlDataAccess{
     public static String verifyMySQLDb(String dataBaseTable, String columnName, String operator, String fieldValue) throws IOException {
 
         String dbValue = "null";
-        System.out.println("***************  verifyMySQLDb  ******************  ");
+        //System.out.println("***************  verifyMySQLDb  ******************  ");
         try{
             Properties properties = configWrapper.loadPropertiesFile("config.properties");
             String connectionUrl = properties.getProperty("MYSQL_CONNECTION_URL");
@@ -107,7 +107,7 @@ public class sqlDataAccess{
     {
         Properties properties = configWrapper.loadPropertiesFile("config.properties");
         String dbValue = "null";
-        System.out.println("***************  verifyMySQLCustomSql  ******************  ");
+        //System.out.println("***************  verifyMySQLCustomSql  ******************  ");
 
         try {
             String connectionUrl = properties.getProperty("MYSQL_CONNECTION_URL");
@@ -139,7 +139,7 @@ public class sqlDataAccess{
     {
         Properties properties = configWrapper.loadPropertiesFile("config.properties");
         String dbValue = "null";
-        System.out.println("***************  verifyMySQLUpdateSql  ******************  ");
+        //System.out.println("***************  verifyMySQLUpdateSql  ******************  ");
 
         try {
             String connectionUrl = properties.getProperty("MYSQL_CONNECTION_URL");

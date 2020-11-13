@@ -1,0 +1,153 @@
+{
+  "uid" : "afe948c6578e883f",
+  "name" : "ClientMNOLookupSuccessTest",
+  "fullName" : "API.smokeTests.smoke_Client_MNO_Lookup.ClientMNOLookupSuccessTest",
+  "historyId" : "7c2e8f45329efb353932836a6ffd5dc0",
+  "time" : {
+    "start" : 1605268473090,
+    "stop" : 1605268473878,
+    "duration" : 788
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Client MNO Lookup Success",
+      "time" : {
+        "start" : 1605268473090,
+        "stop" : 1605268473866,
+        "duration" : 776
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "msisdn",
+        "value" : "2348038382068"
+      }, {
+        "name" : "countryCallingCode",
+        "value" : "234"
+      }, {
+        "name" : "expectedMsisdn",
+        "value" : "2348038382068"
+      }, {
+        "name" : "expectedCountryCallingCode",
+        "value" : "234"
+      }, {
+        "name" : "expectedOperatorCode",
+        "value" : "MTN-NG"
+      }, {
+        "name" : "expectedOperatorName",
+        "value" : "Mobile Telecommunications Network Nigeria"
+      }, {
+        "name" : "expectedResponseCode",
+        "value" : "0000"
+      }, {
+        "name" : "expectedResponseMessage",
+        "value" : "SUCCESS"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "954ad069585f2d97",
+      "name" : "request",
+      "source" : "954ad069585f2d97.txt",
+      "type" : "text/plain",
+      "size" : 390
+    }, {
+      "uid" : "7a9e6d1590ea0261",
+      "name" : "response",
+      "source" : "7a9e6d1590ea0261.txt",
+      "type" : "text/plain",
+      "size" : 484
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_Client_MNO_Lookup"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_Client_MNO_Lookup"
+  }, {
+    "name" : "testMethod",
+    "value" : "ClientMNOLookupSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Client MNO Lookup Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_Client_MNO_Lookup.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_Client_MNO_Lookup"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "30804@FANB0716.TestNG-PoolService-0(19)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "3"
+  }, {
+    "name" : "arg1",
+    "value" : "2348038382068"
+  }, {
+    "name" : "arg2",
+    "value" : "234"
+  }, {
+    "name" : "arg3",
+    "value" : "2348038382068"
+  }, {
+    "name" : "arg4",
+    "value" : "234"
+  }, {
+    "name" : "arg5",
+    "value" : "MTN-NG"
+  }, {
+    "name" : "arg6",
+    "value" : "Mobile Telecommunications Network Nigeria"
+  }, {
+    "name" : "arg7",
+    "value" : "0000"
+  }, {
+    "name" : "arg8",
+    "value" : "SUCCESS"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "afe948c6578e883f.json",
+  "parameterValues" : [ "3", "2348038382068", "234", "2348038382068", "234", "MTN-NG", "Mobile Telecommunications Network Nigeria", "0000", "SUCCESS" ]
+}

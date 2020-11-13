@@ -1,0 +1,9 @@
+{
+  "getProductLookupTestSuite": {
+    "successcase": {
+      "clientId": "3",
+      "productId": "130",
+      "expectedHttpResponseCode": "200"
+    }
+  }
+}

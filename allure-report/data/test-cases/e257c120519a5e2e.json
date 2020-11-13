@@ -1,0 +1,105 @@
+{
+  "uid" : "e257c120519a5e2e",
+  "name" : "AirtelProxyPingSuccessTest",
+  "fullName" : "API.smokeTests.smoke_Airtel_Proxy_Ping.AirtelProxyPingSuccessTest",
+  "historyId" : "8efa4c61d1518bc165a951113864f033",
+  "time" : {
+    "start" : 1605268477857,
+    "stop" : 1605268478521,
+    "duration" : 664
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Airtel Proxy Ping Success",
+      "time" : {
+        "start" : 1605268477857,
+        "stop" : 1605268478518,
+        "duration" : 661
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "stepsCount" : 0,
+      "hasContent" : true,
+      "shouldDisplayMessage" : false,
+      "attachmentsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "2417b1b73c1493d2",
+      "name" : "request",
+      "source" : "2417b1b73c1493d2.txt",
+      "type" : "text/plain",
+      "size" : 275
+    }, {
+      "uid" : "8da1933f36d72edc",
+      "name" : "response",
+      "source" : "8da1933f36d72edc.txt",
+      "type" : "text/plain",
+      "size" : 112
+    } ],
+    "parameters" : [ ],
+    "stepsCount" : 1,
+    "hasContent" : true,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 2
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_Airtel_Proxy_Ping"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_Airtel_Proxy_Ping"
+  }, {
+    "name" : "testMethod",
+    "value" : "AirtelProxyPingSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Airtel Proxy Ping Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_airtel_Proxy_Ping.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_Airtel_Proxy_Ping"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "30804@FANB0716.TestNG-PoolService-0(25)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e257c120519a5e2e.json",
+  "parameterValues" : [ "200" ]
+}

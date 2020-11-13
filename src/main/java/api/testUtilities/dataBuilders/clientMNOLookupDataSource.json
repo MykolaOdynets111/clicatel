@@ -1,0 +1,15 @@
+{
+  "clientMNOLookupTestSuite": {
+    "successcase": {
+      "clientId": "3",
+      "msisdn": "2348038382068",
+      "countryCallingCode": "234",
+      "expectedMsisdn": "2348038382068",
+      "expectedCountryCallingCode": "234",
+      "expectedOperatorCode": "MTN-NG",
+      "expectedOperatorName": "Mobile Telecommunications Network Nigeria",
+      "expectedResponseCode": "0000",
+      "expectedResponseMessage": "SUCCESS"
+    }
+  }
+}
