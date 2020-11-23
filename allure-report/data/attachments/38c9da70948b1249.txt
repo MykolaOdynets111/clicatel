@@ -1,7 +1,0 @@
-HTTP/1.1 404 
-X-Application-Context: application:default:8080
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 30
-Date: Fri, 13 Nov 2020 11:54:33 GMT
-
-No transactions found for user

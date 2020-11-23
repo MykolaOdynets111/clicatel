@@ -3,209 +3,22 @@
   "children" : [ {
     "name" : "FANB0716",
     "children" : [ {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(24)",
+      "name" : "14732@FANB0716.TestNG-PoolService-0(14)",
       "children" : [ {
-        "name" : "GetProductLookupSuccessTest",
-        "uid" : "695613bdaed6865d",
-        "parentUid" : "a6bb7b70f14495cc315b44a263186e6a",
+        "name" : "Magtipon3linengValidateTransactionSuccessTest",
+        "uid" : "7216e83e89598be",
+        "parentUid" : "f2e1ba1f5194918d457fdecbbde7a654",
         "status" : "passed",
         "time" : {
-          "start" : 1605268476990,
-          "stop" : 1605268477851,
-          "duration" : 861
+          "start" : 1605736101275,
+          "stop" : 1605736103846,
+          "duration" : 2571
         },
         "flaky" : false,
         "newFailed" : false,
-        "parameters" : [ "3", "130", "200" ]
+        "parameters" : [ "{\"clientId\":3,\"productId\":\"718\",\"targetIdentifier\":\"57100039965\",\"purchaseAmount\":350000}", "Test Customer Name", "202", "0000", "Request successful" ]
       } ],
-      "uid" : "a6bb7b70f14495cc315b44a263186e6a"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(21)",
-      "children" : [ {
-        "name" : "Get3lineSimulatorPingSuccessTest",
-        "uid" : "42c9c043160da18d",
-        "parentUid" : "b6a136e38a5618400c49e82394691690",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268474645,
-          "stop" : 1605268475292,
-          "duration" : 647
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200", "ok" ]
-      } ],
-      "uid" : "b6a136e38a5618400c49e82394691690"
-    }, {
-      "name" : "30804@FANB0716.TestNG-test=smoke_Transact_V4.java-1(14)",
-      "children" : [ {
-        "name" : "TransactV4SuccessSmokeTest",
-        "uid" : "6731abc755950077",
-        "parentUid" : "c5f4d3fd5978efeb0a2450e7a588e905",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268372048,
-          "stop" : 1605268465041,
-          "duration" : 92993
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "15000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0", "SUCCESS", "7", "MTNNG SUCCESS", "MTNNG SUCCESS", "test", "2022564675", "3", "test123", "100", "2341111111111", "2341111111111" ]
-      } ],
-      "uid" : "c5f4d3fd5978efeb0a2450e7a588e905"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(19)",
-      "children" : [ {
-        "name" : "ClientMNOLookupSuccessTest",
-        "uid" : "afe948c6578e883f",
-        "parentUid" : "4068e461565b4d2e8ced701ecf4fb923",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268473090,
-          "stop" : 1605268473878,
-          "duration" : 788
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "2348038382068", "234", "2348038382068", "234", "MTN-NG", "Mobile Telecommunications Network Nigeria", "0000", "SUCCESS" ]
-      } ],
-      "uid" : "4068e461565b4d2e8ced701ecf4fb923"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(23)",
-      "children" : [ {
-        "name" : "FundingSourceConfigSuccessTest",
-        "uid" : "dd332acecc2b8374",
-        "parentUid" : "21b597c6540cdb590ab9ad5c59e2ba0d",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268476054,
-          "stop" : 1605268476980,
-          "duration" : 926
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "200", "3600", "604800", "false", "true", "true", "2018-04-17T06:36:28Z", "3", "PaydWhitelistFundingSource", "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/transactResult", "3", "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/reserveFunds", "12000", "10000", "0" ]
-      } ],
-      "uid" : "21b597c6540cdb590ab9ad5c59e2ba0d"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(27)",
-      "children" : [ {
-        "name" : "FinancialTermsLookupSuccessTest",
-        "uid" : "7d2f0fbd92c39e7a",
-        "parentUid" : "ddd99d5f1311245c4432fb5105501bf7",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268481018,
-          "stop" : 1605268481843,
-          "duration" : 825
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "120", "10000", "200" ]
-      } ],
-      "uid" : "ddd99d5f1311245c4432fb5105501bf7"
-    }, {
-      "name" : "30804@FANB0716.TestNG-test=smoke_Reserve_and_Transact_V4.java-1(17)",
-      "children" : [ {
-        "name" : "ReserveAndTransactV4SuccessSmokeTest",
-        "uid" : "7662b12108af5f77",
-        "parentUid" : "3aef82171e08738e4d3cdcc17e76d45a",
-        "status" : "broken",
-        "time" : {
-          "start" : 1605268465101,
-          "stop" : 1605268473075,
-          "duration" : 7974
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0", "MTNNG SUCCESS", "MTNNG SUCCESS", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
-      } ],
-      "uid" : "3aef82171e08738e4d3cdcc17e76d45a"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(28)",
-      "children" : [ {
-        "name" : "MWMSimulatorDeleteSuccessTest",
-        "uid" : "74b989d6b59bff55",
-        "parentUid" : "0b984263b383cf42497113f41297bdbb",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268481850,
-          "stop" : 1605268483515,
-          "duration" : 1665
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "0b984263b383cf42497113f41297bdbb"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(25)",
-      "children" : [ {
-        "name" : "AirtelProxyPingSuccessTest",
-        "uid" : "e257c120519a5e2e",
-        "parentUid" : "8e05cf4868d46717b45347c08006c8bd",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268477857,
-          "stop" : 1605268478521,
-          "duration" : 664
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "8e05cf4868d46717b45347c08006c8bd"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(20)",
-      "children" : [ {
-        "name" : "GetUserTransactionsSuccessTest",
-        "uid" : "13cddf088f983d90",
-        "parentUid" : "df877ceb0913701e5e108a8ced180bf2",
-        "status" : "broken",
-        "time" : {
-          "start" : 1605268473886,
-          "stop" : 1605268474629,
-          "duration" : 743
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "2344832008221", "3", "8", "3", "130", "Airtel Airtime", "1500", "2347832008221", "200" ]
-      } ],
-      "uid" : "df877ceb0913701e5e108a8ced180bf2"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(26)",
-      "children" : [ {
-        "name" : "GetChannelsLookupSuccessTest",
-        "uid" : "64606936dc2717ac",
-        "parentUid" : "22e43095cf80f38f3340dbabecb2c10a",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268478528,
-          "stop" : 1605268481012,
-          "duration" : 2484
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "22e43095cf80f38f3340dbabecb2c10a"
-    }, {
-      "name" : "30804@FANB0716.TestNG-PoolService-0(22)",
-      "children" : [ {
-        "name" : "GetNotificationServiceSuccessTest",
-        "uid" : "f50edc0951abb7f7",
-        "parentUid" : "d45ac032d9c96f0c3fa945b80923e623",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268475299,
-          "stop" : 1605268476042,
-          "duration" : 743
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "8", "200" ]
-      } ],
-      "uid" : "d45ac032d9c96f0c3fa945b80923e623"
+      "uid" : "f2e1ba1f5194918d457fdecbbde7a654"
     } ],
     "uid" : "fe99e7abf4d8531648f96d8e11016d27"
   } ],

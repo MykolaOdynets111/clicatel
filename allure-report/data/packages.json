@@ -1,213 +1,22 @@
 {
   "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
   "children" : [ {
-    "name" : "API.smokeTests",
+    "name" : "API.smokeTests.smoke_Magtipon3lineng_Validate_Transaction",
     "children" : [ {
-      "name" : "smoke_Transact_V4",
-      "children" : [ {
-        "name" : "TransactV4SuccessSmokeTest",
-        "uid" : "6731abc755950077",
-        "parentUid" : "58a97d7901328447e0aa8259c566c946",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268372048,
-          "stop" : 1605268465041,
-          "duration" : 92993
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "d3d4ce83-b6b0-4558-a455-fceb1", "15000", "2019-09-03T15:35:26.720+02:00", "de1cb702-10a7-4656-8598-f9ebd", "0", "NGN", "3", "0000", "Processing request (funds reserved)", "200", "0", "SUCCESS", "7", "MTNNG SUCCESS", "MTNNG SUCCESS", "test", "2022564675", "3", "test123", "100", "2341111111111", "2341111111111" ]
-      } ],
-      "uid" : "58a97d7901328447e0aa8259c566c946"
-    }, {
-      "name" : "smoke_Reserve_and_Transact_V4",
-      "children" : [ {
-        "name" : "ReserveAndTransactV4SuccessSmokeTest",
-        "uid" : "7662b12108af5f77",
-        "parentUid" : "46942fd600c5a81304886b81ffcadc7f",
-        "status" : "broken",
-        "time" : {
-          "start" : 1605268465101,
-          "stop" : 1605268473075,
-          "duration" : 7974
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "64ec8907-f41a-441a-b1b8-355ef", "5000", "2020-01-09T09:58:46.170+02:00", "0", "ZAR", "3", "0000", "Processing request (funds reserved)", "200", "0", "MTNNG SUCCESS", "MTNNG SUCCESS", "8", "test", "ST-8556726170", "2", "193103796", "30", "0815793852", "0815793852" ]
-      } ],
-      "uid" : "46942fd600c5a81304886b81ffcadc7f"
-    }, {
-      "name" : "smoke_Client_MNO_Lookup",
-      "children" : [ {
-        "name" : "ClientMNOLookupSuccessTest",
-        "uid" : "afe948c6578e883f",
-        "parentUid" : "a8150bbcd08525e0b695823d80288b6f",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268473090,
-          "stop" : 1605268473878,
-          "duration" : 788
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "2348038382068", "234", "2348038382068", "234", "MTN-NG", "Mobile Telecommunications Network Nigeria", "0000", "SUCCESS" ]
-      } ],
-      "uid" : "a8150bbcd08525e0b695823d80288b6f"
-    }, {
-      "name" : "smoke_Get_User_Transactions",
-      "children" : [ {
-        "name" : "GetUserTransactionsSuccessTest",
-        "uid" : "13cddf088f983d90",
-        "parentUid" : "a761ad3a5c9c4bbc0b5cea77ce20e678",
-        "status" : "broken",
-        "time" : {
-          "start" : 1605268473886,
-          "stop" : 1605268474629,
-          "duration" : 743
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "2344832008221", "3", "8", "3", "130", "Airtel Airtime", "1500", "2347832008221", "200" ]
-      } ],
-      "uid" : "a761ad3a5c9c4bbc0b5cea77ce20e678"
-    }, {
-      "name" : "smoke_3line_Simulator_Ping",
-      "children" : [ {
-        "name" : "Get3lineSimulatorPingSuccessTest",
-        "uid" : "42c9c043160da18d",
-        "parentUid" : "a4916b05553f252f2ccd62375bb1d6af",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268474645,
-          "stop" : 1605268475292,
-          "duration" : 647
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200", "ok" ]
-      } ],
-      "uid" : "a4916b05553f252f2ccd62375bb1d6af"
-    }, {
-      "name" : "smoke_Get_Notification_Service",
-      "children" : [ {
-        "name" : "GetNotificationServiceSuccessTest",
-        "uid" : "f50edc0951abb7f7",
-        "parentUid" : "cf7cf9d2d3c7ca885b834c50e98e5757",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268475299,
-          "stop" : 1605268476042,
-          "duration" : 743
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "8", "200" ]
-      } ],
-      "uid" : "cf7cf9d2d3c7ca885b834c50e98e5757"
-    }, {
-      "name" : "smoke_Funding_Source_Config",
-      "children" : [ {
-        "name" : "FundingSourceConfigSuccessTest",
-        "uid" : "dd332acecc2b8374",
-        "parentUid" : "edb69fb83d341861baccb27920004193",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268476054,
-          "stop" : 1605268476980,
-          "duration" : 926
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "200", "3600", "604800", "false", "true", "true", "2018-04-17T06:36:28Z", "3", "PaydWhitelistFundingSource", "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/transactResult", "3", "http://${RAAS_BANK_SIMULATORS_V3_SERVICE_HOST}/raasBankSimulatorsV3/api/reserveFunds", "12000", "10000", "0" ]
-      } ],
-      "uid" : "edb69fb83d341861baccb27920004193"
-    }, {
-      "name" : "smoke_Get_Product_Lookup",
-      "children" : [ {
-        "name" : "GetProductLookupSuccessTest",
-        "uid" : "695613bdaed6865d",
-        "parentUid" : "35ec622474a45d454a7ce90d38c8773b",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268476990,
-          "stop" : 1605268477851,
-          "duration" : 861
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "130", "200" ]
-      } ],
-      "uid" : "35ec622474a45d454a7ce90d38c8773b"
-    }, {
-      "name" : "smoke_Airtel_Proxy_Ping",
-      "children" : [ {
-        "name" : "AirtelProxyPingSuccessTest",
-        "uid" : "e257c120519a5e2e",
-        "parentUid" : "1fc5897c1fa04f263a1e2e946ff1d5f0",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268477857,
-          "stop" : 1605268478521,
-          "duration" : 664
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "1fc5897c1fa04f263a1e2e946ff1d5f0"
-    }, {
-      "name" : "smoke_Get_Channels_Lookup",
-      "children" : [ {
-        "name" : "GetChannelsLookupSuccessTest",
-        "uid" : "64606936dc2717ac",
-        "parentUid" : "ec1b0b2a952187dd2841fffc84618b30",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268478528,
-          "stop" : 1605268481012,
-          "duration" : 2484
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "ec1b0b2a952187dd2841fffc84618b30"
-    }, {
-      "name" : "smoke_Financial_Terms_Lookup",
-      "children" : [ {
-        "name" : "FinancialTermsLookupSuccessTest",
-        "uid" : "7d2f0fbd92c39e7a",
-        "parentUid" : "7ee7b4f86b1e8e321fab78409ece0536",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268481018,
-          "stop" : 1605268481843,
-          "duration" : 825
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "3", "120", "10000", "200" ]
-      } ],
-      "uid" : "7ee7b4f86b1e8e321fab78409ece0536"
-    }, {
-      "name" : "smoke_MWM_Simulator_Delete",
-      "children" : [ {
-        "name" : "MWMSimulatorDeleteSuccessTest",
-        "uid" : "74b989d6b59bff55",
-        "parentUid" : "fa50f1696fca824de76927e15507b461",
-        "status" : "passed",
-        "time" : {
-          "start" : 1605268481850,
-          "stop" : 1605268483515,
-          "duration" : 1665
-        },
-        "flaky" : false,
-        "newFailed" : false,
-        "parameters" : [ "200" ]
-      } ],
-      "uid" : "fa50f1696fca824de76927e15507b461"
+      "name" : "Magtipon3linengValidateTransactionSuccessTest",
+      "uid" : "7216e83e89598be",
+      "parentUid" : "ecf16ffb83bd2d8167fcc87d9f01eaab",
+      "status" : "passed",
+      "time" : {
+        "start" : 1605736101275,
+        "stop" : 1605736103846,
+        "duration" : 2571
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{\"clientId\":3,\"productId\":\"718\",\"targetIdentifier\":\"57100039965\",\"purchaseAmount\":350000}", "Test Customer Name", "202", "0000", "Request successful" ]
     } ],
-    "uid" : "API.smokeTests"
+    "uid" : "API.smokeTests.smoke_Magtipon3lineng_Validate_Transaction"
   } ],
   "name" : "packages"
 }

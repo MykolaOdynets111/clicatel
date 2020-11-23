@@ -99,6 +99,7 @@ public class testConfig {
         Properties properties = configWrapper.loadPropertiesFile("config.properties");
         String qa_refresh_Backend = properties.getProperty("QA_Refresh_BackEnd");
         String qa_minion = properties.getProperty("QA_MINION");
+        String qa_minion_secure = properties.getProperty("QA_MINION_SECURE");
         String qa_ctx = properties.getProperty("CORE_CTX_HOST");
         //String aws_product_lookup = properties.getProperty("AWS_PRODUCT_LOOKUP");
         //String aws_financial_terms = properties.getProperty("AWS_FINANCIAL_TERMS");
