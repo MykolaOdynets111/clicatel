@@ -33,7 +33,7 @@ public class startSimulator {
 
         //setup channel connection and shell execution to setup and start the simulator
         String command = "./vendorSim.sh " + vendScenario;
-        System.out.println(command);
+        //System.out.println(command);
         Channel channel = session.openChannel("exec");
         ((ChannelExec) channel).setCommand(command);
 
@@ -57,8 +57,7 @@ public class startSimulator {
                 if (in.available() > 0) {
                     continue;
                 }
-                System.out
-                        .println("exit-status: " + channel.getExitStatus());
+                //System.out.println("exit-status: " + channel.getExitStatus());
                 break;
             }
             try {

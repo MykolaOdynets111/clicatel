@@ -1,0 +1,22 @@
+HTTP/1.1 202 
+X-Application-Context: payd-magtipon3lineng:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Wed, 18 Nov 2020 21:48:22 GMT
+
+{
+    "customerName": "Test Customer Name",
+    "customerInfo": {
+        "name": "Test Name",
+        "status": 0,
+        "address": "Test address",
+        "phone": "2341111111111",
+        "accountNumber": "2068147810",
+        "meterNumber": "2068147810",
+        "tariff": "Residentil",
+        "district": "District Test",
+        "minimumAmount": 90000
+    },
+    "responseCode": "0000",
+    "responseMessage": "Request successful"
+}

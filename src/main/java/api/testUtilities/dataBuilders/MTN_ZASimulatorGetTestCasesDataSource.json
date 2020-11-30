@@ -1,0 +1,10 @@
+{
+  "MTN_ZASimulatorGetTestCasesTestSuite": {
+    "successcase": {
+      "expectedHTTPResponseCode": "200"
+    },
+    "failedcase": {
+      "expectedHTTPResponseCode": "400"
+    }
+  }
+}

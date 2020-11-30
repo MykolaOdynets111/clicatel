@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MTN_ZA Proxy Ping Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="smoke_MTN_ZA_Proxy_Ping.java">
+        <classes>
+            <class name="API.smokeTests.smoke_MTN_ZA_Proxy_Ping">
+                <methods>
+                    <include name="MTN_ZAProxyPingSuccessTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

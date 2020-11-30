@@ -1,0 +1,8 @@
+{
+  "getNotificationServiceTestSuite": {
+    "successcase": {
+      "channelId": "8",
+      "expectedHTTPResponseCode": "200"
+    }
+  }
+}

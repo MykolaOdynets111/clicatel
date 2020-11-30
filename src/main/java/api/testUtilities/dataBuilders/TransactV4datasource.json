@@ -729,5 +729,31 @@
       "simulatorScenario": "MTNNG SUCCESS",
       "simulatorResetState": "MTNNG SUCCESS"
     }
+  },
+  "transactv4smoketestsuite": {
+    "PurchaseSuccessTest": {
+      "accountIdentifier": "d3d4ce83-b6b0-4558-a455-fceb1",
+      "amount": "15000",
+      "channelId": "7",
+      "channelName": "test",
+      "channelSessionId": "2022564675",
+      "clientId": "3",
+      "clientTxnRef": "test123",
+      "productId": "100",
+      "sourceIdentifier": "2341111111111",
+      "targetIdentifier": "2341111111111",
+      "timestamp": "2019-09-03T15:35:26.720+02:00",
+      "reserveFundsTxnRef": "de1cb702-10a7-4656-8598-f9ebd",
+      "feeAmount": "0",
+      "currencyCode": "NGN",
+      "fundingSourceId": "3",
+      "expectedRaasResponseCode": "0000",
+      "expectedMessage": "Processing request (funds reserved)",
+      "expectedHTTPResponseCode": "200",
+      "expectedCTXTransactionResponseCode": "0",
+      "expectedRaasStatus": "SUCCESS",
+      "simulatorScenario": "MTNNG SUCCESS",
+      "simulatorResetState": "MTNNG SUCCESS"
+    }
   }
 }

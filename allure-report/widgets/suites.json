@@ -1,70 +1,15 @@
 {
-  "total" : 6,
+  "total" : 1,
   "items" : [ {
-    "uid" : "bbd73fb2821e83f05835b391f7b8c977",
-    "name" : "Transact V4 Test Suite",
+    "uid" : "499eea98a0fa346e10ca3a92b4078916",
+    "name" : "Magtipon 3line NG Validate Transaction Test Suite",
     "statistic" : {
-      "failed" : 9,
+      "failed" : 0,
       "broken" : 0,
       "skipped" : 0,
-      "passed" : 14,
+      "passed" : 1,
       "unknown" : 0,
-      "total" : 23
-    }
-  }, {
-    "uid" : "241d365fea309dc8cf93a9f950c7706f",
-    "name" : "Ctx Test Suite",
-    "statistic" : {
-      "failed" : 6,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 21,
-      "unknown" : 0,
-      "total" : 27
-    }
-  }, {
-    "uid" : "497a246c27e3621edefa09893e508a39",
-    "name" : "Transact V3 Test Suite",
-    "statistic" : {
-      "failed" : 5,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 11,
-      "unknown" : 0,
-      "total" : 16
-    }
-  }, {
-    "uid" : "ae1ae325f9f54494734eedf0dcc63924",
-    "name" : "Reserve and Transact V4 Test Suite",
-    "statistic" : {
-      "failed" : 2,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 23,
-      "unknown" : 0,
-      "total" : 25
-    }
-  }, {
-    "uid" : "64b151ca1d9069580edb9400f477e7c5",
-    "name" : "Reserve and Transact V3 Test Suite",
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 21,
-      "unknown" : 0,
-      "total" : 22
-    }
-  }, {
-    "uid" : "874ffb07aac8c847839e6cfd67b8af77",
-    "name" : "Reserve and Transact V2 Test Suite",
-    "statistic" : {
-      "failed" : 1,
-      "broken" : 0,
-      "skipped" : 0,
-      "passed" : 20,
-      "unknown" : 0,
-      "total" : 21
+      "total" : 1
     }
   } ]
 }

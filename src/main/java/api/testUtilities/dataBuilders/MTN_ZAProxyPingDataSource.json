@@ -1,0 +1,8 @@
+{
+  "MTN_ZAProxyPingTestSuite": {
+    "successcase": {
+      "vendorId": "{\"vendorId\": 3}",
+      "expectedHTTPResponseCode": "200"
+    }
+  }
+}

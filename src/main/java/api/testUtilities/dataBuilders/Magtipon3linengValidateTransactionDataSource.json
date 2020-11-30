@@ -1,0 +1,11 @@
+{
+  "Magtipon3linengValidateTransactionTestSuite": {
+    "successcase": {
+      "body": "{\"clientId\":3,\"productId\":\"718\",\"targetIdentifier\":\"57100039965\",\"purchaseAmount\":350000}",
+      "expectedCustomerName": "Test Customer Name",
+      "expectedHTTPResponseCode": "202",
+      "expectedResponseCode": "0000",
+      "expectedResponseMessage": "Request successful"
+    }
+  }
+}

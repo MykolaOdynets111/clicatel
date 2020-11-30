@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MWM Simulator Delete Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="smoke_mwm_Simulator_Delete.java">
+        <classes>
+            <class name="API.smokeTests.smoke_MWM_Simulator_Delete">
+                <methods>
+                    <include name="MWMSimulatorDeleteSuccessTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

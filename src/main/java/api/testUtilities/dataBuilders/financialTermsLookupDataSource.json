@@ -1,0 +1,10 @@
+{
+  "financialTermsLookupTestSuite": {
+    "successcase": {
+      "clientId": "3",
+      "productId": "120",
+      "purchaseAmount": "10000",
+      "expectedHttpResponseCode": "200"
+    }
+  }
+}

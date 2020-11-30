@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Routing Service Request Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="smoke_Routing_Service_Request.java">
+        <classes>
+            <class name="API.smokeTests.smoke_Routing_Service_Request">
+                <methods>
+                    <include name="RoutingServiceRequestSuccessTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
