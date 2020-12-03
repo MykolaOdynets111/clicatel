@@ -2,10 +2,3 @@ include:
     - project: devops/deploy-pipelines
       ref: master
       file: '/test-automation/dotcore-tests/.gitlab-ci.yml'
-
-    - template: API-Fuzzing.gitlab-ci.yml
-
-variables:
-  FUZZAPI_PROFILE: Quick-10
-  FUZZAPI_OPENAPI: v3/api-docs/product-developer-apis
-  FUZZAPI_TARGET_URL: http://docker-minion01.dev.za01.payd.co:32000/
