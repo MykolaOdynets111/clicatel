@@ -1,0 +1,7 @@
+{
+  "tokenServiceLookupTestSuite": {
+    "successcase": {
+      "expectedHTTPResponseCode": "200"
+    }
+  }
+}

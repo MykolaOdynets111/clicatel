@@ -1,0 +1,105 @@
+{
+  "uid" : "a1ed0f557ad1d7cc",
+  "name" : "MWMSimulatorDeleteSuccessTest",
+  "fullName" : "API.smokeTests.smoke_MWM_Simulator_Delete.MWMSimulatorDeleteSuccessTest",
+  "historyId" : "67709e73988b54cb40be1c19b50719e4",
+  "time" : {
+    "start" : 1607324818156,
+    "stop" : 1607324818867,
+    "duration" : 711
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "MWM Simulator Delete Success",
+      "time" : {
+        "start" : 1607324818156,
+        "stop" : 1607324818859,
+        "duration" : 703
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "ffa5fb2259ad270a",
+      "name" : "request",
+      "source" : "ffa5fb2259ad270a.txt",
+      "type" : "text/plain",
+      "size" : 292
+    }, {
+      "uid" : "c4499da23d4fa991",
+      "name" : "response",
+      "source" : "c4499da23d4fa991.txt",
+      "type" : "text/plain",
+      "size" : 189
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_MWM_Simulator_Delete"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_MWM_Simulator_Delete"
+  }, {
+    "name" : "testMethod",
+    "value" : "MWMSimulatorDeleteSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "MWM Simulator Delete Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_mwm_Simulator_Delete.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_MWM_Simulator_Delete"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "10620@FANB0716.TestNG-PoolService-0(28)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "a1ed0f557ad1d7cc.json",
+  "parameterValues" : [ "200" ]
+}

@@ -1,0 +1,18 @@
+HTTP/1.1 200 
+X-Application-Context: application:default:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:06:51 GMT
+
+[
+    {
+        "channelId": 7,
+        "clientId": 3,
+        "raasTxnRef": "a7ohfwipzp4gaedwz2rcrrjl",
+        "transactionDate": "2020-06-03T15:02:25.179+02:00",
+        "productId": 110,
+        "description": "Glo Airtime ",
+        "purchaseAmount": 10000,
+        "targetIdentifier": "2341111111111"
+    }
+]

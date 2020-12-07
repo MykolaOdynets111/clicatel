@@ -1,4 +1,23 @@
 {
+  "15e628a3c7ad2b8a00d284ba1cecf6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "9cb93beccf3dafa8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324814532,
+        "stop" : 1607324815577,
+        "duration" : 1045
+      }
+    } ]
+  },
   "a63410927b09b7d5e3b211e141bbe34f" : {
     "statistic" : {
       "failed" : 0,
@@ -9,12 +28,337 @@
       "total" : 1
     },
     "items" : [ {
-      "uid" : "7216e83e89598be",
+      "uid" : "90cc134f4f2133c5",
       "status" : "passed",
       "time" : {
-        "start" : 1605736101275,
-        "stop" : 1605736103846,
-        "duration" : 2571
+        "start" : 1607324822580,
+        "stop" : 1607324823390,
+        "duration" : 810
+      }
+    } ]
+  },
+  "4805b6d00714aab7f502e4ae8bfbed9" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "6885554bad8567c9",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324758813,
+        "stop" : 1607324810380,
+        "duration" : 51567
+      }
+    } ]
+  },
+  "15031fdd0f982bc2bc3fbe85d7f7ec5d" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "f5b592513b964ac3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324812892,
+        "stop" : 1607324813585,
+        "duration" : 693
+      }
+    } ]
+  },
+  "7c2e8f45329efb353932836a6ffd5dc0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "cdf464831fb955a5",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324810405,
+        "stop" : 1607324811353,
+        "duration" : 948
+      }
+    } ]
+  },
+  "e178644a9bcceb700b5c8dc2bf43c4fc" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e0b2568660eebf7c",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324818877,
+        "stop" : 1607324819727,
+        "duration" : 850
+      }
+    } ]
+  },
+  "2c048a1293b22fd8305e47696ae868d6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "258a7e2d673d0156",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324819733,
+        "stop" : 1607324820111,
+        "duration" : 378
+      }
+    } ]
+  },
+  "b53c982a8734ad74b84346da786059d6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "62c1fc25b542322e",
+      "status" : "broken",
+      "statusDetails" : "Connection refused: connect",
+      "time" : {
+        "start" : 1607324824085,
+        "stop" : 1607324827720,
+        "duration" : 3635
+      }
+    } ]
+  },
+  "86d3c90f80309d04a616f69b950a7fa7" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "34338c7839313636",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324817065,
+        "stop" : 1607324818150,
+        "duration" : 1085
+      }
+    } ]
+  },
+  "8efa4c61d1518bc165a951113864f033" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "5f1d846ee082742b",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324815594,
+        "stop" : 1607324816256,
+        "duration" : 662
+      }
+    } ]
+  },
+  "a9787e45a8770ca442f4c13abbcc9434" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "3951a17c743e8cdb",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324813603,
+        "stop" : 1607324814514,
+        "duration" : 911
+      }
+    } ]
+  },
+  "74d9c2e071ba1fad6ed7e6d7441b808f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c2e957bbe154e187",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324708725,
+        "stop" : 1607324758748,
+        "duration" : 50023
+      }
+    } ]
+  },
+  "6b6d9ae6ab525918b46146a638d2a8b6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "372ea57ac33f320",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324820953,
+        "stop" : 1607324822572,
+        "duration" : 1619
+      }
+    } ]
+  },
+  "67709e73988b54cb40be1c19b50719e4" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "a1ed0f557ad1d7cc",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324818156,
+        "stop" : 1607324818867,
+        "duration" : 711
+      }
+    } ]
+  },
+  "70f01ce0baee5354cbfcc63cbb450342" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "9816e1ea371f0df1",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324811363,
+        "stop" : 1607324812195,
+        "duration" : 832
+      }
+    } ]
+  },
+  "ee1f2754e8305be347548e4b7042873c" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "4d86a7602cca482f",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324812205,
+        "stop" : 1607324812884,
+        "duration" : 679
+      }
+    } ]
+  },
+  "658f5dce131a20e9eebaa45b0734ca3e" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "bbace2ada9496d67",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324816269,
+        "stop" : 1607324817048,
+        "duration" : 779
+      }
+    } ]
+  },
+  "59c6d5870e71f91bc6cc3208ad7c8e9f" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "868f2c2940fdc74f",
+      "status" : "broken",
+      "statusDetails" : "Cannot invoke the path method because no content-type was present in the response and no default parser has been set.\n\nYou can specify a default parser using e.g.:\nRestAssured.defaultParser = Parser.JSON;\n",
+      "time" : {
+        "start" : 1607324823397,
+        "stop" : 1607324824066,
+        "duration" : 669
+      }
+    } ]
+  },
+  "ea067e2628b2121bef678df61e2e1078" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "461b05586d62ebab",
+      "status" : "passed",
+      "time" : {
+        "start" : 1607324820120,
+        "stop" : 1607324820945,
+        "duration" : 825
       }
     } ]
   }

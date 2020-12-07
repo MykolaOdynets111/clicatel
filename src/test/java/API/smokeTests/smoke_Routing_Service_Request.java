@@ -32,6 +32,7 @@ public class smoke_Routing_Service_Request {
         return new String[][]{
 
                 {testDataFactory.getTestData("validatePurchaseRequestDataSource.json","validatePurchaseRequestTestSuite","successcase","body"),
+                        testDataFactory.getTestData("validatePurchaseRequestDataSource.json","validatePurchaseRequestTestSuite","successcase","removeTestcaseBody"),
                         testDataFactory.getTestData("validatePurchaseRequestDataSource.json","validatePurchaseRequestTestSuite","successcase","expectedHTTPResponseCode"),
                         testDataFactory.getTestData("validatePurchaseRequestDataSource.json","validatePurchaseRequestTestSuite","successcase","expectedStatus"),
                         testDataFactory.getTestData("validatePurchaseRequestDataSource.json","validatePurchaseRequestTestSuite","successcase","expectedResponseCode"),
@@ -41,10 +42,24 @@ public class smoke_Routing_Service_Request {
 
     @Step("Routing Service Request Success")
     @Test(dataProvider = "RoutingServiceRequestTestCase")
-    public void RoutingServiceRequestSuccessTest(String body,
+    public void RoutingServiceRequestSuccessTest(String body, String removeTestcaseBody,
                                          String expectedHTTPResponseCode,
                                          String expectedStatus,
                                          String expectedResponseCode){
+
+        // Delete existing test cases
+        Response removeAllTestCases =
+                given()
+                        .contentType(ContentType.JSON)
+                        .body(removeTestcaseBody)
+                        .when()
+                        .delete(properties.getProperty("QA_MINION") + ":" + properties.getProperty("CORE_Remove_All_Testcases_RequestSpec_Port") + properties.getProperty("CORE_Remove_All_Testcases_RequestSpec_BasePath"))
+                        .then()
+                        .extract()
+                        .response();
+
+        //Assert
+        Assert.assertEquals(removeAllTestCases.statusCode(), Integer.parseInt(expectedHTTPResponseCode));
 
         // Validate Purchase Request POST method call :: Validate a user's account before purchase
         Response validatePurchaseRequestResponse =

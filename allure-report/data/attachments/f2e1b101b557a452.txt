@@ -1,0 +1,41 @@
+HTTP/1.1 200 
+X-Application-Context: payd-product-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:06:55 GMT
+
+[
+    {
+        "publicProduct": {
+            "id": 130,
+            "productTypeId": 3,
+            "productTypeName": "Airtime",
+            "description": "Airtel Any",
+            "shortDescription": "Airtel Airtime",
+            "active": true,
+            "pricing": {
+                "type": "range",
+                "minimumAmount": 5000,
+                "maximumAmount": 10000000,
+                "increment": 100
+            },
+            "supportToken": false
+        },
+        "attributes": [
+            
+        ],
+        "publicVendorDetails": [
+            {
+                "vendorId": 103,
+                "vendorName": "Airtel",
+                "currencyCode": "NGN",
+                "countryName": "Nigeria",
+                "fees": {
+                    "description": "Convenience fee",
+                    "amount": 10000
+                }
+            }
+        ],
+        "channelIds": "7"
+    }
+]

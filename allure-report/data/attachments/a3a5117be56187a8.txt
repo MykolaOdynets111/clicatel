@@ -1,5 +1,5 @@
 Request method:	POST
-Request URI:	http://docker-minion01.dev.za01.payd.co:30091/magtipon3lineng/validateTransaction
+Request URI:	http://docker-minion01.uat.ng01.payd.co:30785/mtn-proxy/ping
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
@@ -11,8 +11,5 @@ Cookies:		<none>
 Multiparts:		<none>
 Body:
 {
-    "clientId": 3,
-    "productId": "718",
-    "targetIdentifier": "57100039965",
-    "purchaseAmount": 350000
+    "vendorId": 3
 }

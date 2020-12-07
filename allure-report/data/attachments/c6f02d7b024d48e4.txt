@@ -1,0 +1,21 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:06:57 GMT
+
+{
+    "clientId": 3,
+    "productId": 120,
+    "currencyCode": "NGN",
+    "purchaseAmount": 10000,
+    "feesAsOf": "2020-12-07T07:06:57.438Z",
+    "lookupReference": "88969198-ea1f-457f-8ad5-db207b80d247",
+    "breakdown": {
+        "reserveAmount": 10000,
+        "vendAmount": 10000,
+        "feeAmount": 0,
+        "settlementAmount": 9915,
+        "clientShareAmount": 85
+    }
+}

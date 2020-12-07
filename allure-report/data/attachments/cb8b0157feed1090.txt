@@ -1,0 +1,55 @@
+HTTP/1.1 200 
+X-Application-Context: financial-terms-lookup:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:05:16 GMT
+
+{
+    "clientId": 3,
+    "productId": 100,
+    "currencyCode": "NGN",
+    "purchaseAmount": 15000,
+    "feesAsOf": "2020-12-07T07:05:16.767Z",
+    "terms": {
+        "reserveAmount": 15000,
+        "vendAmount": 15000,
+        "feeAmount": 0,
+        "settlementAmount": 14872,
+        "clientShareAmount": 128,
+        "vendorShareAmount": 0
+    },
+    "variables": {
+        "PAYD_SHARE_AMOUNT": 472.5,
+        "REQUESTED_PURCHASE_VALUE": 15000,
+        "FEE_AMOUNT": 0,
+        "PAYD_VAT_LIABILITY": 41.86046,
+        "PAYD_REVENUE": 558.1395,
+        "VAT_PERC": 0.075,
+        "MNO_DISC_AMT": 6E+2,
+        "CLIENT_MARKETING_COMMISSION": 0,
+        "PAYD_GROSS_PROFIT": 430.6395,
+        "RESERVE_AMOUNT": 1.5E+4,
+        "SETTLEMENT_AMOUNT": 14872.5,
+        "MNO_DISCOUNT_PERC": 0.04,
+        "VEND_AMOUNT": 1.5E+4,
+        "CLIENT_REVENUE": 127.5,
+        "VENDOR_SHARE_AMOUNT": 0,
+        "PAYD_COST_OF_GOODS_SOLD": 127.5,
+        "TPV": 1.5E+4,
+        "CLIENT_SHARE_OF_TPV": 0.0085,
+        "CLIENT_SHARE_AMOUNT": 127.5
+    }
+}
+HTTP/1.1 200 OK
+content-length: 119
+Accept: */*
+Accept-Encoding: gzip, deflate
+User-Agent: Apache-HttpClient/4.5.3 (Java/1.8.0_261)
+content-type: application/json; charset=UTF-8
+connection: keep-alive
+
+{
+    "responseCode": "0000",
+    "responseMessage": "Processing request (funds reserved)",
+    "raasTxnRef": "zy36k7vsfd35kbocnnq4cycf"
+}

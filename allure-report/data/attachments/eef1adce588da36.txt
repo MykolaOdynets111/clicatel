@@ -1,0 +1,13 @@
+Request method:	GET
+Request URI:	http://docker-minion01.uat.ng01.payd.co:30049/mnp/mnpLookup?clientId=3&msisdn=2348038382068&countryCallingCode=234
+Proxy:			<none>
+Request params:	clientId=3
+				msisdn=2348038382068
+				countryCallingCode=234
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>

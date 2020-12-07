@@ -1,0 +1,171 @@
+{
+  "uid" : "461b05586d62ebab",
+  "name" : "GetVendorConfigSuccessTest",
+  "fullName" : "API.smokeTests.smoke_Get_Vendor_Config.GetVendorConfigSuccessTest",
+  "historyId" : "ea067e2628b2121bef678df61e2e1078",
+  "time" : {
+    "start" : 1607324820120,
+    "stop" : 1607324820945,
+    "duration" : 825
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Get Vendor Config Success",
+      "time" : {
+        "start" : 1607324820120,
+        "stop" : 1607324820940,
+        "duration" : 820
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "id",
+        "value" : "100"
+      }, {
+        "name" : "expectedName",
+        "value" : "MTN_NG"
+      }, {
+        "name" : "expectedId",
+        "value" : "100"
+      }, {
+        "name" : "expectedActive",
+        "value" : "true"
+      }, {
+        "name" : "expectedMaxRetries",
+        "value" : "3"
+      }, {
+        "name" : "expectedRetryDelay",
+        "value" : "10000"
+      }, {
+        "name" : "expectedBackoff",
+        "value" : "1.5"
+      }, {
+        "name" : "expectedRetryDelayMax",
+        "value" : "300000"
+      }, {
+        "name" : "expectedMaximumRequestsPerPeriod",
+        "value" : "20"
+      }, {
+        "name" : "expectedRequestsPeriod",
+        "value" : "1000"
+      }, {
+        "name" : "expectedCurrencyId",
+        "value" : "566"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "66f53933d3d5bbc0",
+      "name" : "request",
+      "source" : "66f53933d3d5bbc0.txt",
+      "type" : "text/plain",
+      "size" : 274
+    }, {
+      "uid" : "d9ec0aa0aff91f41",
+      "name" : "response",
+      "source" : "d9ec0aa0aff91f41.txt",
+      "type" : "text/plain",
+      "size" : 430
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_Get_Vendor_Config"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_Get_Vendor_Config"
+  }, {
+    "name" : "testMethod",
+    "value" : "GetVendorConfigSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Get Vendor Config Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_Get_Vendor_Config.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_Get_Vendor_Config"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "10620@FANB0716.TestNG-PoolService-0(31)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "100"
+  }, {
+    "name" : "arg1",
+    "value" : "MTN_NG"
+  }, {
+    "name" : "arg10",
+    "value" : "566"
+  }, {
+    "name" : "arg11",
+    "value" : "200"
+  }, {
+    "name" : "arg2",
+    "value" : "100"
+  }, {
+    "name" : "arg3",
+    "value" : "true"
+  }, {
+    "name" : "arg4",
+    "value" : "3"
+  }, {
+    "name" : "arg5",
+    "value" : "10000"
+  }, {
+    "name" : "arg6",
+    "value" : "1.5"
+  }, {
+    "name" : "arg7",
+    "value" : "300000"
+  }, {
+    "name" : "arg8",
+    "value" : "20"
+  }, {
+    "name" : "arg9",
+    "value" : "1000"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "461b05586d62ebab.json",
+  "parameterValues" : [ "100", "MTN_NG", "566", "200", "100", "true", "3", "10000", "1.5", "300000", "20", "1000" ]
+}

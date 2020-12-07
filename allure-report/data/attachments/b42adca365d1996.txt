@@ -1,0 +1,45 @@
+Request method:	GET
+Request URI:	http://docker-minion01.uat.ng01.payd.co:30309/financial-terms/calculate?clientId=3&productId=100&purchaseAmount=10000
+Proxy:			<none>
+Request params:	clientId=3
+				productId=100
+				purchaseAmount=10000
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		transfer-encoding=chunked
+				Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:			<none>
+Request method:	POST
+Request URI:	http://docker-minion01.uat.ng01.payd.co:30100/raas/v4/reserveAndTransact
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				connection=keep-alive
+				Accept-Encoding=gzip, deflate, br
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "clientId": "3",
+    "sourceIdentifier": "2341122222221",
+    "fundingSourceId": "3",
+    "productId": "100",
+    "accountIdentifier": "64ec8907-f41a-441a-b1b8-355ef",
+    "purchaseAmount": "10000",
+    "feeAmount": "0",
+    "targetIdentifier": "2341110000000",
+    "clientTxnRef": "193103796",
+    "channelSessionId": "ST-8556726170",
+    "channelName": "test",
+    "currencyCode": "NGN",
+    "channelId": "8",
+    "timestamp": "2020-11-25T09:58:46.170+02:00"
+}

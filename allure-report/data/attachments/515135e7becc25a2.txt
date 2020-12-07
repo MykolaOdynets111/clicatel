@@ -1,0 +1,4 @@
+HTTP/1.1 200 
+X-Application-Context: mtn-proxy:default:8080
+Content-Length: 0
+Date: Mon, 07 Dec 2020 07:06:59 GMT

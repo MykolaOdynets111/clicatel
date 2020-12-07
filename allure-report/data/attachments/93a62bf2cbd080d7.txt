@@ -1,0 +1,41 @@
+Request method:	DELETE
+Request URI:	http://docker-minion01.uat.ng01.payd.co:32051/mwmsim/removealltestcases
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "action": "string",
+    "delay": 0,
+    "fieldName": "string",
+    "httpSatusCode": 0,
+    "httpStatusCode": 0,
+    "id": "string",
+    "responseCode": "string"
+}
+Request method:	POST
+Request URI:	http://docker-minion01.uat.ng01.payd.co:32050/validate
+Proxy:			<none>
+Request params:	<none>
+Query params:	<none>
+Form params:	<none>
+Path params:	<none>
+Headers:		Accept=*/*
+				Content-Type=application/json; charset=UTF-8
+Cookies:		<none>
+Multiparts:		<none>
+Body:
+{
+    "productId": 917,
+    "purchaseAmount": 10000,
+    "sourceIdentifier": "234710898268",
+    "targetIdentifier": "234710898268",
+    "clientId": 3,
+    "timestamp": "2020-06-20T19:00:00.000+00:00"
+}
