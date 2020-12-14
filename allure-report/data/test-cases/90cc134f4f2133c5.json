@@ -1,12 +1,12 @@
 {
-  "uid" : "7216e83e89598be",
+  "uid" : "90cc134f4f2133c5",
   "name" : "Magtipon3linengValidateTransactionSuccessTest",
   "fullName" : "API.smokeTests.smoke_Magtipon3lineng_Validate_Transaction.Magtipon3linengValidateTransactionSuccessTest",
   "historyId" : "a63410927b09b7d5e3b211e141bbe34f",
   "time" : {
-    "start" : 1605736101275,
-    "stop" : 1605736103846,
-    "duration" : 2571
+    "start" : 1607324822580,
+    "stop" : 1607324823390,
+    "duration" : 810
   },
   "status" : "passed",
   "flaky" : false,
@@ -17,9 +17,9 @@
     "steps" : [ {
       "name" : "Magtipon 3line NG Validate Transaction Success",
       "time" : {
-        "start" : 1605736101293,
-        "stop" : 1605736103681,
-        "duration" : 2388
+        "start" : 1607324822580,
+        "stop" : 1607324823377,
+        "duration" : 797
       },
       "status" : "passed",
       "steps" : [ ],
@@ -40,29 +40,29 @@
         "name" : "expectedResponseMessage",
         "value" : "Request successful"
       } ],
-      "stepsCount" : 0,
-      "hasContent" : true,
+      "attachmentsCount" : 0,
       "shouldDisplayMessage" : false,
-      "attachmentsCount" : 0
+      "hasContent" : true,
+      "stepsCount" : 0
     } ],
     "attachments" : [ {
-      "uid" : "77d24f47925c52f",
+      "uid" : "9f2321507c601c8b",
       "name" : "request",
-      "source" : "77d24f47925c52f.txt",
+      "source" : "9f2321507c601c8b.txt",
       "type" : "text/plain",
       "size" : 457
     }, {
-      "uid" : "e28e578bd21e57c7",
+      "uid" : "c2cfaac66c892126",
       "name" : "response",
-      "source" : "e28e578bd21e57c7.txt",
+      "source" : "c2cfaac66c892126.txt",
       "type" : "text/plain",
       "size" : 621
     } ],
     "parameters" : [ ],
-    "stepsCount" : 1,
-    "hasContent" : true,
+    "attachmentsCount" : 2,
     "shouldDisplayMessage" : false,
-    "attachmentsCount" : 2
+    "hasContent" : true,
+    "stepsCount" : 1
   },
   "afterStages" : [ ],
   "labels" : [ {
@@ -88,7 +88,7 @@
     "value" : "FANB0716"
   }, {
     "name" : "thread",
-    "value" : "14732@FANB0716.TestNG-PoolService-0(14)"
+    "value" : "10620@FANB0716.TestNG-PoolService-0(33)"
   }, {
     "name" : "framework",
     "value" : "testng"
@@ -124,6 +124,6 @@
     "categories" : [ ],
     "tags" : [ ]
   },
-  "source" : "7216e83e89598be.json",
+  "source" : "90cc134f4f2133c5.json",
   "parameterValues" : [ "{\"clientId\":3,\"productId\":\"718\",\"targetIdentifier\":\"57100039965\",\"purchaseAmount\":350000}", "Test Customer Name", "202", "0000", "Request successful" ]
 }

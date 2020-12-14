@@ -1,0 +1,105 @@
+{
+  "uid" : "258a7e2d673d0156",
+  "name" : "MTN_ZASimulatorGetTestCasesSuccessTest",
+  "fullName" : "API.smokeTests.smoke_MTN_ZA_Simulator_GetTestCases.MTN_ZASimulatorGetTestCasesSuccessTest",
+  "historyId" : "2c048a1293b22fd8305e47696ae868d6",
+  "time" : {
+    "start" : 1607324819733,
+    "stop" : 1607324820111,
+    "duration" : 378
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "MTN_ZA Simulator GetTestCases Success",
+      "time" : {
+        "start" : 1607324819733,
+        "stop" : 1607324820109,
+        "duration" : 376
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "936c951030bd282a",
+      "name" : "request",
+      "source" : "936c951030bd282a.txt",
+      "type" : "text/plain",
+      "size" : 274
+    }, {
+      "uid" : "c89be8c04d7ed664",
+      "name" : "response",
+      "source" : "c89be8c04d7ed664.txt",
+      "type" : "text/plain",
+      "size" : 182
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Simulator_GetTestCases"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Simulator_GetTestCases"
+  }, {
+    "name" : "testMethod",
+    "value" : "MTN_ZASimulatorGetTestCasesSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "MTN_ZA Simulator GetTestCases Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_MTN_ZA_Simulator_GetTestCases.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Simulator_GetTestCases"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "10620@FANB0716.TestNG-PoolService-0(30)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "258a7e2d673d0156.json",
+  "parameterValues" : [ "200" ]
+}

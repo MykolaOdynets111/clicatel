@@ -1,0 +1,153 @@
+{
+  "uid" : "9816e1ea371f0df1",
+  "name" : "GetUserTransactionsSuccessTest",
+  "fullName" : "API.smokeTests.smoke_Get_User_Transactions.GetUserTransactionsSuccessTest",
+  "historyId" : "70f01ce0baee5354cbfcc63cbb450342",
+  "time" : {
+    "start" : 1607324811363,
+    "stop" : 1607324812195,
+    "duration" : 832
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "Get User Transactions Success",
+      "time" : {
+        "start" : 1607324811363,
+        "stop" : 1607324812192,
+        "duration" : 829
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "userIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "clientId",
+        "value" : "3"
+      }, {
+        "name" : "expectedChannelId",
+        "value" : "8"
+      }, {
+        "name" : "expectedClientId",
+        "value" : "3"
+      }, {
+        "name" : "expectedProductId",
+        "value" : "130"
+      }, {
+        "name" : "expectedDescription",
+        "value" : "Airtel Airtime"
+      }, {
+        "name" : "expectedPurchaseAmount",
+        "value" : "1500"
+      }, {
+        "name" : "expectedTargetIdentifier",
+        "value" : "2341111111111"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "42c769e806bb3aa5",
+      "name" : "request",
+      "source" : "42c769e806bb3aa5.txt",
+      "type" : "text/plain",
+      "size" : 358
+    }, {
+      "uid" : "18ed3a2b7a784e",
+      "name" : "response",
+      "source" : "18ed3a2b7a784e.txt",
+      "type" : "text/plain",
+      "size" : 493
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_Get_User_Transactions"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_Get_User_Transactions"
+  }, {
+    "name" : "testMethod",
+    "value" : "GetUserTransactionsSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "Get User Transactions Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_Get_User_Transactions.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_Get_User_Transactions"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "10620@FANB0716.TestNG-PoolService-0(20)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg1",
+    "value" : "3"
+  }, {
+    "name" : "arg2",
+    "value" : "8"
+  }, {
+    "name" : "arg3",
+    "value" : "3"
+  }, {
+    "name" : "arg4",
+    "value" : "130"
+  }, {
+    "name" : "arg5",
+    "value" : "Airtel Airtime"
+  }, {
+    "name" : "arg6",
+    "value" : "1500"
+  }, {
+    "name" : "arg7",
+    "value" : "2341111111111"
+  }, {
+    "name" : "arg8",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "9816e1ea371f0df1.json",
+  "parameterValues" : [ "2341111111111", "3", "8", "3", "130", "Airtel Airtime", "1500", "2341111111111", "200" ]
+}

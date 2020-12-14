@@ -1,0 +1,15 @@
+{
+  "transactionLookupPortalTestSuite": {
+    "successcase": {
+      "clientId": "113",
+      "currentPage": "0",
+      "dateRangeFrom": "2020-01-01 00:00:00",
+      "dateRangeTo": "2020-01-01 15:00:00",
+      "pageSize": "1",
+      "expectedHTTPResponseCode": "200",
+      "expectedPageSize": "1",
+      "expectedCurrentPage": "0",
+      "expectedSolutionType": "COMMERCE"
+    }
+  }
+}

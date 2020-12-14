@@ -20,6 +20,9 @@
             <suite-file path="Smoke_GetVendorConfigTestSuite.xml"></suite-file>
             <suite-file path="Smoke_RoutingServiceRequestTestSuite.xml"></suite-file>
             <suite-file path="Smoke_Magtipon3linengValidateTransactionTestSuite.xml"></suite-file>
+            <suite-file path="Smoke_TokenServiceLookupTestSuite.xml"></suite-file>
+            <suite-file path="Smoke_TransactionLookupPortalTestSuite.xml"></suite-file>
+
     </suite-files>
 </suite>
 

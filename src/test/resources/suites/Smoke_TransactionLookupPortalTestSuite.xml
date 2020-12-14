@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Transaction Lookup Portal Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="smoke_Transaction_Lookup_Request.java">
+        <classes>
+            <class name="API.smokeTests.smoke_Transaction_Lookup_Portal">
+                <methods>
+                    <include name="TransactionLookupPortalSuccessTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

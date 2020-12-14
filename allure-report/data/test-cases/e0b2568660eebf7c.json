@@ -1,0 +1,111 @@
+{
+  "uid" : "e0b2568660eebf7c",
+  "name" : "MTN_ZAProxyPingSuccessTest",
+  "fullName" : "API.smokeTests.smoke_MTN_ZA_Proxy_Ping.MTN_ZAProxyPingSuccessTest",
+  "historyId" : "e178644a9bcceb700b5c8dc2bf43c4fc",
+  "time" : {
+    "start" : 1607324818877,
+    "stop" : 1607324819727,
+    "duration" : 850
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ {
+      "name" : "MTN_ZA Proxy Ping Success",
+      "time" : {
+        "start" : 1607324818877,
+        "stop" : 1607324819725,
+        "duration" : 848
+      },
+      "status" : "passed",
+      "steps" : [ ],
+      "attachments" : [ ],
+      "parameters" : [ {
+        "name" : "vendorId",
+        "value" : "{\"vendorId\": 3}"
+      }, {
+        "name" : "expectedHTTPResponseCode",
+        "value" : "200"
+      } ],
+      "attachmentsCount" : 0,
+      "shouldDisplayMessage" : false,
+      "hasContent" : true,
+      "stepsCount" : 0
+    } ],
+    "attachments" : [ {
+      "uid" : "a3a5117be56187a8",
+      "name" : "request",
+      "source" : "a3a5117be56187a8.txt",
+      "type" : "text/plain",
+      "size" : 343
+    }, {
+      "uid" : "515135e7becc25a2",
+      "name" : "response",
+      "source" : "515135e7becc25a2.txt",
+      "type" : "text/plain",
+      "size" : 118
+    } ],
+    "parameters" : [ ],
+    "attachmentsCount" : 2,
+    "shouldDisplayMessage" : false,
+    "hasContent" : true,
+    "stepsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Proxy_Ping"
+  }, {
+    "name" : "testClass",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Proxy_Ping"
+  }, {
+    "name" : "testMethod",
+    "value" : "MTN_ZAProxyPingSuccessTest"
+  }, {
+    "name" : "parentSuite",
+    "value" : "MTN_ZA Proxy Ping Test Suite"
+  }, {
+    "name" : "suite",
+    "value" : "smoke_MTN_ZA_Proxy_Ping.java"
+  }, {
+    "name" : "subSuite",
+    "value" : "API.smokeTests.smoke_MTN_ZA_Proxy_Ping"
+  }, {
+    "name" : "host",
+    "value" : "FANB0716"
+  }, {
+    "name" : "thread",
+    "value" : "10620@FANB0716.TestNG-PoolService-0(29)"
+  }, {
+    "name" : "framework",
+    "value" : "testng"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "arg0",
+    "value" : "{\"vendorId\": 3}"
+  }, {
+    "name" : "arg1",
+    "value" : "200"
+  } ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "e0b2568660eebf7c.json",
+  "parameterValues" : [ "{\"vendorId\": 3}", "200" ]
+}

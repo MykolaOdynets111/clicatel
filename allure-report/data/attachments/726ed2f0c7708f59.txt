@@ -1,0 +1,38 @@
+HTTP/1.1 200 
+X-Application-Context: mwm-simulator:default:8080
+Content-Type: application/json;charset=UTF-8
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:07:01 GMT
+
+[
+    
+]
+HTTP/1.1 200 
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 07 Dec 2020 07:07:02 GMT
+Keep-Alive: timeout=60
+Connection: keep-alive
+
+{
+    "status": "0000",
+    "responseCode": "0000",
+    "message": [
+        "Success"
+    ],
+    "customerInfo": {
+        "address": "Test address",
+        "phone": "2341111111111",
+        "district": "District Test",
+        "name": "Test Name"
+    },
+    "accountInfo": {
+        "amount": 100,
+        "targetIdentifier": "2068147810",
+        "arrears": 100,
+        "minimumAmount": 100,
+        "tariff": "Residentil",
+        "accountNumber": "2068147810",
+        "providerName": "provider"
+    }
+}
