@@ -1,7 +1,0 @@
-{
-  "getChannelsLookupTestSuite": {
-    "successcase": {
-      "expectedHttpResponseCode": "200"
-    }
-  }
-}

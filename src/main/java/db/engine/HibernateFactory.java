@@ -35,12 +35,12 @@ public class HibernateFactory {
     }
 
     private SessionFactory buildMySqlSession() {
-        var configuration = new Configuration().addProperties(new HibernateConnectionProperties().getMySplProperties());
+        var configuration = new Configuration().addProperties(new HibernateConnectionProperties().getMySqlProperties());
         var scanner = new ClassPathScanningCandidateComponentProvider(false);
 
         scanner.addIncludeFilter(new AnnotationTypeFilter(Entity.class));
         scanner
-                .findCandidateComponents("db.entities.mysql")
+                .findCandidateComponents("mc2.db.entities.mysql")
                 .forEach(a -> {
                     try {
                         configuration.addAnnotatedClass(Class.forName(a.getBeanClassName()));
@@ -53,7 +53,7 @@ public class HibernateFactory {
     }
 
     private SessionFactory buildPostgresSqlSession() {
-        var configuration = new Configuration().addProperties(new HibernateConnectionProperties().getPostgresSplProperties());
+        var configuration = new Configuration().addProperties(new HibernateConnectionProperties().getPostgresSqlProperties());
         var scanner = new ClassPathScanningCandidateComponentProvider(false);
 
         scanner.addIncludeFilter(new AnnotationTypeFilter(Entity.class));
