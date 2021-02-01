@@ -1,4 +1,4 @@
-package api.domains.product_lookup;
+package api.domains.product_lookup.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
