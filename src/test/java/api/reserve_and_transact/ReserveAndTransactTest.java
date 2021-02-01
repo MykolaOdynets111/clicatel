@@ -2,6 +2,7 @@ package api.reserve_and_transact;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transact.model.TransactRequest;
+import api.enums.ChannelId;
 import api.enums.CurrencyCode;
 import api.enums.Port;
 import api.enums.Version;
@@ -32,7 +33,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-69504")
     public void testReserveAndTransactV4Success() {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD);
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)

@@ -10,7 +10,7 @@ import static util.DateProvider.getCurrentIsoDateTime;
 
 public class ReserveAndTransactRequestRepo {
     //V4
-    public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName, ChannelId channelId, String productId){
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName, ChannelId channelId){
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier("4000******0004")
                 .authCode(null)
@@ -33,21 +33,19 @@ public class ReserveAndTransactRequestRepo {
     //V3
     public static ReserveAndTransactRequest setUpReserveAndTransactV3Data(String clientId, CurrencyCode currencyCode, ChannelName channelName){
         return ReserveAndTransactRequest.builder()
-                .accountIdentifier("4000******0004")
+                .accountIdentifier("000XXX0311-0003")
                 .authCode(null)
-                .clientTxnRef("4ba4c3-3wsf8cf-f0004")
-                .channelSessionId("400074970004")
+                .clientTxnRef("010002441811llim-0003")
+                .channelSessionId("714890809-0003")
                 .timestamp(getCurrentIsoDateTime())
-                .clientId(clientId) //3
-                .fundingSourceId("3")
-                .productId("100")
+                .clientId("3")
+                .productId("917")
                 .purchaseAmount("10000")
                 .feeAmount("0")
-                .currencyCode(currencyCode.getCurrencyCode()) //NGN
-                .channelId("7")
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier("2348038382067")
-                .targetIdentifier("2348038382067")
+                .channelId("3")
+                .channelName("internet")
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
                 .build();
     }
 
