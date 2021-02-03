@@ -18,7 +18,6 @@ public class ReserveAndTransactClient extends BasedAPIClient {
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
                         .setBaseUri(String.format("%s:%d/raas/%s/reserveAndTransact",baseUrl,port.getPort(),version.getVersion()))
-                        //.setBasePath(String.format(":%d/raas/%s/reserveAndTransact",port.getPort(),version.getVersion()))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
