@@ -1,5 +1,4 @@
 package api.reserve_and_transact;
-import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
@@ -24,7 +23,6 @@ import static db.custom_queries.ReserveAndTransactQueries.GET_TRANSACTION_STATUS
 import static java.lang.String.format;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
-import static util.DateProvider.getCurrentIsoDateTime;
 
 public class ReserveAndTransactTest extends BaseApiTest {
 
@@ -41,11 +39,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db checks --- TODO: to complete the rest as below or verify against support tool API
-//        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-//        assertThat(status)
-//                .as("Postgres SQL query result should not be empty")
-//                .contains("SUCCESS");
+        //raas db checks --- TODO: verify against support tool API
+
     }
 
 
