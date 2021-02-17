@@ -9,14 +9,17 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
+import static api.clients.AirtelSimulatorClient.addTestCases;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 
+import static api.clients.ReserveAndTransactClient.executeReserveAndTransactWithSignature;
+import static api.clients.SupportUiClient.getRaasFlow;
 import static api.clients.TransactClient.executeTransact;
+import static api.domains.airtel_simulator.repo.AirtelSimulatorRequestRepo.setUpAirtelSimData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
 import static api.domains.transact.repo.TransactRequestRepo.setUpTransactV1Data;
 import static api.enums.ChannelName.*;
-import static api.enums.CurrencyCode.NGN;
-import static api.enums.CurrencyCode.ZAR;
+import static api.enums.CurrencyCode.*;
 import static db.enums.Sessions.POSTGRES_SQL;
 import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
 import static db.custom_queries.ReserveAndTransactQueries.GET_TRANSACTION_STATUS;
@@ -26,6 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReserveAndTransactTest extends BaseApiTest {
 
+    //SUCCESS :: v1-v4
     @Test
     @Description("30100 :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-68538")
@@ -39,7 +43,30 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db checks --- TODO: verify against support tool API
+        //Verify transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+               .as("Postgres SQL query result should not be empty")
+               .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+        //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+        //AND ctx response code is SUCCESSFUL (0)
+                //TODO: Fix this null error : Expected: is <0> but Actual: null
+                //.body("ctx_response[0].responseCode", Matchers.is(0))
+        //AND successful transaction result is sent (0000)
+                //TODO: Fix this null error : Expected: is "0000" but Actual: null
+                //.body("transaction_result_request.responseCode", Matchers.is("0000"))
+        //AND success response code is received from the funding source (202)
+                //TODO: Fix this null error : Expected: is "202" but Actual: null
+                //.body("transaction_result_response.responseCode", Matchers.is("202"))
+        //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+        //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
 
@@ -57,7 +84,31 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //TODO: Verify against support tool API
+        //Verify transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                //AND ctx response code is SUCCESSFUL (0)
+                //TODO: Fix this null error : Expected: is <0> but Actual: null
+                //.body("ctx_response[0].responseCode", Matchers.is(0))
+                //AND successful transaction result is sent (0000)
+                //TODO: Fix this null error : Expected: is "0000" but Actual: null
+                //.body("transaction_result_request.responseCode", Matchers.is("0000"))
+                //AND success response code is received from the funding source (202)
+                //TODO: Fix this null error : Expected: is "202" but Actual: null
+                //.body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+
     }
 
     @Test
@@ -73,7 +124,31 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //TODO: raas db checks or verify against support tool API
+        //Verify transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                //AND ctx response code is SUCCESSFUL (0)
+                //TODO: Fix this null error : Expected: is <0> but Actual: null
+                //.body("ctx_response[0].responseCode", Matchers.is(0))
+                //AND successful transaction result is sent (0000)
+                //TODO: Fix this null error : Expected: is "0000" but Actual: null
+                //.body("transaction_result_request.responseCode", Matchers.is("0000"))
+                //AND success response code is received from the funding source (202)
+                //TODO: Fix this null error : Expected: is "202" but Actual: null
+                //.body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+
     }
 
     @Test
@@ -89,12 +164,35 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //TODO: raas db checks or verify against support tool API
+        //Verify transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                //AND ctx response code is SUCCESSFUL (0)
+                //TODO: Fix this null error : Expected: is <0> but Actual: null
+                //.body("ctx_response[0].responseCode", Matchers.is(0))
+                //AND successful transaction result is sent (0000)
+                //TODO: Fix this null error : Expected: is "0000" but Actual: null
+                //.body("transaction_result_request.responseCode", Matchers.is("0000"))
+                //AND success response code is received from the funding source (202)
+                //TODO: Fix this null error : Expected: is "202" but Actual: null
+                //.body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
 
 
-    //VENDORS
+    //SUCCESS :: VENDORS & CLIENTS
     @Test
     @Description("30100 :: vendor 2 (CellC) :: SUCCESS")
     @TmsLink("TECH-69577")
@@ -346,4 +444,116 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .contains("SUCCESS");
     }
 
+
+    @Test
+    @Description("30100 :: client 3 (test client) :: SUCCESS :: Purchase with valid payload and signature should be successful")
+    @TmsLink("TECH-56890")
+    public void testReserveAndTransactWithSignatureSuccess() {
+        //UAT: client 1003 (secret value Ajd7dsJD1), funding source 1003
+        val jsonBody = setUpReserveAndTransactSignatureData("1003", "1003", NGN, MOBILE, ChannelId.MOBILE, "2348038382068");
+
+        val raasTxnRef = executeReserveAndTransactWithSignature(jsonBody, Port.TRANSACTIONS, Version.V4, "pN85n+uUSa6GpRNPOwODKgWw63aE7Q8fwEb8QRUux5A=")
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //raas db check --- transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("SUCCESS");
+    }
+
+
+    //PENDING :: RD :: NRD
+    @Test
+    @Description("30100 :: NonRetryableDecline")
+    @TmsLink("TECH-57167")
+    public void testReserveAndTransactNonRetryableDecline() {
+        //add test case
+        val addTestCaseBody = setUpAirtelSimData("17017", "purchase");
+        addTestCases(addTestCaseBody)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("17017"))
+                .body("action", Matchers.containsString("purchase"));
+
+        //perform R&T
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382068");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("FAILED");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+            //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
+                .body("ctx_response[0].responseCode", Matchers.is(2213))
+            //AND transaction result is sent with valid ctx response code (2213)
+                .body("transaction_result_request.responseCode", Matchers.is(2213))
+            //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+            //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")))
+            //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+
+
+    }
+
+
+    @Test
+    @Description("30100 :: Pending To SUCCESS")
+    @TmsLink("TECH-46759")
+    public void testReserveAndTransactPendingToSuccess() {
+        //add test case
+        val addTestCaseBody = setUpAirtelSimData("500", "purchase");
+        addTestCases(addTestCaseBody)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("500"))
+                .body("action", Matchers.containsString("purchase"));
+
+        //perform R&T
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382068");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result should not be empty")
+                .contains("FAILED");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
+                .body("ctx_response[0].responseCode", Matchers.is(2213))
+                //AND transaction result is sent with valid ctx response code (2213)
+                .body("transaction_result_request.responseCode", Matchers.is(2213))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+
+
+    }
 }

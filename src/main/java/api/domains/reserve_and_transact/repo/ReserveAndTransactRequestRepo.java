@@ -31,6 +31,27 @@ public class ReserveAndTransactRequestRepo {
                 .build();
     }
 
+    //V4
+    public static ReserveAndTransactRequest setUpReserveAndTransactSignatureData(String clientId, String fundingSourceId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                   ChannelId channelId,String identifier){
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier("000XXX0311-0003")
+                .clientTxnRef("010002441811llim-0003")
+                .channelSessionId("714890809-0003")
+                .timestamp("2023-03-03T00:00:00.000+02:00")
+                .clientId(clientId) //1003
+                .fundingSourceId(fundingSourceId) //1003
+                .productId("917")
+                .purchaseAmount("10000")
+                .feeAmount("0")
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
     //V3
     public static ReserveAndTransactRequest setUpReserveAndTransactV3Data(String clientId, ChannelName channelName,
                                                                           ChannelId channelId, String productId){

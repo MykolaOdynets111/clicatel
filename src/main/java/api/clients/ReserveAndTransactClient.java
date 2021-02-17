@@ -23,5 +23,18 @@ public class ReserveAndTransactClient extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
+
+    public static Response executeReserveAndTransactWithSignature(ReserveAndTransactRequest body, Port port, Version version, String signature) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .addHeader("Signature", signature)
+                        .setBaseUri(String.format("%s:%d/raas/%s/reserveAndTransact",baseUrl,port.getPort(),version.getVersion()))
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
 }
 

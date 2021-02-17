@@ -18,8 +18,6 @@ public class ProductLookupClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/public/productInfo",baseUrl,port.getPort()))
-                        //.addQueryParam("clientId","3")
-                        //addQueryParam("productId","130")
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

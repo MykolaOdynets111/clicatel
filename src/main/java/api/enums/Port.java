@@ -8,6 +8,7 @@ import lombok.Getter;
 public enum Port {
 
     TRANSACTIONS (30100),
+    RAAS_FLOW (31000),
     PRODUCT_LOOKUP (32000),
     INFLIGHT_TRANSACTIONS (30433),
     ACCOUNT_VALIDATION (30091),
