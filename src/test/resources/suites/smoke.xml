@@ -4,7 +4,10 @@
 <suite name="Smoke tests suite">
     <test name="Smoke multi threads tests" parallel="classes" thread-count="2">
         <classes>
-            <class name="api.product_lookup.ProductLookupInfoTest"/>
+            <class name="api.reserve_and_transact.ReserveAndTransactSuccessTest"/>
+            <class name="api.transact.TransactSuccessTest"/>
+            <class name="api.reserve_and_transact.ReserveAndTransactVendorsTest"/>
+            <class name="api.reserve_and_transact.ReserveAndTransactRetryableDeclineTest"/>
         </classes>
     </test>
 </suite>

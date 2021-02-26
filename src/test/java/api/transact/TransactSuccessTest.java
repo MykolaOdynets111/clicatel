@@ -1,7 +1,5 @@
 package api.transact;
 
-import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
-import api.domains.transact.model.TransactRequest;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
 import io.qameta.allure.Description;
@@ -12,15 +10,16 @@ import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
 import static api.clients.TransactClient.executeTransact;
+import static api.controls.TransactControl.getTransactionStatus;
 import static api.domains.transact.repo.TransactRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.SC_OK;
-import static util.DateProvider.getCurrentIsoDateTime;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class TransactTest extends BaseApiTest {
+public class TransactSuccessTest extends BaseApiTest {
 
     @Test
-    @Description("30100 :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
+    @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
     @TmsLink("TECH-54338")
     public void testTransactV4Success() {
         val jsonBody = setUpTransactV4Data("3", CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, "917");
@@ -32,12 +31,17 @@ public class TransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
+        //Verify transaction status is "SUCCESS"
+        assertThat(getTransactionStatus(raasTxnRef))
+                .as("Postgres SQL query : Transaction Status incorrect")
+                .isTrue();
+
         //TODO: Verify against support tool API
     }
 
 
     @Test
-    @Description("30100 :: POST v3/transact :: SUCCESS")
+    @Description("30100 :: payd-raas-gateway :: POST v3/transact :: SUCCESS")
     @TmsLink("TECH-54339")
     public void testTransactV3Success() {
         val jsonBody = setUpTransactV3Data("3", ChannelName.INTERNET, ChannelId.INTERNET, "917");
@@ -49,12 +53,17 @@ public class TransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
+        //Verify transaction status is "SUCCESS"
+        assertThat(getTransactionStatus(raasTxnRef))
+                .as("Postgres SQL query : Transaction Status incorrect")
+                .isTrue();
+
         //TODO: Verify against support tool API
     }
 
 
     @Test
-    @Description("30100 :: POST v2/transact :: SUCCESS")
+    @Description("30100 :: payd-raas-gateway :: POST v2/transact :: SUCCESS")
     @TmsLink("TECH-54340")
     public void testTransactV2Success() {
         val jsonBody = setUpTransactV2Data("3", ChannelName.USSD, ChannelId.USSD, "917");
@@ -66,12 +75,17 @@ public class TransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
+        //Verify transaction status is "SUCCESS"
+        assertThat(getTransactionStatus(raasTxnRef))
+                .as("Postgres SQL query : Transaction Status incorrect")
+                .isTrue();
+
         //TODO: Verify against support tool API
     }
 
 
     @Test
-    @Description("30100 :: POST v1/transact :: SUCCESS")
+    @Description("30100 :: payd-raas-gateway :: POST v1/transact SUCCESS")
     @TmsLink("TECH-54341")
     public void testTransactV1Success() {
         val jsonBody = setUpTransactV1Data("3", USSD, ChannelId.USSD, "917");
@@ -82,6 +96,11 @@ public class TransactTest extends BaseApiTest {
                 .body("responseMessage", Matchers.containsString("Processing request"))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        assertThat(getTransactionStatus(raasTxnRef))
+                .as("Postgres SQL query : Transaction Status incorrect")
+                .isTrue();
 
         //TODO: raas db checks or verify against support tool API
 

@@ -4,7 +4,6 @@ import static db.custom_queries.BaseCustomQuery.dBSuffix;
 
 public class ProductLookupQueries extends BaseCustomQuery {
 
-    //todo query is an example needs to be override against Product Lookup logic
     public static final String GET_CLIENT_DETAILS_BY_CLIENT_ID =
             "select name from " + dBSuffixPostgres + ".payd_common.client where client_id='%d'";
 

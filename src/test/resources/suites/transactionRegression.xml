@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Regression test suite">
+<suite name="Transaction Regression test suite">
     <test name="Regression multi threads tests" parallel="classes" thread-count="2">
         <classes>
             <class name="api.reserve_and_transact.ReserveAndTransactSuccessTest"/>
             <class name="api.transact.TransactSuccessTest"/>
-            <class name="api.reserve_and_transact.ReserveAndTransactVendorsTest"/>
-            <class name="api.reserve_and_transact.ReserveAndTransactRetryableDeclineTest"/>
 
-            <class name="api.reserve_and_transact.ReserveAndTransactAdditionalRegressionTest"/>
-            <class name="api.product_lookup.ProductLookupInfoTest"/>
         </classes>
     </test>
 </suite>
