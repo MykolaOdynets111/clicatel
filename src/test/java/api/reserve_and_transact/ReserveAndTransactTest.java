@@ -1,9 +1,7 @@
 package api.reserve_and_transact;
-import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
-import com.google.common.collect.ImmutableMap;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 import lombok.val;
@@ -25,7 +23,6 @@ import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpMtnSimData;
 import static api.domains.transact.repo.TransactRequestRepo.setUpTransactV1Data;
-import static api.enums.ChannelId.MOBILE;
 import static api.enums.ChannelName.*;
 import static api.enums.CurrencyCode.*;
 import static db.enums.Sessions.POSTGRES_SQL;
@@ -873,7 +870,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2201) for RD
                 .body("ctx_response[1].responseCode", Matchers.is(2201))
                 //AND the SECOND ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
-                .body("ctx_response[2].responseCode", Matchers.is(2240))
+                .body("ctx_response[0].responseCode", Matchers.is(2240))
                 //AND transaction result is sent with valid code mapped to ctx response code (0000)
                 .body("transaction_result_request.responseCode", Matchers.is(0000))
                 //AND success response code is received from the funding source

@@ -13,6 +13,7 @@ public enum Port {
     INFLIGHT_TRANSACTIONS (30433),
     ACCOUNT_VALIDATION (30091),
     TOKEN_LOOKUP (30065),
+    MNO_LOOKUP (30049),
     MTN_SIMULATOR (31943);
 
     private final int port;
