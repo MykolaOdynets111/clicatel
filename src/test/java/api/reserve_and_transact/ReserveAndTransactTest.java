@@ -13,16 +13,17 @@ import util.base_test.BaseApiTest;
 
 import java.util.Arrays;
 
-import static api.clients.SimulatorClient.addAirtelTestCases;
-import static api.clients.SimulatorClient.removeAllAirtelTestCases;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransactWithSignature;
+import static api.clients.SimulatorClient.*;
+import static api.clients.SimulatorClient.addMtnTestCases;
 import static api.clients.SupportUiClient.getRaasFlow;
 import static api.clients.TransactClient.executeTransact;
 import static api.controls.TransactControl.getTransactionStatus;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
+import static api.domains.simulator.repo.SimulatorRequestRepo.setUpMtnSimData;
 import static api.domains.transact.repo.TransactRequestRepo.setUpTransactV1Data;
 import static api.enums.ChannelId.MOBILE;
 import static api.enums.ChannelName.*;
@@ -36,7 +37,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReserveAndTransactTest extends BaseApiTest {
 
-//SUCCESS :: v1-v4
+    //SUCCESS :: v1-v4
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-68538")
@@ -58,17 +59,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-            //Verify funds were successfully reserved (response_code equals to 0000)
+                //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-            //AND ctx response code is SUCCESSFUL (0)
+                //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-            //AND successful transaction result is sent (0000)
+                //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-            //AND success response code is received from the funding source (202)
+                //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't retried (no records found in the db)
+                //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-            //AND transaction wasn't pending (no records found in the db)
+                //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -95,17 +96,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-            //Verify funds were successfully reserved (response_code equals to 0000)
+                //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-            //AND ctx response code is SUCCESSFUL (0)
+                //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-            //AND successful transaction result is sent (0000)
+                //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-            //AND success response code is received from the funding source (202)
+                //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't retried (no records found in the db)
+                //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-            //AND transaction wasn't pending (no records found in the db)
+                //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -131,17 +132,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-            //Verify funds were successfully reserved (response_code equals to 0000)
+                //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-            //AND ctx response code is SUCCESSFUL (0)
+                //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-            //AND successful transaction result is sent (0000)
+                //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-            //AND success response code is received from the funding source (202)
+                //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't retried (no records found in the db)
+                //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-            //AND transaction wasn't pending (no records found in the db)
+                //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -167,23 +168,24 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, "blwdeowtsedqkeflgyckdn76")
                 .then().assertThat().statusCode(SC_OK)
-            //Verify funds were successfully reserved (response_code equals to 0000)
+                //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-            //AND ctx response code is SUCCESSFUL (0)
+                //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-            //AND successful transaction result is sent (0000)
+                //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-            //AND success response code is received from the funding source (202)
+                //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't retried (no records found in the db)
+                //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not("blwdeowtsedqkeflgyckdn76".concat("-0001")))
-            //AND transaction wasn't pending (no records found in the db)
+                //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not("blwdeowtsedqkeflgyckdn76".concat("-0000")));
 
     }
 
 
-//SUCCESS :: VENDORS & CLIENTS
+
+    //SUCCESS :: VENDORS & CLIENTS
     @Test
     @Description("30100 :: payd-raas-gateway :: vendor 2 (CellC) SUCCESS")
     @TmsLink("TECH-69577")
@@ -463,37 +465,36 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-            //Verify funds were successfully reserved (response_code equals to 0000)
+                //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-            //AND ctx response code is SUCCESSFUL (0)
+                //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-            //AND successful transaction result is sent (0000)
+                //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-            //AND success response code is received from the funding source (202)
+                //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't retried (no records found in the db)
+                //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-            //AND transaction wasn't pending (no records found in the db)
+                //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
 
 
 
-//PENDING :: RD :: NRD
+    //PENDING :: RD :: NRD
     @Test
-    @Description("30100 :: NonRetryableDecline")
+    @Description("30100 :: payd-raas-gateway :: NonRetryableDecline (airtel)")
     @TmsLink("TECH-57167")
     public void testReserveAndTransactNonRetryableDecline() {
-        //add test case
+        //add test case to simulate a NON_RETRYABLE_DECLINE
         val addTestCase = setUpAirtelSimData("17017", "purchase");
+
         addAirtelTestCases(Arrays.asList(addTestCase))
-                .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("17017"))
-                .body("action", Matchers.containsString("purchase"));
+                .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382068");
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
@@ -502,65 +503,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //remove test cases
+        //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases()
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
         val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
         assertThat(status)
-                .as("Postgres SQL query result should not be empty")
-                .contains("FAILED");
-
-        //Verify against support tool API
-        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
-                .then().assertThat().statusCode(SC_OK)
-            //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
-                .body("ctx_response[0].responseCode", Matchers.is(2213))
-            //AND transaction result is sent with valid ctx response code (2213)
-                .body("transaction_result_request.responseCode", Matchers.is(2213))
-            //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")))
-            //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
-
-
-    }
-
-
-    @Test
-    @Description("30100 :: Pending To SUCCESS")
-    @TmsLink("TECH-46759")
-    public void testReserveAndTransactPendingToSuccess() {
-        //add test cases
-        val addTestCase1 = setUpAirtelSimData("500", "purchase");
-        val addTestCase2 = setUpAirtelSimData("600", "purchase");
-
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
-                .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("500"))
-                .body("action", Matchers.containsString("purchase"));
-
-        //perform R&T
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382068");
-
-        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
-                .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
-                .body("raasTxnRef", Matchers.notNullValue())
-                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
-
-        //remove test cases
-        removeAllAirtelTestCases()
-                .then().assertThat().statusCode(SC_OK);
-
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result should not be empty")
+                .as("Postgres SQL query result incorrect")
                 .contains("FAILED");
 
         //Verify against support tool API
@@ -569,14 +519,423 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
                 .body("ctx_response[0].responseCode", Matchers.is(2213))
                 //AND transaction result is sent with valid ctx response code (2213)
-                .body("transaction_result_request.responseCode", Matchers.is(2213))
+                .body("transaction_result_request.responseCode", Matchers.is("2213"))
                 //AND success response code is received from the funding source
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
                 //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")))
                 //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+    }
 
 
+    @Test
+    @Description("30100 :: payd-raas-gateway :: Pending To SUCCESS (airtel)")
+    @TmsLink("TECH-46759")
+    public void testReserveAndTransactPendingToSuccess() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("500", "purchase");
+        val addTestCase2 = setUpAirtelSimData("200", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
+                .body("ctx_response[0].responseCode", Matchers.is(2240))
+                //AND transaction was pending (ctx lookup with response code 2240)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND last lookup is successful in the db (ctx lookup with response code (0))
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: Pending To NonRetryableDecline (mtn_za)")
+    @TmsLink("TECH-57302")
+    public void testReserveAndTransactPendingToNonRetryableDecline() {
+        //add test cases
+        val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
+        val addTestCase2 = setUpMtnSimData("9313", "27837640171", "repeat_virtual_recharge", 200);
+
+        addMtnTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.MTN_SIMULATOR)
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase mtn product
+        val jsonBody = setUpReserveAndTransactV4Data("2", ZAR, USSD, ChannelId.USSD, "400", "10000", "0", "27837640171");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("FAILED");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
+                .body("ctx_response[0].responseCode", Matchers.is(2240))
+                //AND transaction was pending (ctx lookup with response code 2240)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND last lookup is successful in the db (ctx lookup with response code (0))
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: RetryableDecline to SUCCESS (airtel)")
+    @TmsLink("TECH-57171")
+    public void testReserveAndTransactRetryableDeclineToSuccess() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("2238", "purchase");
+        val addTestCase2 = setUpAirtelSimData("200", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Set up testcase where action is purchase success
+        val addTestCase3 = setUpAirtelSimData("200", "purchase");
+        addAirtelTestCases(Arrays.asList(addTestCase3))
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify first ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code" (2201) for RD
+                .body("ctx_response[1].responseCode", Matchers.is(2201))
+                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0)
+                //TODO: add this check
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't pending (no records in ctx ctx lookup table)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: RetryableDecline to NonRetryableDecline (airtel)")
+    @TmsLink("TECH-57170")
+    public void testReserveAndTransactRetryableDeclineToNonRetryableDecline() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("2238", "purchase");
+        val addTestCase2 = setUpAirtelSimData("200", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Set up testcase where action is purchase non retryable decline
+        val addTestCase3 = setUpAirtelSimData("17017", "purchase");
+        addAirtelTestCases(Arrays.asList(addTestCase3))
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("FAILED");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify first ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code" (2201) for RD
+                .body("ctx_response[1].responseCode", Matchers.is(2201))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction wasn't pending (no records in ctx ctx lookup table)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: Pending To RetryableDecline To SUCCESS (airtel)")
+    @TmsLink("TECH-57169")
+    public void testReserveAndTransactPendingToRetryableDeclineToSuccess() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("500", "purchase");
+        val addTestCase2 = setUpAirtelSimData("206", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Set up testcase where action is purchase success
+        val addTestCase3 = setUpAirtelSimData("200", "purchase");
+        addAirtelTestCases(Arrays.asList(addTestCase3))
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
+                .body("ctx_response[1].responseCode", Matchers.is(2240))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where rep code = 2240
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND last lookup was RETRYABLE_DECLINE (ctx lookup with response code 2201) TODO: add check where rep code = 2201
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0) for SUCCESS TODO: and the response code = 0
+                .body("ctx_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: Pending To RetryableDecline To NonRetryableDecline (airtel)")
+    @TmsLink("TECH-46769")
+    public void testReserveAndTransactPendingToRetryableDeclineToNonRetryableDecline() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("500", "purchase");
+        val addTestCase2 = setUpAirtelSimData("206", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Set up testcase where action is purchase non retryable decline
+        val addTestCase3 = setUpAirtelSimData("17017", "purchase");
+        addAirtelTestCases(Arrays.asList(addTestCase3))
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
+                .body("ctx_response[1].responseCode", Matchers.is(2240))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where resp code = 2240
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND last lookup was RETRYABLE_DECLINE (ctx lookup with response code 2201) TODO: add check where resp code = 2201
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0) for SUCCESS TODO: and the response code = 0
+                .body("ctx_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To SUCCESS (airtel)")
+    @TmsLink("TECH-57303")
+    public void testReserveAndTransactRetryableDeclineToPendingToSuccess() {
+        //add test cases
+        val addTestCase1 = setUpAirtelSimData("2238", "purchase");
+        val addTestCase2 = setUpAirtelSimData("200", "lookup");
+
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase airtel product
+        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Set up testcase where action is purchase pending
+        val addTestCase3 = setUpAirtelSimData("500", "purchase");
+        addAirtelTestCases(Arrays.asList(addTestCase3))
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "SUCCESS"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2201) for RD
+                .body("ctx_response[1].responseCode", Matchers.is(2201))
+                //AND the SECOND ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
+                .body("ctx_response[2].responseCode", Matchers.is(2240))
+                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("transaction_result_request.responseCode", Matchers.is(0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where resp code = 2240
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //AND last lookup is successful in the db (ctx lookup with response code (0))
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To NonRetryableDecline (mtn_za)")
+    @TmsLink("TECH-57304")
+    public void testReserveAndTransactRetryableDeclineToPendingToNonRetryableDecline() {
+        //add test cases
+        val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
+
+        addMtnTestCases(Arrays.asList(addTestCase1), Port.MTN_SIMULATOR)
+                .then().assertThat().statusCode(SC_OK);
+
+        //perform R&T - purchase mtn product
+        val jsonBody = setUpReserveAndTransactV4Data("2", ZAR, USSD, ChannelId.USSD, "400", "10000", "0", "27837640171");
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString("0000"))
+                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //add first test: mapped to ctx PENDING response code (9318) "action" is "purchase" (virtual_recharge)
+        val addTestCase2 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
+        //add second test: mapped to ctx NON_RETRYABLE_DECLINE response code (9313) "action" is "lookup" (repeat_virtual_recharge)
+        val addTestCase3 = setUpMtnSimData("9313", "27837640171", "repeat_virtual_recharge", 200);
+
+        addMtnTestCases(Arrays.asList(addTestCase2,addTestCase3), Port.MTN_SIMULATOR)
+                .then().assertThat().statusCode(SC_OK);
+
+        //set simulator to the default state (delete simulator tests)
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
+
+        //raas db check --- transaction status is "FAILED"
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("FAILED");
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //Verify first response code matches "TransactionResponseCode" mapped to "mtn_za Response Code"(2201)
+                .body("ctx_response[0].responseCode", Matchers.is(2201))
+                //AND transaction was pending (ctx lookup with response code 2236)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")))
+                //AND last lookup is failed in the db (ctx lookup with response code 2213) TODO: Check response code matches 2213
+                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")))
+                //AND second response code matches "TransactionResponseCode" mapped to "mtn_za Response Code"(2236) TODO: Check response code matches 2236
+                .body("ctx_response[1].clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                //AND transactions were retried only two times
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0002")));
     }
 }
