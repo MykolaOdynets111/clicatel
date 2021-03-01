@@ -13,20 +13,17 @@ import util.base_test.BaseApiTest;
 
 import java.util.Arrays;
 
+import static api.clients.InFlightTransactionLookupClient.lookupPendingTransactions;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 import static api.clients.SimulatorClient.addAirtelTestCases;
 import static api.clients.SimulatorClient.removeAllAirtelTestCases;
-import static api.clients.SupportUiClient.getRaasFlow;
+import static api.domains.inflight_transaction.repo.InFlightTransactionRequestRepo.setUpInFlightTransactionData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4Data;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData;
 import static api.enums.ChannelName.USSD;
 import static api.enums.CurrencyCode.NGN;
-import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
-import static db.custom_queries.ReserveAndTransactQueries.GET_TRANSACTION_STATUS;
-import static db.enums.Sessions.POSTGRES_SQL;
-import static java.lang.String.format;
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.assertj.core.api.Assertions.assertThat;
+
 
 public class InFlightTransactionTest extends BaseApiTest {
 
@@ -51,25 +48,16 @@ public class InFlightTransactionTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
+        //perform lookup service for pending transactions
+        val lookupBody = setUpInFlightTransactionData("2348038382067", 3, 130, 10000);
+
+        lookupPendingTransactions(lookupBody,Port.INFLIGHT_TRANSACTIONS)
+                .then().assertThat().statusCode(SC_OK)
+                .body("hasPendingTransactions", Matchers.is(true));
+
         //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases()
                 .then().assertThat().statusCode(SC_OK);
-
-        //raas db check --- transaction status is "SUCCESS"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
-
-        //Verify against support tool API
-        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
-                .then().assertThat().statusCode(SC_OK)
-            //Verify transaction result is sent with valid code mapped to ctx response code (0000)
-                .body("transaction_result_request.responseCode", Matchers.is(0000))
-            //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
-            //AND last lookup is successful in the db (ctx lookup with response code (0))
-                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
     }
 
 }
