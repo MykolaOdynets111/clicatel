@@ -3,12 +3,10 @@ package api.clients;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.enums.Port;
 import api.enums.Version;
-import com.google.common.collect.ImmutableMap;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 import lombok.Getter;
 
-import java.util.Map;
 
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Regression test suite">
+    <test name="Regression tests">
+        <packages>
+            <package name="api.transact"/>
+            <package name="api.product_lookup"/>
+            <package name="api.mno_lookup"/>
+            <package name="api.reserve_and_transact"/>
+            <package name="api.token_lookup"/>
+        </packages>
+    </test>
+</suite>

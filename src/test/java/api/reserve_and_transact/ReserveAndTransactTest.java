@@ -56,17 +56,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify funds were successfully reserved (response_code equals to 0000)
+            //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-                //AND ctx response code is SUCCESSFUL (0)
+            //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-                //AND successful transaction result is sent (0000)
+            //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-                //AND success response code is received from the funding source (202)
+            //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-                //AND transaction wasn't retried (no records found in the db)
+            //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-                //AND transaction wasn't pending (no records found in the db)
+            //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -93,17 +93,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify funds were successfully reserved (response_code equals to 0000)
+            //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-                //AND ctx response code is SUCCESSFUL (0)
+            //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-                //AND successful transaction result is sent (0000)
+            //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-                //AND success response code is received from the funding source (202)
+            //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-                //AND transaction wasn't retried (no records found in the db)
+            //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-                //AND transaction wasn't pending (no records found in the db)
+            //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -129,17 +129,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify funds were successfully reserved (response_code equals to 0000)
+            //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-                //AND ctx response code is SUCCESSFUL (0)
+            //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-                //AND successful transaction result is sent (0000)
+            //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-                //AND success response code is received from the funding source (202)
+            //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-                //AND transaction wasn't retried (no records found in the db)
+            //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-                //AND transaction wasn't pending (no records found in the db)
+            //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
@@ -163,20 +163,20 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .isTrue();
 
         //Verify against support tool API
-        getRaasFlow(Port.RAAS_FLOW, "blwdeowtsedqkeflgyckdn76")
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify funds were successfully reserved (response_code equals to 0000)
+            //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-                //AND ctx response code is SUCCESSFUL (0)
+            //AND ctx response code is SUCCESSFUL (0)
                 .body("ctx_response[0].responseCode", Matchers.is(0))
-                //AND successful transaction result is sent (0000)
+            //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is("0000"))
-                //AND success response code is received from the funding source (202)
+            //AND success response code is received from the funding source (202)
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
-                //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not("blwdeowtsedqkeflgyckdn76".concat("-0001")))
-                //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not("blwdeowtsedqkeflgyckdn76".concat("-0000")));
+            //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+            //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
 
     }
 

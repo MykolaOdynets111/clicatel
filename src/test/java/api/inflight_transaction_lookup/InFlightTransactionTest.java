@@ -56,8 +56,8 @@ public class InFlightTransactionTest extends BaseApiTest {
                 .body("hasPendingTransactions", Matchers.is(true));
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
-                .then().assertThat().statusCode(SC_OK);
+//        removeAllAirtelTestCases()
+//                .then().assertThat().statusCode(SC_OK);
     }
 
 }

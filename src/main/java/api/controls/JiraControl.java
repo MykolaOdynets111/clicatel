@@ -132,11 +132,11 @@ public class JiraControl {
                             .getFieldByName(JIRA_TC_TEMPLATE_NAME), format("Test case template for the test case: '%s' shouldn't be null !!", template))
                             .getValue();
                 } catch (InterruptedException e) {
-                    log.info(format("Test case was not fount because of: '%s'", e.getMessage()));
+                    log.info(format("Test case was not found because of: '%s'", e.getMessage()));
                     if (e.getCause() != null)
-                        log.info(format("The cause of why test case was not fount is: '%s'", e.getCause().getMessage()));
+                        log.info(format("The cause of why test case was not found is: '%s'", e.getCause().getMessage()));
                 } catch (ExecutionException e) {
-                    log.info(format("Test case was not fount because of: '%s'", e.getMessage()));
+                    log.info(format("Test case was not found because of: '%s'", e.getMessage()));
                 }
 
                 for (val allureResultModel : requireNonNull(allureResults, "Allure results shouldn't be null !!").entrySet()) {

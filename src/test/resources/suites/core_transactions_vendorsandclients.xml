@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Transactions for Vendors and Clients">
+    <test name="Transactions for Vendors and Clients">
+        <classes>
+            <class name="api.reserve_and_transact.ReserveAndTransactTest">
+                <methods>
+                    <include name="testReserveAndTransactVendor2CellCSuccess"/>
+                    <include name="testReserveAndTransactVendor3MtnZaSuccess"/>
+                    <include name="testReserveAndTransactVendor4VodacomSuccess"/>
+                    <include name="testReserveAndTransactVendor5TelkomSuccess"/>
+                    <include name="testReserveAndTransactVendor15ThreelineSuccess"/>
+                    <include name="testReserveAndTransactVendor21MwmSuccess"/>
+                    <include name="testReserveAndTransactVendor23MtnZaSuccess"/>
+                    <include name="testReserveAndTransactVendor100MtnNgSuccess"/>
+                    <include name="testReserveAndTransactVendor101GloSuccess"/>
+                    <include name="testReserveAndTransactVendor1029MobileEtisalatSuccess"/>
+                    <include name="testReserveAndTransactVendor103AirtelAirtimeSuccess"/>
+                    <include name="testReserveAndTransactVendor103AirtelDataSuccess"/>
+                    <include name="testReserveAndTransactWithSignatureSuccess"/>
+                </methods>
+            </class>
+            <class name="api.transact.TransactSuccessTest"/>
+        </classes>
+    </test>
+</suite>
