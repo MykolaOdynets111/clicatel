@@ -19,9 +19,10 @@ public class TransactControl {
     public static Boolean getTransactionStatus(final String raasTxnRef) {
         val beginTime = LocalTime.now();
         val finishTime = beginTime.plusMinutes(1);
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+
         for (var i = beginTime; i.isBefore(finishTime); i = LocalTime.now()) {
             try {
-                val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
                 if (status.equals("SUCCESS")) {
                     return true;
                 }
@@ -31,8 +32,8 @@ public class TransactControl {
                     log.warning(String.valueOf(e.getCause()));
                 }
             }
-            waitForSystemLoading(10);
+            waitForSystemLoading(20);
         }
-        throw new IllegalStateException("The transaction status is incorrect !");
+        throw new IllegalStateException("The transaction status is incorrect :: " + status);
     }
 }

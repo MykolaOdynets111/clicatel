@@ -9,6 +9,9 @@
             <package name="api.mno_lookup"/>
             <package name="api.reserve_and_transact"/>
             <package name="api.token_lookup"/>
+            <package name="api.inflight_transaction_lookup"/>
+            <package name="api.notification"/>
+
         </packages>
     </test>
 </suite>

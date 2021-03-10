@@ -26,13 +26,17 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("32000 :: Product Lookup :: Smoke")
     @TmsLink("TECH-60228")
     public void testProductLookupInformationSmokeSuccess() {
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2)
+        Map <String, String> map = new Hashtable<>();
+        map.put("clientId","3");
+        map.put("productId","130");
+
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130))
                 .body("[0].publicProduct.productTypeId", Matchers.is(3))
                 .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
 
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2)
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130),
                         "[0].publicProduct.productTypeId", Matchers.is(3),
@@ -68,13 +72,17 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("32000 :: public internal :: GET /public/v2/productInfo :: Product Lookup API (2.0)")
     @TmsLink("TECH-54434")
     public void testProductLookupInformationV2Success() {
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2)
+        Map <String, String> map = new Hashtable<>();
+        map.put("clientId","3");
+        map.put("productId","130");
+
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130))
                 .body("[0].publicProduct.productTypeId", Matchers.is(3))
                 .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
 
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2)
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130),
                         "[0].publicProduct.productTypeId", Matchers.is(3),
@@ -87,13 +95,27 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("32000 :: public internal :: GET /public/v3/productInfo :: Product Lookup API (3.0)")
     @TmsLink("TECH-66575")
     public void testProductLookupInformationV3Success() {
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3)
+        Map <String, String> map = new Hashtable<>();
+        map.put("clientId","3");
+        //map.put("targetIdentifier","2348085767001");
+        map.put("productId","130");
+        //map.put("productTypeId","3");
+        //map.put("includeInactive","true");
+        //map.put("topSeller","true");
+        //map.put("subscriberType","EBU");
+        //map.put("topSellerPlatform","SMS");
+        //map.put("purchaseMedium","Card");
+        //map.put("channelId","2");
+        //map.put("vendorId","103");
+        //map.put("sortBy","singlePrice,asc");
+
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130))
                 .body("[0].publicProduct.productTypeId", Matchers.is(3))
                 .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
 
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3)
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("[0].publicProduct.id", Matchers.is(130),
                         "[0].publicProduct.productTypeId", Matchers.is(3),
@@ -104,7 +126,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
     @Test
-    @Description("")
+    @Description("DB Test")
     @TmsLink("")
     public void testSomeDBValidation() {
        //val mySql = executeCustomQueryAndReturnValue(MY_SQL, GET_CLIENT_BY_CLIENT_ID);

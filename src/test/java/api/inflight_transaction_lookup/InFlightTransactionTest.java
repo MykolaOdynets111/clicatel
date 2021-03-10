@@ -32,8 +32,8 @@ public class InFlightTransactionTest extends BaseApiTest {
     @TmsLink("TECH-54418")
     public void testLookupPendingTransactionsSuccess() {
         //add test cases
-        val addTestCase1 = setUpAirtelSimData("17017", "lookup");
-        val addTestCase2 = setUpAirtelSimData("17017", "purchase");
+        val addTestCase1 = setUpAirtelSimData("200", "lookup");
+        val addTestCase2 = setUpAirtelSimData("500", "purchase");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
                 .then().assertThat().statusCode(SC_OK);
@@ -56,8 +56,8 @@ public class InFlightTransactionTest extends BaseApiTest {
                 .body("hasPendingTransactions", Matchers.is(true));
 
         //set simulator to the default state (delete simulator tests)
-//        removeAllAirtelTestCases()
-//                .then().assertThat().statusCode(SC_OK);
+        removeAllAirtelTestCases()
+                .then().assertThat().statusCode(SC_OK);
     }
 
 }

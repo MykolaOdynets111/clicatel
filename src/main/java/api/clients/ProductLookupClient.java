@@ -24,12 +24,13 @@ public class ProductLookupClient extends BasedAPIClient {
                         .build());
     }
 
-    public static Response getProductInfo(Port port, Version version) {
+    public static Response getProductInfo(Port port, Version version, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/public/%s/productInfo",baseUrl,port.getPort(),version.getVersion()))
-                        .addQueryParam("clientId","3")
-                        .addQueryParam("productId","130")
+                        .addQueryParams(queryParams)
+                        //.addQueryParam("clientId","3")
+                        //.addQueryParam("productId","130")
                         .setContentType(JSON)
                         .log(ALL)
                         .build());

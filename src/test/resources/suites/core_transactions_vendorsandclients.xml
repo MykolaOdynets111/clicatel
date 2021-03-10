@@ -21,7 +21,6 @@
                     <include name="testReserveAndTransactWithSignatureSuccess"/>
                 </methods>
             </class>
-            <class name="api.transact.TransactSuccessTest"/>
         </classes>
     </test>
 </suite>
