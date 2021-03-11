@@ -1,4 +1,4 @@
-package api.token_lookup;
+package api.user_transaction_lookup;
 
 import api.enums.Port;
 import io.qameta.allure.Description;
@@ -26,7 +26,7 @@ public class TokenLookupTest extends BaseApiTest {
         queryParams.put("productTypeId","17");
         queryParams.put("limit","1");
 
-        getUserTokens(Port.TOKEN_LOOKUP, queryParams)
+        getUserTokens(Port.USER_TRANSACTIONS, queryParams)
                 .then().assertThat().statusCode(SC_OK)
                 .body("userTokens[0].targetIdentifier", Matchers.containsString("2341111111111"))
                 .body("userTokens[0].clientId", Matchers.is(3))

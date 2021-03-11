@@ -14,7 +14,7 @@ public enum Port {
     NOTIFICATION (30116),
     PRODUCT_LOOKUP (32000),
     RAAS_FLOW (31000),
-    TOKEN_LOOKUP (30065),
+    USER_TRANSACTIONS (30065),
     TRANSACTIONS (30100);
 
     private final int port;

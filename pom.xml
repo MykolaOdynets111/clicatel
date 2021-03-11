@@ -88,38 +88,26 @@
             <properties>
                 <env>uat</env>
             </properties>
-        </profile>
-        <profile>
-            <id>testing</id>
-            <properties>
-                <env>testing</env>
-            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
         <profile>
-            <id>demo.alfa</id>
+            <id>trans_qa</id>
             <properties>
-                <env>demo.alfa</env>
+                <env>trans_qa</env>
             </properties>
         </profile>
         <profile>
-            <id>demo.bravo</id>
+            <id>trans_uat</id>
             <properties>
-                <env>demo.bravo</env>
+                <env>trans_uat</env>
             </properties>
         </profile>
         <profile>
-            <id>stage</id>
+            <id>trans_dev</id>
             <properties>
-                <env>stage</env>
-            </properties>
-        </profile>
-        <profile>
-            <id>standby</id>
-            <properties>
-                <env>standby</env>
+                <env>trans_dev</env>
             </properties>
         </profile>
     </profiles>
