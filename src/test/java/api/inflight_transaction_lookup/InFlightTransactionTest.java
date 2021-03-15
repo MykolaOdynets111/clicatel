@@ -51,7 +51,7 @@ public class InFlightTransactionTest extends BaseApiTest {
         //perform lookup service for pending transactions
         val lookupBody = setUpInFlightTransactionData("2348038382067", 3, 130, 10000);
 
-        lookupPendingTransactions(lookupBody,Port.INFLIGHT_TRANSACTIONS)
+        lookupPendingTransactions(lookupBody,Port.TRANSACTION_LOOKUP_SERVICE)
                 .then().assertThat().statusCode(SC_OK)
                 .body("hasPendingTransactions", Matchers.is(true));
 
