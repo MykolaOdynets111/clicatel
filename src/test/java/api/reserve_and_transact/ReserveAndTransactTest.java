@@ -197,9 +197,10 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
         //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+        assertThat(status)
+                .as("Postgres SQL query result incorrect")
+                .contains("SUCCESS");
     }
 
 
