@@ -16,8 +16,8 @@ import lombok.*;
 
 public class TransactionLookupRequest {
 
-    @JsonProperty("reserveFundsTxnRef")
-    private String reserveFundsTxnRef;
+    @JsonProperty("raasTxnRef")
+    private String raasTxnRef;
 
     @JsonProperty("clientId")
     private int clientId;

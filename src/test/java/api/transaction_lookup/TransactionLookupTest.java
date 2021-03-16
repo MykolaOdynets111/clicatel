@@ -13,32 +13,23 @@ import lombok.val;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
-
 import java.util.Hashtable;
 import java.util.Map;
-
-import static api.clients.MnoLookupClient.getMnoInfo;
 import static api.clients.TransactionLookupClient.getTransactionInfo;
 import static api.clients.TransactionLookupClient.getTransactionInfoV2;
-import static api.clients.SimulatorClient.removeAllAirtelTestCases;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4Data;
 import static api.enums.ChannelName.USSD;
 import static api.enums.CurrencyCode.NGN;
-import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
-import static db.custom_queries.MnoLookupQueries.GET_LOOKUP_RESPONSE_CODE;
-import static db.enums.Sessions.POSTGRES_SQL;
-import static java.lang.String.format;
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.assertj.core.api.Assertions.assertThat;
 
-public class transactionLookupTest extends BaseApiTest {
+public class TransactionLookupTest extends BaseApiTest {
     private ReserveAndTransactRequest jsonBody;
 
     @Test
     @Description("30433 :: transaction-lookup :: public internal :: GET /lookupservice/transaction :: Transaction Lookup API (1.0)")
     @TmsLink("TECH-54420")
-    public void testLookupTransactionsAPIv1() {
+    public void testLookupTransactionsApiV1Success() {
         // Peform purchase
         jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
 
@@ -68,7 +59,7 @@ public class transactionLookupTest extends BaseApiTest {
     @Test
     @Description("30433 :: transaction-lookup :: public internal :: GET / lookupservice/transaction/v2 :: Transaction Lookup API (2.0)")
     @TmsLink("TECH-54422")
-    public void testLookupTransactionsAPIv2() {
+    public void testLookupTransactionsApiV2Success() {
         // Peform purchase
         jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
 
