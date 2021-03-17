@@ -14,22 +14,20 @@ import static io.restassured.http.ContentType.JSON;
 @Getter
 public class SimulatorClient extends BasedAPIClient {
 
-    public static Response addAirtelTestCases(List<SimulatorRequest> body) {
+    public static Response addAirtelTestCases(List<SimulatorRequest> body, Port port) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
-                        .setBaseUri("http://ha-airtel-sim.uat.ng01.payd.co/airtelSimulator")
-                        .setBasePath("/addtestcases")
+                        .setBaseUri(String.format("%s:%d/airtelSimulator/addtestcases",baseUrl,port.getPort()))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
     }
 
-    public static Response removeAllAirtelTestCases() {
+    public static Response removeAllAirtelTestCases(Port port) {
         return basedAPIClient.get()
                 .delete(new RequestSpecBuilder()
-                        .setBaseUri("http://ha-airtel-sim.uat.ng01.payd.co/airtelSimulator")
-                        .setBasePath("/removealltestcases")
+                        .setBaseUri(String.format("%s:%d/airtelSimulator/removealltestcases",baseUrl,port.getPort()))
                         .setContentType(JSON)
                         .log(ALL)
                         .build());

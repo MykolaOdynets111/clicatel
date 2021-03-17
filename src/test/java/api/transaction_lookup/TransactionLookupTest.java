@@ -60,7 +60,7 @@ public class TransactionLookupTest extends BaseApiTest {
     @Description("30433 :: transaction-lookup :: public internal :: GET / lookupservice/transaction/v2 :: Transaction Lookup API (2.0)")
     @TmsLink("TECH-54422")
     public void testLookupTransactionsApiV2Success() {
-        // Peform purchase
+        // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -69,6 +69,7 @@ public class TransactionLookupTest extends BaseApiTest {
                 .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
         //Get transaction details from lookup service v2
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", "3");

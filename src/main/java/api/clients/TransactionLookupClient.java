@@ -1,5 +1,4 @@
 package api.clients;
-import api.domains.transact.model.TransactRequest;
 import api.enums.Port;
 import api.enums.Version;
 import io.restassured.builder.RequestSpecBuilder;

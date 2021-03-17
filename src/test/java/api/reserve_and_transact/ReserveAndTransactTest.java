@@ -488,7 +488,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //add test case to simulate a NON_RETRYABLE_DECLINE
         val addTestCase = setUpAirtelSimData("17017", "purchase");
 
-        addAirtelTestCases(Arrays.asList(addTestCase))
+        addAirtelTestCases(Arrays.asList(addTestCase), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -502,7 +502,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
@@ -535,7 +535,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("500", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -549,7 +549,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
@@ -597,7 +597,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllMtnTestCases(Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
@@ -631,7 +631,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -646,11 +646,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         //Set up testcase where action is purchase success
         val addTestCase3 = setUpAirtelSimData("200", "purchase");
-        addAirtelTestCases(Arrays.asList(addTestCase3))
+        addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
@@ -682,7 +682,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -697,11 +697,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData("17017", "purchase");
-        addAirtelTestCases(Arrays.asList(addTestCase3))
+        addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
@@ -731,7 +731,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("500", "purchase");
         val addTestCase2 = setUpAirtelSimData("206", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -746,11 +746,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         //Set up testcase where action is purchase success
         val addTestCase3 = setUpAirtelSimData("200", "purchase");
-        addAirtelTestCases(Arrays.asList(addTestCase3))
+        addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "SUCCESS"
@@ -784,7 +784,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("500", "purchase");
         val addTestCase2 = setUpAirtelSimData("206", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -799,11 +799,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData("17017", "purchase");
-        addAirtelTestCases(Arrays.asList(addTestCase3))
+        addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "SUCCESS"
@@ -837,7 +837,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
-        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2))
+        addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
@@ -852,11 +852,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         //Set up testcase where action is purchase pending
         val addTestCase3 = setUpAirtelSimData("500", "purchase");
-        addAirtelTestCases(Arrays.asList(addTestCase3))
+        addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "SUCCESS"
@@ -911,7 +911,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .then().assertThat().statusCode(SC_OK);
 
         //set simulator to the default state (delete simulator tests)
-        removeAllAirtelTestCases()
+        removeAllMtnTestCases(Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED"
