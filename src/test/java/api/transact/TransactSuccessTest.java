@@ -9,14 +9,14 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
-import static api.clients.SupportUiClient.getRaasFlow;
+import java.util.Hashtable;
+import java.util.Map;
+
 import static api.clients.TransactClient.executeTransact;
-import static api.controls.TransactControl.getTransactionStatus;
+import static api.clients.TransactionLookupClient.findTransaction;
 import static api.domains.transact.repo.TransactRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.assertj.core.api.Assertions.assertThat;
-import static util.Waits.waitForSystemLoading;
 
 public class TransactSuccessTest extends BaseApiTest {
 
@@ -33,11 +33,14 @@ public class TransactSuccessTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
-        waitForSystemLoading(30);
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
         //Verify against support tool API
 //        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -70,11 +73,14 @@ public class TransactSuccessTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //Verify transaction status is "SUCCESS"
-//        assertThat(getTransactionStatus(raasTxnRef))
-//                .as("Postgres SQL query : Transaction Status incorrect")
-//                .isTrue();
-//        waitForSystemLoading(30);
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
     //Verify against support tool API
 //        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -107,11 +113,14 @@ public class TransactSuccessTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //Verify transaction status is "SUCCESS"
-//        assertThat(getTransactionStatus(raasTxnRef))
-//                .as("Postgres SQL query : Transaction Status incorrect")
-//                .isTrue();
-//        waitForSystemLoading(30);
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
         //Verify against support tool API
 //        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -144,27 +153,14 @@ public class TransactSuccessTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //Verify transaction status is "SUCCESS"
-//        assertThat(getTransactionStatus(raasTxnRef))
-//                .as("Postgres SQL query : Transaction Status incorrect")
-//                .isTrue();
-//        waitForSystemLoading(30);
-
-//Verify against support tool API
-//        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
-//                .then().assertThat().statusCode(SC_OK)
-//            //Verify funds were successfully reserved (response_code equals to 0000)
-//                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-//            //AND ctx response code is SUCCESSFUL (0)
-//                .body("ctx_response[0].responseCode", Matchers.is(0))
-//            //AND successful transaction result is sent (0000)
-//                .body("transaction_result_request.responseCode", Matchers.is("0000"))
-//            //AND success response code is received from the funding source (202)
-//                .body("transaction_result_response.responseCode", Matchers.is("202"))
-//            //AND transaction wasn't retried (no records found in the db)
-//                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-//            //AND transaction wasn't pending (no records found in the db)
-//                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 }

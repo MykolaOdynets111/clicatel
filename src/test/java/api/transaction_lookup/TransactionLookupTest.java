@@ -1,6 +1,5 @@
 package api.transaction_lookup;
 
-import api.domains.mno_lookup.model.MnoLookupResponse;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transaction_lookup.model.TransactionLookupResponse;
@@ -15,7 +14,7 @@ import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 import java.util.Hashtable;
 import java.util.Map;
-import static api.clients.TransactionLookupClient.getTransactionInfo;
+import static api.clients.TransactionLookupClient.findTransaction;
 import static api.clients.TransactionLookupClient.getTransactionInfoV2;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4Data;
@@ -30,7 +29,7 @@ public class TransactionLookupTest extends BaseApiTest {
     @Description("30433 :: transaction-lookup :: public internal :: GET /lookupservice/transaction :: Transaction Lookup API (1.0)")
     @TmsLink("TECH-54420")
     public void testLookupTransactionsApiV1Success() {
-        // Peform purchase
+        // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -44,7 +43,7 @@ public class TransactionLookupTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        getTransactionInfo(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("amount", Matchers.comparesEqualTo(10000))

@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
 import java.util.Arrays;
+import java.util.Hashtable;
+import java.util.Map;
 
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 
@@ -18,19 +20,14 @@ import static api.clients.SimulatorClient.*;
 import static api.clients.SimulatorClient.addMtnTestCases;
 import static api.clients.SupportUiClient.getRaasFlow;
 import static api.clients.TransactClient.executeTransact;
-import static api.controls.TransactControl.getTransactionStatus;
+import static api.clients.TransactionLookupClient.findTransaction;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpMtnSimData;
 import static api.domains.transact.repo.TransactRequestRepo.setUpTransactV1Data;
 import static api.enums.ChannelName.*;
 import static api.enums.CurrencyCode.*;
-import static db.enums.Sessions.POSTGRES_SQL;
-import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
-import static db.custom_queries.ReserveAndTransactQueries.GET_TRANSACTION_STATUS;
-import static java.lang.String.format;
 import static org.apache.http.HttpStatus.SC_OK;
-import static org.assertj.core.api.Assertions.assertThat;
 
 public class ReserveAndTransactTest extends BaseApiTest {
 
@@ -48,12 +45,21 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+//        //raas db check replaced with API check (TransactionLookup)
+//        assertThat(getTransactionStatus(raasTxnRef))
+//                .as("Postgres SQL query : Transaction Status incorrect")
+//                .isTrue();
 
-        //Verify against support tool API
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
@@ -85,12 +91,16 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
@@ -121,12 +131,16 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
@@ -157,12 +171,16 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-//        assertThat(getTransactionStatus(raasTxnRef))
-//                .as("Postgres SQL query : Transaction Status incorrect")
-//                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
@@ -196,11 +214,20 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+        //raas db check - being replaced by API transaction lookup check
+//        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+//        assertThat(status)
+//                .as("Postgres SQL query result incorrect")
+//                .contains("SUCCESS");
+
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -217,10 +244,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -237,10 +268,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -257,10 +292,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -277,10 +316,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -297,10 +340,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "206");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -317,10 +364,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -337,10 +388,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -357,10 +412,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -377,10 +436,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -397,10 +460,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -417,10 +484,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
     }
 
 
@@ -455,10 +526,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check --- Verify transaction status is "SUCCESS"
-        assertThat(getTransactionStatus(raasTxnRef))
-                .as("Postgres SQL query : Transaction Status incorrect")
-                .isTrue();
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "1003");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -505,11 +580,20 @@ public class ReserveAndTransactTest extends BaseApiTest {
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("FAILED");
+        //raas db check --- transaction status is "FAILED" - replaced with API transactionlookup check
+//        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+//        assertThat(status)
+//                .as("Postgres SQL query result incorrect")
+//                .contains("FAILED");
+
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -552,11 +636,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -600,11 +687,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
         removeAllMtnTestCases(Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("FAILED");
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -627,14 +717,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: RetryableDecline to SUCCESS (airtel)")
     @TmsLink("TECH-57171")
     public void testReserveAndTransactRetryableDeclineToSuccess() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase airtel product
+    //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -644,22 +734,25 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //Set up testcase where action is purchase success
+    //Set up testcase where action is purchase success
         val addTestCase3 = setUpAirtelSimData("200", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify first ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code" (2201) for RD
@@ -678,14 +771,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: RetryableDecline to NonRetryableDecline (airtel)")
     @TmsLink("TECH-57170")
     public void testReserveAndTransactRetryableDeclineToNonRetryableDecline() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase airtel product
+    //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -695,20 +788,23 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //Set up testcase where action is purchase non retryable decline
+    //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData("17017", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("FAILED");
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -727,14 +823,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: Pending To RetryableDecline To SUCCESS (airtel)")
     @TmsLink("TECH-57169")
     public void testReserveAndTransactPendingToRetryableDeclineToSuccess() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpAirtelSimData("500", "purchase");
         val addTestCase2 = setUpAirtelSimData("206", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase airtel product
+    //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -744,22 +840,25 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //Set up testcase where action is purchase success
+    //Set up testcase where action is purchase success
         val addTestCase3 = setUpAirtelSimData("200", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "SUCCESS"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
@@ -780,14 +879,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: Pending To RetryableDecline To NonRetryableDecline (airtel)")
     @TmsLink("TECH-46769")
     public void testReserveAndTransactPendingToRetryableDeclineToNonRetryableDecline() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpAirtelSimData("500", "purchase");
         val addTestCase2 = setUpAirtelSimData("206", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase airtel product
+    //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -797,22 +896,25 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //Set up testcase where action is purchase non retryable decline
+    //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData("17017", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "SUCCESS"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
@@ -833,14 +935,14 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To SUCCESS (airtel)")
     @TmsLink("TECH-57303")
     public void testReserveAndTransactRetryableDeclineToPendingToSuccess() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpAirtelSimData("2238", "purchase");
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase airtel product
+    //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -850,22 +952,25 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //Set up testcase where action is purchase pending
+    //Set up testcase where action is purchase pending
         val addTestCase3 = setUpAirtelSimData("500", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "SUCCESS"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("SUCCESS");
+    //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "3");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2201) for RD
@@ -886,13 +991,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To NonRetryableDecline (mtn_za)")
     @TmsLink("TECH-57304")
     public void testReserveAndTransactRetryableDeclineToPendingToNonRetryableDecline() {
-        //add test cases
+    //add test cases
         val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
 
         addMtnTestCases(Arrays.asList(addTestCase1), Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //perform R&T - purchase mtn product
+    //perform R&T - purchase mtn product
         val jsonBody = setUpReserveAndTransactV4Data("2", ZAR, USSD, ChannelId.USSD, "400", "10000", "0", "27837640171");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -902,25 +1007,28 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //add first test: mapped to ctx PENDING response code (9318) "action" is "purchase" (virtual_recharge)
+    //add first test: mapped to ctx PENDING response code (9318) "action" is "purchase" (virtual_recharge)
         val addTestCase2 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
-        //add second test: mapped to ctx NON_RETRYABLE_DECLINE response code (9313) "action" is "lookup" (repeat_virtual_recharge)
+    //add second test: mapped to ctx NON_RETRYABLE_DECLINE response code (9313) "action" is "lookup" (repeat_virtual_recharge)
         val addTestCase3 = setUpMtnSimData("9313", "27837640171", "repeat_virtual_recharge", 200);
 
         addMtnTestCases(Arrays.asList(addTestCase2,addTestCase3), Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //set simulator to the default state (delete simulator tests)
+    //set simulator to the default state (delete simulator tests)
         removeAllMtnTestCases(Port.MTN_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
-        //raas db check --- transaction status is "FAILED"
-        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("FAILED");
+    //Verify transaction status is "FAILED"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", "2");
+        queryParams.put("raasTxnRef", raasTxnRef);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString("FAILED"));
 
-        //Verify against support tool API
+    //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify first response code matches "TransactionResponseCode" mapped to "mtn_za Response Code"(2201)

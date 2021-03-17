@@ -10,7 +10,7 @@ import static io.restassured.http.ContentType.JSON;
 
 @Getter
 public class TransactionLookupClient extends BasedAPIClient {
-    public static Response getTransactionInfo(Port port, Map<String, String> queryParams) {
+    public static Response findTransaction(Port port, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/lookupservice/transaction", baseUrl, port.getPort()))
