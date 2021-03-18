@@ -71,12 +71,11 @@ public class TransactionLookupTest extends BaseApiTest {
 
         //Get transaction details from lookup service v2
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        getTransactionInfoV2(Port.TRANSACTION_LOOKUP_SERVICE, queryParams, Version.V2)
+        getTransactionInfoV2(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("amount", Matchers.comparesEqualTo(10000))
+                .body("reserveAmount", Matchers.comparesEqualTo(10000))
                 .body("productId", Matchers.comparesEqualTo(100))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"))
                 .body("reserveFundsResponseCode", Matchers.containsString("0000"))

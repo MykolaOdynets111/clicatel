@@ -40,6 +40,9 @@ public class TransactionLookupResponse {
     @JsonProperty("reserveFundsResponseCode")
     private String reserveFundsResponseCode;
 
+    @JsonProperty("reserveAmount")
+    private String reserveAmount;
+
     @JsonProperty("transactResultResponseCode")
     private String transactResultResponseCode;
 
