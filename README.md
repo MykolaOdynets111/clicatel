@@ -57,6 +57,11 @@ Currently evaluable profiles are (list of appropriate configuration e.g. credent
 ```mvn clean test -Dsuite='name of your particular suite' -P 'name of your particular profile'```
 
 e.g. ```mvn clean test -Dsuite=core_api_smoke -Puat```
+##### Particular suite for a specific test plan:
+
+```mvn clean test -Dsuite='name of your particular suite' -Djira.logging=true -Dbrowser.remote=true -Djira.test.plan='ticket number of test plan in Jira' -P 'name of your particular profile'```
+
+e.g. ```mvn clean test -Dsuite=core_api_smoke -Djira.logging=true -Dbrowser.remote=true -Djira.test.plan=TECH-82628 -Puat```
 - - - -
 ##### Single test:
 
