@@ -33,19 +33,19 @@
 
 ```mvn clean test -Dsuite='name of your particular suite' -P 'name of your particular profile'```
 
-e.g.: ```mvn clean test -Dsuite=regression -P uat```
+e.g.: ```mvn clean test -Dsuite=core_api_regression -P uat```
 
 or
 
-e.g.: ```mvn clean test -P uat``` (-Dsuite=regression set by default)
+e.g.: ```mvn clean test -P uat``` (-Dsuite=core_api_regression set by default)
 
 - - - - 
 ##### Particular suite:
 Currently evaluable suites are: 
 - core_api_regression
 - core_api_smoke
-- core_transactions_vendorsandclients
-- core_transactions_only
+- core_transactions_vendorsandclients_success
+- core_transactions_only_success
 
 
 Currently evaluable profiles are (list of appropriate configuration e.g. credentials, different links, etc...):
@@ -60,9 +60,9 @@ e.g. ```mvn clean test -Dsuite=core_api_smoke -Puat```
 - - - -
 ##### Single test:
 
-```mvn clean test -Dtest='pakage name of test class'.'class name' -P 'name of your particular profile'```
+```mvn clean test -Dtest='package name of test class'.'class name' -P 'name of your particular profile'```
 
-e.g.: ```mvn clean test -Dtest=ui.sms.TECH_6083.InternationalNumberConversionTest```
+e.g.: ```mvn clean test -Dtest=api.transaction_lookup.TransactionLookupTest```
 - - - -
 ##### Additional run information:
 Test framework has ability to run tests remotely using Selenoid and can set tests results into appropriate Jira test plan (to be able to do it we need to specify additional keys in the run script):
@@ -71,7 +71,7 @@ Currently evaluable keys:
 - ```-Djira.logging=true``` - enabled setting results into Jira (disabled by default locally, enabled by default remotely)
 - ```-Dbrowser.remote.url=http://localhost:4444/wd/hub``` - in case of Selenoid containers set up locally (by default: [http://10.248.10.46:4445/](http://10.248.10.46:4445/))
 
-e.g.: ```mvn clean test -Dsuite=smoke -Djira.logging=true -Dbrowser.remote=true -Dbrowser.remote.url=http://localhost:4444/wd/hub -Djira.test.plan=TECH-23936 -Puat```
+e.g.: ```mvn clean test -Dsuite=core_api_smoke -Djira.logging=true -Dbrowser.remote=true -Dbrowser.remote.url=http://localhost:4444/wd/hub -Djira.test.plan=TECH-82628 -Puat```
 
 Selenoid UI interface can be find following: [http://10.248.10.46:8080/#/](http://10.248.10.46:8080/#/)
 
