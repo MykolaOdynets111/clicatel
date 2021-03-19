@@ -41,12 +41,11 @@ public class InFlightTransactionTest extends BaseApiTest {
         //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
 
-        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+        executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
                 .body("responseCode", Matchers.containsString("0000"))
                 .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
-                .body("raasTxnRef", Matchers.notNullValue())
-                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+                .body("raasTxnRef", Matchers.notNullValue());
 
         //perform lookup service for pending transactions
         val lookupBody = setUpInFlightTransactionData("2348038382067", 3, 130, 10000);

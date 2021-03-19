@@ -15,7 +15,6 @@ import util.base_test.BaseApiTest;
 import java.util.Hashtable;
 import java.util.Map;
 import static api.clients.TransactionLookupClient.findTransaction;
-import static api.clients.TransactionLookupClient.getTransactionInfoV2;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4Data;
 import static api.enums.ChannelName.USSD;
@@ -72,7 +71,7 @@ public class TransactionLookupTest extends BaseApiTest {
         //Get transaction details from lookup service v2
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
-        getTransactionInfoV2(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("reserveAmount", Matchers.comparesEqualTo(10000))

@@ -35,14 +35,13 @@ public class TransactSuccessTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
+        //TODO: Verify against support tool API
 //        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
 //                .then().assertThat().statusCode(SC_OK)
 //            //Verify funds were successfully reserved (response_code equals to 0000)
@@ -75,28 +74,13 @@ public class TransactSuccessTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-    //Verify against support tool API
-//        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
-//                .then().assertThat().statusCode(SC_OK)
-//            //Verify funds were successfully reserved (response_code equals to 0000)
-//                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-//            //AND ctx response code is SUCCESSFUL (0)
-//                .body("ctx_response[0].responseCode", Matchers.is(0))
-//            //AND successful transaction result is sent (0000)
-//                .body("transaction_result_request.responseCode", Matchers.is("0000"))
-//            //AND success response code is received from the funding source (202)
-//                .body("transaction_result_response.responseCode", Matchers.is("202"))
-//            //AND transaction wasn't retried (no records found in the db)
-//                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-//            //AND transaction wasn't pending (no records found in the db)
-//                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+    //TODO: Verify against support tool API
     }
 
 
@@ -115,29 +99,14 @@ public class TransactSuccessTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
 
-        //Verify against support tool API
-//        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
-//                .then().assertThat().statusCode(SC_OK)
-//            //Verify funds were successfully reserved (response_code equals to 0000)
-//                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
-//            //AND ctx response code is SUCCESSFUL (0)
-//                .body("ctx_response[0].responseCode", Matchers.is(0))
-//            //AND successful transaction result is sent (0000)
-//                .body("transaction_result_request.responseCode", Matchers.is("0000"))
-//            //AND success response code is received from the funding source (202)
-//                .body("transaction_result_response.responseCode", Matchers.is("202"))
-//            //AND transaction wasn't retried (no records found in the db)
-//                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
-//            //AND transaction wasn't pending (no records found in the db)
-//                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
-    }
+        //TODO: Verify against support tool API
+   }
 
 
     @Test
@@ -155,12 +124,14 @@ public class TransactSuccessTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
+
+        //TODO: Verify against support tool API
+
     }
 
 }

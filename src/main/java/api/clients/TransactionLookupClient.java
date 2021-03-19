@@ -20,7 +20,7 @@ public class TransactionLookupClient extends BasedAPIClient {
                         .build());
     }
 
-    public static Response getTransactionInfoV2(Port port, int clientId, Map<String, String> queryParams, Version version) {
+    public static Response findTransaction(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/lookupservice/transaction/%s", baseUrl, port.getPort(), version.getVersion()))

@@ -52,9 +52,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -93,9 +92,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -133,9 +131,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -173,9 +170,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -222,9 +218,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -246,9 +241,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -270,9 +264,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -294,9 +287,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -318,9 +310,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -342,9 +333,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "206");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 206, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -366,9 +356,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -390,9 +379,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -414,9 +402,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -438,9 +425,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -462,9 +448,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -486,9 +471,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -528,9 +512,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "1003");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 1003, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -588,9 +571,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
@@ -638,9 +620,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
@@ -689,9 +670,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
@@ -745,9 +725,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
@@ -799,9 +778,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
@@ -851,9 +829,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -907,9 +884,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -963,9 +939,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("SUCCESS"));
@@ -1021,9 +996,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "2");
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString("FAILED"));
