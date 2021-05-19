@@ -93,9 +93,9 @@
             </activation>
         </profile>
         <profile>
-            <id>trans_qa</id>
+            <id>transqa</id>
             <properties>
-                <env>trans_qa</env>
+                <env>transqa</env>
             </properties>
         </profile>
         <profile>

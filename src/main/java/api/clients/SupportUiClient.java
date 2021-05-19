@@ -14,7 +14,7 @@ public class SupportUiClient extends BasedAPIClient {
     public static Response getRaasFlow(Port port, String raasTxnRef) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/supportui/api/getRaasFlow",baseUrl,port.getPort()))
+                        .setBaseUri(String.format("%s:%d/supportui/api/getRaasFlow",supportUrl,port.getPort()))
                         .addQueryParam("raasTxnRef", raasTxnRef)
                         .setContentType(JSON)
                         .log(ALL)

@@ -13,7 +13,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findTransaction(Port port, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/lookupservice/transaction", baseUrl, port.getPort()))
+                        .setBaseUri(String.format("%s:%d/lookupservice/transaction", transactionUrl, port.getPort()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -23,7 +23,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findTransaction(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/lookupservice/transaction/%s", baseUrl, port.getPort(), version.getVersion()))
+                        .setBaseUri(String.format("%s:%d/lookupservice/transaction/%s", transactionUrl, port.getPort(), version.getVersion()))
                         .addQueryParam("clientId",clientId)
                         .addQueryParams(queryParams)
                         .setContentType(JSON)

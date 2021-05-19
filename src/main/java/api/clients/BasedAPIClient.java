@@ -17,9 +17,17 @@ public class BasedAPIClient {
     public static AtomicReference<BasedAPIClient> basedAPIClient = new AtomicReference<>(new BasedAPIClient());
     private Response response;
     protected static String baseUrl;
+    protected static String supportUrl;
+    protected static String transactionUrl;
+    protected static String airtelUrl;
+    protected static String mtnUrl;
 
     static {
         baseUrl = getProperty("api.base.url");
+        supportUrl = getProperty("api.support.url");
+        transactionUrl = getProperty("api.transaction.url");
+        airtelUrl= getProperty(("api.airtel.url"));
+        mtnUrl= getProperty("api.mtnSimulator.url");
     }
 
     private void logResponse(final Response response) {
