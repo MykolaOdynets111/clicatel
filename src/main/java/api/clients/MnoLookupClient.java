@@ -16,7 +16,7 @@ public class MnoLookupClient extends BasedAPIClient {
     public static Response getMnoInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/mnp/mnpLookup",baseUrl,port.getPort()))
+                        .setBaseUri(String.format("%s:%d/mnp/mnpLookup",mnoLookupUrl,port.getPort()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

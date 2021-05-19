@@ -8,10 +8,8 @@ import lombok.val;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
-
 import java.util.Hashtable;
 import java.util.Map;
-
 import static api.clients.TransactClient.executeTransact;
 import static api.clients.TransactionLookupClient.findTransaction;
 import static api.domains.transact.repo.TransactRequestRepo.*;

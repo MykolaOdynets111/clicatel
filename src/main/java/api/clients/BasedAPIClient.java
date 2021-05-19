@@ -21,6 +21,14 @@ public class BasedAPIClient {
     protected static String transactionUrl;
     protected static String airtelUrl;
     protected static String mtnUrl;
+    protected static String cAccountValidation;
+    protected static String cAccountValidation2;
+    protected static String financialTerms;
+    protected static String lookupTransactionUrl;
+    protected static String mnoLookupUrl;
+    protected static String notificationUrl;
+    protected static String productLookupUrl;
+    protected static String userTransactionUrl;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -28,6 +36,14 @@ public class BasedAPIClient {
         transactionUrl = getProperty("api.transaction.url");
         airtelUrl= getProperty(("api.airtel.url"));
         mtnUrl= getProperty("api.mtnSimulator.url");
+        cAccountValidation= getProperty("api.cAccountValidation.url");
+        cAccountValidation2= getProperty("api.cAccountValidationv2.url");
+        financialTerms= getProperty("api.financialterms.url");
+        lookupTransactionUrl = getProperty("api.lookupTransaction.url");
+        mnoLookupUrl= getProperty("api.mnolookup.url");
+        notificationUrl= getProperty("api.notification.url");
+        productLookupUrl= getProperty("api.productlookup.url");
+        userTransactionUrl= getProperty("api.usertransaction.url");
     }
 
     private void logResponse(final Response response) {
