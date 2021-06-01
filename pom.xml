@@ -105,9 +105,9 @@
             </properties>
         </profile>
         <profile>
-            <id>trans_dev</id>
+            <id>transdev</id>
             <properties>
-                <env>trans_dev</env>
+                <env>transdev</env>
             </properties>
         </profile>
     </profiles>
