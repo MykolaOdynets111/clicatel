@@ -16,7 +16,7 @@ public class TokenLookupClient extends BasedAPIClient {
     public static Response getUserTokens(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/user/tokens",baseUrl,port.getPort()))
+                        .setBaseUri(String.format("%s:%d/user/tokens",userTransactionUrl,port.getPort()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

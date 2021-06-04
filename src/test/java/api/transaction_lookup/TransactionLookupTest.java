@@ -27,7 +27,7 @@ public class TransactionLookupTest extends BaseApiTest {
     @Test
     @Description("30433 :: transaction-lookup :: public internal :: GET /lookupservice/transaction :: Transaction Lookup API (1.0)")
     @TmsLink("TECH-54420")
-    public void testLookupTransactionsApiV1Success() {
+    public void testLookupTransactionsApiV1Success() throws InterruptedException {
         // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
 
@@ -42,6 +42,7 @@ public class TransactionLookupTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", "3");
         queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))

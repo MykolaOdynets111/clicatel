@@ -21,7 +21,7 @@ public class TransactSuccessTest extends BaseApiTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
     @TmsLink("TECH-54338")
-    public void testTransactV4Success() {
+    public void testTransactV4Success() throws InterruptedException {
         val jsonBody = setUpTransactV4Data("3", CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, "917");
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -34,6 +34,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
@@ -60,7 +61,7 @@ public class TransactSuccessTest extends BaseApiTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v3/transact :: SUCCESS")
     @TmsLink("TECH-54339")
-    public void testTransactV3Success() {
+    public void testTransactV3Success() throws InterruptedException {
         val jsonBody = setUpTransactV3Data("3", ChannelName.INTERNET, ChannelId.INTERNET, "917");
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V3)
@@ -73,6 +74,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
@@ -85,7 +87,7 @@ public class TransactSuccessTest extends BaseApiTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v2/transact :: SUCCESS")
     @TmsLink("TECH-54340")
-    public void testTransactV2Success() {
+    public void testTransactV2Success() throws InterruptedException {
         val jsonBody = setUpTransactV2Data("3", ChannelName.USSD, ChannelId.USSD, "917");
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
@@ -98,6 +100,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
@@ -110,7 +113,7 @@ public class TransactSuccessTest extends BaseApiTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v1/transact SUCCESS")
     @TmsLink("TECH-54341")
-    public void testTransactV1Success() {
+    public void testTransactV1Success() throws InterruptedException {
         val jsonBody = setUpTransactV1Data("3", USSD, ChannelId.USSD, "917");
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
@@ -123,6 +126,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))

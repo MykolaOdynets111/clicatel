@@ -20,18 +20,18 @@ public class TokenLookupTest extends BaseApiTest {
     @TmsLink("TECH-54465")
     public void testTokenLookupSuccess() {
         Map <String, String> queryParams = new Hashtable<>();
-        queryParams.put("sourceIdentifier","2341111111111");
-        queryParams.put("clientId","3");
+        queryParams.put("sourceIdentifier","2347911835481");
+        queryParams.put("clientId","108");
         queryParams.put("channelId","7");
-        queryParams.put("productTypeId","17");
+        queryParams.put("productTypeId","20");
         queryParams.put("limit","1");
 
         getUserTokens(Port.USER_TRANSACTIONS, queryParams)
                 .then().assertThat().statusCode(SC_OK)
-                .body("userTokens[0].targetIdentifier", Matchers.containsString("2341111111111"))
-                .body("userTokens[0].clientId", Matchers.is(3))
+                .body("userTokens[0].targetIdentifier", Matchers.containsString("234123123123"))
+                .body("userTokens[0].clientId", Matchers.is(108))
                 .body("userTokens[0].channelId", Matchers.is(7))
-                .body("userTokens[0].productTypeId", Matchers.is(17));
+                .body("userTokens[0].productTypeId", Matchers.is(20));
     }
 
 }
