@@ -840,7 +840,6 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .then().assertThat().statusCode(SC_OK);
         //Added 3 minutes wait because ctx requires time to iterate another cycle for transactions when airtel simulation is set to retryable decline.
         Thread.sleep(180000);
-        System.out.println("Check123");
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
@@ -946,7 +945,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase3 = setUpAirtelSimData("500", "purchase");
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
-        Thread.sleep(180000);
+        Thread.sleep(240000);
+        System.out.println("Checkhere");
     //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
@@ -971,9 +971,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 //AND success response code is received from the funding source
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
                 //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where resp code = 2240
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
-                //AND last lookup is successful in the db (ctx lookup with response code (0))
-                .body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
+                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat("-0001")));
     }
 
     @Test
