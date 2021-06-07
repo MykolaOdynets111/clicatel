@@ -6,7 +6,7 @@ public class SimulatorRequestRepo {
     public static SimulatorRequest setUpAirtelSimData(String responseCode, String action){
         return SimulatorRequest.builder()
                 .action(action)
-                .delay(0)
+                .delay(3000)
                 .fieldName("")
                 .httpStatusCode(0)
                 .httpSatusCode(0)

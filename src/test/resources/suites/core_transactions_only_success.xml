@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
-<suite name="Transact v1-v4 and Reserve and Transact v1-v4 test suite">
-    <test name="Transact v1-v4 and Reserve and Transact v1-v4 test suite">
-        <classes>
-            <class name="api.reserve_and_transact.ReserveAndTransactTest">
-                <methods>
-                    <include name="testReserveAndTransactV4Success"/>
-                    <include name="testReserveAndTransactV3Success"/>
-                    <include name="testReserveAndTransactV2Success"/>
-                    <include name="testReserveAndTransactV1Success"/>
-                </methods>
-            </class>
-            <class name="api.transact.TransactSuccessTest"/>
-        </classes>
+<suite name="Regression test suite">
+    <test name="TestreserveAndTransact">
+        <packages>
+            <package name="api.reserve_and_transact"/>
+        </packages>
     </test>
 </suite>
