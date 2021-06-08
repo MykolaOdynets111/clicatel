@@ -10,9 +10,22 @@ import lombok.Getter;
 
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;
+import static util.readers.PropertiesReader.getProperty;
 
 @Getter
 public class ReserveAndTransactClient extends BasedAPIClient {
+    public static String AccountIdentifier;
+    public static String clientTxnRef;
+    public static String channelSessionId;
+    public static String fundingSourceId;
+
+    static {
+        AccountIdentifier = getProperty("AccountIdentifier");
+        clientTxnRef = getProperty("clientTxnRef");
+        channelSessionId = getProperty("channelSessionId");
+        fundingSourceId = getProperty("fundingSourceId");
+    }
+
 
     public static Response executeReserveAndTransact(ReserveAndTransactRequest body, Port port, Version version) {
         return basedAPIClient.get()

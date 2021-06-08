@@ -1,9 +1,12 @@
 package api.domains.reserve_and_transact.repo;
 
+import api.clients.ReserveAndTransactClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.enums.ChannelId;
 import api.enums.ChannelName;
 import api.enums.CurrencyCode;
+import static util.readers.PropertiesReader.getProperty;
+import api.clients.*;
 
 import static util.DateProvider.getCurrentIsoDateTime;
 
@@ -13,13 +16,13 @@ public class ReserveAndTransactRequestRepo {
     public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName,
                                                                           ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier){
         return ReserveAndTransactRequest.builder()
-                .accountIdentifier("4000******0004")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
-                .clientTxnRef("4ba4c3-3wsf8cf-f0004")
-                .channelSessionId("400074970004")
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId) //3
-                .fundingSourceId("3")
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
                 .productId(productId) //100
                 .purchaseAmount(purchaseAmount) // 10000
                 .feeAmount(feeAmount) //0
