@@ -57,19 +57,19 @@ public class ReserveAndTransactRequestRepo {
     public static ReserveAndTransactRequest setUpReserveAndTransactV3Data(String clientId, ChannelName channelName,
                                                                           ChannelId channelId, String productId){
         return ReserveAndTransactRequest.builder()
-                .accountIdentifier("000XXX0311-0003")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
-                .clientTxnRef("010002441811llim-0003")
-                .channelSessionId("714890809-0003")
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId) //3
                 .productId(productId) //917
-                .purchaseAmount("10000")
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
                 .feeAmount("0")
                 .channelId(channelId.getChannelId()) //3
                 .channelName(channelName.getChannelName()) //internet
-                .sourceIdentifier("2348038382068")
-                .targetIdentifier("2348038382068")
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
                 .build();
     }
 
@@ -77,17 +77,17 @@ public class ReserveAndTransactRequestRepo {
     public static ReserveAndTransactRequest setUpReserveAndTransactV2Data(String clientId, ChannelName channelName,
                                                                           ChannelId channelId, String productId){
         return ReserveAndTransactRequest.builder()
-                .accountIdentifier("222222xxxxxx0002")
-                .clientTxnRef("30234241786MgAUs-0002")
-                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV2)
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId) //3
                 .productId(productId) //917
                 .amount("10000")
                 .channelId(channelId.getChannelId()) //7
                 .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier("2348038382069")
-                .targetIdentifier("2348038382069")
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .build();
     }
 
