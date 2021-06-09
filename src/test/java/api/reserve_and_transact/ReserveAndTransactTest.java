@@ -1,4 +1,5 @@
 package api.reserve_and_transact;
+import api.clients.ReserveAndTransactClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
@@ -36,12 +37,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-68538")
     public void testReserveAndTransactV4Success() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount1000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -57,23 +58,23 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
-                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(0))
+                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
             //AND successful transaction result is sent (0000)
-                .body("transaction_result_request.responseCode", Matchers.is("0000"))
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
             //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.responseCode0000)));
 
     }
 
@@ -82,12 +83,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v3/reserveAndTransact :: SUCCESS")
     @TmsLink("TECH-54334")
     public void testReserveAndTransactV3Success() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV3Data("3", ChannelName.MOBILE, ChannelId.MOBILE, "917");
+        val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody,Port.TRANSACTIONS,Version.V3)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.Success))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -95,26 +96,26 @@ public class ReserveAndTransactTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(20000);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
-                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(0))
+                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
             //AND successful transaction result is sent (0000)
-                .body("transaction_result_request.responseCode", Matchers.is("0000"))
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
             //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.ZeroTransactionCode)));
 
     }
 
@@ -122,12 +123,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v2/reserveAndTransact :: SUCCESS")
     @TmsLink("TECH-54335")
     public void testReserveAndTransactV2Success() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV2Data("3", USSD, ChannelId.USSD, "917");
+        val jsonBody = setUpReserveAndTransactV2Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -138,23 +139,23 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
             //Verify funds were successfully reserved (response_code equals to 0000)
-                .body("reserve_fund_response.responseCode", Matchers.is("0000"))
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(0))
+                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
             //AND successful transaction result is sent (0000)
-                .body("transaction_result_request.responseCode", Matchers.is("0000"))
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
             //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")))
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")));
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.ZeroTransactionCode)));
 
     }
 
