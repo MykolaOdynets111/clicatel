@@ -1,5 +1,6 @@
 package api.user_transaction_lookup;
 
+import api.clients.UserTransactionLookupClient;
 import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -20,12 +21,12 @@ public class UserTransactionLookupTest extends BaseApiTest {
     @TmsLink("TECH-54469")
     public void testUserTransactionLookupSuccess() {
         Map <String, String> queryParams = new Hashtable<>();
-        queryParams.put("userIdentifier","2348038382067");
+        queryParams.put("userIdentifier", UserTransactionLookupClient.UserIdentifier);
         queryParams.put("clientId","3");
 
         getUserTransactions(Port.USER_TRANSACTIONS, queryParams)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].targetIdentifier", Matchers.containsString("2348038382067"))
+                .body("[0].targetIdentifier", Matchers.containsString(UserTransactionLookupClient.UserIdentifier))
                 .body("[0].clientId", Matchers.is(3));
     }
 

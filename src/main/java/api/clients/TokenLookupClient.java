@@ -9,9 +9,25 @@ import java.util.Map;
 
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;
+import static util.readers.PropertiesReader.getProperty;
 
 @Getter
 public class TokenLookupClient extends BasedAPIClient {
+    public static String AccessBankID;
+    public static String SourceIdentifier;
+    public static String UssdID;
+    public static String IflixSubscriptionID;
+    public static String Limit;
+    public static String TargetIdentifier;
+
+    static {
+        AccessBankID = getProperty("AccessBankID");
+        SourceIdentifier = getProperty("SourceIdentifier");
+        UssdID = getProperty("UssdID");
+        IflixSubscriptionID = getProperty("IflixSubscriptionID");
+        Limit = getProperty("Limit");
+        TargetIdentifier = getProperty("TargetIdentifier");
+    }
 
     public static Response getUserTokens(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
