@@ -1,5 +1,6 @@
 package api.domains.transact.repo;
 
+import api.clients.ReserveAndTransactClient;
 import api.domains.transact.model.TransactRequest;
 import api.enums.ChannelId;
 import api.enums.ChannelName;
@@ -76,16 +77,16 @@ public class TransactRequestRepo {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
-                .clientTxnRef("113-2348057670126-15989115-0001")
-                .channelSessionId("714890001")
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId) //3
                 .productId(productId) //917
-                .amount("20000") //could possibly add amount as a parameter as well?
+                .amount(ReserveAndTransactClient.PurchaseAmount20000) //could possibly add amount as a parameter as well?
                 .channelId(channelId.getChannelId()) //7
                 .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier("2348038382068")
-                .targetIdentifier("2348038382068")
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.clientTxnRefV1)
                 .build();
     }
 
