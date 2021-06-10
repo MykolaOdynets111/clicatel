@@ -22,15 +22,15 @@ public class TokenLookupTest extends BaseApiTest {
     @TmsLink("TECH-54465")
     public void testTokenLookupSuccess() {
         Map <String, String> queryParams = new Hashtable<>();
-        queryParams.put("sourceIdentifier", TokenLookupClient.SourceIdentifier);
+        queryParams.put("sourceIdentifier", TokenLookupClient.Identifier_1);
         queryParams.put("clientId",TokenLookupClient.AccessBankID);
         queryParams.put("channelId",TokenLookupClient.UssdID);
         queryParams.put("productTypeId",TokenLookupClient.IflixSubscriptionID);
-        queryParams.put("limit",TokenLookupClient.Limit);
+        queryParams.put("limit",TokenLookupClient.Limit_1);
 
         getUserTokens(Port.USER_TRANSACTIONS, queryParams)
                 .then().assertThat().statusCode(SC_OK)
-                .body("userTokens[0].targetIdentifier", Matchers.is(TokenLookupClient.TargetIdentifier))
+                .body("userTokens[0].targetIdentifier", Matchers.is(TokenLookupClient.Identifier_2))
                 .body("userTokens[0].clientId", Matchers.is(Integer.parseInt(TokenLookupClient.AccessBankID)))
                 .body("userTokens[0].channelId", Matchers.is(Integer.parseInt(TokenLookupClient.UssdID)))
                 .body("userTokens[0].productTypeId", Matchers.is(Integer.parseInt(TokenLookupClient.IflixSubscriptionID)));

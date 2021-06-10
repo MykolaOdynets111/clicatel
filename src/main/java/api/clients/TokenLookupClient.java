@@ -14,19 +14,19 @@ import static util.readers.PropertiesReader.getProperty;
 @Getter
 public class TokenLookupClient extends BasedAPIClient {
     public static String AccessBankID;
-    public static String SourceIdentifier;
+    public static String Identifier_1;
     public static String UssdID;
     public static String IflixSubscriptionID;
-    public static String Limit;
-    public static String TargetIdentifier;
+    public static String Limit_1;
+    public static String Identifier_2;
 
     static {
         AccessBankID = getProperty("AccessBankID");
-        SourceIdentifier = getProperty("SourceIdentifier");
+        Identifier_1 = getProperty("Identifier_1");
         UssdID = getProperty("UssdID");
         IflixSubscriptionID = getProperty("IflixSubscriptionID");
-        Limit = getProperty("Limit");
-        TargetIdentifier = getProperty("TargetIdentifier");
+        Limit_1 = getProperty("Limit_1");
+        Identifier_2 = getProperty("Identifier_2");
     }
 
     public static Response getUserTokens(Port port, Map <String,String> queryParams) {
