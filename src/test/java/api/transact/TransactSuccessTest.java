@@ -1,5 +1,6 @@
 package api.transact;
 
+import api.clients.ReserveAndTransactClient;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
 import io.qameta.allure.Description;
@@ -22,12 +23,12 @@ public class TransactSuccessTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
     @TmsLink("TECH-54338")
     public void testTransactV4Success() throws InterruptedException {
-        val jsonBody = setUpTransactV4Data("3", CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, "917");
+        val jsonBody = setUpTransactV4Data(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -35,10 +36,10 @@ public class TransactSuccessTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(10000);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
         //TODO: Verify against support tool API
 //        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
@@ -62,12 +63,12 @@ public class TransactSuccessTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v3/transact :: SUCCESS")
     @TmsLink("TECH-54339")
     public void testTransactV3Success() throws InterruptedException {
-        val jsonBody = setUpTransactV3Data("3", ChannelName.INTERNET, ChannelId.INTERNET, "917");
+        val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V3)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -75,10 +76,10 @@ public class TransactSuccessTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(10000);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
     //TODO: Verify against support tool API
     }
@@ -88,12 +89,12 @@ public class TransactSuccessTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v2/transact :: SUCCESS")
     @TmsLink("TECH-54340")
     public void testTransactV2Success() throws InterruptedException {
-        val jsonBody = setUpTransactV2Data("3", ChannelName.USSD, ChannelId.USSD, "917");
+        val jsonBody = setUpTransactV2Data(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -101,10 +102,10 @@ public class TransactSuccessTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(10000);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
         //TODO: Verify against support tool API
    }
@@ -114,12 +115,12 @@ public class TransactSuccessTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v1/transact SUCCESS")
     @TmsLink("TECH-54341")
     public void testTransactV1Success() throws InterruptedException {
-        val jsonBody = setUpTransactV1Data("3", USSD, ChannelId.USSD, "917");
+        val jsonBody = setUpTransactV1Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -130,7 +131,7 @@ public class TransactSuccessTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
         //TODO: Verify against support tool API
 

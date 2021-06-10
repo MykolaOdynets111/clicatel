@@ -13,12 +13,6 @@ import static util.readers.PropertiesReader.getProperty;
 
 @Getter
 public class UserTransactionLookupClient extends BasedAPIClient {
-    public static String UserIdentifier;
-
-
-    static {
-        UserIdentifier = getProperty("UserIdentifier");
-    }
 
     public static Response getUserTransactions(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()

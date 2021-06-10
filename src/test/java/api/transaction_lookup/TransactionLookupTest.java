@@ -1,5 +1,6 @@
 package api.transaction_lookup;
 
+import api.clients.ReserveAndTransactClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transaction_lookup.model.TransactionLookupResponse;
@@ -29,12 +30,12 @@ public class TransactionLookupTest extends BaseApiTest {
     @TmsLink("TECH-54420")
     public void testLookupTransactionsApiV1Success() throws InterruptedException {
         // Perform purchase
-        jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
+        jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -46,10 +47,10 @@ public class TransactionLookupTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("amount", Matchers.comparesEqualTo(10000))
-                .body("productId", Matchers.comparesEqualTo(100))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"))
-                .body("reserveFundsResponseCode", Matchers.containsString("0000"))
+                .body("amount", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
+                .body("productId", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100)))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success))
+                .body("reserveFundsResponseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
                 .extract().body().as(TransactionLookupResponse.class).getLookupRef();
 
     }
@@ -60,12 +61,12 @@ public class TransactionLookupTest extends BaseApiTest {
     @TmsLink("TECH-54422")
     public void testLookupTransactionsApiV2Success() throws InterruptedException {
         // Perform purchase
-        jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
+        jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -73,13 +74,13 @@ public class TransactionLookupTest extends BaseApiTest {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(10000);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("reserveAmount", Matchers.comparesEqualTo(10000))
-                .body("productId", Matchers.comparesEqualTo(100))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"))
-                .body("reserveFundsResponseCode", Matchers.containsString("0000"))
+                .body("reserveAmount", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
+                .body("productId", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100)))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success))
+                .body("reserveFundsResponseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
                 .extract().body().as(TransactionLookupResponse.class).getLookupRef();
     }
 }
