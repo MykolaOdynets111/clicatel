@@ -41,6 +41,17 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String clientTxnRefV2;
     public static String channelSessionIdV2;
     public static String IdentifierV2;
+    public static String clientTxnRefV1;
+    public static String channelSessionIdV1;
+    public static String PurchaseAmount20000;
+    public static String IdentifierV1;
+    public static String Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2;
+    public static String ProductCellC_60;
+    public static String Identifier_3;
+    public static String ProductMTN_ZA_400;
+    public static String Identifier_4;
+    public static String ProductVodacom_ZA_40;
+    public static String Identifier_5;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -70,6 +81,17 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         clientTxnRefV2= getProperty("clientTxnRefV2");
         channelSessionIdV2= getProperty("channelSessionIdV2");
         IdentifierV2= getProperty("IdentifierV2");
+        clientTxnRefV1= getProperty("clientTxnRefV1");
+        channelSessionIdV1= getProperty("channelSessionIdV1");
+        PurchaseAmount20000= getProperty("PurchaseAmount20000");
+        IdentifierV1= getProperty("IdentifierV1");
+        Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2= getProperty("Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2");
+        ProductCellC_60=getProperty("ProductCellC_60");
+        Identifier_3= getProperty("Identifier_3");
+        ProductMTN_ZA_400= getProperty("ProductMTN_ZA_400");
+        Identifier_4 = getProperty("Identifier_4");
+        ProductVodacom_ZA_40= getProperty("ProductVodacom_ZA_40");
+        Identifier_5= getProperty("Identifier_5");
     }
 
 
