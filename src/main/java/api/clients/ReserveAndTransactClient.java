@@ -52,6 +52,23 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String Identifier_4;
     public static String ProductVodacom_ZA_40;
     public static String Identifier_5;
+    public static String ProductTelkom_5_50;
+    public static String Product_3line_15_505;
+    public static String PurchaseAmount50000;
+    public static String PurchaseAmount200;
+    public static String Identifier_9;
+    public static String Product_MTN_ZA_Clickatell_30;
+    public static String Product_Glo_110;
+    public static String Product_Etisalat_120;
+    public static String Product_Airtel_189;
+    public static String PurchaseAmount9900;
+    public static String ResponseCode_17017;
+    public static String Product_Airtel_130;
+    public static String Failed;
+    public static String responseCode2213;
+    public static String responseCode2240;
+    public static String ResponseCode_2238;
+    public static String StartTransactionCode;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -92,6 +109,23 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         Identifier_4 = getProperty("Identifier_4");
         ProductVodacom_ZA_40= getProperty("ProductVodacom_ZA_40");
         Identifier_5= getProperty("Identifier_5");
+        ProductTelkom_5_50= getProperty("ProductTelkom_5_50");
+        Product_3line_15_505= getProperty("Product_3line_15_505");
+        PurchaseAmount50000= getProperty("PurchaseAmount50000");
+        PurchaseAmount200= getProperty("PurchaseAmount200");
+        Identifier_9= getProperty("Identifier_9");
+        Product_MTN_ZA_Clickatell_30= getProperty("Product_MTN_ZA_Clickatell_30");
+        Product_Glo_110= getProperty("Product_Glo_110");
+        Product_Etisalat_120= getProperty("Product_Etisalat_120");
+        Product_Airtel_189= getProperty("Product_Airtel_189");
+        PurchaseAmount9900= getProperty("PurchaseAmount9900");
+        ResponseCode_17017= getProperty("ResponseCode_17017");
+        Product_Airtel_130= getProperty("Product_Airtel_130");
+        Failed= getProperty("Failed");
+        responseCode2213= getProperty("responseCode2213");
+        responseCode2240= getProperty("responseCode2240");
+        ResponseCode_2238= getProperty("ResponseCode_2238");
+        StartTransactionCode= getProperty("StartTransactionCode");
     }
 
 
