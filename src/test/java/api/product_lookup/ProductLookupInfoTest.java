@@ -1,5 +1,7 @@
 package api.product_lookup;
 
+import api.clients.ProductLookupClient;
+import api.clients.ReserveAndTransactClient;
 import api.enums.Port;
 import api.enums.Version;
 import io.qameta.allure.Description;
@@ -27,20 +29,20 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @TmsLink("TECH-60228")
     public void testProductLookupInformationSmokeSuccess() {
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId","3");
-        map.put("productId","130");
+        map.put("clientId", ReserveAndTransactClient.TestClient3);
+        map.put("productId", ProductLookupClient.ProductAirtel_130);
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130))
-                .body("[0].publicProduct.productTypeId", Matchers.is(3))
-                .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)))
+                .body("[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)))
+                .body("[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130),
-                        "[0].publicProduct.productTypeId", Matchers.is(3),
-                        "[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)),
+                        "[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)),
+                        "[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
     }
 
@@ -50,20 +52,20 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @TmsLink("TECH-50880")
     public void testProductLookupInformationV1Success() {
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId","3");
-        map.put("productId","130");
+        map.put("clientId",ReserveAndTransactClient.TestClient3);
+        map.put("productId",ProductLookupClient.ProductAirtel_130);
 
         getProductInfo(Port.PRODUCT_LOOKUP, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].product.id", Matchers.is(130))
-                .body("[0].product.productTypeId", Matchers.is(3))
-                .body("[0].product.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].product.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)))
+                .body("[0].product.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)))
+                .body("[0].product.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
         getProductInfo(Port.PRODUCT_LOOKUP, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].product.id", Matchers.is(130),
-                        "[0].product.productTypeId", Matchers.is(3),
-                        "[0].product.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].product.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)),
+                        "[0].product.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)),
+                        "[0].product.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
     }
 
@@ -73,20 +75,20 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @TmsLink("TECH-54434")
     public void testProductLookupInformationV2Success() {
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId","3");
-        map.put("productId","130");
+        map.put("clientId",ReserveAndTransactClient.TestClient3);
+        map.put("productId",ProductLookupClient.ProductAirtel_130);
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130))
-                .body("[0].publicProduct.productTypeId", Matchers.is(3))
-                .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)))
+                .body("[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)))
+                .body("[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130),
-                        "[0].publicProduct.productTypeId", Matchers.is(3),
-                        "[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)),
+                        "[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)),
+                        "[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
     }
 
@@ -96,9 +98,9 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @TmsLink("TECH-66575")
     public void testProductLookupInformationV3Success() {
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId","3");
+        map.put("clientId",ReserveAndTransactClient.TestClient3);
         //map.put("targetIdentifier","2348085767001");
-        map.put("productId","130");
+        map.put("productId",ProductLookupClient.ProductAirtel_130);
         //map.put("productTypeId","3");
         //map.put("includeInactive","true");
         //map.put("topSeller","true");
@@ -111,15 +113,15 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130))
-                .body("[0].publicProduct.productTypeId", Matchers.is(3))
-                .body("[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)))
+                .body("[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)))
+                .body("[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(130),
-                        "[0].publicProduct.productTypeId", Matchers.is(3),
-                        "[0].publicProduct.productTypeName", Matchers.containsString("Airtime"));
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)),
+                        "[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)),
+                        "[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
 
     }
 

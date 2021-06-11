@@ -1,5 +1,8 @@
 package api.notification;
 
+import api.clients.NotificationClient;
+import api.clients.ReserveAndTransactClient;
+import api.enums.ChannelId;
 import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -21,7 +24,7 @@ public class NotificationTest extends BaseApiTest {
     public void testSendNotificationSuccess() {
 
         //send notification
-        val body = setUpNotificationData("2341000000000", 6, "This is a test", 3);
+        val body = setUpNotificationData(NotificationClient.Identifier_6, Integer.parseInt(NotificationClient.SmsID), NotificationClient.NotificationSuccessResponse, Integer.parseInt(ReserveAndTransactClient.TestClient3));
 
         sendNotification(body,Port.NOTIFICATION)
                 .then().assertThat().statusCode(SC_ACCEPTED);

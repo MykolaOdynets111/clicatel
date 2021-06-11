@@ -10,9 +10,19 @@ import java.util.Map;
 
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;
+import static util.readers.PropertiesReader.getProperty;
 
 @Getter
 public class ProductLookupClient extends BasedAPIClient {
+    public static String ProductAirtel_130;
+    public static String ProductTypeAirtime_3;
+    public static String ProductTypeNameAirtime;
+
+    static {
+        ProductAirtel_130 = getProperty("ProductAirtel_130");
+        ProductTypeAirtime_3 = getProperty("ProductTypeAirtime_3");
+        ProductTypeNameAirtime = getProperty("ProductTypeNameAirtime");
+    }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()

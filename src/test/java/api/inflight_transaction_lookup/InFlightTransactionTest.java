@@ -1,5 +1,8 @@
 package api.inflight_transaction_lookup;
 
+import api.clients.InFlightTransactionLookupClient;
+import api.clients.ProductLookupClient;
+import api.clients.ReserveAndTransactClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.enums.ChannelId;
 import api.enums.Port;
@@ -32,23 +35,23 @@ public class InFlightTransactionTest extends BaseApiTest {
     @TmsLink("TECH-54418")
     public void testLookupPendingTransactionsSuccess() {
         //add test cases
-        val addTestCase1 = setUpAirtelSimData("200", "lookup");
-        val addTestCase2 = setUpAirtelSimData("500", "purchase");
+        val addTestCase1 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
+        val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ProductLookupClient.ProductAirtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ZeroTransactionCode))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue());
 
         //perform lookup service for pending transactions
-        val lookupBody = setUpInFlightTransactionData("2348038382067", 3, 130, 10000);
+        val lookupBody = setUpInFlightTransactionData(ReserveAndTransactClient.Identifier, Integer.parseInt(ReserveAndTransactClient.TestClient3), Integer.parseInt(ProductLookupClient.ProductAirtel_130), Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000));
 
         lookupPendingTransactions(lookupBody,Port.TRANSACTION_LOOKUP_SERVICE)
                 .then().assertThat().statusCode(SC_OK)

@@ -1,5 +1,6 @@
 package api.financial_terms_lookup;
 
+import api.clients.ReserveAndTransactClient;
 import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -19,11 +20,11 @@ public class FinancialTermsLookupTest extends BaseApiTest {
     public void testFinancialTermsLookupSuccess() {
 
         //get financial terms
-        getFinancialTermDetails(Port.FINANCIAL_TERMS, 3, 100, 10000)
+        getFinancialTermDetails(Port.FINANCIAL_TERMS, Integer.parseInt(ReserveAndTransactClient.TestClient3), Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100), Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000))
                 .then().assertThat().statusCode(SC_OK)
-                .body("clientId", Matchers.is(3))
-                .body("productId", Matchers.is(100))
-                .body("purchaseAmount", Matchers.is(10000))
+                .body("clientId", Matchers.is(Integer.parseInt(ReserveAndTransactClient.TestClient3)))
+                .body("productId", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100)))
+                .body("purchaseAmount", Matchers.is(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
                 .body("breakdown.vendAmount", Matchers.notNullValue())
                 .body("breakdown.clientShareAmount", Matchers.notNullValue())
                 .body("breakdown.reserveAmount", Matchers.notNullValue())
