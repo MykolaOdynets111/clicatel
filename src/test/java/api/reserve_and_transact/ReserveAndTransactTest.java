@@ -1,5 +1,5 @@
 package api.reserve_and_transact;
-import api.clients.ReserveAndTransactClient;
+import api.clients.*;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transact.model.TransactResponse;
 import api.enums.*;
@@ -14,9 +14,7 @@ import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
 
-import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
-
-import static api.clients.ReserveAndTransactClient.executeReserveAndTransactWithSignature;
+import static api.clients.ReserveAndTransactClient.*;
 import static api.clients.SimulatorClient.*;
 import static api.clients.SimulatorClient.addMtnTestCases;
 import static api.clients.SupportUiClient.getRaasFlow;
@@ -37,7 +35,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-68538")
     public void testReserveAndTransactV4Success() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount1000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
@@ -66,7 +64,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
             //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
             //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
@@ -88,7 +86,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val raasTxnRef = executeReserveAndTransact(jsonBody,Port.TRANSACTIONS,Version.V3)
                 .then().assertThat().statusCode(SC_OK)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
-                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.Success))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -107,7 +105,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
             //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
             //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
@@ -147,7 +145,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
             //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
             //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
@@ -187,11 +185,11 @@ public class ReserveAndTransactTest extends BaseApiTest {
             //Verify funds were successfully reserved (response_code equals to 0000)
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND ctx response code is SUCCESSFUL (0)
-                .body("ctx_response[0].responseCode", Matchers.is(ReserveAndTransactClient.responseCode0))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
             //AND successful transaction result is sent (0000)
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
             //AND success response code is received from the funding source (202)
-                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
             //AND transaction wasn't retried (no records found in the db)
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
@@ -236,7 +234,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 3 (MTN_ZA) SUCCESS")
     @TmsLink("TECH-68400")
     public void testReserveAndTransactVendor3MtnZaSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductMTN_ZA_400, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_4);
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductMTN_ZA_400, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_4);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
@@ -260,7 +258,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 4 (Vodacom) SUCCESS")
     @TmsLink("TECH-69575")
     public void testReserveAndTransactVendor4VodacomSuccess() {
-        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductVodacom_ZA_40, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_5);
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductVodacom_ZA_40, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_5);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
@@ -283,12 +281,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 5 (Telkom) SUCCESS")
     @TmsLink("TECH-69580")
     public void testReserveAndTransactVendor5TelkomSuccess() {
-        val jsonBody = setUpReserveAndTransactV4Data("2", ZAR, USSD, ChannelId.USSD, "50", "10000", "0", "27815793852");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductTelkom_5_50, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_3);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -298,7 +296,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -306,12 +304,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 15 (3line, threeline, ClickatellBiller3) SUCCESS")
     @TmsLink("TECH-75095")
     public void testReserveAndTransactVendor15ThreelineSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "505", "50000", "0", "2341000000000");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_3line_15_505, ReserveAndTransactClient.PurchaseAmount50000, ReserveAndTransactClient.FeeAmount0, NotificationClient.Identifier_6);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -322,7 +320,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -330,12 +328,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 21 (mwm) SUCCESS")
     @TmsLink("TECH-68398")
     public void testReserveAndTransactVendor21MwmSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "917", "200", "0", "2348038382061");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -346,7 +344,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -354,12 +352,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 23 (MTN_ZA_clickatell) SUCCESS")
     @TmsLink("TECH-68536")
     public void testReserveAndTransactVendor23MtnZaSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("2", ZAR, USSD, ChannelId.USSD, "30", "10000", "0", "27837640171");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_MTN_ZA_Clickatell_30, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_4);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -370,7 +368,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 2, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -378,12 +376,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 100 (MTN_NG) SUCCESS")
     @TmsLink("TECH-63683")
     public void testReserveAndTransactVendor100MtnNgSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "100", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -394,7 +392,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -402,12 +400,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 101 (glo) SUCCESS")
     @TmsLink("TECH-68396")
     public void testReserveAndTransactVendor101GloSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "110", "50000", "0", "2348038382069");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Glo_110, ReserveAndTransactClient.PurchaseAmount50000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.IdentifierV2);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -418,7 +416,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -426,12 +424,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor 102 (9mobile/etisalat) SUCCESS")
     @TmsLink("TECH-68397")
     public void testReserveAndTransactVendor1029MobileEtisalatSuccess() throws InterruptedException {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "120", "10000", "0", "2348038382069");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Etisalat_120, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.IdentifierV2);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -442,7 +440,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -450,12 +448,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Airtime\" purchase")
     @TmsLink("TECH-57995")
     public void testReserveAndTransactVendor103AirtelAirtimeSuccess() {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ProductLookupClient.ProductAirtel_130, "10000", "0", "2348038382067");
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -465,7 +463,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -473,12 +471,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Data\" purchase")
     @TmsLink("TECH-57989")
     public void testReserveAndTransactVendor103AirtelDataSuccess() {
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "189", "9900", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_189, ReserveAndTransactClient.PurchaseAmount9900, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -488,7 +486,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
     }
 
 
@@ -557,18 +555,18 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @TmsLink("TECH-57167")
     public void testReserveAndTransactNonRetryableDecline() throws InterruptedException {
         //add test case to simulate a NON_RETRYABLE_DECLINE
-        val addTestCase = setUpAirtelSimData("17017", "purchase");
+        val addTestCase = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
 
         addAirtelTestCases(Arrays.asList(addTestCase), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
         //perform R&T - purchase airtel product
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
         //Adding thread.sleep because after the execution of reserveAndTransact call the script execute so fast that it does not get time to execute the airtell simulator under the non-retriable decline state and in the next step it removes the cases.
@@ -590,21 +588,21 @@ public class ReserveAndTransactTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("FAILED"));
+                .body("transactionStatus", Matchers.containsString(Failed));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
-                .body("ctx_response[0].responseCode", Matchers.is(2213))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2213)))
                 //AND transaction result is sent with valid ctx response code (2213)
-                .body("transaction_result_request.responseCode", Matchers.is("2213"))
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode2213))
                 //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                .body("transaction_result_response.responseCode", Matchers.is(responseCode202))
                 //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0000")))
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ZeroTransactionCode)))
                 //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)));
     }
 
 
@@ -613,18 +611,18 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @TmsLink("TECH-46759")
     public void testReserveAndTransactPendingToSuccess() throws InterruptedException {
         //add test cases
-        val addTestCase1 = setUpAirtelSimData("500", "purchase");
-        val addTestCase2 = setUpAirtelSimData("200", "lookup");
+        val addTestCase1 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
+        val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
         //perform R&T - purchase airtel product
-        val jsonBody = setUpReserveAndTransactV4Data("3", NGN, USSD, ChannelId.USSD, "130", "10000", "0", "2348038382067");
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString("0000"))
-                .body("responseMessage", Matchers.containsString("Processing request (funds reserved)"))
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
         Thread.sleep(180000);
@@ -634,26 +632,26 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
-        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, 3, queryParams, Version.V2)
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("transactionStatus", Matchers.containsString("SUCCESS"));
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
                 //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
-                .body("ctx_response[0].responseCode", Matchers.is(2240))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
                 //AND transaction was pending (ctx lookup with response code 2240)
-                .body("ctx_lookup_response.clientTransactionId[1]", Matchers.is(raasTxnRef.concat("-0000")))
+                .body("ctx_lookup_response.clientTransactionId[1]", Matchers.is(raasTxnRef.concat(String.valueOf((ReserveAndTransactClient.StartTransactionCode)))))
                 //AND last lookup is successful in the db (ctx lookup with response code (0))
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")))
+                //.body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(String.valueOf(ReserveAndTransactClient.FirstTransactionCode))))
                 //AND transaction result is sent with valid code mapped to ctx response code (0000)
-                .body("transaction_result_request.responseCode", Matchers.is("0000"))
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
                 //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is("202"))
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
                 //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0001")));
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
     }
 
     @Test
@@ -711,7 +709,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @TmsLink("TECH-57171")
     public void testReserveAndTransactRetryableDeclineToSuccess() throws InterruptedException {
     //add test cases
-        val addTestCase1 = setUpAirtelSimData("2238", "purchase");
+        val addTestCase1 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_2238, InFlightTransactionLookupClient.AirTel_purchase);
         val addTestCase2 = setUpAirtelSimData("200", "lookup");
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)

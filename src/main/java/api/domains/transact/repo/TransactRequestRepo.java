@@ -82,11 +82,11 @@ public class TransactRequestRepo {
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId) //3
                 .productId(productId) //917
-                .amount(ReserveAndTransactClient.PurchaseAmount20000) //could possibly add amount as a parameter as well?
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
                 .channelId(channelId.getChannelId()) //7
                 .channelName(channelName.getChannelName()) //USSD
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
-                .targetIdentifier(ReserveAndTransactClient.clientTxnRefV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
 
