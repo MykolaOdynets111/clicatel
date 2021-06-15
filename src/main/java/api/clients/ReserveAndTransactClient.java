@@ -69,6 +69,8 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseCode2240;
     public static String ResponseCode_2238;
     public static String StartTransactionCode;
+    public static String responseCode2201;
+    public static String ResponseCode_206;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -126,6 +128,8 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseCode2240= getProperty("responseCode2240");
         ResponseCode_2238= getProperty("ResponseCode_2238");
         StartTransactionCode= getProperty("StartTransactionCode");
+        responseCode2201= getProperty("responseCode2201");
+        ResponseCode_206= getProperty("ResponseCode_206");
     }
 
 
