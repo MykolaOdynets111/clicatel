@@ -1,6 +1,7 @@
 package api.user_transaction_lookup;
 
 import api.clients.TokenLookupClient;
+import api.clients.UserTransactionLookupClient;
 import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -33,6 +34,7 @@ public class TokenLookupTest extends BaseApiTest {
                 .body("userTokens[0].targetIdentifier", Matchers.is(TokenLookupClient.Identifier_2))
                 .body("userTokens[0].clientId", Matchers.is(Integer.parseInt(TokenLookupClient.AccessBankID)))
                 .body("userTokens[0].channelId", Matchers.is(Integer.parseInt(TokenLookupClient.UssdID)))
+                .body("userTokens[0].productId", Matchers.is(Integer.parseInt(UserTransactionLookupClient.Product_Iflix_571)))
                 .body("userTokens[0].productTypeId", Matchers.is(Integer.parseInt(TokenLookupClient.IflixSubscriptionID)));
     }
 

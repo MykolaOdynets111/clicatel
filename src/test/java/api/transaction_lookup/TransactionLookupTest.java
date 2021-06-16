@@ -1,10 +1,12 @@
 package api.transaction_lookup;
 
 import api.clients.ReserveAndTransactClient;
+import api.clients.TokenLookupClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import api.domains.reserve_and_transact.model.ReserveAndTransactResponse;
 import api.domains.transaction_lookup.model.TransactionLookupResponse;
 import api.enums.ChannelId;
+import api.enums.ChannelName;
 import api.enums.Port;
 import api.enums.Version;
 import io.qameta.allure.Description;
@@ -41,7 +43,7 @@ public class TransactionLookupTest extends BaseApiTest {
 
         //Get transaction details from lookup service
         Map<String, String> queryParams = new Hashtable<>();
-        queryParams.put("clientId", "3");
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
         queryParams.put("raasTxnRef", raasTxnRef);
         Thread.sleep(10000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, queryParams)
@@ -49,8 +51,13 @@ public class TransactionLookupTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("amount", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
                 .body("productId", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100)))
+                .body("clientId", Matchers.is(Integer.parseInt(ReserveAndTransactClient.TestClient3)))
                 .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success))
                 .body("reserveFundsResponseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("sourceIdentifier", Matchers.comparesEqualTo(ReserveAndTransactClient.Identifier))
+                .body("targetIdentifier", Matchers.comparesEqualTo(ReserveAndTransactClient.Identifier))
+                .body("channelName", Matchers.containsString(String.valueOf(ChannelName.USSD)))
+                .body("channelId", Matchers.is(Integer.parseInt(TokenLookupClient.UssdID)))
                 .extract().body().as(TransactionLookupResponse.class).getLookupRef();
 
     }
@@ -77,10 +84,17 @@ public class TransactionLookupTest extends BaseApiTest {
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-                .body("reserveAmount", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
+                .body("clientId", Matchers.is(Integer.parseInt(ReserveAndTransactClient.TestClient3)))
+                .body("channelId", Matchers.is(Integer.parseInt(TokenLookupClient.UssdID)))
+                .body("channelName", Matchers.containsString(String.valueOf(ChannelName.USSD)))
+                .body("feeAmount", Matchers.is(Integer.parseInt(ReserveAndTransactClient.FeeAmount0)))
+                .body("purchaseAmount", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
                 .body("productId", Matchers.comparesEqualTo(Integer.parseInt(ReserveAndTransactClient.ProductAirtel_100)))
+                .body("sourceIdentifier", Matchers.comparesEqualTo(ReserveAndTransactClient.Identifier))
+                .body("targetIdentifier", Matchers.comparesEqualTo(ReserveAndTransactClient.Identifier))
                 .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success))
                 .body("reserveFundsResponseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("transactResultResponseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
                 .extract().body().as(TransactionLookupResponse.class).getLookupRef();
     }
 }

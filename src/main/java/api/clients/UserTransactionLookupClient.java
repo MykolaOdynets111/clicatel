@@ -13,6 +13,15 @@ import static util.readers.PropertiesReader.getProperty;
 
 @Getter
 public class UserTransactionLookupClient extends BasedAPIClient {
+    public static String Product_Iflix_571;
+    public static String UserTransactionProductDesc;
+    public static String PurchaseAmount79900;
+
+    static {
+        Product_Iflix_571 = getProperty("Product_Iflix_571");
+        UserTransactionProductDesc = getProperty("UserTransactionProductDesc");
+        PurchaseAmount79900 = getProperty("PurchaseAmount79900");
+    }
 
     public static Response getUserTransactions(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()

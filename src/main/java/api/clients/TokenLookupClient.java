@@ -19,6 +19,7 @@ public class TokenLookupClient extends BasedAPIClient {
     public static String IflixSubscriptionID;
     public static String Limit_1;
     public static String Identifier_2;
+    public static String Identifier_10;
 
     static {
         AccessBankID = getProperty("AccessBankID");
@@ -27,6 +28,7 @@ public class TokenLookupClient extends BasedAPIClient {
         IflixSubscriptionID = getProperty("IflixSubscriptionID");
         Limit_1 = getProperty("Limit_1");
         Identifier_2 = getProperty("Identifier_2");
+        Identifier_10 = getProperty("Identifier_10");
     }
 
     public static Response getUserTokens(Port port, Map <String,String> queryParams) {
