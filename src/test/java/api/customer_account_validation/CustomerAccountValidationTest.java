@@ -6,6 +6,7 @@ import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 import lombok.val;
+import org.apache.commons.lang3.text.WordUtils;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
@@ -29,7 +30,14 @@ public class CustomerAccountValidationTest extends BaseApiTest {
         validateCustomerAccount(body,Port.CUSTOMER_ACCOUNT_VALIDATION)
                 .then().assertThat().statusCode(SC_ACCEPTED)
                 .body("customerName", Matchers.notNullValue())
+                .body("customerInfo.name", Matchers.notNullValue())
+                .body("status", Matchers.nullValue())
+                .body("customerInfo.address", Matchers.notNullValue())
+                .body("customerInfo.phone", Matchers.notNullValue())
                 .body("customerInfo.accountNumber", Matchers.notNullValue())
+                .body("customerInfo.meterNumber", Matchers.notNullValue())
+                .body("customerInfo.tariff", Matchers.notNullValue())
+                .body("customerInfo.district", Matchers.notNullValue())
                 .body("responseCode", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
                 .body("responseMessage", Matchers.is(CustomerAccountValidationClient.responseMessageSuccessfulResult));
 
@@ -47,8 +55,18 @@ public class CustomerAccountValidationTest extends BaseApiTest {
                 .then().assertThat().statusCode(SC_OK)
                 .body("status", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
                 .body("responseCode", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
-                .body("message", Matchers.contains(ReserveAndTransactClient.Success))
-                .body("accountInfo.accountNumber", Matchers.notNullValue());
+                .body("message[0]", Matchers.containsString(WordUtils.capitalizeFully(ReserveAndTransactClient.Success)))
+                .body("customerInfo.address", Matchers.notNullValue())
+                .body("customerInfo.phone", Matchers.notNullValue())
+                .body("customerInfo.district", Matchers.notNullValue())
+                .body("customerInfo.name", Matchers.notNullValue())
+                .body("accountInfo.amount", Matchers.notNullValue())
+                .body("accountInfo.targetIdentifier", Matchers.notNullValue())
+                .body("accountInfo.arrears", Matchers.notNullValue())
+                .body("accountInfo.minimumAmount", Matchers.notNullValue())
+                .body("accountInfo.tariff", Matchers.notNullValue())
+                .body("accountInfo.accountNumber", Matchers.notNullValue())
+                .body("accountInfo.providerName", Matchers.notNullValue());
     }
 
 }
