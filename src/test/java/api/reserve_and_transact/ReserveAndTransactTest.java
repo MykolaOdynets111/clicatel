@@ -10,6 +10,7 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
@@ -827,7 +828,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
 
         addAirtelTestCases(Arrays.asList(addTestCase), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(ReserveAndTransactClient.ResponseCode_17017))
+                .body("id", Matchers.contains(""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains(""));
 
         //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -862,16 +869,28 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2213)
+                //"raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"reserve_fund_request" parameter isn't empty
+                .body("reserve_fund_request.raasTxnRef", Matchers.is(raasTxnRef))
+                // "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //only one value exist in the "ctx_request" array
+                // "clientTransactionId" in "ctx_request" parameter is "rassTxnRef-0000"
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
+                //"responseCode" in the "ctx_response" equals to "2213" for object with "clientTransactionId": "raasTxnRef-0000"
                 .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2213)))
-                //AND transaction result is sent with valid ctx response code (2213)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
+                //AND "ctx_lookup_request" array is empty
+                .body("ctx_lookup_request",Matchers.empty())
+                //AND "ctx_lookup_response" array is empty
+                .body("ctx_lookup_response", Matchers.empty())
+                //  "responseCode" in "transaction_result_request" parameter is "2213"
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode2213))
-                //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is(responseCode202))
-                //AND transaction wasn't pending (no records found in the db)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ZeroTransactionCode)))
-                //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)));
+                // "responseCode" in the "transaction_result_response" equals to "202"
+                .body("transaction_result_response.responseCode", Matchers.is(responseCode202));
     }
 
 
@@ -884,7 +903,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,InFlightTransactionLookupClient.ResponseCode_500))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
         //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -909,18 +934,24 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify response code matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
+                //"raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals AND "reserve_fund_request" parameter isn't empty
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                .body("reserve_fund_request.raasTxnRef", Matchers.is(raasTxnRef))
+                // "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND one objects exists in the "ctx_request" array with "clientTransactionId" is "{transactionId}-0000"
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
+                //AND "responseCode" for "clientTransactionId": "{transactionId-0000" object equals to "2240"
                 .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
-                //AND transaction was pending (ctx lookup with response code 2240)
-                .body("ctx_lookup_response.clientTransactionId[1]", Matchers.is(raasTxnRef.concat(String.valueOf((ReserveAndTransactClient.StartTransactionCode)))))
-                //AND last lookup is successful in the db (ctx lookup with response code (0))
-                //.body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(String.valueOf(ReserveAndTransactClient.FirstTransactionCode))))
-                //AND transaction result is sent with valid code mapped to ctx response code (0000)
-                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
-                //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
-                //AND transaction wasn't retried (no records found in the db)
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
+                //more than one object exist in the "ctx_lookup_request" array with "clientTransactionId" is "{transactionId}-0000"
+                .body("ctx_lookup_request.clientTransactionId[0]", Matchers.is(raasTxnRef.concat(String.valueOf((ReserveAndTransactClient.StartTransactionCode)))))
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //"responseCode" in the "ctx_response" equals to "2213" for object with "clientTransactionId": "raasTxnRef-0000"
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
+                // "responseCode" in the "transaction_result_response" equals to "202"
+                .body("transaction_result_response.responseCode", Matchers.is(responseCode202));
     }
 
     @Test
@@ -982,7 +1013,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,ReserveAndTransactClient.ResponseCode_2238))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
     //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -996,7 +1033,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Set up testcase where action is purchase success
         val addTestCase3 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_purchase);
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,InFlightTransactionLookupClient.ResponseCode_200))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
     Thread.sleep(180000);
     //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
@@ -1013,16 +1056,25 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify first ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code" (2201) for RD
+                //"responseCode" in the "raas_response" equals to "0000" AND "reserve_fund_request" parameter isn't empty
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+               //AND "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //only two objects exist in the "ctx_request" array with "clientTransactionId" is "{transactionId}-0000" and "{transactionId}-0001"
+                .body("ctx_request[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_request[1].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
+                // "responseCode" for "clientTransactionId": "{transactionId}-0000" of ctx_response object equals to "2201"
                 .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2201)))
-                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0)
-                //TODO: add this check
-                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                // "responseCode" for "clientTransactionId": "{transactionId}-0001" of ctx_response object equals to "0"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                //"ctx_lookup_request" array is empty
+                .body("ctx_lookup_request",Matchers.empty())
+                // "ctx_lookup_response" array  is empty
+                .body("ctx_lookup_response",Matchers.empty())
+                //"responseCode" in "transaction_result_request" parameter is "0000"
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
-                //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
-                //AND transaction wasn't pending (no records in ctx ctx lookup table)
-                .body("ctx_lookup_response.clientTransactionId", Matchers.empty());
+                //"responseCode" in the "transaction_result_response" equals to "202"
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202));
     }
 
     @Test
@@ -1034,7 +1086,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,ReserveAndTransactClient.ResponseCode_2238))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
 
     //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -1049,10 +1107,17 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
-        Thread.sleep(180000);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,ReserveAndTransactClient.ResponseCode_17017))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
+        Thread.sleep(240000);
         System.out.println("Check here");
-    //set simulator to the default state (delete simulator tests)
+
+        //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
 
@@ -1067,15 +1132,24 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify first ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code" (2201) for RD
-                .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2201)))
-                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                //"responseCode" in the "raas_response" equals to "0000" AND "reserve_fund_request" parameter isn't empty
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"reserve_fund_request" parameter isn't empty AND "responseCode" in the "reserve_fund_response" equals to "0000"
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND only two objects exist in the "ctx_request" array with "clientTransactionId" is "j2tytajtvbtztlhfd3fyygii-0000" and ""hvz53wryjkzpkji7w6thm4z3-0001""
+                .body("ctx_request[1].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_request[2].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
+                ///AND "responseCode" for "clientTransactionId": "hvz53wryjkzpkji7w6thm4z3-0000" object equals to "2201" AND "responseCode" for "clientTransactionId": "hvz53wryjkzpkji7w6thm4z3-0001" object equals to "2213"
+                .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2201)))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2213)))
+                //AND "ctx_lookup_request" array is empty
+                .body("ctx_lookup_request",Matchers.empty())
+                //AND "ctx_lookup_response" array is empty
+                .body("ctx_lookup_response",Matchers.empty())
+                //AND "responseCode" in "transaction_result_request" parameter is "2213"
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode2213))
                 //AND success response code is received from the funding source
                 .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202));
-                //AND transaction wasn't pending (no records in ctx ctx lookup table)
-                //Removed this assertion because supportUIAPI is not showing clientTransactionId under ctx_lookup_response.
-                //.body("ctx_lookup_response.clientTransactionId", Matchers.is(raasTxnRef.concat("-0000")));
     }
 
     @Test
@@ -1088,7 +1162,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
 
         addAirtelTestCases(Arrays.asList(addTestCase1,addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,InFlightTransactionLookupClient.ResponseCode_500))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
 
     //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -1100,12 +1180,19 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
         Thread.sleep(5000);
-    //Set up testcase where action is purchase success
-        val addTestCase3 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_purchase);
 
+        //Set up testcase where action is purchase success
+        val addTestCase3 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_purchase);
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
-    //set simulator to the default state (delete simulator tests)
+        .then().assertThat().statusCode(SC_OK)
+        .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,InFlightTransactionLookupClient.ResponseCode_200))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
+
+        //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
         //Added 3 minutes wait because ctx requires time to iterate another cycle for transactions when airtel simulation is set to retryable decline.
@@ -1122,6 +1209,19 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
+                //"raas_request" parameter isn't empty AND "responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"reserve_fund_request" parameter isn't empty AND "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND only two objects exist in the "ctx_request" array with "clientTransactionId" is "j2tytajtvbtztlhfd3fyygii-0000" and ""hvz53wryjkzpkji7w6thm4z3-0001""
+                .body("ctx_request[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
+                /*AND only two objects exist in the "ctx_response" array AND "responseCode" for "clientTransactionId": "//{transactionId}-0000" object equals to "2240"
+                AND "responseCode" for "clientTransactionId": "{transactionId} -0001" object equals to "0"  */
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
+                //AND "responseCode" in "transaction_result_request" parameter is "2213"
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
                 //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
                 .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
                 //AND transaction result is sent with valid code mapped to ctx response code (0000)
@@ -1129,11 +1229,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 //AND success response code is received from the funding source
                 .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
                 //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where rep code = 2240
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
-                //AND last lookup was RETRYABLE_DECLINE (ctx lookup with response code 2201) TODO: add check where rep code = 2201
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
-                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0) for SUCCESS TODO: and the response code = 0
-                .body("ctx_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)));
+                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)));
     }
 
     @Test
@@ -1145,7 +1241,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase2 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_206, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(ReserveAndTransactClient.ResponseCode_206,InFlightTransactionLookupClient.ResponseCode_500))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
 
     //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -1157,11 +1259,20 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
         Thread.sleep(3000);
+
     //Set up testcase where action is purchase non retryable decline
         val addTestCase3 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(ReserveAndTransactClient.ResponseCode_206,ReserveAndTransactClient.ResponseCode_17017))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
+
         Thread.sleep(180000);
+
     //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
                 .then().assertThat().statusCode(SC_OK);
@@ -1177,18 +1288,20 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240)
+                //"raas_request" parameter isn't empty AND "responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND only two objects exist in the "ctx_request" array with "clientTransactionId" is "j2tytajtvbtztlhfd3fyygii-0000" and ""hvz53wryjkzpkji7w6thm4z3-0001""
+                .body("ctx_request[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_request[1].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
+                /*AND only two objects exist in the "ctx_response" array AND "responseCode" for "clientTransactionId": "//{transactionId}-0000" object equals to "2240"
+                AND "responseCode" for "clientTransactionId": "{transactionId} -0001" object equals to "0"  */
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2213)))
                 .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
-                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                //AND "responseCode" in "transaction_result_request" parameter is "2213"
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode2213))
                 //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
-                //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where resp code = 2240
-                //AND last lookup was RETRYABLE_DECLINE (ctx lookup with response code 2201) TODO: add check where resp code = 2201
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
-                //AND response code for the LAST retry matches "TransactionResponseCode" mapped to "Airtel Response Code"(0) for SUCCESS TODO: and the response code = 0
-                .body("ctx_response.clientTransactionId[0]", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
-    }
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202));
+        }
 
     @Test
     @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To SUCCESS (airtel)")
@@ -1199,7 +1312,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val addTestCase2 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);
 
         addAirtelTestCases(Arrays.asList(addTestCase1, addTestCase2), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,ReserveAndTransactClient.ResponseCode_2238))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
 
     //perform R&T - purchase airtel product
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_130, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -1214,7 +1333,13 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Set up testcase where action is purchase pending
         val addTestCase3 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
         addAirtelTestCases(Arrays.asList(addTestCase3), Port.AIRTEL_SIMULATOR)
-                .then().assertThat().statusCode(SC_OK);
+                .then().assertThat().statusCode(SC_OK).body("responseCode", Matchers.contains(InFlightTransactionLookupClient.ResponseCode_200,InFlightTransactionLookupClient.ResponseCode_500))
+                .body("id", Matchers.contains("",""))
+                .body("action", Matchers.contains(InFlightTransactionLookupClient.AirTel_lookup,InFlightTransactionLookupClient.AirTel_purchase))
+                .body("delay", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000),Integer.parseInt(ReserveAndTransactClient.Airtel_delay_3000)))
+                .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                .body("fieldName", Matchers.contains("",""));
+
         Thread.sleep(240000);
     //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)
@@ -1231,16 +1356,21 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //Verify the FIRST ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2201) for RD
-                .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2201)))
-                //AND the SECOND ctx request response matches "TransactionResponseCode" mapped to "Airtel Response Code"(2240) for PENDING
+                //"raas_request" parameter isn't empty AND "responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND "reserve_fund_request" parameter isn't empty AND "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND only two objects exist in the "ctx_request" array with "clientTransactionId" is "j2tytajtvbtztlhfd3fyygii-0000" and ""hvz53wryjkzpkji7w6thm4z3-0001""
+                .body("ctx_request[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_request[1].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.StartTransactionCode)))
+                /*AND only two objects exist in the "ctx_response" array AND "responseCode" for "clientTransactionId": "//{transactionId}-0000" object equals to "2240"
+                AND "responseCode" for "clientTransactionId": "{transactionId} -0001" object equals to "0"  */
                 .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
-                //AND transaction result is sent with valid code mapped to ctx response code (0000)
+                .body("ctx_response[1].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2201)))
+                //AND "responseCode" in "transaction_result_request" parameter is "2213"
                 .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
                 //AND success response code is received from the funding source
-                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
-                //AND transaction was pending (ctx lookup with response code 2240) - TODO: add check where resp code = 2240
-                .body("ctx_lookup_response[0].clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202));
     }
 
     @Test
