@@ -9,12 +9,9 @@ import lombok.val;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
-
-import javax.persistence.criteria.CriteriaBuilder;
 import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
-
 import static api.clients.ReserveAndTransactClient.*;
 import static api.clients.SimulatorClient.*;
 import static api.clients.SimulatorClient.addMtnTestCases;
@@ -44,7 +41,6 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
-
 //        //raas db check replaced with API check (TransactionLookup)
 //        assertThat(getTransactionStatus(raasTxnRef))
 //                .as("Postgres SQL query : Transaction Status incorrect")
@@ -83,7 +79,6 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.responseCode0000)));
-
     }
 
 
@@ -188,7 +183,6 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.ZeroTransactionCode)));
-
     }
 
     @Test
@@ -240,9 +234,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
             //AND transaction wasn't pending (no records found in the db)
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
-
     }
-
 
 
     //SUCCESS :: VENDORS & CLIENTS
@@ -934,21 +926,28 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //Verify against support tool API
         getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
                 .then().assertThat().statusCode(SC_OK)
-                //"raas_request" parameter isn't empty
-                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
-                //"responseCode" in the "raas_response" equals AND "reserve_fund_request" parameter isn't empty
+                //"responseCode" in the "raas_response" equals to "0000" AND "reserve_fund_request" parameter isn't empty
                 .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
-                .body("reserve_fund_request.raasTxnRef", Matchers.is(raasTxnRef))
-                // "responseCode" in the "reserve_fund_response" equals to "0000"
+                //"reserve_fund_request" parameter isn't empty AND "responseCode" in the "reserve_fund_response" equals to "0000"
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
-                //AND one objects exists in the "ctx_request" array with "clientTransactionId" is "{transactionId}-0000"
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
-                //AND "responseCode" for "clientTransactionId": "{transactionId-0000" object equals to "2240"
-                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
+                //"ctx_request" array with "clientTransactionId" is "{transactionId}-0000"
+                .body("ctx_request.clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                ///AND "ctx_response" array AND "responseCode" for "clientTransactionId": "{transactionId}-0000" object equals to "2240"
+                .body("ctx_response.responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
                 //more than one object exist in the "ctx_lookup_request" array with "clientTransactionId" is "{transactionId}-0000"
                 .body("ctx_lookup_request.clientTransactionId[0]", Matchers.is(raasTxnRef.concat(String.valueOf((ReserveAndTransactClient.StartTransactionCode)))))
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
-                //"responseCode" in the "ctx_response" equals to "2213" for object with "clientTransactionId": "raasTxnRef-0000"
+                //AND "ctx_lookup_request" array is empty
+                .body("ctx_lookup_request",Matchers.empty())
+                //AND "ctx_lookup_response" array is empty
+                .body("ctx_lookup_response",Matchers.empty())
+                //AND "responseCode" in "transaction_result_request" parameter is "2213"
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode2213))
+                //AND success response code is received from the funding source
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
+                //AND more than one object exist in the "ctx_response" array AND "responseCode" for "clientTransactionId": "{transactionId}-0000" object equals to "2240"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
+                //AND "responseCode" for "clientTransactionId": "{transactionId}-0000" object equals to "0"
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(FirstTransactionCode)))
                 // "responseCode" in the "transaction_result_response" equals to "202"
                 .body("transaction_result_response.responseCode", Matchers.is(responseCode202));

@@ -14,9 +14,13 @@ import static util.readers.PropertiesReader.getProperty;
 @Getter
 public class MnoLookupClient extends BasedAPIClient {
     public static String Nigeria_CC;
+    public static String OperatorCode_MTN_NG;
+    public static String OperatorName_Nigeria;
 
     static {
         Nigeria_CC = getProperty("Nigeria_CC");
+        OperatorCode_MTN_NG= getProperty("OperatorCode_MTN_NG");
+        OperatorName_Nigeria= getProperty("OperatorName_Nigeria");
     }
 
     public static Response getMnoInfo(Port port, Map <String,String> queryParams) {
