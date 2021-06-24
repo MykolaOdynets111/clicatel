@@ -27,8 +27,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
                 .body("purchaseAmount", Matchers.is(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
                 .body("breakdown.vendAmount", Matchers.notNullValue())
                 .body("breakdown.clientShareAmount", Matchers.notNullValue())
-                .body("breakdown.reserveAmount", Matchers.notNullValue())
+                .body("breakdown.reserveAmount", Matchers.is(Integer.parseInt(ReserveAndTransactClient.PurchaseAmount10000)))
                 .body("breakdown.settlementAmount", Matchers.notNullValue());
     }
-
 }

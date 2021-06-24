@@ -37,6 +37,8 @@ public class MnoLookupTest extends BaseApiTest {
                 .then().assertThat().statusCode(SC_OK)
                 .body("msisdn", Matchers.containsString(ReserveAndTransactClient.IdentifierV1))
                 .body("countryCallingCode", Matchers.containsString(MnoLookupClient.Nigeria_CC))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_MTN_NG))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_Nigeria))
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.Success))
                 .extract().body().as(MnoLookupResponse.class).getLookupRef();
