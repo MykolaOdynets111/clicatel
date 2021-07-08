@@ -931,12 +931,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 //"reserve_fund_request" parameter isn't empty AND "responseCode" in the "reserve_fund_response" equals to "0000"
                 .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
                 //"ctx_request" array with "clientTransactionId" is "{transactionId}-0000"
-                .body("ctx_request.clientTransactionId", Matchers.is(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_request[0].clientTransactionId", Matchers.is(raasTxnRef.concat(String.valueOf(ReserveAndTransactClient.StartTransactionCode))))
                 ///AND "ctx_response" array AND "responseCode" for "clientTransactionId": "{transactionId}-0000" object equals to "2240"
-                .body("ctx_response.responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode2240)))
                 //more than one object exist in the "ctx_lookup_request" array with "clientTransactionId" is "{transactionId}-0000"
                 .body("ctx_lookup_request.clientTransactionId[0]", Matchers.is(raasTxnRef.concat(String.valueOf((ReserveAndTransactClient.StartTransactionCode)))))
-                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                .body("ctx_response[0].clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
                 //AND "ctx_lookup_request" array is empty
                 .body("ctx_lookup_request",Matchers.empty())
                 //AND "ctx_lookup_response" array is empty
@@ -1270,7 +1270,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("httpStatusCode", Matchers.contains(Integer.parseInt(ReserveAndTransactClient.responseCode0),Integer.parseInt(ReserveAndTransactClient.responseCode0)))
                 .body("fieldName", Matchers.contains("",""));
 
-        Thread.sleep(180000);
+        Thread.sleep(240000);
 
     //set simulator to the default state (delete simulator tests)
         removeAllAirtelTestCases(Port.AIRTEL_SIMULATOR)

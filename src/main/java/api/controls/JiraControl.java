@@ -184,6 +184,7 @@ public class JiraControl {
                 .auth().preemptive().basic(getProperty("jira.name"), getProperty("jira.pass"))
                 .get(format("%s%s%s", getProperty("jira.base.url"), JIRA_TEST_PLAN_PATH, getProperty("jira.test.plan")))
                 .getBody().jsonPath().getList(JIRA_JSON_TC_PATH);
+
     }
 
     private static void setDescription(final String testCaseNumber,
