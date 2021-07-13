@@ -24,6 +24,7 @@ import static api.domains.simulator.repo.SimulatorRequestRepo.setUpMtnSimData;
 import static api.domains.transact.repo.TransactRequestRepo.setUpTransactV1Data;
 import static api.enums.ChannelName.*;
 import static api.enums.CurrencyCode.*;
+import static org.apache.http.HttpStatus.SC_BAD_REQUEST;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class ReserveAndTransactTest extends BaseApiTest {
@@ -813,7 +814,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     //PENDING :: RD :: NRD
     @Test
-    @Description("30100 :: payd-raas-gateway :: NonRetryableDecline (airtel)")
+    @Description("30100 :: payd-raas-gateway :: NonRetryableDecline")
     @TmsLink("TECH-57167")
     public void testReserveAndTransactNonRetryableDecline() throws InterruptedException {
         //add test case to simulate a NON_RETRYABLE_DECLINE
@@ -1427,5 +1428,156 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("transaction_result_response.responseCode", Matchers.is("202"))
                 //AND transactions were retried only two times
                 .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat("-0002")));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: 2510 Purchase amount exceeds allowed maximum product price amount")
+    @TmsLink("TECH-69564")
+    public void testReserveAndTransactPurchaseAmountExceedsAllowedMaximumPrice() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount1000000001, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+//        //raas db check replaced with API check (TransactionLookup)
+//        assertThat(getTransactionStatus(raasTxnRef))
+//                .as("Postgres SQL query : Transaction Status incorrect")
+//                .isTrue();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Failed));
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //THEN "raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"ctx_request" parameter isn't empty
+                .body("ctx_request.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND ctx response code is SUCCESSFUL (0)
+                //"responseCode" in the "ctx_response" equals to "2510"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ResponseCode_2510)));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: 2509 Purchase amount below allowed minimum product price amount")
+    @TmsLink("TECH-69567")
+    public void testReserveAndTransactPurchaseAmountBelowAllowedMaximumPrice() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount99, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+//        //raas db check replaced with API check (TransactionLookup)
+//        assertThat(getTransactionStatus(raasTxnRef))
+//                .as("Postgres SQL query : Transaction Status incorrect")
+//                .isTrue();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Failed));
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //THEN "raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"ctx_request" parameter isn't empty
+                .body("ctx_request.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND ctx response code is SUCCESSFUL (0)
+                //"responseCode" in the "ctx_response" equals to "2510"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ResponseCode_2509)));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: 2511 Purchase amount does not use correct increment for product")
+    @TmsLink("TECH-69569")
+    public void testReserveAndTransactPurchaseAmountIncorrectIncrement() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10001, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Failed));
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //THEN "raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"reserve_fund_request" parameter isn't empty
+                .body("reserve_fund_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                // "responseCode" in the "reserve_fund_response" equals to "0000"
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"ctx_request" parameter isn't empty
+                .body("ctx_request.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //AND ctx response code is SUCCESSFUL (0)
+                //"responseCode" in the "ctx_response" equals to "0"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ResponseCode_2511)))
+                //AND successful transaction result is sent (0000)
+                //"transaction_result_request" parameter isn't empty
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.ResponseCode_2511))
+                //AND success response code is received from the funding source (202)
+                //"responseCode" in the "transaction_result_response" equals to "202"
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: \"Invalid Fee Amount\" error")
+    @TmsLink("TECH-93001")
+    public void testReserveAndTransactInvalidJsonBody() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmountInvalid, ReserveAndTransactClient.FeeAmount10, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageInvalidJsonBody))
+                .body("raasTxnRef", Matchers.blankOrNullString())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+
     }
 }

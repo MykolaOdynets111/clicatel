@@ -72,6 +72,19 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseCode2201;
     public static String ResponseCode_206;
     public static String Airtel_delay_3000;
+    public static String ResponseCode_2510;
+    public static String PurchaseAmount1000000001;
+    public static String PurchaseAmount99;
+    public static String ResponseCode_2509;
+    public static String PurchaseAmount10001;
+    public static String ResponseCode_2511;
+    public static String FeeAmount10;
+    public static String ResponseCode_2055;
+    public static String responseMessageInvalidAmount;
+    public static String PurchaseAmountInvalid;
+    public static String ResponseCode_4000;
+    public static String responseMessageInvalidJsonBody;
+
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -132,6 +145,19 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseCode2201= getProperty("responseCode2201");
         ResponseCode_206= getProperty("ResponseCode_206");
         Airtel_delay_3000= getProperty("Airtel_delay_3000");
+        ResponseCode_2510= getProperty("ResponseCode_2510");
+        PurchaseAmount1000000001= getProperty("PurchaseAmount1000000001");
+        PurchaseAmount99= getProperty("PurchaseAmount99");
+        ResponseCode_2509= getProperty("ResponseCode_2509");
+        PurchaseAmount10001= getProperty("PurchaseAmount10001");
+        ResponseCode_2511= getProperty("ResponseCode_2511");
+        FeeAmount10= getProperty("FeeAmount10");
+        ResponseCode_2055= getProperty("ResponseCode_2055");
+        responseMessageInvalidAmount= getProperty("responseMessageInvalidAmount");
+        PurchaseAmountInvalid= getProperty("PurchaseAmountInvalid");
+        ResponseCode_4000= getProperty("ResponseCode_4000");
+        responseMessageInvalidJsonBody= getProperty("responseMessageInvalidJsonBody");
+
     }
 
 
