@@ -88,6 +88,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String ResponseCode_2506;
     public static String responseMessageReserveFundsTransaction;
     public static String responseMessageFundingResourceNotLinked;
+    public static String Product_1201;
 
 
     static {
@@ -165,6 +166,8 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         ResponseCode_2506= getProperty("ResponseCode_2506");
         responseMessageReserveFundsTransaction= getProperty("responseMessageReserveFundsTransaction");
         responseMessageFundingResourceNotLinked= getProperty("responseMessageFundingResourceNotLinked");
+        Product_1201= getProperty("Product_1201");
+
 
     }
 
