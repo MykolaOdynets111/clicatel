@@ -1565,8 +1565,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: \"Invalid Fee Amount\" error")
-    @TmsLink("TECH-93001")
+    @Description("30100 :: payd-raas-gateway :: \"Transaction request not valid\" error")
+    @TmsLink("TECH-93004")
     public void testReserveAndTransactInvalidJsonBody() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmountInvalid, ReserveAndTransactClient.FeeAmount10, ReserveAndTransactClient.Identifier);
 
@@ -1644,6 +1644,37 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
     @Test
+    @Description("30100 :: payd-raas-gateway :: \"Invalid Fee Amount\" error")
+    @TmsLink("TECH-93001")
+    public void testReserveAndTransactV4InvalidFeeAmount() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount10, ReserveAndTransactClient.Identifier_9);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_2055))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageInvalidAmount))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(20000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(Failed));
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //THEN "raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "2055"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.ResponseCode_2055));
+    }
+
+    @Test
     @Description("30100 :: payd-raas-gateway :: Reserve Funds transaction Reference was not expected error")
     @TmsLink("TECH-92973")
     public void testReserveAndTransactV3ReserveFundsTransactionReferenceError() throws InterruptedException {
@@ -1674,15 +1705,29 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: Reserve Funds transaction Reference was not expected error")
-    @TmsLink("TECH-92973")
-    public void testReserveAndTransactV4ReserveFundingSourceNotLinked() throws InterruptedException {
+    @Description("30100 :: payd-raas-gateway :: Funding Source not linked to Client error")
+    @TmsLink("TECH-92991")
+    public void testReserveAndTransactV4FundingSourceNotLinked() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9, clientTxnRef, String.valueOf(4));
 
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundingResourceNotLinked))
+                .body("raasTxnRef", Matchers.blankOrNullString())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: error when financial terms are missed for vendor, client and product")
+    @TmsLink("TECH-74564")
+    public void testReserveAndTransactV4FinancialTermsMissed() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_1201, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
                 .body("raasTxnRef", Matchers.blankOrNullString())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
