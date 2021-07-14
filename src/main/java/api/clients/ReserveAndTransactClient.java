@@ -84,6 +84,10 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String PurchaseAmountInvalid;
     public static String ResponseCode_4000;
     public static String responseMessageInvalidJsonBody;
+    public static String Product_919;
+    public static String ResponseCode_2506;
+    public static String responseMessageReserveFundsTransaction;
+    public static String responseMessageFundingResourceNotLinked;
 
 
     static {
@@ -157,6 +161,10 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         PurchaseAmountInvalid= getProperty("PurchaseAmountInvalid");
         ResponseCode_4000= getProperty("ResponseCode_4000");
         responseMessageInvalidJsonBody= getProperty("responseMessageInvalidJsonBody");
+        Product_919= getProperty("Product_919");
+        ResponseCode_2506= getProperty("ResponseCode_2506");
+        responseMessageReserveFundsTransaction= getProperty("responseMessageReserveFundsTransaction");
+        responseMessageFundingResourceNotLinked= getProperty("responseMessageFundingResourceNotLinked");
 
     }
 
