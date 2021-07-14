@@ -13,7 +13,8 @@ public enum ChannelId {
     ATM ("4"),
     WHATSAPP ("8"),
     APPLEBUSINESSCHAT ("13"),
-    USSD ("7");
+    USSD ("7"),
+    INVALID ("100");
 
     private final String channelId;
 }
