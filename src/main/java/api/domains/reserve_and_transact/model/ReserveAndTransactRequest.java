@@ -63,4 +63,7 @@ public class ReserveAndTransactRequest {
     @JsonProperty("targetIdentifier")
     private String targetIdentifier;
 
+    @JsonProperty("reserveFundsTxnRef")
+    private String reserveFundsTxnRef;
+
 }
