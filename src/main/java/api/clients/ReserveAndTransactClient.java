@@ -89,6 +89,9 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageReserveFundsTransaction;
     public static String responseMessageFundingResourceNotLinked;
     public static String Product_1201;
+<<<<<<< src/main/java/api/clients/ReserveAndTransactClient.java
+    
+=======
     public static String Identifier_11;
     public static String Identifier_12;
     public static String Product_1585;
@@ -97,6 +100,25 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessagePID11NotFound;
     public static String AccountIdentifier1;
     public static String fundingSourceID_50;
+    public static String AccountIdentifierV2MaxLimit;
+    public static String clientTxnRefV2MaxLimit;
+    public static String responseMessageClientTxnRef;
+    public static String responseMessageChannelSessionID;
+    public static String channelSessionIdV2MaxLimit;
+    public static String authCodeV2MaxLimit;
+    public static String responseMessageAuthCode;
+    public static String timeStampMaxLimit;
+    public static String ClientIdInvalid;
+    public static String Product_Invalid;
+    public static String PurchaseAmountMaxLimit;
+    public static String responseMessagePurchaseAmountMaxLimit;
+    public static String responseMessageChannelIDMaxLimit;
+    public static String responseMessageSourceIdentifierMaxLimit;
+    public static String responseMessageTargetIdentifierMaxLimit;
+    public static String SourceIdentifierMaxLimit;
+    public static String TargetIdentifierMaxLimit;
+
+>>>>>>> src/main/java/api/clients/ReserveAndTransactClient.java
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -174,6 +196,9 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageReserveFundsTransaction= getProperty("responseMessageReserveFundsTransaction");
         responseMessageFundingResourceNotLinked= getProperty("responseMessageFundingResourceNotLinked");
         Product_1201= getProperty("Product_1201");
+<<<<<<< src/main/java/api/clients/ReserveAndTransactClient.java
+        
+=======
         Identifier_11= getProperty("Identifier_11");
         Identifier_12= getProperty("Identifier_12");
         Product_1585= getProperty("Product_1585");
@@ -182,6 +207,26 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessagePID11NotFound= getProperty("responseMessagePID11NotFound");
         AccountIdentifier1= getProperty("AccountIdentifier1");
         fundingSourceID_50= getProperty("fundingSourceID_50");
+        AccountIdentifierV2MaxLimit= getProperty("AccountIdentifierV2MaxLimit");
+        clientTxnRefV2MaxLimit= getProperty("clientTxnRefV2MaxLimit");
+        responseMessageClientTxnRef= getProperty("responseMessageClientTxnRef");
+        channelSessionIdV2MaxLimit= getProperty("channelSessionIdV2MaxLimit");
+        responseMessageChannelSessionID= getProperty("responseMessageChannelSessionID");
+        authCodeV2MaxLimit= getProperty("authCodeV2MaxLimit");
+        responseMessageAuthCode= getProperty("responseMessageAuthCode");
+        timeStampMaxLimit= getProperty("timeStampMaxLimit");
+        ClientIdInvalid= getProperty("ClientIdInvalid");
+        Product_Invalid= getProperty("Product_Invalid");
+        PurchaseAmountMaxLimit= getProperty("PurchaseAmountMaxLimit");
+        responseMessagePurchaseAmountMaxLimit= getProperty("responseMessagePurchaseAmountMaxLimit");
+        responseMessageChannelIDMaxLimit= getProperty("responseMessageChannelIDMaxLimit");
+        responseMessageSourceIdentifierMaxLimit= getProperty("responseMessageSourceIdentifierMaxLimit");
+        responseMessageTargetIdentifierMaxLimit= getProperty("responseMessageTargetIdentifierMaxLimit");
+        SourceIdentifierMaxLimit= getProperty("SourceIdentifierMaxLimit");
+        TargetIdentifierMaxLimit= getProperty("TargetIdentifierMaxLimit");
+
+
+>>>>>>> src/main/java/api/clients/ReserveAndTransactClient.java
     }
 
 
