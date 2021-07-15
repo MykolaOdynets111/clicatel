@@ -26,6 +26,12 @@ public class TransactClient extends BasedAPIClient {
     public static String responseMessageChannelName;
     public static String responseMessageSourceIdentifier;
     public static String responseMessageTargetIdentifier;
+    public static String responseMessageTargetIdentifierV1;
+    public static String responseMessageChannelIDV1;
+    public static String responseMessageNullCSID;
+    public static String responseMessageSourceIdentifierNotNull;
+    public static String responseMessageTargetIdentifierNotNull;
+    public static String responseMessageChannelNameNotNull;
 
     static {
         responseMessageAlphaNumericCSID= getProperty("responseMessageAlphaNumericCSID");
@@ -42,6 +48,12 @@ public class TransactClient extends BasedAPIClient {
         responseMessageChannelName= getProperty("responseMessageChannelName");
         responseMessageSourceIdentifier= getProperty("responseMessageSourceIdentifier");
         responseMessageTargetIdentifier= getProperty("responseMessageTargetIdentifier");
+        responseMessageTargetIdentifierV1= getProperty("responseMessageTargetIdentifierV1");
+        responseMessageChannelIDV1= getProperty("responseMessageChannelIDV1");
+        responseMessageNullCSID= getProperty("responseMessageNullCSID");
+        responseMessageSourceIdentifierNotNull= getProperty("responseMessageSourceIdentifierNotNull");
+        responseMessageTargetIdentifierNotNull= getProperty("responseMessageTargetIdentifierNotNull");
+        responseMessageChannelNameNotNull= getProperty("responseMessageChannelNameNotNull");
     }
     public static Response executeTransact(TransactRequest body, Port port, Version version) {
         return basedAPIClient.get()

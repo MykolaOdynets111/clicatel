@@ -89,7 +89,14 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageReserveFundsTransaction;
     public static String responseMessageFundingResourceNotLinked;
     public static String Product_1201;
-
+    public static String Identifier_11;
+    public static String Identifier_12;
+    public static String Product_1585;
+    public static String responseMessagePIDNotFound;
+    public static String Product_11;
+    public static String responseMessagePID11NotFound;
+    public static String AccountIdentifier1;
+    public static String fundingSourceID_50;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -167,8 +174,14 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageReserveFundsTransaction= getProperty("responseMessageReserveFundsTransaction");
         responseMessageFundingResourceNotLinked= getProperty("responseMessageFundingResourceNotLinked");
         Product_1201= getProperty("Product_1201");
-
-
+        Identifier_11= getProperty("Identifier_11");
+        Identifier_12= getProperty("Identifier_12");
+        Product_1585= getProperty("Product_1585");
+        responseMessagePIDNotFound= getProperty("responseMessagePIDNotFound");
+        Product_11= getProperty("Product_11");
+        responseMessagePID11NotFound= getProperty("responseMessagePID11NotFound");
+        AccountIdentifier1= getProperty("AccountIdentifier1");
+        fundingSourceID_50= getProperty("fundingSourceID_50");
     }
 
 
