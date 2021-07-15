@@ -1732,8 +1732,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
 
-<<<<<<< src/test/java/api/reserve_and_transact/ReserveAndTransactTest.java
-=======
+
 @Test
     @Description("30100 :: payd-raas-gateway :: 4000 error when product doesn't exist in the system")
     @TmsLink("TECH-74597")
@@ -1940,6 +1939,4 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
     }
-
->>>>>>> src/test/java/api/reserve_and_transact/ReserveAndTransactTest.java
 }

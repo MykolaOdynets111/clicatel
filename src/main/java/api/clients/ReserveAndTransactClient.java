@@ -89,9 +89,6 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageReserveFundsTransaction;
     public static String responseMessageFundingResourceNotLinked;
     public static String Product_1201;
-<<<<<<< src/main/java/api/clients/ReserveAndTransactClient.java
-    
-=======
     public static String Identifier_11;
     public static String Identifier_12;
     public static String Product_1585;
@@ -117,8 +114,6 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageTargetIdentifierMaxLimit;
     public static String SourceIdentifierMaxLimit;
     public static String TargetIdentifierMaxLimit;
-
->>>>>>> src/main/java/api/clients/ReserveAndTransactClient.java
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -196,9 +191,6 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageReserveFundsTransaction= getProperty("responseMessageReserveFundsTransaction");
         responseMessageFundingResourceNotLinked= getProperty("responseMessageFundingResourceNotLinked");
         Product_1201= getProperty("Product_1201");
-<<<<<<< src/main/java/api/clients/ReserveAndTransactClient.java
-        
-=======
         Identifier_11= getProperty("Identifier_11");
         Identifier_12= getProperty("Identifier_12");
         Product_1585= getProperty("Product_1585");
@@ -226,7 +218,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         TargetIdentifierMaxLimit= getProperty("TargetIdentifierMaxLimit");
 
 
->>>>>>> src/main/java/api/clients/ReserveAndTransactClient.java
+
     }
 
 
