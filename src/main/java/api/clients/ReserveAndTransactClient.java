@@ -114,6 +114,8 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageTargetIdentifierMaxLimit;
     public static String SourceIdentifierMaxLimit;
     public static String TargetIdentifierMaxLimit;
+    public static String fundingSourceId_4;
+    public static String responseMessageCurrencyCodeMaxLimitCurrency;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -216,8 +218,8 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageTargetIdentifierMaxLimit= getProperty("responseMessageTargetIdentifierMaxLimit");
         SourceIdentifierMaxLimit= getProperty("SourceIdentifierMaxLimit");
         TargetIdentifierMaxLimit= getProperty("TargetIdentifierMaxLimit");
-
-
+        fundingSourceId_4= getProperty("fundingSourceId_4");
+        responseMessageCurrencyCodeMaxLimitCurrency= getProperty("responseMessageCurrencyCodeMaxLimitCurrency");
 
     }
 
