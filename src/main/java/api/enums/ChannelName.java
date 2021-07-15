@@ -13,7 +13,8 @@ public enum ChannelName {
     ATM ("ATM"),
     WHATSAPP ("WHATSAPP"),
     APPLEBUSINESSCHAT ("APPLEBUSINESSCHAT"),
-    USSD ("USSD");
+    USSD ("USSD"),
+    INVALID ("323456789012345678901234567890323");
 
     private final String channelName;
 }
