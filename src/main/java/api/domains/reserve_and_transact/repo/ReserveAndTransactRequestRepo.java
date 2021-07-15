@@ -109,7 +109,7 @@ public class ReserveAndTransactRequestRepo {
                 .clientId(clientId) //3
                 .productId(productId) //917
                 .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
-                .feeAmount("0")
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
                 .channelId(channelId.getChannelId()) //3
                 .channelName(channelName.getChannelName()) //internet
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
@@ -128,7 +128,7 @@ public class ReserveAndTransactRequestRepo {
                 .clientId(clientId) //3
                 .productId(productId) //917
                 .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
-                .feeAmount("0")
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
                 .channelId(channelId.getChannelId()) //3
                 .channelName(channelName.getChannelName()) //internet
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
@@ -136,6 +136,26 @@ public class ReserveAndTransactRequestRepo {
                 .reserveFundsTxnRef(ReserveFundTxn)
                 .build();
     }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataAccIdentifier(String clientId, ChannelName channelName,
+                                                                          ChannelId channelId, String productId,String accIdentifier){
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(accIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
 
     //V2
     public static ReserveAndTransactRequest setUpReserveAndTransactV2Data(String clientId, ChannelName channelName,
