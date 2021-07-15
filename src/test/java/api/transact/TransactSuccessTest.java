@@ -20,7 +20,6 @@ import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class TransactSuccessTest extends BaseApiTest {
-
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
     @TmsLink("TECH-54338")

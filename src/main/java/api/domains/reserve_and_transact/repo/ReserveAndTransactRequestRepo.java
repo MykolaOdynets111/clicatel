@@ -2,10 +2,10 @@ package api.domains.reserve_and_transact.repo;
 
 import api.clients.ReserveAndTransactClient;
 import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
+import api.domains.transact.model.TransactRequest;
 import api.enums.ChannelId;
 import api.enums.ChannelName;
 import api.enums.CurrencyCode;
-import static util.readers.PropertiesReader.getProperty;
 import api.clients.*;
 
 import static util.DateProvider.getCurrentIsoDateTime;
@@ -14,7 +14,7 @@ import static util.DateProvider.getCurrentIsoDateTime;
 public class ReserveAndTransactRequestRepo {
     //V4
     public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier){
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -31,32 +31,33 @@ public class ReserveAndTransactRequestRepo {
                 .channelName(channelName.getChannelName()) //USSD
                 .sourceIdentifier(identifier)
                 .targetIdentifier(identifier)
-                .build();}
-
-        public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String ReserveFundTxn){
-            return ReserveAndTransactRequest.builder()
-                    .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
-                    .authCode(null)
-                    .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
-                    .channelSessionId(ReserveAndTransactClient.channelSessionId)
-                    .timestamp(getCurrentIsoDateTime())
-                    .clientId(clientId) //3
-                    .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
-                    .productId(productId) //100
-                    .purchaseAmount(purchaseAmount) // 10000
-                    .feeAmount(feeAmount) //0
-                    .currencyCode(currencyCode.getCurrencyCode()) //NGN
-                    .channelId(channelId.getChannelId()) //7
-                    .channelName(channelName.getChannelName()) //USSD
-                    .sourceIdentifier(identifier)
-                    .targetIdentifier(identifier)
-                    .reserveFundsTxnRef(ReserveFundTxn)
-                    .build();
+                .build();
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String ReserveFundTxn, String fundingSourceId){
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String ReserveFundTxn) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .reserveFundsTxnRef(ReserveFundTxn)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4Data(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String ReserveFundTxn, String fundingSourceId) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -79,7 +80,7 @@ public class ReserveAndTransactRequestRepo {
 
     //V4
     public static ReserveAndTransactRequest setUpReserveAndTransactSignatureData(String clientId, ChannelName channelName,
-                                                                                   ChannelId channelId,String identifier){
+                                                                                 ChannelId channelId, String identifier) {
         return ReserveAndTransactRequest.builder()
                 .timestamp("2023-03-03T00:00:00.000+02:00")
                 .accountIdentifier("000XXX0311-0003")
@@ -98,7 +99,7 @@ public class ReserveAndTransactRequestRepo {
 
     //V3
     public static ReserveAndTransactRequest setUpReserveAndTransactV3Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId){
+                                                                          ChannelId channelId, String productId) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -117,7 +118,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId,String ReserveFundTxn){
+                                                                          ChannelId channelId, String productId, String ReserveFundTxn) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -138,7 +139,7 @@ public class ReserveAndTransactRequestRepo {
 
     //V2
     public static ReserveAndTransactRequest setUpReserveAndTransactV2Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId){
+                                                                          ChannelId channelId, String productId) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -294,7 +295,7 @@ public class ReserveAndTransactRequestRepo {
 
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String ReserveFundTxn){
+                                                                          ChannelId channelId, String productId, String ReserveFundTxn) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -311,4 +312,126 @@ public class ReserveAndTransactRequestRepo {
                 .build();
     }
 
+    // V4 Target Identifier expected to be an MSISDN based on the product type
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataMSISDNProducType(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(NotificationClient.Identifier_6)
+                .targetIdentifier(ReserveAndTransactClient.Identifier_11)
+                .build();
+    }
+
+    // V3 Target Identifier expected to be an MSISDN based on the product type
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataDataMSISDNProducType(String clientId, ChannelName channelName,
+                                                                                              ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.Identifier_12)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount("0")
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //Mobile
+                .sourceIdentifier(NotificationClient.Identifier_6)
+                .targetIdentifier(ReserveAndTransactClient.Identifier_11)
+                .build();
+    }
+
+    // V2 Target Identifier expected to be an MSISDN based on the product type
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV2DataDataMSISDNProducType(String clientId, ChannelName channelName,
+                                                                                              ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV2)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount("10000")
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(NotificationClient.Identifier_6)
+                .targetIdentifier(ReserveAndTransactClient.Identifier_11)
+                .build();
+    }
+
+    // V1 Target Identifier expected to be an MSISDN based on the product type
+    public static TransactRequest setUpTransactV1DataMSISDNProducType(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                      String productId) {
+        return TransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(NotificationClient.Identifier_6)
+                .targetIdentifier(ReserveAndTransactClient.Identifier_11)
+                .build();
+    }
+
+    // When Product is not linked with the clientID (TECH-74601)
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWhenProductNotLinkedWithClient(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataToTestServiceUnavailable(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier1)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceID_50)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
 }
