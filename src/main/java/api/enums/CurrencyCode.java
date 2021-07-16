@@ -8,7 +8,8 @@ import lombok.Getter;
 public enum CurrencyCode {
 
     NGN ("NGN"),
-    ZAR ("ZAR");
+    ZAR ("ZAR"),
+    INVALIDCC("1234");
 
     private final String currencyCode;
 }
