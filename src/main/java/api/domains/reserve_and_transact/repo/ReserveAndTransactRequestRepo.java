@@ -35,7 +35,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataSourceIdentifier(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String sourceidentifier) {
+                                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String sourceidentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -77,9 +77,8 @@ public class ReserveAndTransactRequestRepo {
     }
 
 
-
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataAccountIdentifier(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String accountIdentifier) {
+                                                                                           ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String accountIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(accountIdentifier)
                 .authCode(null)
@@ -100,7 +99,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataClientTxnRef(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                                           ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String clientTxnRef) {
+                                                                                      ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String clientTxnRef) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -121,7 +120,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataChannelSessionId(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                                      ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String channelSessionID) {
+                                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String channelSessionID) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -142,7 +141,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataAuthCode(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String authCode) {
+                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String authCode) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(authCode)
@@ -163,7 +162,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataTimeStamp(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String timeStamp) {
+                                                                                   ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String timeStamp) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -287,7 +286,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataAccIdentifier(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId,String accIdentifier){
+                                                                                       ChannelId channelId, String productId, String accIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(accIdentifier)
                 .authCode(null)
@@ -306,7 +305,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataClientTxnRef(String clientId, ChannelName channelName,
-                                                                                       ChannelId channelId, String productId,String clientTxnRef){
+                                                                                      ChannelId channelId, String productId, String clientTxnRef) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -325,7 +324,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataChannelSessionId(String clientId, ChannelName channelName,
-                                                                                      ChannelId channelId, String productId,String channelSessionID){
+                                                                                          ChannelId channelId, String productId, String channelSessionID) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -344,7 +343,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataAuthCode(String clientId, ChannelName channelName,
-                                                                                          ChannelId channelId, String productId,String authCode){
+                                                                                  ChannelId channelId, String productId, String authCode) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -364,7 +363,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataTimestamp(String clientId, ChannelName channelName,
-                                                                                  ChannelId channelId, String productId,String timeStamp){
+                                                                                   ChannelId channelId, String productId, String timeStamp) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -383,7 +382,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataPurchaseAmount(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount) {
+                                                                                        ChannelId channelId, String productId, String purchaseAmount) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -402,7 +401,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataFeeAmount(String clientId, ChannelName channelName,
-                                                                                        ChannelId channelId, String productId, String feeAmount) {
+                                                                                   ChannelId channelId, String productId, String feeAmount) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -421,7 +420,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataSourceIdentifier(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String sourceIdentifier) {
+                                                                                          ChannelId channelId, String productId, String sourceIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
                 .authCode(null)
@@ -478,7 +477,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataSourceIdentifier(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String sourceIdentifier){
+                                                                                          ChannelId channelId, String productId, String sourceIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -495,7 +494,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataTargetIdentifier(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String targetIdentifier){
+                                                                                          ChannelId channelId, String productId, String targetIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -513,7 +512,7 @@ public class ReserveAndTransactRequestRepo {
 
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataPurchaseAmountMaxLimit(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount){
+                                                                                                ChannelId channelId, String productId, String purchaseAmount) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -530,7 +529,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataAccIdentifierMaxLimit(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String accountIdentifier){
+                                                                                               ChannelId channelId, String productId, String accountIdentifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(accountIdentifier)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -547,7 +546,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataClientTxnRefMaxLimit(String clientId, ChannelName channelName,
-                                                                                               ChannelId channelId, String productId, String clientTxnRef){
+                                                                                              ChannelId channelId, String productId, String clientTxnRef) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(clientTxnRef)
@@ -564,7 +563,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataChannelSessionIDMaxLimit(String clientId, ChannelName channelName,
-                                                                                              ChannelId channelId, String productId, String channelSessionID){
+                                                                                                  ChannelId channelId, String productId, String channelSessionID) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -581,7 +580,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataAuthCodeMaxLimit(String clientId, ChannelName channelName,
-                                                                                                  ChannelId channelId, String productId, String authCode){
+                                                                                          ChannelId channelId, String productId, String authCode) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -599,7 +598,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV2DataTimeStampMaxLimit(String clientId, ChannelName channelName,
-                                                                                          ChannelId channelId, String productId, String timeStamp){
+                                                                                           ChannelId channelId, String productId, String timeStamp) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
@@ -716,7 +715,7 @@ public class ReserveAndTransactRequestRepo {
 
     // When Product is not linked with the clientID (TECH-74601)
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWhenProductNotLinkedWithClient(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+                                                                                                        ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
                 .authCode(null)
@@ -737,7 +736,7 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataToTestServiceUnavailable(String clientId, CurrencyCode currencyCode, ChannelName channelName,
-                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
         return ReserveAndTransactRequest.builder()
                 .accountIdentifier(ReserveAndTransactClient.AccountIdentifier1)
                 .authCode(null)
@@ -754,6 +753,183 @@ public class ReserveAndTransactRequestRepo {
                 .channelName(channelName.getChannelName()) //USSD
                 .sourceIdentifier(identifier)
                 .targetIdentifier(identifier)
+                .build();
+    }
+
+    //R&T V3 Empty Value for ChannelSessionID
+/*    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithEmptyValueCSID(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String CSID) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(CSID)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }*/
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueCSID(String clientId, ChannelName channelName,
+                                                                                            ChannelId channelId, String productId, String CSID) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(CSID)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for TS
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueTS(String clientId, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String TS) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(TS)
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for PA
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValuePA(String clientId, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String PA) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(PA)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for FA
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueFA(String clientId, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String FA) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(FA)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for ChannelID
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueChannelID(String clientId, ChannelName channelName,
+                                                                                                 String channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId) //3
+                .channelName(channelName.getChannelName()) //internet
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for ChannelName
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueChannelName(String clientId, String channelName,
+                                                                                                   ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName)
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+
+    //R&T V3 Empty Value for Source Identifier
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueSI(String clientId, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String SI, String TS) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(TS)
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount("0")//ReserveAndTransactClient.FeeAmount0
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(SI)
+                .targetIdentifier(NotificationClient.Identifier_6)
+                .build();
+    }
+
+    //R&T V3 Empty Value for Target Identifier
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWithEmptyValueTI(String clientId, ChannelName channelName,
+                                                                                          ChannelId channelId, String productId, String TI) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifierV3)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId()) //3
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(TI)
                 .build();
     }
 }
