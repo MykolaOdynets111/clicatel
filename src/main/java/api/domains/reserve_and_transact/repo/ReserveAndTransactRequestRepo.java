@@ -226,6 +226,27 @@ public class ReserveAndTransactRequestRepo {
                 .build();
     }
 
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataClientAndFundingDiff(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String fundingSourceId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
     //V4
     public static ReserveAndTransactRequest setUpReserveAndTransactSignatureData(String clientId, ChannelName channelName,
                                                                                  ChannelId channelId, String identifier) {

@@ -14,7 +14,8 @@ public enum ChannelId {
     WHATSAPP ("8"),
     APPLEBUSINESSCHAT ("13"),
     USSD ("7"),
-    INVALID ("100");
+    INVALID ("100"),
+    MAXLIMIT("12345678901");
 
     private final String channelId;
 }

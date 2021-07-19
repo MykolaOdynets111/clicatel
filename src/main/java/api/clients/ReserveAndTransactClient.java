@@ -118,6 +118,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageCurrencyCodeMaxLimitCurrency;
     public static String responseMessageCSIDAlphaNumeric;
     public static String responseMessageChannelNameAlphanumeric;
+    public static String fundingSourceId_1500;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -224,6 +225,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageCurrencyCodeMaxLimitCurrency= getProperty("responseMessageCurrencyCodeMaxLimitCurrency");
         responseMessageCSIDAlphaNumeric= getProperty("responseMessageCSIDAlphaNumeric");
         responseMessageChannelNameAlphanumeric= getProperty("responseMessageChannelNameAlphanumeric");
+        fundingSourceId_1500= getProperty("fundingSourceId_1500");
 
     }
 
