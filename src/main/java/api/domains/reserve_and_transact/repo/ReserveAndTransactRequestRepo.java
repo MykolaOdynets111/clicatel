@@ -1044,4 +1044,58 @@ public class ReserveAndTransactRequestRepo {
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV2)
                 .build();
     }
+
+    //R&T V2 Empty Value for ChannelName
+    public static ReserveAndTransactRequest setUpReserveAndTransactV2DataWithEmptyValueChannelName(String clientId, String channelName,
+                                                                                                   ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .build();
+    }
+
+    //R&T V2 Empty Value for ChannelName
+    public static ReserveAndTransactRequest setUpReserveAndTransactV2DataWithEmptyValueSI(String clientId, ChannelName channelName,
+                                                                                                   ChannelId channelId, String productId, String SI) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(SI)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .build();
+    }
+
+    //R&T V2 Empty Value for ChannelName
+    public static ReserveAndTransactRequest setUpReserveAndTransactV2DataWithEmptyValueTI(String clientId, ChannelName channelName,
+                                                                                                   ChannelId channelId, String productId,String TI) {
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV2)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV2)
+                .targetIdentifier(TI)
+                .build();
+    }
 }
