@@ -12,7 +12,7 @@ import static util.DateProvider.getCurrentIsoDateTime;
 public class TransactRequestRepo {
     //V4
     public static TransactRequest setUpTransactV4Data(String clientId, CurrencyCode currencyCode,
-                                                      ChannelName channelName, ChannelId channelId, String productId){
+                                                      ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -33,7 +33,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithCSIDEmpty(String clientId, CurrencyCode currencyCode,
-                                                                   ChannelName channelName, ChannelId channelId, String productId){
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -54,7 +54,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithTSEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp("")
                 .accountIdentifier("0000XXXX0004")
@@ -73,8 +73,9 @@ public class TransactRequestRepo {
                 .targetIdentifier("2348038382068")
                 .build();
     }
+
     public static TransactRequest setUpTransactV4DataWithRFTREmpty(String clientId, CurrencyCode currencyCode,
-                                                                   ChannelName channelName, ChannelId channelId, String productId){
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -95,7 +96,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithRCIEmpty(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -116,7 +117,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithFSEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -137,7 +138,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithPIDEmpty(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -158,7 +159,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithPAEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -179,7 +180,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithFAEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -200,7 +201,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithCCEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -221,7 +222,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithCNEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -242,7 +243,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithCIDEmpty(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -263,7 +264,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithSIEmpty(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -284,7 +285,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV4DataWithCTIEmpty(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -306,7 +307,7 @@ public class TransactRequestRepo {
 
     //V3
     public static TransactRequest setUpTransactV3Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId){
+                                                      ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier(null)
@@ -324,9 +325,218 @@ public class TransactRequestRepo {
                 .build();
     }
 
+
+    public static TransactRequest setUpTransactV3DataWithCSIDEmpty(String clientId,
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("")
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithTSEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp("")
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithRFTREmpty(String clientId,
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithRCIEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId("")
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithPIDEmpty(String clientId, ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId("")
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithPAEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithFAEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithCNEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName("")
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithCIDEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId("")
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithSIEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV3DataWithCTIEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(null)
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("")
+                .build();
+    }
+
     //V2
     public static TransactRequest setUpTransactV2Data(String clientId, ChannelName channelName,
-                                                                          ChannelId channelId, String productId){
+                                                      ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .accountIdentifier("222222xxxxxx0003")
                 .clientTxnRef("30234241786MgAUs-0002")
@@ -343,9 +553,201 @@ public class TransactRequestRepo {
                 .build();
     }
 
+    public static TransactRequest setUpTransactV2DataWithCSIDEmpty(String clientId,
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithTSEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp("")
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithRFTREmpty(String clientId,
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithRCIDEmpty(String clientId,
+                                                                   ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId("")
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+
+    public static TransactRequest setUpTransactV2DataWithPIDEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId("")
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithPAEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+
+    public static TransactRequest setUpTransactV2DataWithCNEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName("")
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithCIDEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId("")
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithSIEmpty(String clientId,
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithCTIEmpty(String clientId,
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("")
+                .build();
+    }
+
     //V1
     public static TransactRequest setUpTransactV1Data(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                                                    String productId){
+                                                      String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -417,7 +819,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV1DataWithCIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                  String productId){
+                                                                  String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -435,7 +837,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV1DataWithPIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                  String productId){
+                                                                  String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -453,7 +855,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV1DataWithPAEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                  String productId){
+                                                                 String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -471,7 +873,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV1DataWithChannelIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                 String productId){
+                                                                        String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -489,7 +891,7 @@ public class TransactRequestRepo {
     }
 
     public static TransactRequest setUpTransactV1DataWithTargetIdentifierEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                        String productId){
+                                                                               String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -506,27 +908,27 @@ public class TransactRequestRepo {
                 .build();
     }
 
-//V1 Null
-public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, ChannelName channelName, ChannelId channelId,
-                                                              String productId){
-    return TransactRequest.builder()
-            .accountIdentifier(null)
-            .authCode(null)
-            .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-            .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-            .timestamp(getCurrentIsoDateTime())
-            .clientId(null) //3
-            .productId(productId) //917
-            .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
-            .channelId(channelId.getChannelId()) //7
-            .channelName(channelName.getChannelName()) //USSD
-            .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
-            .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
-            .build();
-}
+    //V1 Null
+    public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                 String productId) {
+        return TransactRequest.builder()
+                .accountIdentifier(null)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(null) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
     public static TransactRequest setUpTransactV1DataWithPIDNull(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                  String productId){
+                                                                 String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -544,7 +946,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV1DataWithPANull(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                 String productId){
+                                                                String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -562,7 +964,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV1DataWithChannelIDNull(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                        String productId){
+                                                                       String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
@@ -669,9 +1071,10 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
                 .targetIdentifier(null)
                 .build();
     }
+
     //V4 Null
     public static TransactRequest setUpTransactV4DataWithCSIDNull(String clientId, CurrencyCode currencyCode,
-                                                                   ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -690,8 +1093,9 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
                 .targetIdentifier("2348038382068")
                 .build();
     }
+
     public static TransactRequest setUpTransactV4DataWithTSNull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(null)
                 .accountIdentifier("0000XXXX0004")
@@ -712,7 +1116,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithRFTRNull(String clientId, CurrencyCode currencyCode,
-                                                                   ChannelName channelName, ChannelId channelId, String productId){
+                                                                  ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -733,7 +1137,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithCINull(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -754,7 +1158,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithFSNull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -775,7 +1179,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithPIDNull(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -796,7 +1200,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithPANull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -817,7 +1221,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithFANull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -838,7 +1242,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithCCNull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -859,7 +1263,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithCNNull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -880,7 +1284,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithCIDnull(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -901,7 +1305,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithSINull(String clientId, CurrencyCode currencyCode,
-                                                                 ChannelName channelName, ChannelId channelId, String productId){
+                                                                ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -922,7 +1326,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
     }
 
     public static TransactRequest setUpTransactV4DataWithCTINull(String clientId, CurrencyCode currencyCode,
-                                                                  ChannelName channelName, ChannelId channelId, String productId){
+                                                                 ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -944,7 +1348,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
 
     //// V4 Target Identifier expected to be an MSISDN based on the product type
     public static TransactRequest setUpTransactV4DataMSISDNProducType(String clientId, CurrencyCode currencyCode,
-                                                      ChannelName channelName, ChannelId channelId, String productId){
+                                                                      ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier("0000XXXX0004")
@@ -966,7 +1370,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
 
     // V3 Target Identifier expected to be an MSISDN based on the product type
     public static TransactRequest setUpTransactV3DataMSISDNProducType(String clientId, ChannelName channelName,
-                                                      ChannelId channelId, String productId){
+                                                                      ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .timestamp(getCurrentIsoDateTime())
                 .accountIdentifier(null)
@@ -986,7 +1390,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
 
     // V2 Target Identifier expected to be an MSISDN based on the product type
     public static TransactRequest setUpTransactV2DataMSISDNProducType(String clientId, ChannelName channelName,
-                                                      ChannelId channelId, String productId){
+                                                                      ChannelId channelId, String productId) {
         return TransactRequest.builder()
                 .accountIdentifier("222222xxxxxx0003")
                 .clientTxnRef("30234241786MgAUs-0002")
@@ -1005,7 +1409,7 @@ public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, Ch
 
     // V2 Target Identifier expected to be an MSISDN based on the product type
     public static TransactRequest setUpTransactV1DataMSISDNProducType(String clientId, ChannelName channelName, ChannelId channelId,
-                                                    String productId){
+                                                                      String productId) {
         return TransactRequest.builder()
                 .accountIdentifier(null)
                 .authCode(null)
