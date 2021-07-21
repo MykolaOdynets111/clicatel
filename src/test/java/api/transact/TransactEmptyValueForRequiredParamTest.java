@@ -572,4 +572,6 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
+
+
 }

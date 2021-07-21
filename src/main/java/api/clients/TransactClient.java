@@ -32,6 +32,7 @@ public class TransactClient extends BasedAPIClient {
     public static String responseMessageSourceIdentifierNotNull;
     public static String responseMessageTargetIdentifierNotNull;
     public static String responseMessageChannelNameNotNull;
+    public static String responseMessageCurrencyCodeMaxLimitCurrency_Transact;
 
     static {
         responseMessageAlphaNumericCSID= getProperty("responseMessageAlphaNumericCSID");
@@ -54,6 +55,7 @@ public class TransactClient extends BasedAPIClient {
         responseMessageSourceIdentifierNotNull= getProperty("responseMessageSourceIdentifierNotNull");
         responseMessageTargetIdentifierNotNull= getProperty("responseMessageTargetIdentifierNotNull");
         responseMessageChannelNameNotNull= getProperty("responseMessageChannelNameNotNull");
+        responseMessageCurrencyCodeMaxLimitCurrency_Transact= getProperty("responseMessageCurrencyCodeMaxLimitCurrency_Transact");
     }
     public static Response executeTransact(TransactRequest body, Port port, Version version) {
         return basedAPIClient.get()
