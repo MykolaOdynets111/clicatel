@@ -1335,6 +1335,171 @@ public class TransactRequestRepo {
                 .build();
     }
 
+    //Max Limit Methods
+
+    public static TransactRequest setUpTransactV2DataReserveFundsTxnRefMaxLimit(String clientId, ChannelName channelName,
+                                                      ChannelId channelId, String productId, String reserveFundsTxnRef) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef(reserveFundsTxnRef)//"601502164444630590-0002"
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataAccountIdentifierMaxLimit(String clientId, ChannelName channelName,
+                                                                                ChannelId channelId, String productId, String accountIdentifier) {
+        return TransactRequest.builder()
+                .accountIdentifier(accountIdentifier)//"222222xxxxxx0003"
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataClientTxnRefMaxLimit(String clientId, ChannelName channelName,
+                                                                               ChannelId channelId, String productId, String clientTxnRef) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")//
+                .clientTxnRef(clientTxnRef)//"30234241786MgAUs-0002"
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataChannelSessionIdMaxLimit(String clientId, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String channelSessionId) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")//
+                .clientTxnRef("30234241786MgAUs-0002")//
+                .channelSessionId(channelSessionId)//"d5d65725c1414446b8546c5fcd5-0002"
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataAuthCodeIdMaxLimit(String clientId, ChannelName channelName,
+                                                                              ChannelId channelId, String productId, String authCode) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .authCode(authCode)
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataTimestampMaxLimit(String clientId, ChannelName channelName,
+                                                                        ChannelId channelId, String productId, String timestamp) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(timestamp)//getCurrentIsoDateTime()
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataPurchaseAmountMaxLimit(String clientId, ChannelName channelName,
+                                                                            ChannelId channelId, String productId, String purchaseAmount) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount(purchaseAmount)//"10000"
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataSourceIdentifierMaxLimit(String clientId, ChannelName channelName,
+                                                                            ChannelId channelId, String productId, String sourceIdentifier) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(sourceIdentifier)
+                .targetIdentifier("2348038382069")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataTargetIdentifierMaxLimit(String clientId, ChannelName channelName,
+                                                                            ChannelId channelId, String productId, String targetIdentifier) {
+        return TransactRequest.builder()
+                .accountIdentifier("222222xxxxxx0003")
+                .clientTxnRef("30234241786MgAUs-0002")
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382069")
+                .targetIdentifier(targetIdentifier)
+                .build();
+    }
+
     //V1 Null
     public static TransactRequest setUpTransactV1DataWithCIDNull(String clientId, ChannelName channelName, ChannelId channelId,
                                                                  String productId) {
