@@ -1749,7 +1749,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: 0001 Service temporarily unavailable error")
-    @TmsLink("TECH-113049")
+    @TmsLink("TECH-93007")
     public void testReserveAndTransactWithErrorServiceUnavailable() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataToTestServiceUnavailable(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, NotificationClient.Identifier_6);
 

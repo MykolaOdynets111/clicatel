@@ -1172,11 +1172,11 @@ public class TransactRequestRepo {
                 .build();
     }
 
-    //V1
+    //V1 Empty
     public static TransactRequest setUpTransactV1Data(String clientId, ChannelName channelName, ChannelId channelId,
                                                       String productId) {
         return TransactRequest.builder()
-                .accountIdentifier(null)
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
                 .authCode(null)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
                 .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
@@ -1190,6 +1190,7 @@ public class TransactRequestRepo {
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
+
 
     public static TransactRequest setUpTransactV1DataPurchaseAmount(String clientId, ChannelName channelName, ChannelId channelId,
                                                       String productId, String purchaseAmount){
@@ -1245,93 +1246,63 @@ public class TransactRequestRepo {
                 .build();
     }
 
-    public static TransactRequest setUpTransactV1DataWithCIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+    public static TransactRequest setUpTransactV1DataWithCIDEmpty(String clientId, ChannelId channelId,
                                                                   String productId) {
         return TransactRequest.builder()
-                .accountIdentifier(null)
-                .authCode(null)
-                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-                .timestamp(getCurrentIsoDateTime())
-                .clientId("") //3
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId) //3
                 .productId(productId) //917
                 .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
                 .channelId(channelId.getChannelId()) //7
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
 
-    public static TransactRequest setUpTransactV1DataWithPIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+    public static TransactRequest setUpTransactV1DataWithPIDEmpty(String clientId, ChannelId channelId,
                                                                   String productId) {
         return TransactRequest.builder()
-                .accountIdentifier(null)
-                .authCode(null)
-                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-                .timestamp(getCurrentIsoDateTime())
-                .clientId(clientId) //3
-                .productId("") //917
-                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
-                .channelId(channelId.getChannelId()) //7
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
-                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
-                .build();
-    }
-
-    public static TransactRequest setUpTransactV1DataWithPAEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                 String productId) {
-        return TransactRequest.builder()
-                .accountIdentifier(null)
-                .authCode(null)
-                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
                 .clientId(clientId) //3
                 .productId(productId) //917
-                .amount("") //could possibly add amount as a parameter as well?
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
                 .channelId(channelId.getChannelId()) //7
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
 
-    public static TransactRequest setUpTransactV1DataWithChannelIDEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+    public static TransactRequest setUpTransactV1DataWithPAEmpty(String clientId, ChannelId channelId,
+                                                                 String productId, String PurchaseAmount) {
+        return TransactRequest.builder()
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(PurchaseAmount) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV1DataWithChannelIDEmpty(String clientId, String channelId,
                                                                         String productId) {
         return TransactRequest.builder()
-                .accountIdentifier(null)
-                .authCode(null)
-                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
                 .clientId(clientId) //3
                 .productId(productId) //917
                 .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
-                .channelId("") //7
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .channelId(channelId) //7
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
 
-    public static TransactRequest setUpTransactV1DataWithTargetIdentifierEmpty(String clientId, ChannelName channelName, ChannelId channelId,
-                                                                               String productId) {
+    public static TransactRequest setUpTransactV1DataWithTargetIdentifierEmpty(String clientId, ChannelId channelId,
+                                                                               String productId, String TargetIdentifier) {
         return TransactRequest.builder()
-                .accountIdentifier(null)
-                .authCode(null)
-                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("601502164444630590-0002")
                 .clientId(clientId) //3
                 .productId(productId) //917
                 .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
                 .channelId(channelId.getChannelId()) //7
-                .channelName(channelName.getChannelName()) //USSD
-                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
-                .targetIdentifier("")
+                .targetIdentifier(TargetIdentifier)
                 .build();
     }
 

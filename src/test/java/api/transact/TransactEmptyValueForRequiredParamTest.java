@@ -343,78 +343,6 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
 
-
-    //v1
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93363")
-    public void V1testReserveClientIDEmpty() throws InterruptedException {
-        val jsonBody = setUpTransactV1DataWithCIDEmpty(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
-                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93363")
-    public void V1testReserveProductIDEmpty() throws InterruptedException {
-        val jsonBody = setUpTransactV1DataWithPIDEmpty(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
-                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93363")
-    public void V1testReservePAEmpty() throws InterruptedException {
-        val jsonBody = setUpTransactV1DataWithPAEmpty(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
-                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93363")
-    public void V1testReserveChannelIDEmpty() throws InterruptedException {
-        val jsonBody = setUpTransactV1DataWithChannelIDEmpty(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
-                .then().assertThat().statusCode(SC_OK)
-                .body("responseCode", Matchers.containsString(TransactClient.ResponseCode_0001))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelIDV1))
-                .body("raasTxnRef", Matchers.notNullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93363")
-    public void V1testTargetIdentifier() throws InterruptedException {
-        val jsonBody = setUpTransactV1DataWithTargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
-                .then().assertThat().statusCode(SC_BAD_REQUEST)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageTargetIdentifierV1))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
     //V3
 
     @Test
@@ -573,5 +501,76 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
 
+    //V1 Empty
 
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
+    @TmsLink("TECH-93367")
+    public void V1testReserveClientIDEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV1DataWithCIDEmpty("", ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
+                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
+    @TmsLink("TECH-93367")
+    public void V1testReserveProductIDEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV1DataWithPIDEmpty(ReserveAndTransactClient.TestClient3, ChannelId.INTERNET, "");
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
+                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
+    @TmsLink("TECH-93367")
+    public void V1testReservePurchaseAmountEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV1DataWithPAEmpty(ReserveAndTransactClient.TestClient3, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,"");
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
+                .then().assertThat().statusCode(SC_INTERNAL_SERVER_ERROR)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageServiceTUnavailable))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
+    @TmsLink("TECH-93367")
+    public void V1testReserveChannelIDEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV1DataWithChannelIDEmpty(ReserveAndTransactClient.TestClient3, "", ReserveAndTransactClient.ProductAirtel_917);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(TransactClient.ResponseCode_0001))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelIDV1))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
+    @TmsLink("TECH-93367")
+    public void V1testReserveTargetIdentifierEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV1DataWithTargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, "");
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V1)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageTargetIdentifierV1))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
 }
