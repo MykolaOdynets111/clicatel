@@ -12,7 +12,6 @@ import org.testng.annotations.Test;
 
 import static api.clients.TransactClient.executeTransact;
 import static api.domains.transact.repo.TransactRequestRepo.*;
-import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.*;
 
 public class TransactNullValueForRequiredParamTest {
