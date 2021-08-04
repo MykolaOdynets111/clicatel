@@ -29,6 +29,10 @@ public class BasedAPIClient {
     protected static String notificationUrl;
     protected static String productLookupUrl;
     protected static String userTransactionUrl;
+    protected static String ChannelLookup;
+    protected static String LineSimulator;
+    protected static String RaasBankSimulator;
+    protected static String AirTelSimulator;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -44,6 +48,10 @@ public class BasedAPIClient {
         notificationUrl= getProperty("api.notification.url");
         productLookupUrl= getProperty("api.productlookup.url");
         userTransactionUrl= getProperty("api.usertransaction.url");
+        ChannelLookup= getProperty("api.channellookup.url");
+        LineSimulator= getProperty("api.lineSimulator.url");
+        RaasBankSimulator= getProperty("api.raasBankSimulator.url");
+        AirTelSimulator= getProperty("api.airTelSimulator.url");
     }
 
     private void logResponse(final Response response) {

@@ -505,7 +505,7 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v1/transact :: empty value for required parameters")
-    @TmsLink("TECH-93367")
+    @TmsLink("TECH-93367TECH-93367")
     public void V1testReserveClientIDEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV1DataWithCIDEmpty("", ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
