@@ -1,8 +1,8 @@
 package api.mno_lookup;
-
 import api.clients.MnoLookupClient;
 import api.clients.ReserveAndTransactClient;
 import api.domains.mno_lookup.model.MnoLookupResponse;
+import api.enums.CountryCode;
 import api.enums.Port;
 import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
@@ -11,9 +11,10 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 import util.base_test.BaseApiTest;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Map;
-
+import static api.clients.MnoLookupClient.getMnoCountryInfo;
 import static api.clients.MnoLookupClient.getMnoInfo;
 import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
 import static db.custom_queries.MnoLookupQueries.GET_LOOKUP_RESPONSE_CODE;
@@ -21,6 +22,7 @@ import static db.enums.Sessions.POSTGRES_SQL;
 import static java.lang.String.format;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.InstanceOfAssertFactories.INT_ARRAY;
 
 public class MnoLookupTest extends BaseApiTest {
 
@@ -49,6 +51,21 @@ public class MnoLookupTest extends BaseApiTest {
 //                .as("No record in DB")
 //                .contains("0000");
     }
+
+    @Test
+    @Description("30049 :: client-mno-lookup-service :: GET  /mnp/lookupCountryPrefix")
+    @TmsLink("TECH-43153")
+    public void testMnoLookupCountryPrefix() {
+        Map <String, String> queryParams = new Hashtable<>();
+        queryParams.put("countryCode", String.valueOf(CountryCode.NG));
+
+        val lookupRef = getMnoCountryInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("countryName", Matchers.equalTo(Arrays.asList(MnoLookupClient.Nigeria)))
+                .body("dialingPrefix", Matchers.equalTo(Arrays.asList(Integer.parseInt(MnoLookupClient.Nigeria_CC))))
+                .body("countryCode", Matchers.equalTo(Arrays.asList(String.valueOf(CountryCode.NG))));
+    }
+
 
 }
 

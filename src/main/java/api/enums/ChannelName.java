@@ -7,12 +7,12 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ChannelName {
     POS ("POS"),
-    INTERNET ("INTERNET"),
-    MOBILE ("MOBILE"),
+    INTERNET ("Internet"),
+    MOBILE ("Mobile"),
     SMS ("SMS"),
     ATM ("ATM"),
-    WHATSAPP ("WHATSAPP"),
-    APPLEBUSINESSCHAT ("APPLEBUSINESSCHAT"),
+    WHATSAPP ("WhatsApp"),
+    APPLEBUSINESSCHAT ("Apple Business Chat"),
     USSD ("USSD"),
     INVALID ("64-3456789012345678902121321321111112345678901234567890123456-641");
 
