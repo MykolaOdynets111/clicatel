@@ -26,7 +26,7 @@ public class DbTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
-    @TmsLink("TECH-54338")
+    @TmsLink("TECH-1234")
     public void testTransactV4Success() {
 
         //Verify transaction status is "SUCCESS"
