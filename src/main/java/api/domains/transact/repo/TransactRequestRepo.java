@@ -561,7 +561,7 @@ public class TransactRequestRepo {
                 .build();
     }
 
-
+    //V3 Transact for Empty cases
     public static TransactRequest setUpTransactV3DataWithCSIDEmpty(String clientId,
                                                                    ChannelName channelName, ChannelId channelId, String productId) {
         return TransactRequest.builder()
@@ -769,6 +769,185 @@ public class TransactRequestRepo {
                 .targetIdentifier("")
                 .build();
     }
+    // V3 Transact for Null cases
+    public static TransactRequest SetupBodyForTransactV3WithChannelSessionIDNull(String clientId, ChannelName channelName,
+                                                      ChannelId channelId, String productId, String CSI) {
+        return TransactRequest.builder()
+                .channelSessionId(CSI)
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+
+    public static TransactRequest SetupBodyForTransactV3WitTimeStampIDNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String TS) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(TS)
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithreserveFundsTxnRefNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String RFTR) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef(RFTR)
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithclientIdNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithproductIdNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithpurchaseAmountNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String PA) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount(PA)
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithfeeAmountNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String FA) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount(FA)
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithchannelIdisNull(String clientId, ChannelName channelName,
+                                                                                        String channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId)
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithchannelNameNull(String clientId, String channelName,
+                                                                                        ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName)
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithsourceIdentifierNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String SI) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(SI)
+                .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest SetupBodyForTransactV3WithtargetIdentifierNull(String clientId, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String TI) {
+        return TransactRequest.builder()
+                .channelSessionId("channelSessionId-0003")
+                .timestamp(getCurrentIsoDateTime())
+                .reserveFundsTxnRef("90b91ada-df60-4a03-b0c3-c6bbf8381d09-0003")
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier(TI)
+                .build();
+    }
+
     //Max Limit Methods
     //V3
     public static TransactRequest setUpTransactV3DataReserveFundTxRefMaxLimit(String clientId, ChannelName channelName,
@@ -2104,6 +2283,160 @@ public class TransactRequestRepo {
                 .targetIdentifier("a1")
                 .build();
     }
+
+    // V2 TRANSACT NULL CASES
+    public static TransactRequest setUpTransactV2DataWithChannelSessionIDEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId, String CSA) {
+        return TransactRequest.builder()
+                .channelSessionId(CSA)
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+
+    public static TransactRequest setUpTransactV2DataWithtimestampEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId,String TS) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(TS)
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithreserveFundsTxnRefEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId, String RFTSR) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef(RFTSR)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithclientIdEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithproductIdEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DatapurchaseAmountEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId, String PA) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount(PA)
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithchannelIdisEmpty(String clientId, ChannelName channelName,
+                                                                      String channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId)
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithchannelNameEmpty(String clientId, String channelName,
+                                                                      ChannelId channelId, String productId) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName)
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithsourceIdentifierEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId, String SI) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(SI)
+                .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV2DataWithtargetIdentifierEmpty(String clientId, ChannelName channelName,
+                                                                      ChannelId channelId, String productId, String TI) {
+        return TransactRequest.builder()
+                .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
+                .reserveFundsTxnRef("601502164444630590-0002")
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .productId(productId)
+                .amount("10000")
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2341000000000")
+                .targetIdentifier(TI)
+                .build();
+    }
+
 
     // V2 Target Identifier expected to be an MSISDN based on the product type
     public static TransactRequest setUpTransactV1DataMSISDNProducType(String clientId, ChannelName channelName, ChannelId channelId,

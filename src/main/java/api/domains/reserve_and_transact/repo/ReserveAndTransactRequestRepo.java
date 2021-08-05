@@ -34,6 +34,224 @@ public class ReserveAndTransactRequestRepo {
                 .build();
     }
 
+    //V4 R&T with Null
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithChannelSessionIDNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String CSID) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(CSID)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithtimestampIDNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String TS) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(TS)
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithclientIdNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithfundingSourceIdNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String FS) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(FS)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithproductIdNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithpurchaseAmountNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithfeeAmountNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithcurrencyCodeNull(String clientId, String currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode)
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithchannelIdisNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  String channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId)
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithchannelNameNull(String clientId, CurrencyCode currencyCode, String channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName)
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithsourceIdentifierNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String Sidentifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(Sidentifier)
+                .targetIdentifier(identifier)
+                .build();
+    }
+
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataWithTargetIdentifierNull(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                  ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String Tidentifier) {
+        return ReserveAndTransactRequest.builder()
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId)
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId)
+                .purchaseAmount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(Tidentifier)
+                .build();
+    }
+
+
     public static ReserveAndTransactRequest setUpReserveAndTransactV4DataSourceIdentifier(String clientId, CurrencyCode currencyCode, ChannelName channelName,
                                                                                           ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String sourceidentifier) {
         return ReserveAndTransactRequest.builder()
@@ -716,7 +934,7 @@ public class ReserveAndTransactRequestRepo {
                                                                                               ChannelId channelId, String productId,String TS) {
         return ReserveAndTransactRequest.builder()
                 .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
-                .timestamp(getCurrentIsoDateTime())
+                .timestamp(TS)
                 .clientId(clientId)
                 .productId(productId)
                 .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
@@ -761,14 +979,14 @@ public class ReserveAndTransactRequestRepo {
     }
 
     public static ReserveAndTransactRequest setUpReserveAndTransactV3DataPurchaseAmountNull(String clientId, ChannelName channelName,
-                                                                                       ChannelId channelId, String productId, String FA) {
+                                                                                       ChannelId channelId, String productId, String PA) {
         return ReserveAndTransactRequest.builder()
                 .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
                 .timestamp(getCurrentIsoDateTime())
                 .clientId(clientId)
                 .productId(productId)
-                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
-                .feeAmount(FA)
+                .purchaseAmount(PA)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
                 .channelId(channelId.getChannelId())
                 .channelName(channelName.getChannelName())
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
