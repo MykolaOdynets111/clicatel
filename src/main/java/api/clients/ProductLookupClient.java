@@ -17,11 +17,15 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String ProductAirtel_130;
     public static String ProductTypeAirtime_3;
     public static String ProductTypeNameAirtime;
+    public static String DataAirtelProductTypeId;
+    public static String AirTimeAirtelProductTypeId;
 
     static {
         ProductAirtel_130 = getProperty("ProductAirtel_130");
         ProductTypeAirtime_3 = getProperty("ProductTypeAirtime_3");
         ProductTypeNameAirtime = getProperty("ProductTypeNameAirtime");
+        DataAirtelProductTypeId = getProperty("DataAirtelProductTypeId");
+        AirTimeAirtelProductTypeId = getProperty("AirTimeAirtelProductTypeId");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
@@ -41,6 +45,16 @@ public class ProductLookupClient extends BasedAPIClient {
                         .addQueryParams(queryParams)
                         //.addQueryParam("clientId","3")
                         //.addQueryParam("productId","130")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response getProductDetails(Port port, Version version, Map <String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s:%d/product_management/productDetails",productLookupUrl,port.getPort()))
+                        .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
