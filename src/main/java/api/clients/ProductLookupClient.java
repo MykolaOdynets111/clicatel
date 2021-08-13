@@ -17,11 +17,27 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String ProductAirtel_130;
     public static String ProductTypeAirtime_3;
     public static String ProductTypeNameAirtime;
+    public static String TestClient250;
+    public static String Identifier_13;
+    public static String Vendor100;
+    public static String Product_854;
+    public static String Product_130;
+    public static String Identifier_14;
+    public static String Identifier_15;
+    public static String Vendor103;
 
     static {
         ProductAirtel_130 = getProperty("ProductAirtel_130");
         ProductTypeAirtime_3 = getProperty("ProductTypeAirtime_3");
         ProductTypeNameAirtime = getProperty("ProductTypeNameAirtime");
+        TestClient250 = getProperty("TestClient250");
+        Identifier_13= getProperty("Identifier_13");
+        Vendor100= getProperty("Vendor100");
+        Identifier_14= getProperty("Identifier_14");
+        Identifier_15= getProperty("Identifier_15");
+        Vendor103= getProperty("Vendor103");
+        Product_130= getProperty("Product_130");
+        Product_854= getProperty("Product_854");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
@@ -39,8 +55,6 @@ public class ProductLookupClient extends BasedAPIClient {
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/public/%s/productInfo",productLookupUrl,port.getPort(),version.getVersion()))
                         .addQueryParams(queryParams)
-                        //.addQueryParam("clientId","3")
-                        //.addQueryParam("productId","130")
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
