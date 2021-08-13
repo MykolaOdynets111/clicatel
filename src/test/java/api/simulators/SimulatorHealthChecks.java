@@ -18,7 +18,7 @@ public class SimulatorHealthChecks {
     @TmsLink("TECH-53921")
     public void testPing3LineSimulator() {
 
-        //get all channels
+
         Ping3Line()
                 .then().assertThat().statusCode(SC_OK);
     }
@@ -28,7 +28,7 @@ public class SimulatorHealthChecks {
     @TmsLink("TECH-79752")
     public void testPingRaasBankV3Simulator() {
 
-        //get all channels
+
         PingRaasV3Simulator()
                 .then().assertThat().statusCode(SC_OK);
     }
@@ -38,7 +38,7 @@ public class SimulatorHealthChecks {
     @TmsLink("TECH-60268")
     public void testPingAirTelProxySimulator() {
 
-        //get all channels
+
         PingAirTelProxySimulator()
                 .then().assertThat().statusCode(SC_OK);
     }

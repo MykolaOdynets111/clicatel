@@ -357,7 +357,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithChannelSessionIDEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithChannelSessionIDEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -371,7 +371,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithtimestampEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithtimestampEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -384,7 +384,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithreserveFundsTxnRefEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithreserveFundsTxnRefEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -397,7 +397,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithclientIdEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithclientIdEmpty(null, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -410,7 +410,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithproductIdEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithproductIdEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, null);
 
@@ -423,7 +423,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithpurchaseAmountEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DatapurchaseAmountEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -436,7 +436,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithchannelIdisEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithchannelIdisEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, null, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -449,7 +449,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithchannelNameEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithchannelNameEmpty(ReserveAndTransactClient.TestClient3, null, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -462,7 +462,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithsourceIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithsourceIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, "");
 
@@ -476,7 +476,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TTECH-93351")
+    @TmsLink("TECH-93351")
     public void testTransactV2WithtargetIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithtargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
