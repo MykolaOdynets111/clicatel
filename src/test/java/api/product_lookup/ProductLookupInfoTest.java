@@ -226,4 +226,20 @@ public class ProductLookupInfoTest extends BaseApiTest {
                 .body("[0].publicProduct.id",Matchers.not(ReserveAndTransactClient.ProductAirtel_100));
     }
 
+    @Test
+    @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if airtel MSISDN is provided and vendor_id isn't provided then all airtel products should be returned in the response")
+    @TmsLink("TECH-117596")
+    public void testProductInfoIfAierwllMSISDNIsProvidedandVendorIDisNotProvided() {
+        Map <String, String> map = new Hashtable<>();
+        map.put("clientId",ProductLookupClient.TestClient250);
+        map.put("targetIdentifier",ProductLookupClient.Identifier_14);
+
+        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
+                .then().assertThat().statusCode(SC_OK)
+                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.Product_130)))
+                .body("[1].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.Product_854)))
+                .body("[0].publicProduct.id",Matchers.not(ReserveAndTransactClient.ProductAirtel_100));
+    }
+
+
 }
