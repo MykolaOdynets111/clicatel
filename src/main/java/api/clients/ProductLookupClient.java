@@ -27,6 +27,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String Identifier_14;
     public static String Identifier_15;
     public static String Vendor103;
+    public static String Vendor_MTN_NG;
 
     static {
         ProductAirtel_130 = getProperty("ProductAirtel_130");
@@ -42,6 +43,7 @@ public class ProductLookupClient extends BasedAPIClient {
         Vendor103= getProperty("Vendor103");
         Product_130= getProperty("Product_130");
         Product_854= getProperty("Product_854");
+        Vendor_MTN_NG= getProperty("Vendor_MTN_NG");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
@@ -73,4 +75,25 @@ public class ProductLookupClient extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
+
+
+    public static Response GetVendorByIdExpanded(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/vendors/vendorByIdExpanded",productLookupUrl))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetVendorProductTypes() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/vendorProductType/listAll",productLookupUrl))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
 }
