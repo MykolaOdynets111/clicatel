@@ -1835,7 +1835,7 @@ public class ReserveAndTransactRequestRepo {
                                                                                        ChannelId channelId, String productId) {
         return ReserveAndTransactRequest.builder()
                 .timestamp("2023-03-03T00:00:00.000+02:00")
-                .accountIdentifier("4000-xxxx-1003-02-0004")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier4)
                 .authCode(null)
                 .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
@@ -1856,7 +1856,7 @@ public class ReserveAndTransactRequestRepo {
                                                                                        ChannelId channelId, String productId) {
         return ReserveAndTransactRequest.builder()
                 .timestamp("2023-03-03T00:00:00.000+02:00")
-                .accountIdentifier("4000-xxxx-1003-02-0004")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier4)
                 .authCode(null)
                 .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
                 .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)

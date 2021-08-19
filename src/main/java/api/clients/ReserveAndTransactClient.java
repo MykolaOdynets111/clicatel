@@ -122,7 +122,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageFundingSourceMandatory;
     public static String TestClient1003;
     public static String TestClient2;
-    public static String AccountIdentifierV4;
+    public static String AccountIdentifier4;
     public static String responseMessageHeaderSignatureInvalid;
 
     static {
@@ -234,7 +234,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageFundingSourceMandatory= getProperty("responseMessageFundingSourceMandatory");
         TestClient1003= getProperty("TestClient1003");
         TestClient2= getProperty("TestClient2");
-        AccountIdentifierV4= getProperty("AccountIdentifierV4");
+        AccountIdentifier4= getProperty("AccountIdentifier4");
         responseMessageHeaderSignatureInvalid= getProperty("responseMessageHeaderSignatureInvalid");
 
     }

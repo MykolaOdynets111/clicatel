@@ -2572,7 +2572,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     @TmsLink("TECH-92994")
     public void testReserveAndTransactV3WithHeaderSignatureInvalidError() throws InterruptedException {
         //Creating signature
-        val jsonBody = setUpReserveAndTransactV3DataWtihSignature("1003", MOBILE,
+        val jsonBody = setUpReserveAndTransactV3DataWtihSignature(ReserveAndTransactClient.TestClient1003, MOBILE,
                 ChannelId.MOBILE, ProductAirtel_917);
         val signature = getProductInfoWithSecretValue(jsonBody)
                 .then().assertThat().statusCode(SC_OK)
@@ -2590,12 +2590,12 @@ public class ReserveAndTransactTest extends BaseApiTest {
         //GIVEN valid signature is generated and provided as header in the v4/reserveAndTransact request
         //
         //AND any character is added/removed to the request body
-        val jsonBody1 = setUpReserveAndTransactV3DataWtihSignaturetoExecuteWithInvalidBody("1003", MOBILE,
+        val jsonBody1 = setUpReserveAndTransactV3DataWtihSignaturetoExecuteWithInvalidBody(ReserveAndTransactClient.TestClient1003, MOBILE,
                 ChannelId.MOBILE, ProductAirtel_917);
         executeReserveAndTransactWithSignature(jsonBody1, Port.TRANSACTIONS, Version.V4, signature)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString("Header Signature invalid"))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageHeaderSignatureInvalid))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -2605,7 +2605,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         executeReserveAndTransactWithSignature(jsonBody, Port.TRANSACTIONS, Version.V4, signature + "a")
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString("Header Signature invalid"))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageHeaderSignatureInvalid))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 
@@ -2616,7 +2616,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         executeReserveAndTransactWithSignature(jsonBody, Port.TRANSACTIONS, Version.V4, null)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString("Header Signature invalid"))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageHeaderSignatureInvalid))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
