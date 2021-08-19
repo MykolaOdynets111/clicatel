@@ -34,6 +34,7 @@ public class BasedAPIClient {
     protected static String RaasBankSimulator;
     protected static String AirTelSimulator;
     protected static String Users;
+    protected static String secretValue;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -54,6 +55,7 @@ public class BasedAPIClient {
         RaasBankSimulator= getProperty("api.raasBankSimulator.url");
         AirTelSimulator= getProperty("api.airTelSimulator.url");
         Users= getProperty("api.Users.url");
+        secretValue= getProperty("api.secretValue.url");
     }
 
     private void logResponse(final Response response) {
