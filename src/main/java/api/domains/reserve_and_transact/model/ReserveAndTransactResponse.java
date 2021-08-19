@@ -25,4 +25,7 @@ public class ReserveAndTransactResponse {
     @JsonProperty("raasTxnRef")
     private String raasTxnRef;
 
+    @JsonProperty("signature")
+    private String signature;
+
 }
