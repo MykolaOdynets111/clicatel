@@ -120,6 +120,10 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String responseMessageChannelNameAlphanumeric;
     public static String fundingSourceId_1500;
     public static String responseMessageFundingSourceMandatory;
+    public static String TestClient1003;
+    public static String TestClient2;
+    public static String AccountIdentifier4;
+    public static String responseMessageHeaderSignatureInvalid;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -228,6 +232,10 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         responseMessageChannelNameAlphanumeric= getProperty("responseMessageChannelNameAlphanumeric");
         fundingSourceId_1500= getProperty("fundingSourceId_1500");
         responseMessageFundingSourceMandatory= getProperty("responseMessageFundingSourceMandatory");
+        TestClient1003= getProperty("TestClient1003");
+        TestClient2= getProperty("TestClient2");
+        AccountIdentifier4= getProperty("AccountIdentifier4");
+        responseMessageHeaderSignatureInvalid= getProperty("responseMessageHeaderSignatureInvalid");
 
     }
 
@@ -243,13 +251,14 @@ public class ReserveAndTransactClient extends BasedAPIClient {
                         .build());
     }
 
-    public static Response executeReserveAndTransactWithSignature(String body, Port port, Version version, String signature) {
+    public static Response executeReserveAndTransactWithSignature(ReserveAndTransactRequest body, Port port, Version version, String signature) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setContentType(JSON)
                         .setBaseUri(String.format("%s:%d/raas/%s/reserveAndTransact",baseUrl,port.getPort(),version.getVersion()))
-                        .addHeader("Signature", signature)
+                        .addHeader("Signature", String.valueOf(signature))
                         .setBody(body)
+                        .setContentType(JSON)
                         .log(ALL)
                         .build());
     }

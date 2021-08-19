@@ -1,5 +1,6 @@
 package api.clients;
 
+import api.domains.reserve_and_transact.model.ReserveAndTransactRequest;
 import io.restassured.builder.RequestSpecBuilder;
 import api.enums.Port;
 import api.enums.Version;
@@ -61,6 +62,17 @@ public class ProductLookupClient extends BasedAPIClient {
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%d/public/%s/productInfo",productLookupUrl,port.getPort(),version.getVersion()))
                         .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response getProductInfoWithSecretValue(ReserveAndTransactRequest body) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/signature/sign",productLookupUrl))
+                        .setBody(body)
+                        .addQueryParam("secretValue","zaqwsxcderfv123")
                         .setContentType(JSON)
                         .log(ALL)
                         .build());

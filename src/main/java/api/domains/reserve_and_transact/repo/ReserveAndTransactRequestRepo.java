@@ -1829,4 +1829,47 @@ public class ReserveAndTransactRequestRepo {
                 .targetIdentifier(TI)
                 .build();
     }
+
+    // V3 R&T with Signature body creation
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWtihSignature(String clientId, ChannelName channelName,
+                                                                                       ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .timestamp("2023-03-03T00:00:00.000+02:00")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier4)
+                .authCode(null)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .clientId(clientId)
+                .productId(productId)
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount0)
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .currencyCode(CurrencyCode.NGN.getCurrencyCode())
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+// V3 R&T with Signature body creation to execute with invalid body
+    public static ReserveAndTransactRequest setUpReserveAndTransactV3DataWtihSignaturetoExecuteWithInvalidBody(String clientId, ChannelName channelName,
+                                                                                       ChannelId channelId, String productId) {
+        return ReserveAndTransactRequest.builder()
+                .timestamp("2023-03-03T00:00:00.000+02:00")
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier4)
+                .authCode(null)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV3)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV3)
+                .clientId(clientId)
+                .productId(productId)
+                .purchaseAmount(ReserveAndTransactClient.PurchaseAmount10000)
+                .feeAmount(ReserveAndTransactClient.FeeAmount10) //Invalid fee amount
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .currencyCode(CurrencyCode.NGN.getCurrencyCode())
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
 }
