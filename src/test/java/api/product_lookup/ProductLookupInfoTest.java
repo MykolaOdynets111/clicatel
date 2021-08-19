@@ -99,17 +99,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     public void testProductLookupInformationV3Success() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
-        //map.put("targetIdentifier","2348085767001");
         map.put("productId",ProductLookupClient.ProductAirtel_130);
-        //map.put("productTypeId","3");
-        //map.put("includeInactive","true");
-        //map.put("topSeller","true");
-        //map.put("subscriberType","EBU");
-        //map.put("topSellerPlatform","SMS");
-        //map.put("purchaseMedium","Card");
-        //map.put("channelId","2");
-        //map.put("vendorId","103");
-        //map.put("sortBy","singlePrice,asc");
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)

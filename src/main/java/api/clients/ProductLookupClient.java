@@ -96,4 +96,14 @@ public class ProductLookupClient extends BasedAPIClient {
                         .build());
     }
 
+    public static Response GetVendorCtxProductById(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/ctx/vendorProduct",productLookupUrl))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
 }

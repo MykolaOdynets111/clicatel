@@ -31,7 +31,7 @@ public class VendorManagement {
 
     @Test
     @Description("GET /vendors/vendorByIdExpanded :: happy path")
-    @TmsLink("TECH-34258")
+    @TmsLink("TECH-62347")
     public void testVendorProductTypeListAllHappyPath() {
 
         GetVendorProductTypes()
@@ -40,5 +40,20 @@ public class VendorManagement {
                 .body("internalProductTypeId[0]", Matchers.is(Integer.parseInt(ReserveAndTransactClient.fundingSourceId)))
                 .body("vendorId[0]", Matchers.is(Integer.parseInt(Vendor103)))
                 .body("description[0]", Matchers.is(AirTimeAirtelProductTypeId));
+    }
+
+    @Test
+    @Description("GET /ctx/vendorProduct :: check if 'externalProductTypeId' is returned in the response")
+    @TmsLink("TECH-118377")
+    public void testVendorCtxVendorProduct() {
+
+        Map<String, String> map = new Hashtable<>();
+        map.put("id", ProductAirtel_130);
+        GetVendorCtxProductById(map)
+                .then().assertThat().statusCode(SC_OK)
+                .body("productId", Matchers.is(Integer.parseInt(ProductAirtel_130)))
+                .body("vendorProductId", Matchers.is(Integer.parseInt(ProductAirtel_130)))
+                .body("vendorId", Matchers.is(Integer.parseInt(Vendor103)))
+                .body("externalProductTypeId", Matchers.is(AirTimeAirtelProductTypeId));
     }
 }

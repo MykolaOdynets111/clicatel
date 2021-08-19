@@ -17,6 +17,7 @@
             <package name="api.channels"/>
             <package name="api.users"/>
             <package name="api.simulators"/>
+            <package name="api.ctxHistory"/>
         </packages>
     </test>
 </suite>

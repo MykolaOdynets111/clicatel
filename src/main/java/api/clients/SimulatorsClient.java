@@ -68,4 +68,14 @@ public class SimulatorsClient {
                         .build());
     }
 
+    public static Response PingMWMSimulator() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/mwmsim/testresponse",MwmSimulator))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+
 }
