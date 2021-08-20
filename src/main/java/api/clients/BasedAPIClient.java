@@ -34,6 +34,9 @@ public class BasedAPIClient {
     protected static String RaasBankSimulator;
     protected static String AirTelSimulator;
     protected static String Users;
+    protected static String PortalTransactionLookup;
+    protected static String MwmSimulator;
+    protected static String CtxHistory;
     protected static String secretValue;
 
     static {
@@ -55,6 +58,9 @@ public class BasedAPIClient {
         RaasBankSimulator= getProperty("api.raasBankSimulator.url");
         AirTelSimulator= getProperty("api.airTelSimulator.url");
         Users= getProperty("api.Users.url");
+        PortalTransactionLookup= getProperty("api.portalTransactionLookup.url");
+        MwmSimulator= getProperty("api.MwmSimulator.url");
+        CtxHistory= getProperty("api.CtxHistory.url");
         secretValue= getProperty("api.secretValue.url");
     }
 
