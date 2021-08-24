@@ -18,6 +18,7 @@
             <package name="api.users"/>
             <package name="api.simulators"/>
             <package name="api.ctxHistory"/>
+            <package name="api.tokenServices"/>
         </packages>
     </test>
 </suite>

@@ -176,20 +176,6 @@ public class TransactCharLimitForRequestParamTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters")
     @TmsLink("TECH-93950")
-    public void testTransactV3ChannelNameMaxLimit() throws InterruptedException {
-        val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V3)
-                .then().assertThat().statusCode(SC_BAD_REQUEST)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
-
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93950")
     public void testTransactV3SourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpTransactV3DataSourceIdentifierMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,ReserveAndTransactClient.SourceIdentifierMaxLimit );
 
@@ -211,6 +197,20 @@ public class TransactCharLimitForRequestParamTest {
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageTargetIdentifierMaxLimit))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters")
+    @TmsLink("TECH-93950")
+    public void testTransactV3ChannelNameMaxLimit() throws InterruptedException {
+        val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V3)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
@@ -410,22 +410,7 @@ public class TransactCharLimitForRequestParamTest {
 
     }
 
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93946")
-    public void testTransactV4ChannelNameMaxLimit() throws InterruptedException {
-        val jsonBody = setUpTransactV4Data(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
-                .then().assertThat().statusCode(SC_BAD_REQUEST)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-
-    }
-
-    @Test
+        @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters")
     @TmsLink("TECH-93946")
     public void testTransactV4SourceIdentifierMaxLimit() throws InterruptedException {
@@ -450,6 +435,20 @@ public class TransactCharLimitForRequestParamTest {
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageTargetIdentifierMaxLimit))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+    }
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters")
+    @TmsLink("TECH-93946")
+    public void testTransactV4ChannelNameMaxLimit() throws InterruptedException {
+        val jsonBody = setUpTransactV4Data(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
 

@@ -460,19 +460,6 @@ public class TransactNullValueForRequiredParamTest {
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
-    @Test
-    @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-93351")
-    public void testTransactV2WithsourceIdentifierEmpty() throws InterruptedException {
-        val jsonBody = setUpTransactV2DataWithsourceIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, "");
-
-        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
-                .then().assertThat().statusCode(SC_BAD_REQUEST)
-                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageSourceIdentifierNotNull))
-                .body("raasTxnRef", Matchers.nullValue())
-                .extract().body().as(TransactResponse.class).getRaasTxnRef();
-    }
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
@@ -484,6 +471,19 @@ public class TransactNullValueForRequiredParamTest {
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
                 .body("responseMessage", Matchers.containsString(TransactClient.responseMessageTargetIdentifierNotNull))
+                .body("raasTxnRef", Matchers.nullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+    @Test
+    @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
+    @TmsLink("TECH-93351")
+    public void testTransactV2WithsourceIdentifierEmpty() throws InterruptedException {
+        val jsonBody = setUpTransactV2DataWithsourceIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, "");
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
+                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageSourceIdentifierNotNull))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
