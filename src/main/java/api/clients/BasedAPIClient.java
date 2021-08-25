@@ -44,7 +44,7 @@ public class BasedAPIClient {
         baseUrl = getProperty("api.base.url");
         supportUrl = getProperty("api.support.url");
         transactionUrl = getProperty("api.transaction.url");
-        airtelUrl= getProperty("api.airtel.url");
+        airtelUrl= getProperty(("api.airtel.url"));
         mtnUrl= getProperty("api.mtnSimulator.url");
         cAccountValidation= getProperty("api.cAccountValidation.url");
         cAccountValidation2= getProperty("api.cAccountValidationv2.url");

@@ -16,7 +16,7 @@ import static api.domains.transact.repo.TransactRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.*;
 
-public class cdTransactEmptyValueForRequiredParamTest extends BaseApiTest {
+public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters")
     @TmsLink("TECH-93364")
