@@ -20,6 +20,7 @@ import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
 import static db.custom_queries.MnoLookupQueries.GET_LOOKUP_RESPONSE_CODE;
 import static db.enums.Sessions.POSTGRES_SQL;
 import static java.lang.String.format;
+import static org.apache.http.HttpStatus.SC_NOT_FOUND;
 import static org.apache.http.HttpStatus.SC_OK;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.INT_ARRAY;
@@ -30,9 +31,9 @@ public class MnoLookupTest extends BaseApiTest {
     @Description("30049 :: client-mno-lookup-service :: public internal :: GET /mnp/mnpLookup :: MNO Lookup (1.0)")
     @TmsLink("TECH-54461")
     public void testMnoLookupSuccess() {
-        Map <String, String> queryParams = new Hashtable<>();
+        Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
-        queryParams.put("msisdn",ReserveAndTransactClient.IdentifierV1);
+        queryParams.put("msisdn", ReserveAndTransactClient.IdentifierV1);
         queryParams.put("countryCallingCode", MnoLookupClient.Nigeria_CC);
 
         val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
@@ -56,7 +57,7 @@ public class MnoLookupTest extends BaseApiTest {
     @Description("30049 :: client-mno-lookup-service :: GET  /mnp/lookupCountryPrefix")
     @TmsLink("TECH-43153")
     public void testMnoLookupCountryPrefix() {
-        Map <String, String> queryParams = new Hashtable<>();
+        Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("countryCode", String.valueOf(CountryCode.NG));
 
         val lookupRef = getMnoCountryInfo(Port.MNO_LOOKUP, queryParams)
@@ -66,6 +67,21 @@ public class MnoLookupTest extends BaseApiTest {
                 .body("countryCode", Matchers.equalTo(Arrays.asList(String.valueOf(CountryCode.NG))));
     }
 
+    @Test
+    @Description("30049 :: client-mno-lookup-service :: GET /mnp/mnpLookup :: 9020 'Unable to identify operator' scenario")
+    @TmsLink("TECH-79997")
+    public void testMnoLookupInvalidMsisdn() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.InValidMnoMsisdn);
+        queryParams.put("countryCallingCode", MnoLookupClient.Nigeria_CC);
 
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_NOT_FOUND)
+                .body("responseCode", Matchers.containsString(MnoLookupClient.ResponseCode_9020))
+                .body("responseMessage", Matchers.containsString(MnoLookupClient.responseMessageInvalidMsisdnMnoLookup))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+
+    }
 }
 
