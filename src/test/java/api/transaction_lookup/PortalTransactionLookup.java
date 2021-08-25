@@ -45,14 +45,6 @@ public class PortalTransactionLookup {
     @Description("GET /lookupservice/validDateRanges :: happy path")
     @TmsLink("TECH-54651")
     public void testTransactionLookupValidDateRangesHappyPath() {
-//        Map<String, String> map = new Hashtable<>();
-//        map.put("clientId", TransactionLookupClient.TestClient143);
-//        map.put("clientTransactionId", TransactionLookupClient.ClientTxnID);
-//        map.put("currentPage", ReserveAndTransactClient.FeeAmount0);
-//        map.put("dateRangeFrom", TransactionLookupClient.DateRangeFrom);
-//        map.put("dateRangeTo", TransactionLookupClient.DateRangeTo);
-//        map.put("pageSize", TransactionLookupClient.Limit_1);
-
 
         getPortalTransactionLookupValidDateRanges()
                 .then().assertThat().statusCode(SC_OK)

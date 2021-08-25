@@ -17,12 +17,19 @@ public class MnoLookupClient extends BasedAPIClient {
     public static String OperatorCode_MTN_NG;
     public static String OperatorName_Nigeria;
     public static String Nigeria;
+    public static String InValidMnoMsisdn;
+    public static String ResponseCode_9020;
+    public static String responseMessageInvalidMsisdnMnoLookup;
+
 
     static {
         Nigeria_CC = getProperty("Nigeria_CC");
         OperatorCode_MTN_NG= getProperty("OperatorCode_MTN_NG");
         OperatorName_Nigeria= getProperty("OperatorName_Nigeria");
         Nigeria= getProperty("Nigeria");
+        InValidMnoMsisdn= getProperty("InValidMnoMsisdn");
+        ResponseCode_9020= getProperty("ResponseCode_9020");
+        responseMessageInvalidMsisdnMnoLookup= getProperty("responseMessageInvalidMsisdnMnoLookup");
     }
 
     public static Response getMnoInfo(Port port, Map <String,String> queryParams) {
