@@ -160,8 +160,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
 
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters")
-    @TmsLink("TECH-93364")
+    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters (TargetIdentifierEmpty)")
+    @TmsLink("TECH-123544")
     public void testReserveTargetIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCTIEmpty(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -173,8 +173,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters")
-    @TmsLink("TECH-93364")
+    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters (SourceIdentifierEmpty)")
+    @TmsLink("TECH-123367")
     public void testV4ReserveSourceIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithSIEmpty(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -186,8 +186,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters")
-    @TmsLink("TECH-93364")
+    @Description("30100 :: payd-raas-gateway :: v4/transact :: empty value for required parameters (ChannelNameEmpty)")
+    @TmsLink("TECH-123542")
     public void testReserveChannelNameEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCNEmpty(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -300,8 +300,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters")
-    @TmsLink("TECH-93366")
+    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters (SourceIdentifierEmpty)")
+    @TmsLink("TECH-123376")
     public void V2testReserveSourceIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithSIEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -314,8 +314,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters")
-    @TmsLink("TECH-93366")
+    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters (TargetIdentifierEmpty)")
+    @TmsLink("TECH-123377")
     public void V2testReserveTargetIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithCTIEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -327,8 +327,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters")
-    @TmsLink("TECH-93366")
+    @Description("30100 :: payd-raas-gateway :: v2/transact :: empty value for required parameters (ChannelNameEmpty)")
+    @TmsLink("TECH-123375")
     public void V2testReserveChannelNameEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithCNEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -456,8 +456,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters")
-    @TmsLink("TECH-93365")
+    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters (TargetIdentifierEmpty)")
+    @TmsLink("TECH-123371")
     public void V3testReserveTargetIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV3DataWithCTIEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -469,8 +469,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters")
-    @TmsLink("TECH-93365")
+    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters (SourceIdentifierEmpty)")
+    @TmsLink("TECH-123370")
     public void V3testReserveSourceIdentifierEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV3DataWithSIEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -483,8 +483,8 @@ public class TransactEmptyValueForRequiredParamTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters")
-    @TmsLink("TECH-93365")
+    @Description("30100 :: payd-raas-gateway :: v3/transact :: empty value for required parameters (ChannelNameEmpty)")
+    @TmsLink("TECH-123369")
     public void V3testReserveChannelNameEmpty() throws InterruptedException {
         val jsonBody = setUpTransactV3DataWithCNEmpty(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 

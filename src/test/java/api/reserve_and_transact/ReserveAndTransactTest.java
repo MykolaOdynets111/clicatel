@@ -1882,8 +1882,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
         @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters (SourceIdentifierMaxLimit)")
+    @TmsLink("TECH-123386")
     public void testReserveAndTransactV2SourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataSourceIdentifier(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, SourceIdentifierMaxLimit);
 
@@ -1911,8 +1911,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
+    @TmsLink("TECH-123385")
     public void testReserveAndTransactV2ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, INVALID, ChannelId.USSD, ProductAirtel_917);
 
@@ -2104,8 +2104,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters (channelNameMaxLimit)")
+    @TmsLink("TECH-123383")
     public void testReserveAndTransactV3channelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2161,8 +2161,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93370")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (AuthCodeMaxLimit)")
+    @TmsLink("TECH-123392")
     public void testReserveAndTransactV4AuthCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataAuthCode(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2259,8 +2259,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93370")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (ChannelIdMaxLimit)")
+    @TmsLink("TECH-123393")
     public void testReserveAndTransactV4ChannelIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.INVALID, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2301,8 +2301,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93370")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
+    @TmsLink("TECH-123381")
     public void testReserveAndTransactV4ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, INVALID, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
