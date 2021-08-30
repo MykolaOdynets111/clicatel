@@ -41,22 +41,22 @@ public class PortalTransactionLookup {
 
     }
 
-    @Test
-    @Description("GET /lookupservice/validDateRanges :: happy path")
-    @TmsLink("TECH-54651")
-    public void testTransactionLookupValidDateRangesHappyPath() {
-
-        getPortalTransactionLookupValidDateRanges()
-                .then().assertThat().statusCode(SC_OK)
-                .body("rangeDescription[0]", Matchers.is("Last 5 minutes"))
-                .body("fromDate[0]", Matchers.is(getCurrentTimeStamp()))
-                .body("toDate[0]", Matchers.is(getCurrentIsoDateTime()))
-                .body("transactionLookupResponse.transactionResultAcknowledgement", Matchers.hasItem((ReserveAndTransactClient.responseCode202)))
-                .body("transactionLookupResponse.transactionStatus", Matchers.hasItem((ReserveAndTransactClient.Success)))
-                .body("transactionLookupResponse.reserveFundsResponseCode", Matchers.hasItem((ReserveAndTransactClient.ZeroTransactionCode)))
-                .body("transactionLookupResponse.responseCode", Matchers.hasItem((ReserveAndTransactClient.ZeroTransactionCode)))
-                .body("transactionLookupResponse.clientTransactionReference", Matchers.hasItem((TransactionLookupClient.ClientTxnID)))
-                .body("transactionLookupResponse.responseDescription", Matchers.hasItem((ReserveAndTransactClient.responseMessageFundsReserved)));
-
-    }
+//    @Test
+//    @Description("GET /lookupservice/validDateRanges :: happy path")
+//    @TmsLink("TECH-54651")
+//    public void testTransactionLookupValidDateRangesHappyPath() {
+//
+//        getPortalTransactionLookupValidDateRanges()
+//                .then().assertThat().statusCode(SC_OK)
+//                .body("rangeDescription[0]", Matchers.is("Last 5 minutes"))
+//                .body("fromDate[0]", Matchers.is(getCurrentTimeStamp()))
+//                .body("toDate[0]", Matchers.is(getCurrentIsoDateTime()))
+//                .body("transactionLookupResponse.transactionResultAcknowledgement", Matchers.hasItem((ReserveAndTransactClient.responseCode202)))
+//                .body("transactionLookupResponse.transactionStatus", Matchers.hasItem((ReserveAndTransactClient.Success)))
+//                .body("transactionLookupResponse.reserveFundsResponseCode", Matchers.hasItem((ReserveAndTransactClient.ZeroTransactionCode)))
+//                .body("transactionLookupResponse.responseCode", Matchers.hasItem((ReserveAndTransactClient.ZeroTransactionCode)))
+//                .body("transactionLookupResponse.clientTransactionReference", Matchers.hasItem((TransactionLookupClient.ClientTxnID)))
+//                .body("transactionLookupResponse.responseDescription", Matchers.hasItem((ReserveAndTransactClient.responseMessageFundsReserved)));
+//
+//    }
 }

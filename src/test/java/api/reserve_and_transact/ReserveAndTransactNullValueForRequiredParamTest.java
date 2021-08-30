@@ -369,8 +369,8 @@ public class ReserveAndTransactNullValueForRequiredParamTest {
 
     //V4 R&T Null
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: null value for required parameters")
-    @TmsLink("TECH-93006")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: null value for required parameters (ChannelSessionIDNull)")
+    @TmsLink("TECH-123400")
     public void testReserveAndTransactV4WithChannelSessionIDNull() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWithChannelSessionIDNull(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier,null);
 

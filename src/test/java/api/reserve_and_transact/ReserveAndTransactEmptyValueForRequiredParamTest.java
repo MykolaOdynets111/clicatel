@@ -156,8 +156,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93358")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters (EmptyValueChannelN)")
+    @TmsLink("TECH-123355")
     public void testReserveAndTransactV4EmptyValueChannelN() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWithEmptyChannelN(ReserveAndTransactClient.TestClient3, NGN, "", ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -170,8 +170,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93358")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters (EmptyValueSI)")
+    @TmsLink("TECH-123357")
     public void testReserveAndTransactV4EmptyValueSI() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWithEmptySI(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, "");
 
@@ -184,8 +184,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93358")
+    @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters (EmptyValueTI)")
+    @TmsLink("TECH-123359")
     public void testReserveAndTransactV4EmptyValueTI() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWithEmptyTI(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, "");
 
@@ -300,8 +300,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93359")
+    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters (EmptyValueChannelName)")
+    @TmsLink("TECH-123361")
     public void testReserveAndTransactV3EmptyValueChannelName() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataWithEmptyValueChannelName(ReserveAndTransactClient.TestClient3, "", ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -314,8 +314,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93359")
+    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters (EmptyValueTI)")
+    @TmsLink("TECH-123363")
     public void testReserveAndTransactV3EmptyValueTI() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataWithEmptyValueTI(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, "");
         Thread.sleep(3000);
@@ -327,8 +327,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93359")
+    @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: empty value for required parameters (EmptyValueSI)")
+    @TmsLink("TECH-123396")
     public void testReserveAndTransactV3EmptyValueSI() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataWithEmptyValueSI(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, "", "2023-03-03T00:00:00.000+02:00");
 
@@ -412,8 +412,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93361")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters (EmptyValueChannelID)")
+    @TmsLink("TECH-123541")
     public void testReserveAndTransactV2EmptyValueChannelID() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithEmptyValueChannelID(ReserveAndTransactClient.TestClient3, USSD, "", ReserveAndTransactClient.ProductAirtel_917);
 
@@ -426,8 +426,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93361")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters (EmptyValueChannelName)")
+    @TmsLink("TECH-123365")
     public void testReserveAndTransactV2EmptyValueChannelName() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithEmptyValueChannelName(ReserveAndTransactClient.TestClient3, "", ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -440,8 +440,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93361")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters (EmptyValueSourceIdentifier)")
+    @TmsLink("TECH-123349")
     public void testReserveAndTransactV2EmptyValueSourceIdentifier() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithEmptyValueSI(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, "");
 
@@ -454,8 +454,8 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-93361")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: empty value for required parameters (EmptyValueTargetIdentifier)")
+    @TmsLink("TECH-123351")
     public void testReserveAndTransactV2EmptyValueTargetIdentifier() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithEmptyValueTI(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, "");
 

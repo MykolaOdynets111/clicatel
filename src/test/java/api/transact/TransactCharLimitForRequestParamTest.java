@@ -202,8 +202,8 @@ public class TransactCharLimitForRequestParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93950")
+    @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters(ChannelNameMaxLimit)")
+    @TmsLink("TECH-123347")
     public void testTransactV3ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -440,8 +440,8 @@ public class TransactCharLimitForRequestParamTest {
 
     }
     @Test
-    @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93946")
+    @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
+    @TmsLink("TECH-123390")
     public void testTransactV4ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpTransactV4Data(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INVALID, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -605,8 +605,8 @@ public class TransactCharLimitForRequestParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93955")
+    @Description("30100 :: payd-raas-gateway :: v2/transact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
+    @TmsLink("TECH-123345")
     public void testTransactV2ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpTransactV2Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
