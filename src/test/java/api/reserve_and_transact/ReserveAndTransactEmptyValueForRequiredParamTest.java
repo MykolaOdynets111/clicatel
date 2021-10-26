@@ -27,7 +27,7 @@ import static api.enums.CurrencyCode.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.*;
 
-public class ReserveAndTransactEmptyValueForRequiredParamTest {
+/*public class ReserveAndTransactEmptyValueForRequiredParamTest {
     //V4 R&T Empty Value test cases
      @Test
      @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters")
@@ -538,4 +538,4 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
-}
+}*/

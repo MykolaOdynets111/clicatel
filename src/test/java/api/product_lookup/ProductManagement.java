@@ -26,7 +26,6 @@ public class ProductManagement {
         getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map)
                 .then().assertThat().statusCode(SC_OK)
                 .body("externalVendorProductTypeId", Matchers.is(ProductLookupClient.AirTimeAirtelProductTypeId));
-
     }
 
     @Test

@@ -17,6 +17,10 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static String DateRangeFrom;
     public static String DateRangeTo;
     public static String Limit_1;
+    public static String TestClient113;
+    public static String TestClient101;
+    public static String DateRangeFrom_transaction_lookup_ctx;
+    public static String DateRangeTo_transaction_lookup_ctx;
 
     static {
         TestClient143 = getProperty("TestClient143");
@@ -24,6 +28,11 @@ public class TransactionLookupClient extends BasedAPIClient {
         DateRangeFrom = getProperty("DateRangeFrom");
         DateRangeTo = getProperty("DateRangeTo");
         Limit_1 = getProperty("Limit_1");
+        TestClient113 = getProperty("TestClient113");
+        TestClient101 = getProperty("TestClient101");
+        DateRangeFrom_transaction_lookup_ctx = getProperty("DateRangeFrom_transaction_lookup_ctx");
+        DateRangeTo_transaction_lookup_ctx = getProperty("DateRangeTo_transaction_lookup_ctx");
+
     }
 
     public static Response findTransaction(Port port, Map<String, String> queryParams) {
@@ -74,6 +83,41 @@ public class TransactionLookupClient extends BasedAPIClient {
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s/lookupservice/validDateRanges", PortalTransactionLookup))
                         .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getPortalTransactionLookupListAwsFiles(Map<String, String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/lookupservice/list-aws-files", PortalTransactionLookup))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getPortalTransactionLookupDownloadAwsFiles(Map<String, String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/lookupservice/download-aws-file-stream", PortalTransactionLookup))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getPortalTransactionLookupChannels() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/lookupservice/channels", PortalTransactionLookup))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getPortalTransactionLookupCtx(Map map) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/lookupservice/transaction-lookup-ctx", PortalTransactionLookup))
+                        .setContentType(JSON)
+                        .addQueryParams(map)
                         .log(ALL)
                         .build());
     }

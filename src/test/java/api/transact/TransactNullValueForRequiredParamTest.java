@@ -15,7 +15,7 @@ import static api.domains.transact.repo.TransactRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.*;
 
-public class TransactNullValueForRequiredParamTest {
+/*public class TransactNullValueForRequiredParamTest {
     //V4 Transact NULL Cases
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
@@ -487,6 +487,7 @@ public class TransactNullValueForRequiredParamTest {
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }
+}*/
 
   /*  // V1 TRANSACT NULL CASES
     @Test
@@ -559,4 +560,4 @@ public class TransactNullValueForRequiredParamTest {
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
     }*/
 
-}
+

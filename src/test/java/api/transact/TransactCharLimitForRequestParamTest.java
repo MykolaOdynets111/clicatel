@@ -17,7 +17,7 @@ import static api.domains.transact.repo.TransactRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.*;
 
-public class TransactCharLimitForRequestParamTest {
+/*public class TransactCharLimitForRequestParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: char limit exceeded value for request parameters")
@@ -217,7 +217,7 @@ public class TransactCharLimitForRequestParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93946")
+    @TmsLink("TECH-121234")
     public void testTransactV4ReserveFundTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpTransactV4DataReserveFundTxnMaxLimit(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -830,4 +830,4 @@ public class TransactCharLimitForRequestParamTest {
 
 
 
-}
+}*/

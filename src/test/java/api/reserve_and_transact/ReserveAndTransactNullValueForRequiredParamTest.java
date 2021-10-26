@@ -24,7 +24,7 @@ import static api.enums.CurrencyCode.NGN;
 import static org.apache.http.HttpStatus.SC_INTERNAL_SERVER_ERROR;
 import static org.apache.http.HttpStatus.*;
 
-public class ReserveAndTransactNullValueForRequiredParamTest {
+/*public class ReserveAndTransactNullValueForRequiredParamTest {
     //V1 Null
     @Test
     @Description("30100 :: payd-raas-gateway :: v1/reserveAndTransact :: null value for required parameters")
@@ -100,8 +100,8 @@ public class ReserveAndTransactNullValueForRequiredParamTest {
 
     // V2 Null
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: null value for required parameters")
-    @TmsLink("TECH-93131")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: null value for required parameters (CSIDNull)")
+    @TmsLink("TECH-124412")
     public void testReserveAndTransactV2SuccessCSIDNull() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithCSIDNULL(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -199,8 +199,8 @@ public class ReserveAndTransactNullValueForRequiredParamTest {
     }
 
     @Test
-    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: null value for required parameters")
-    @TmsLink("TECH-93131")
+    @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: null value for required parameters (SourceIdentifierNull)")
+    @TmsLink("TECH-125326")
     public void testReserveAndTransactV2SuccessSourceIdentifierNull() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataWithSourceIdentifierNULL(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -535,5 +535,5 @@ public class ReserveAndTransactNullValueForRequiredParamTest {
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
-}
+}*/
 
