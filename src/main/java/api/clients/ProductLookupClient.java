@@ -29,6 +29,35 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String Identifier_15;
     public static String Vendor103;
     public static String Vendor_MTN_NG;
+    public static String NewClientName;
+    public static String ctxLimitTotal;
+    public static String responseMessageInvalidProductIDProductInfoV3;
+    public static String responseMessageClientIdNotProvidedInProductInfo;
+    public static String CountryCode_710;
+    public static String clickatellAccountId_TouchFlowClient;
+    public static String ChannelID_8;
+    public static String TimeZone_UTC;
+    public static String responseMessageInvalidCountryCodeTouchClient;
+    public static String responseMessageInvalidTimeZoneTouchClient;
+    public static String responseMessageInvalidChannelIdTouchClient;
+    public static String responseMessageNullClientNameTouchClient;
+    public static String responseMessageNullTimeZoneITouchClient;
+    public static String responseMessageNullCountryCodeTouchClient;
+    public static String responseMessageNullChannelIdTouchClient;
+    public static String ChannelID_7;
+    public static String Product_1600;
+    public static String ProductType_Single;
+    public static String SupportToken_False;
+    public static String IsTopSellerFalse;
+    public static String Product_1601;
+    public static String ProductType_1603;
+    public static String Product_1602;
+    public static String responseMessageInvalidTouchFlowClientCreation;
+    public static String responseMessageInvalidTouchFlowChannelId;
+    public static String Identifier_16;
+    public static String Identifier_17;
+
+
 
     static {
         ProductAirtel_130 = getProperty("ProductAirtel_130");
@@ -45,6 +74,33 @@ public class ProductLookupClient extends BasedAPIClient {
         Product_130= getProperty("Product_130");
         Product_854= getProperty("Product_854");
         Vendor_MTN_NG= getProperty("Vendor_MTN_NG");
+        NewClientName= getProperty("NewClientName");
+        ctxLimitTotal= getProperty("ctxLimitTotal");
+        responseMessageInvalidProductIDProductInfoV3= getProperty("responseMessageInvalidProductIDProductInfoV3");
+        responseMessageClientIdNotProvidedInProductInfo= getProperty("responseMessageClientIdNotProvidedInProductInfo");
+        CountryCode_710= getProperty("CountryCode_710");
+        clickatellAccountId_TouchFlowClient= getProperty("clickatellAccountId_TouchFlowClient");
+        ChannelID_8= getProperty("ChannelID_8");
+        TimeZone_UTC= getProperty("TimeZone_UTC");
+        responseMessageInvalidCountryCodeTouchClient= getProperty("responseMessageInvalidCountryCodeTouchClient");
+        responseMessageInvalidTimeZoneTouchClient= getProperty("responseMessageInvalidTimeZoneTouchClient");
+        responseMessageInvalidChannelIdTouchClient= getProperty("responseMessageInvalidChannelIdTouchClient");
+        responseMessageNullClientNameTouchClient= getProperty("responseMessageNullClientNameTouchClient");
+        responseMessageNullTimeZoneITouchClient= getProperty("responseMessageNullTimeZoneITouchClient");
+        responseMessageNullCountryCodeTouchClient= getProperty("responseMessageNullCountryCodeTouchClient");
+        responseMessageNullChannelIdTouchClient= getProperty("responseMessageNullChannelIdTouchClient");
+        ChannelID_7= getProperty("ChannelID_7");
+        Product_1600= getProperty("Product_1600");
+        ProductType_Single= getProperty("ProductType_Single");
+        SupportToken_False= getProperty("SupportToken_False");
+        IsTopSellerFalse= getProperty("IsTopSellerFalse");
+        Product_1601= getProperty("Product_1601");
+        ProductType_1603= getProperty("ProductType_1603");
+        Product_1602= getProperty("Product_1602");
+        responseMessageInvalidTouchFlowClientCreation= getProperty("responseMessageInvalidTouchFlowClientCreation");
+        responseMessageInvalidTouchFlowChannelId= getProperty("responseMessageInvalidTouchFlowChannelId");
+        Identifier_16= getProperty("Identifier_16");
+        Identifier_17= getProperty("Identifier_17");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
@@ -113,6 +169,76 @@ public class ProductLookupClient extends BasedAPIClient {
                 .get(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s/ctx/vendorProduct",productLookupUrl))
                         .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response getClients()
+    {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/clients",productLookupUrl))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PostNewClient(Map body) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/clients",productLookupUrl))
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .addHeader("Authorization","bearer")
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PostTouchFlowClient(Map map) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/clients/createClientForTouchFlow",productLookupUrl))
+                        .setBody(map)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PostUpdateClient(Map body) {
+        return basedAPIClient.get()
+                .put(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/clients/",productLookupUrl))
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .addHeader("Authorization","bearer")
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PostChannelForTouchFlowClient(Map map) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/clients/addNewTouchflowClientChannels",productLookupUrl))
+                        .setBody(map)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PutUpdateProduct(Map body) {
+        return basedAPIClient.get()
+                .put(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/product_management/updateWithResult",productLookupUrl))
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .addHeader("Authorization","bearer")
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getClientsFromBackend(String ClientID)
+    {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/client/CLIENT/"+ClientID,ControlBackend))
                         .setContentType(JSON)
                         .log(ALL)
                         .build());

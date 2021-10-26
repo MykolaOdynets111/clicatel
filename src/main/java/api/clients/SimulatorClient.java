@@ -36,19 +36,23 @@ public class SimulatorClient extends BasedAPIClient {
     public static Response addMtnTestCases(List<SimulatorRequest> body, Port port) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/addtestcases",mtnUrl,port.getPort()))
+                        //.setBaseUri(String.format("%s:%d/addtestcases",mtnUrl,port.getPort()))
+                        .setBaseUri(String.format("%s/addtestcases",mtnUrl))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
 
     public static Response removeAllMtnTestCases(Port port) {
         return basedAPIClient.get()
                 .delete(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/removealltestcases",mtnUrl,port.getPort()))
+                        //.setBaseUri(String.format("%s:%d/removealltestcases",mtnUrl,port.getPort()))
+                        .setBaseUri(String.format("%s/removealltestcases",mtnUrl))
                         .setContentType(JSON)
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
 

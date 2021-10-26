@@ -15,10 +15,11 @@
             <package name="api.inflight_transaction_lookup"/>
             <package name="api.product_lookup"/>
             <package name="api.channels"/>
-            <package name="api.users"/>
+<!--            <package name="api.users"/>-->
             <package name="api.simulators"/>
             <package name="api.ctxHistory"/>
             <package name="api.tokenServices"/>
+            <package name="api.velocity"/>
         </packages>
     </test>
 </suite>

@@ -39,6 +39,9 @@ public class BasedAPIClient {
     protected static String CtxHistory;
     protected static String secretValue;
     protected static String RaasTokenService;
+    protected static String RestMessageNotifier;
+    protected static String PaydVelocity;
+    protected static String ControlBackend;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -64,6 +67,9 @@ public class BasedAPIClient {
         CtxHistory= getProperty("api.CtxHistory.url");
         secretValue= getProperty("api.secretValue.url");
         RaasTokenService= getProperty("api.RaasTokenService.url");
+        RestMessageNotifier= getProperty("api.RestMessageNotifier.url");
+        PaydVelocity= getProperty("api.PaydVelocity.url");
+        ControlBackend= getProperty("api.ControlBackend.url");
     }
 
     private void logResponse(final Response response) {
