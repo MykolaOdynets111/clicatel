@@ -68,26 +68,26 @@ public class PortalTransactionLookup {
 //                .body("transactionLookupResponse.responseDescription", Matchers.hasItem((ReserveAndTransactClient.responseMessageFundsReserved)));
 //
 //    }
-
-    @Test
-    @Description("GET /lookupservice/transaction-lookup-ctx :: happy path")
-    @TmsLink("TECH-50087")
-    public void testTransactionLookupServiceLookupCtx() {
-
-        Map<String, String> map = new Hashtable<>();
-        map.put("clientId", TransactionLookupClient.TestClient101);
-        map.put("currentPage", Limit_1);
-        map.put("dateRangeFrom", DateRangeFrom_transaction_lookup_ctx);
-        map.put("dateRangeTo", DateRangeTo_transaction_lookup_ctx);
-        map.put("pageSize", ReserveAndTransactClient.FeeAmount10);
-
-        getPortalTransactionLookupCtx(map)
-                .then().assertThat().statusCode(SC_OK)
-                .body("pageSize", Matchers.is(Integer.parseInt(ReserveAndTransactClient.FeeAmount10)))
-                .body("currentPage", Matchers.is(Integer.parseInt(Limit_1)))
-                .body("solutionType", Matchers.is("COMMERCE_LEGACY"))
-                .body("transactionLookupResponse[0].clientId", Matchers.is((Integer.parseInt(TestClient101))));
-    }
+//Not working on Trans QA as it will only work in AWS env:
+//    @Test
+//    @Description("GET /lookupservice/transaction-lookup-ctx :: happy path")
+//    @TmsLink("TECH-50087")
+//    public void testTransactionLookupServiceLookupCtx() {
+//
+//        Map<String, String> map = new Hashtable<>();
+//        map.put("clientId", TransactionLookupClient.TestClient101);
+//        map.put("currentPage", Limit_1);
+//        map.put("dateRangeFrom", DateRangeFrom_transaction_lookup_ctx);
+//        map.put("dateRangeTo", DateRangeTo_transaction_lookup_ctx);
+//        map.put("pageSize", ReserveAndTransactClient.FeeAmount10);
+//
+//        getPortalTransactionLookupCtx(map)
+//                .then().assertThat().statusCode(SC_OK)
+//                .body("pageSize", Matchers.is(Integer.parseInt(ReserveAndTransactClient.FeeAmount10)))
+//                .body("currentPage", Matchers.is(Integer.parseInt(Limit_1)))
+//                .body("solutionType", Matchers.is("COMMERCE_LEGACY"))
+//                .body("transactionLookupResponse[0].clientId", Matchers.is((Integer.parseInt(TestClient101))));
+//    }
 
     @Test
     @Description("GET /lookupservice/list-aws-files :: happy path")
@@ -111,22 +111,23 @@ public class PortalTransactionLookup {
         getPortalTransactionLookupDownloadAwsFiles(map)
                 .then().assertThat().statusCode(SC_OK);
     }
-    @Test
-    @Description("GET /lookupservice/channels :: happy path")
-    @TmsLink("TECH-121286")
-    public void testTransactionChannels() {
-
-        List<String> values = getPortalTransactionLookupChannels()
-                .then().extract().jsonPath()
-                .getList("description");
-        System.out.println(values);
-        Assert.assertTrue(values.contains(String.valueOf(ChannelName.POS)));
-        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.INTERNET))));
-        Assert.assertTrue(values.contains(String.valueOf(ChannelName.SMS)));
-        Assert.assertTrue(values.contains("WhatsApp"));
-        Assert.assertTrue(values.contains(String.valueOf(ChannelName.ATM)));
-        Assert.assertTrue(values.contains(String.valueOf(ChannelName.USSD)));
-        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.MOBILE))));
-        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.INTERNET))));
-    }
+    //Not working on Trans QA as it will only work in AWS env:
+//    @Test
+//    @Description("GET /lookupservice/channels :: happy path")
+//    @TmsLink("TECH-121286")
+//    public void testTransactionChannels() {
+//
+//        List<String> values = getPortalTransactionLookupChannels()
+//                .then().extract().jsonPath()
+//                .getList("description");
+//        System.out.println(values);
+//        Assert.assertTrue(values.contains(String.valueOf(ChannelName.POS)));
+//        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.INTERNET))));
+//        Assert.assertTrue(values.contains(String.valueOf(ChannelName.SMS)));
+//        Assert.assertTrue(values.contains("WhatsApp"));
+//        Assert.assertTrue(values.contains(String.valueOf(ChannelName.ATM)));
+//        Assert.assertTrue(values.contains(String.valueOf(ChannelName.USSD)));
+//        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.MOBILE))));
+//        Assert.assertTrue(values.contains(CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, String.valueOf(ChannelName.INTERNET))));
+//    }
 }

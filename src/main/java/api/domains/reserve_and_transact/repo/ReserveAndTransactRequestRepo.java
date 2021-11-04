@@ -1846,7 +1846,7 @@ public class ReserveAndTransactRequestRepo {
                 .channelId(channelId.getChannelId())
                 .channelName(channelName.getChannelName())
                 .currencyCode(CurrencyCode.NGN.getCurrencyCode())
-                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .fundingSourceId(ReserveAndTransactClient.TestClient1003)
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
                 .build();
