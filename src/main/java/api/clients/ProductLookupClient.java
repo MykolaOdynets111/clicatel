@@ -9,6 +9,7 @@ import lombok.Getter;
 
 import java.util.Map;
 
+import static api.clients.ReserveAndTransactClient.ProductAirtel_917;
 import static io.restassured.filter.log.LogDetail.ALL;
 import static io.restassured.http.ContentType.JSON;
 import static util.readers.PropertiesReader.getProperty;
@@ -244,6 +245,215 @@ public class ProductLookupClient extends BasedAPIClient {
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
+    }
+
+    public static Response GetProductsClientVendor(Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}/{vendorId}");
+    }
+
+    public static Response GetProductsdetailsClientIdProductId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/productsdetails/client/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}/product/{productId}");
+    }
+
+    public static Response GetVendorClientId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/vendor/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}");
+    }
+
+    public static Response GetProductTypeProductId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/productType/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{productId}");
+    }
+
+    public static Response GetActiveProductsByCountryCode(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/getActiveProductsByCountryCode", productLookupUrl))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetProducts () {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/products/",productLookupUrl))
+                        .addQueryParam("productIds", ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.ProductAirtel_100)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetProductByClientIdProductId(Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/productbyclientidproductid/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId},{productId}");
+    }
+
+    public static Response GetToppickClientIdVendorId(Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/toppick/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId},{vendorId}");
+    }
+
+
+    public static Response GetGetProduct(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/getProduct",productLookupUrl))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetProductsClientIdVendorIdProductId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/product/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId},{vendorId},{productId}");
+    }
+
+    public static Response GetVendorsMap () {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(productLookupUrl+"/vendorsMap")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetClientsMap () {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(productLookupUrl+"/clientsMap")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response GetProductsProductTypeIDClientIdVendorId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/productType/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{productTypeId}/{clientId}/{vendorId}");
+    }
+
+    public static Response GetProductsProductTypeId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{productTypeId}");
+    }
+
+    public static Response GetProductsVendorProductIdsVendorId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/vendorProductIds/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{vendorId}");
+    }
+
+    public static Response GetVendorProductsByProductType (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/vendorProductsByProductType/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{vendorId}/{productTypeId}/");
+    }
+
+    public static Response GetClientProductAssociationCountryCode (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/clientProductAssociation/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{countryCode}/{clientId}");
+    }
+
+    public static Response GetProductsClientVendorProductIds (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/products/clientVendorProductIds/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}/{vendorId}");
+    }
+
+    public static Response GetProductsdetailsClientIdVendorId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/productsdetails/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId},{vendorId}");
+    }
+
+    public static Response GetClientProducts (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/clientProducts/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}");
+    }
+
+    public static Response GetProductsdetailsClientIdCendorIdProductId (Map <String, String> pathParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .addPathParams(pathParams)
+                        .setBaseUri(productLookupUrl+"/productsdetails/client/")
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build(), "{clientId}/product/{vendorId}/product/{productId}");
     }
 
 }
