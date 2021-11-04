@@ -64,10 +64,10 @@ public class VendorManagement {
         map.put("internalProductTypeId", VendorManagementClient.ProductTypeData_5);
         GetVendorProductTypeGetByInternalTypeId(map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("externalProductTypeId[0]", Matchers.is(DataAirtelProductTypeId))
+                .body("externalProductTypeId", Matchers.hasItem(DataAirtelProductTypeId))
                 .body("internalProductTypeId[0]", Matchers.is(Integer.parseInt(VendorManagementClient.ProductTypeData_5)))
-                .body("vendorId[0]", Matchers.is(Integer.parseInt(Vendor103)))
-                .body("description[0]", Matchers.is(DataAirtelProductTypeId));
+                .body("vendorId", Matchers.hasItem(Integer.parseInt(Vendor103)))
+                .body("description", Matchers.hasItem(DataAirtelProductTypeId));
     }
     @Test
     @Description("POST /vendorProductType/ :: user can't assign more then one \"Vendor Product Type\" to the \"Product Type\" for the same vendor")

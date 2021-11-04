@@ -56,6 +56,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String responseMessageInvalidTouchFlowChannelId;
     public static String Identifier_16;
     public static String Identifier_17;
+    public static String responseMessageInvalidProductTypeIDProductInfoV3;
 
 
 
@@ -101,6 +102,7 @@ public class ProductLookupClient extends BasedAPIClient {
         responseMessageInvalidTouchFlowChannelId= getProperty("responseMessageInvalidTouchFlowChannelId");
         Identifier_16= getProperty("Identifier_16");
         Identifier_17= getProperty("Identifier_17");
+        responseMessageInvalidProductTypeIDProductInfoV3= getProperty("responseMessageInvalidProductTypeIDProductInfoV3");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {

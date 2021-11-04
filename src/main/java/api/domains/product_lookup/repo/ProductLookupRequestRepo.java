@@ -156,6 +156,35 @@ public class ProductLookupRequestRepo {
 
         return jsonObjectPayload;
     }
+    public static Map<String, Object> setUpPutProductData(boolean active,
+                                                          String countryCode, String description, String shortDescription,
+                                                          String externalId, String id, Map pricing,
+                                                          String productTypeId, String productTypeName, boolean supportToken, boolean isTopSeller,
+                                                          String timestamp, String vendorId, List purchaseMediumIds, List subscriberTypeIds, List topSellerPlatformIds,
+                                                          String originalVendorId) {
+
+        Map<String,Object> jsonObjectPayload = new LinkedHashMap<>();
+        jsonObjectPayload.put("active", active);
+        jsonObjectPayload.put("attributes", Arrays.asList());
+        jsonObjectPayload.put("countryCode", countryCode);
+        jsonObjectPayload.put("description", description);
+        jsonObjectPayload.put("shortDescription", shortDescription);
+        jsonObjectPayload.put("externalId", externalId);
+        jsonObjectPayload.put("id", id);
+        jsonObjectPayload.put("pricing", pricing);
+        jsonObjectPayload.put("productTypeId", productTypeId);
+        jsonObjectPayload.put("productTypeName", productTypeName);
+        jsonObjectPayload.put("supportToken", supportToken);
+        jsonObjectPayload.put("isTopSeller", isTopSeller);
+        jsonObjectPayload.put("timestamp", timestamp);
+        jsonObjectPayload.put("vendorId", vendorId);
+        jsonObjectPayload.put("purchaseMediumIds", purchaseMediumIds);
+        jsonObjectPayload.put("subscriberTypeIds", subscriberTypeIds);
+        jsonObjectPayload.put("topSellerPlatformIds", topSellerPlatformIds);
+        jsonObjectPayload.put("originalVendorId", originalVendorId);
+
+        return jsonObjectPayload;
+    }
     public static Map<String, Object> setUpPutProductDataWithAttributes(boolean active, List attributes,
                                                           String countryCode, String description, String shortDescription,
                                                           String externalId, String id, Map pricing,
