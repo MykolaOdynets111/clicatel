@@ -86,6 +86,15 @@ public class BasedAPIClient {
         logResponse(response);
         return response;
     }
+    //marko
+    public final Response get(final RequestSpecification requestSpecification, String pathParameters) {
+        response = given()
+                .filter(new ClickatellAllureRestAssured())
+                .spec(requestSpecification)
+                .get(pathParameters);
+        logResponse(response);
+        return response;
+    }
 
     public final Response post(final RequestSpecification requestSpecification) {
         response = given()
@@ -113,4 +122,5 @@ public class BasedAPIClient {
         logResponse(response);
         return response;
     }
+
 }
