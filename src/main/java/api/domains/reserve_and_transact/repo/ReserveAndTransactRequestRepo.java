@@ -171,7 +171,7 @@ public class ReserveAndTransactRequestRepo {
                 .productId(productId)
                 .purchaseAmount(purchaseAmount)
                 .feeAmount(feeAmount)
-                .currencyCode(currencyCode)
+                .currencyCode(null)
                 .channelId(channelId.getChannelId())
                 .channelName(channelName.getChannelName())
                 .sourceIdentifier(identifier)
