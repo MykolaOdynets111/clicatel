@@ -944,7 +944,7 @@ public class TransactRequestRepo {
                 .channelId(channelId.getChannelId())
                 .channelName(channelName.getChannelName())
                 .sourceIdentifier("2348038382068")
-                .targetIdentifier(TI)
+                .targetIdentifier(null)
                 .build();
     }
 
@@ -1198,6 +1198,23 @@ public class TransactRequestRepo {
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
+    public static TransactRequest setUpTransactV1DataChannelSessionIdEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId, String channelSessionID) {
+        return TransactRequest.builder()
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId("")//ReserveAndTransactClient.channelSessionIdV1
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
     public static TransactRequest setUpTransactV1DataTimeStampIdMaxLimit(String clientId, ChannelName channelName, ChannelId channelId,
                                                                               String productId, String timeStamp) {
@@ -1217,23 +1234,23 @@ public class TransactRequestRepo {
                 .build();
     }
 
-//    public static TransactRequest setUpTransactV1DataPurchaseAmountMaxLimit(String clientId, ChannelName channelName, ChannelId channelId,
-//                                                                         String productId, String purchaseAmount) {
-//        return TransactRequest.builder()
-//                .accountIdentifier("4000-xxxx-xxxx-01-0004")
-//                .authCode(null)
-//                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
-//                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
-//                .timestamp(getCurrentIsoDateTime())
-//                .clientId(clientId) //3
-//                .productId(productId) //917
-//                .amount(purchaseAmount) //ReserveAndTransactClient.PurchaseAmount10000
-//                .channelId(channelId.getChannelId()) //7
-//                .channelName(channelName.getChannelName()) //USSD
-//                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
-//                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
-//                .build();
-//    }
+    public static TransactRequest setUpTransactV1DataPurchaseAmountMaxLimit(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                         String productId, String purchaseAmount) {
+        return TransactRequest.builder()
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(purchaseAmount) //ReserveAndTransactClient.PurchaseAmount10000
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
         public static TransactRequest setUpTransactV1DataSourceIdentifierMaxLimit(String clientId, ChannelName channelName, ChannelId channelId,
                                                                          String productId, String sourceIdentifier) {
@@ -1249,6 +1266,23 @@ public class TransactRequestRepo {
                 .channelId(channelId.getChannelId()) //7
                 .channelName(channelName.getChannelName()) //USSD
                 .sourceIdentifier(sourceIdentifier)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
+    public static TransactRequest setUpTransactV1DataSourceIdentifierEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId, String sourceIdentifier) {
+        return TransactRequest.builder()
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier("")
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
                 .build();
     }
@@ -1270,8 +1304,40 @@ public class TransactRequestRepo {
                 .targetIdentifier(TargetIdentifier)
                 .build();
     }
-
-
+    public static TransactRequest setUpTransactV1DataWithChannelNameNull(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId){
+        return TransactRequest.builder()
+                .accountIdentifier(null)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName(null) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
+    public static TransactRequest setUpTransactV1DataAuthCodeMaxLimit(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId, String TargetIdentifier, String AuthCode) {
+        return TransactRequest.builder()
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
+                .authCode(AuthCode)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000)
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
 
     //V2
@@ -1618,6 +1684,39 @@ public class TransactRequestRepo {
                 .targetIdentifier(TargetIdentifier)
                 .build();
     }
+    public static TransactRequest setUpTransactV1DataWithChannelNameEmpty(String clientId, String channelName, ChannelId channelId,
+                                                      String productId) {
+        return TransactRequest.builder()
+                .accountIdentifier("4000-xxxx-xxxx-01-0004")
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName("") //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
+    public static TransactRequest setUpTransactV1DataWithAccIdentifierEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                          String productId, String accIdentifier) {
+        return TransactRequest.builder()
+                .accountIdentifier(accIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
     //Max Limit Methods
     //V2
@@ -1948,6 +2047,40 @@ public class TransactRequestRepo {
                 .targetIdentifier(null)
                 .build();
     }
+    public static TransactRequest setUpTransactV1DataWithSourceIdentifierNull(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId){
+        return TransactRequest.builder()
+                .accountIdentifier(null)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(null)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
+    public static TransactRequest setUpTransactV1DataWithAuthCodeEmpty(String clientId, ChannelName channelName, ChannelId channelId,
+                                                                              String productId, String authCode){
+        return TransactRequest.builder()
+                .accountIdentifier(null)
+                .authCode(authCode)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRefV1)
+                .channelSessionId(ReserveAndTransactClient.channelSessionIdV1)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .productId(productId) //917
+                .amount(ReserveAndTransactClient.PurchaseAmount10000) //could possibly add amount as a parameter as well?
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .targetIdentifier(ReserveAndTransactClient.IdentifierV1)
+                .build();
+    }
 
     //V4 Null
     public static TransactRequest setUpTransactV4DataWithCSIDNull(String clientId, CurrencyCode currencyCode,
@@ -2031,6 +2164,27 @@ public class TransactRequestRepo {
                 .channelName(channelName.getChannelName())
                 .sourceIdentifier("2348038382068")
                 .targetIdentifier("2348038382068")
+                .build();
+    }
+    public static TransactRequest setUpTransactV4DataWithAuthCodeNull(String clientId, CurrencyCode currencyCode,
+                                                                ChannelName channelName, ChannelId channelId, String productId, String AuthCode) {
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier("0000XXXX0004")
+                .clientTxnRef("1598914290004")
+                .channelSessionId("20200831230000004")
+                .reserveFundsTxnRef("200831235610408740004")
+                .clientId(clientId)
+                .fundingSourceId("3")
+                .productId(productId)
+                .amount("10000")
+                .feeAmount("0")
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier("2348038382068")
+                .targetIdentifier("2348038382068")
+                .authCode(null)
                 .build();
     }
 

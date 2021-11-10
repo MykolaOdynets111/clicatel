@@ -7,6 +7,7 @@ import io.qameta.allure.Description;
 import io.qameta.allure.TmsLink;
 import lombok.val;
 import org.hamcrest.Matchers;
+import org.hamcrest.core.CombinableMatcher;
 import org.testng.annotations.Test;
 //import sun.invoke.empty.Empty;
 import util.base_test.BaseApiTest;
@@ -1845,7 +1846,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140782")
     public void testReserveAndTransactV2ClientTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataClientTxnRefMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -1860,7 +1861,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140783")
     public void testReserveAndTransactV2ChannelSessionIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataChannelSessionIDMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.channelSessionIdV2MaxLimit);
 
@@ -1875,7 +1876,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140784")
     public void testReserveAndTransactV2AuthCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataAuthCodeMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -1890,7 +1891,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140785")
     public void testReserveAndTransactV2TimeStampMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataTimeStampMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.timeStampMaxLimit);
 
@@ -1905,7 +1906,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140786")
     public void testReserveAndTransactV2ClientIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(ReserveAndTransactClient.ClientIdInvalid, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -1920,7 +1921,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140787")
     public void testReserveAndTransactV2ProductIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Invalid);
 
@@ -1935,7 +1936,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140788")
     public void testReserveAndTransactV2PurchaseAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataPurchaseAmountMaxLimit(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, ReserveAndTransactClient.PurchaseAmountMaxLimit);
 
@@ -1950,7 +1951,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140789")
     public void testReserveAndTransactV2ChannelIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, USSD, ChannelId.INVALID, ProductAirtel_917);
 
@@ -1980,7 +1981,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("TECH-140790")
     public void testReserveAndTransactV2TargetIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataTargetIdentifier(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, TargetIdentifierMaxLimit);
 
@@ -2001,7 +2002,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
+                .body("responseMessage", CombinableMatcher.either(Matchers.containsString(TransactClient.responseMessageChannelName)).or(Matchers.containsString(ReserveAndTransactClient.responseMessageChannelNameAlphanumeric)))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -2024,7 +2025,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139906")
     public void testReserveAndTransactV3ClientTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataClientTxnRef(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2039,7 +2040,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139907")
     public void testReserveAndTransactV3channelSessionIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataChannelSessionId(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.channelSessionIdV2MaxLimit);
 
@@ -2054,7 +2055,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139908")
     public void testReserveAndTransactV3authCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataAuthCode(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2069,7 +2070,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139909")
     public void testReserveAndTransactV3timestampMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataTimestamp(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.timeStampMaxLimit);
 
@@ -2084,7 +2085,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139911")
     public void testReserveAndTransactV3ClientIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.ClientIdInvalid, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2099,7 +2100,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139912")
     public void testReserveAndTransactV3productIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.Product_Invalid);
 
@@ -2114,7 +2115,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139913")
     public void testReserveAndTransactV3purchaseAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataPurchaseAmount(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmountMaxLimit);
 
@@ -2129,7 +2130,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139914")
     public void testReserveAndTransactV3feeAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataFeeAmount(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2144,7 +2145,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139915")
     public void testReserveAndTransactV3channelIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.INVALID, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2158,7 +2159,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139916")
     public void testReserveAndTransactV3sourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataSourceIdentifier(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.SourceIdentifierMaxLimit);
 
@@ -2173,7 +2174,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("TECH-139917")
     public void testReserveAndTransactV3targetIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataTargetIdentifier(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.TargetIdentifierMaxLimit);
 
@@ -2194,7 +2195,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V3)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
+                .body("responseMessage", CombinableMatcher.either(Matchers.containsString(TransactClient.responseMessageChannelName)).or(Matchers.containsString(ReserveAndTransactClient.responseMessageChannelNameAlphanumeric)))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
@@ -2391,7 +2392,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
         val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)
                 .body("responseCode", Matchers.containsString(ReserveAndTransactClient.ResponseCode_4000))
-                .body("responseMessage", Matchers.containsString(TransactClient.responseMessageChannelName))
+                .body("responseMessage", CombinableMatcher.either(Matchers.containsString(TransactClient.responseMessageChannelName)).or(Matchers.containsString(ReserveAndTransactClient.responseMessageChannelNameAlphanumeric)))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
     }
