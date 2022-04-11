@@ -8,6 +8,8 @@ import api.enums.ChannelName;
 import api.enums.CurrencyCode;
 import api.clients.*;
 
+import java.util.*;
+
 import static util.DateProvider.getCurrentIsoDateTime;
 
 
@@ -1870,6 +1872,142 @@ public class ReserveAndTransactRequestRepo {
                 .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
                 .sourceIdentifier(ReserveAndTransactClient.IdentifierV3)
                 .targetIdentifier(ReserveAndTransactClient.IdentifierV3)
+                .build();
+    }
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataAdditionalData(String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                          ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+
+        Map<String,Object> jsonObjectPayload = new LinkedHashMap<>();
+        jsonObjectPayload.put("accountIdentifier", ReserveAndTransactClient.AccountIdentifier);
+        jsonObjectPayload.put("purchaseAmount", ReserveAndTransactClient.fundingSourceId_1500);
+        jsonObjectPayload.put("channelId", channelId);
+        jsonObjectPayload.put("channelName",channelName);
+        jsonObjectPayload.put("channelSessionId", ReserveAndTransactClient.channelSessionId);
+        jsonObjectPayload.put("clientId", TransactionLookupClient.TestClient143);
+        jsonObjectPayload.put("clientTxnRef", ReserveAndTransactClient.clientTxnRef);
+        jsonObjectPayload.put("productId", ReserveAndTransactClient.ProductAirtel_917);
+        jsonObjectPayload.put("sourceIdentifier", ReserveAndTransactClient.Identifier);
+        jsonObjectPayload.put("targetIdentifier", ReserveAndTransactClient.Identifier);
+        jsonObjectPayload.put("timestamp", "2021-09-16T11:48:57.810+02:00");
+        jsonObjectPayload.put("feeAmount", ReserveAndTransactClient.FeeAmount0);
+        jsonObjectPayload.put("currencyCode", "ZAR");
+        jsonObjectPayload.put("fundingSourceId", TransactionLookupClient.TestClient143);
+
+        Map<String,Object> product = new LinkedHashMap<>();
+        product.put("product", jsonObjectPayload);
+
+        Map<String,Object> service1 = new LinkedHashMap<>();
+        service1.put("serviceValue", "50");
+        service1.put("effectiveRate", "0");
+        service1.put("serviceSubType", "DATA");
+        service1.put("serviceUom", "MB");
+        service1.put("promotion", "F");
+
+        Map<String,Object> service2 = new LinkedHashMap<>();
+        service2.put("serviceValue", "1200");
+        service2.put("effectiveRate", "0");
+        service2.put("serviceSubType", "VOICEONNET");
+        service2.put("serviceUom", "SECONDS");
+        service2.put("serviceValidity", "");
+        service2.put("validityUom", "");
+        service2.put("promotion", "F");
+
+        Map<String,Object> service3 = new LinkedHashMap<>();
+        service3.put("serviceValue", "10");
+        service3.put("effectiveRate", "0");
+        service3.put("serviceSubType", "SMS");
+        service3.put("serviceUom", "UNITS");
+        service3.put("serviceValidity", "");
+        service3.put("validityUom", "");
+        service3.put("promotion", "F");
+
+        List<Map<String,Object>> services = new ArrayList<>();
+        services.add(service1);
+        services.add(service2);
+        services.add(service3);
+
+        Map<String,Object> Notify = new LinkedHashMap<>();
+        Notify.put("notifyChannel", "neon");
+        Notify.put("offerType", "Double Your Bundle");
+        Notify.put("offerCategory", "Double Combo");
+        Notify.put("notify", "true");
+        Notify.put("offerSubCategory", "Variable");
+        Notify.put("offerId", "8626");
+
+        List<Map<String,Object>> Notify_List = new ArrayList<>();
+        Notify_List.add(Notify);
+
+        Map<String,Object> additionalData = new LinkedHashMap<>();
+        additionalData.put("transactionId", "jggddh4wb4cpp2eyc3ad734i");
+        additionalData.put("paymentMethod", "Card payment");
+        additionalData.put("sourceIdentifier", "MTNChat");
+        additionalData.put("msisdn", "27746084384");
+        additionalData.put("soId", "2436");
+        additionalData.put("validity", "7 Days");
+        additionalData.put("frequency", "RECURRING");
+        additionalData.put("cycles", "-");
+        additionalData.put("cyclesUOM", "");
+        additionalData.put("description", "Combo Offer");
+        additionalData.put("offerId", "8626");
+        additionalData.put("price", "15.00");
+        additionalData.put("priceUOM", "R");
+        additionalData.put("services", services);
+        additionalData.put("notify", Notify_List);
+        jsonObjectPayload.put("additionalData", additionalData);
+
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(ReserveAndTransactClient.AccountIdentifier)
+                .authCode(null)
+                .clientTxnRef(ReserveAndTransactClient.clientTxnRef)
+                .channelSessionId(ReserveAndTransactClient.channelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(ReserveAndTransactClient.fundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .additionalData(product)
+                .build();
+    }
+    public static ReserveAndTransactRequest setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(String AuthCode,String AccountIdentifier, String clientTxnRef, String FundingSourceId, String ChannelSessionId, String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                        ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier) {
+
+        Map<String,Object> ProductId = new LinkedHashMap<>();
+        ProductId.put("productId", ReserveAndTransactClient.ProductAirtel_917);
+
+        Map<String,Object> FundingsourceId = new LinkedHashMap<>();
+        FundingsourceId.put("fundingSourceId", FundingSourceId);
+
+        Map<String,Object> ClientId = new LinkedHashMap<>();
+        ClientId.put("clientId", clientId);
+
+        Map<String,Object> AdditionalData = new LinkedHashMap<>();
+        AdditionalData.put("product", ProductId);
+        AdditionalData.put("fundingSource", FundingsourceId);
+        AdditionalData.put("client", ClientId);
+
+        return ReserveAndTransactRequest.builder()
+                .accountIdentifier(AccountIdentifier)
+                .authCode(AuthCode)
+                .clientTxnRef(clientTxnRef)
+                .channelSessionId(ChannelSessionId)
+                .timestamp(getCurrentIsoDateTime())
+                .clientId(clientId) //3
+                .fundingSourceId(FundingSourceId)
+                .productId(productId) //100
+                .purchaseAmount(purchaseAmount) // 10000
+                .feeAmount(feeAmount) //0
+                .currencyCode(currencyCode.getCurrencyCode()) //NGN
+                .channelId(channelId.getChannelId()) //7
+                .channelName(channelName.getChannelName()) //USSD
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .additionalData(AdditionalData)
                 .build();
     }
 }

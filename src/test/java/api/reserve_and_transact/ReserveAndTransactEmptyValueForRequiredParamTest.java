@@ -88,7 +88,7 @@ public class ReserveAndTransactEmptyValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: empty value for required parameters")
-    @TmsLink("TECH-141821")
+    @TmsLink("TECH-139631")
     public void testReserveAndTransactV4EmptyValuePID() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWithEmptyPID(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, "", ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 

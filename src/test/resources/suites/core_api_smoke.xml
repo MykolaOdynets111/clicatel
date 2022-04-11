@@ -2,17 +2,30 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 
 <suite name="Smoke tests suite">
+    <groups>
+        <run>
+            <include name = "smokeTest"></include>
+        </run>
+    </groups>
     <test name="Smoke tests">
-        <classes>
-            <class name="api.reserve_and_transact.ReserveAndTransactTest">
-                <methods>
-                    <include name="testReserveAndTransactV4Success"/>
-                    <include name="testReserveAndTransactV3Success"/>
-                    <include name="testReserveAndTransactV2Success"/>
-                    <include name="testReserveAndTransactV1Success"/>
-                </methods>
-            </class>
-            <class name="api.transact.TransactSuccessTest"/>
-        </classes>
+        <packages>
+            <package name="api.reserve_and_transact"/>
+            <package name="api.transact"/>
+            <package name="api.mno_lookup"/>
+            <package name="api.user_transaction_lookup"/>
+            <package name="api.customer_account_validation"/>
+            <package name="api.notification"/>
+            <package name="api.financial_terms_lookup"/>
+            <package name="api.transaction_lookup"/>
+            <package name="api.inflight_transaction_lookup"/>
+            <package name="api.product_lookup"/>
+            <package name="api.channels"/>
+            <!--            <package name="api.users"/>-->
+            <package name="api.simulators"/>
+            <package name="api.ctxHistory"/>
+            <package name="api.tokenServices"/>
+            <package name="api.velocity"/>
+        </packages>
     </test>
+
 </suite>

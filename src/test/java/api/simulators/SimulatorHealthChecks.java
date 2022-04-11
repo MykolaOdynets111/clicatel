@@ -41,7 +41,14 @@ public class SimulatorHealthChecks {
     @Description("GET /testresponse")
     @TmsLink("TECH-60264")
     public void testmwmTestResponse() {
-        PingMWMSimulator()
+        PingMWMSimulator(Identifier_18)
+                .then().assertThat().statusCode(SC_OK);
+    }
+    @Test
+    @Description("30091-magtipon3lineng-rest :: GET \u200B/magtipon3lineng\u200B/ping :: happy path")
+    @TmsLink("TECH-149979")
+    public void testMagtipon3LinengResponse() {
+        Pingmagtipon3linengSimulator()
                 .then().assertThat().statusCode(SC_OK);
     }
 }

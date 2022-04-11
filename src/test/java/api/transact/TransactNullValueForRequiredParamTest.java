@@ -48,7 +48,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-141828")
+    @TmsLink("TECH-139690")
     public void testTransactV4WithReserveFundsTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithRFTRNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -544,7 +544,7 @@ public class TransactNullValueForRequiredParamTest {
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters (targetIdentifierEmpty)")
     @TmsLink("TECH-123398")
     public void testTransactV2WithTargetIdentifierNull() throws InterruptedException {
-        val jsonBody = setUpTransactV2DataWithtargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
+        val jsonBody = setUpTransactV2DataWithTargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V2)
                 .then().assertThat().statusCode(SC_BAD_REQUEST)

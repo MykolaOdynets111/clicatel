@@ -42,6 +42,7 @@ public class BasedAPIClient {
     protected static String RestMessageNotifier;
     protected static String PaydVelocity;
     protected static String ControlBackend;
+    protected static String PwmSimulator;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -70,6 +71,7 @@ public class BasedAPIClient {
         RestMessageNotifier= getProperty("api.RestMessageNotifier.url");
         PaydVelocity= getProperty("api.PaydVelocity.url");
         ControlBackend= getProperty("api.ControlBackend.url");
+        PwmSimulator= getProperty("api.PwmSimulator.url");
     }
 
     private void logResponse(final Response response) {

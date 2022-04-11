@@ -58,6 +58,23 @@ public class ProductLookupClient extends BasedAPIClient {
     public static String Identifier_16;
     public static String Identifier_17;
     public static String responseMessageInvalidProductTypeIDProductInfoV3;
+    public static String fundingSourceId_1206;
+    public static String confirmationWindowSizeSeconds;
+    public static String fundingSourceName;
+    public static String reservationTimeout;
+    public static String reserveFundsEndpoint;
+    public static String retryDelay;
+    public static String serviceWindowSizeSeconds;
+    public static String transactionEndpoint;
+    public static String fundingSourceNameUpdate;
+    public static String Client_1206;
+    public static String ClickatellAccountId;
+    public static String Client_Role_1206;
+    public static String Client_1206_update;
+    public static String ctxLimitTotal_Update;
+    public static String Product_Desc_206;
+    public static String Product_Insert_Timestamp;
+
 
 
 
@@ -104,12 +121,28 @@ public class ProductLookupClient extends BasedAPIClient {
         Identifier_16= getProperty("Identifier_16");
         Identifier_17= getProperty("Identifier_17");
         responseMessageInvalidProductTypeIDProductInfoV3= getProperty("responseMessageInvalidProductTypeIDProductInfoV3");
+        fundingSourceId_1206= getProperty("fundingSourceId_1206");
+        confirmationWindowSizeSeconds= getProperty("confirmationWindowSizeSeconds");
+        fundingSourceName= getProperty("fundingSourceName");
+        reservationTimeout= getProperty("reservationTimeout");
+        reserveFundsEndpoint= getProperty("reserveFundsEndpoint");
+        retryDelay= getProperty("retryDelay");
+        serviceWindowSizeSeconds= getProperty("serviceWindowSizeSeconds");
+        transactionEndpoint= getProperty("transactionEndpoint");
+        fundingSourceNameUpdate= getProperty("fundingSourceNameUpdate");
+        Client_1206= getProperty("Client_1206");
+        ClickatellAccountId= getProperty("ClickatellAccountId");
+        Client_Role_1206= getProperty("Client_Role_1206");
+        Client_1206_update= getProperty("Client_1206_update");
+        ctxLimitTotal_Update= getProperty("ctxLimitTotal_Update");
+        Product_Desc_206= getProperty("Product_Desc_206");
+        Product_Insert_Timestamp= getProperty("Product_Insert_Timestamp");
     }
 
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/public/productInfo",productLookupUrl,port.getPort()))
+                        .setBaseUri(String.format("%s/public/productInfo",productLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -119,7 +152,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static Response getProductInfo(Port port, Version version, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/public/%s/productInfo",productLookupUrl,port.getPort(),version.getVersion()))
+                        .setBaseUri(String.format("%s/public/%s/productInfo",productLookupUrl,version.getVersion()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -140,7 +173,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static Response getProductDetails(Port port, Version version, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/product_management/productDetails",productLookupUrl,port.getPort()))
+                        .setBaseUri(String.format("%s/product_management/productDetails",productLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -206,11 +239,11 @@ public class ProductLookupClient extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
-    public static Response PostUpdateClient(Map body) {
+    public static Response PostUpdateClient(Map body, String ClientId) {
         return basedAPIClient.get()
                 .put(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/clients/",productLookupUrl))
+                        .setBaseUri(String.format("%s/clients/"+ClientId,productLookupUrl))
                         .setBody(body)
                         .setContentType(JSON)
                         .addHeader("Authorization","bearer")
@@ -455,5 +488,71 @@ public class ProductLookupClient extends BasedAPIClient {
                         .log(ALL)
                         .build(), "{clientId}/product/{vendorId}/product/{productId}");
     }
+    public static Response executePostCreateFundingSource(Map body) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(productLookupUrl+"/fundingSources/create")
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response GetFundingSourceByFundingSourceID (String FundingSourceId) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(productLookupUrl+"/fundingSources/" + FundingSourceId)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
 
 }
+    public static Response executePostUpdateFundingSource(Map body) {
+        return basedAPIClient.get()
+                .put(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(productLookupUrl+"/fundingSources/update")
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response getClientsByClientId(String ClientId)
+    {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/clients/"+ClientId,productLookupUrl))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response DeleteProductAssociationWithClient(String ClientId, String ProductId) {
+        return basedAPIClient.get()
+                .delete(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/clients/"+ClientId +"/product/"+ProductId,productLookupUrl))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response PostClientProductAssociation (Map <Object, Object> body, String ClientID) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(productLookupUrl+"/clients/"+ClientID+"/productAssociation")
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response PostFundingSourceByClientId (String ClientID, String FundingSourceId) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(productLookupUrl+"/clients/"+ClientID+"/fundingSource/"+FundingSourceId)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    }

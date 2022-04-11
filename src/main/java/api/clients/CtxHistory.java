@@ -17,4 +17,22 @@ public class CtxHistory extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
+    public static Response GetFindByTransactionAndClientId(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/findByClientTransactionIdAndClientId",CtxHistory))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+    public static Response GetFindByLastSuccessful(Map<String,String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/findLastSuccessful",CtxHistory))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
 }

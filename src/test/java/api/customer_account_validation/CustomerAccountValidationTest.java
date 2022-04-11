@@ -19,7 +19,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class CustomerAccountValidationTest extends BaseApiTest {
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30091 :: magtipon3lineng-rest :: public internal :: POST /magtipon3lineng/validateTransaction :: Customer Account Validation (1.0)")
     @TmsLink("TECH-54463")
     public void testValidateCustomerAccountSuccess() {
@@ -40,10 +40,9 @@ public class CustomerAccountValidationTest extends BaseApiTest {
                 .body("customerInfo.district", Matchers.notNullValue())
                 .body("responseCode", Matchers.is(ReserveAndTransactClient.ZeroTransactionCode))
                 .body("responseMessage", Matchers.is(CustomerAccountValidationClient.responseMessageSuccessfulResult));
-
     }
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("32050 :: vendor-routing-service :: public internal :: POST /validate :: Customer Account Validation (2.0)")
     @TmsLink("TECH-54473")
     public void testValidateCustomerAccountV2Success() {

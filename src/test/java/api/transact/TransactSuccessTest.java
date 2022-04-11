@@ -20,7 +20,7 @@ import static api.enums.ChannelName.USSD;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class TransactSuccessTest extends BaseApiTest {
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
     @TmsLink("TECH-54338")
     public void testTransactV4Success() throws InterruptedException {
@@ -132,7 +132,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
-        Thread.sleep(10000);
+        Thread.sleep(30000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
@@ -180,7 +180,7 @@ public class TransactSuccessTest extends BaseApiTest {
     //Verify transaction status is "SUCCESS"
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("raasTxnRef", raasTxnRef);
-        Thread.sleep(20000);
+        Thread.sleep(30000);
         findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
                 .then().assertThat().statusCode(SC_OK)
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
