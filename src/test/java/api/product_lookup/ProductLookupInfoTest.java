@@ -16,6 +16,7 @@ import static api.clients.ProductLookupClient.*;
 import static api.clients.ReserveAndTransactClient.Product_Invalid;
 import static api.clients.SimulatorsClient.ValidAirtelMsisdnWithProducts;
 import static api.clients.SimulatorsClient.ValidAirtelMsisdnWithoutProducts;
+import static api.clients.VendorManagementClient.ProductTypeData_5;
 import static api.domains.product_lookup.repo.ProductLookupRequestRepo.*;
 import static org.apache.http.HttpStatus.*;
 import static org.testng.AssertJUnit.fail;
@@ -44,7 +45,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     }
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/productInfo :: Product Lookup API (1.0)")
     @TmsLink("TECH-50880")
     public void testProductLookupInformationV1Success() {
@@ -67,7 +68,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/v2/productInfo :: Product Lookup API (2.0)")
     @TmsLink("TECH-54434")
     public void testProductLookupInformationV2Success() {
@@ -90,26 +91,164 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/v3/productInfo :: Product Lookup API (3.0)")
     @TmsLink("TECH-66575")
     public void testProductLookupInformationV3Success() {
+        Map<String, String> map_1600 = new Hashtable<>();
+        map_1600.put("productId", ProductLookupClient.Product_1600);
+
+        Map<String, String> map_Pricing = new Hashtable<>();
+        map_Pricing.put("type", ProductType_Single);
+        map_Pricing.put("amount", ReserveAndTransactClient.PurchaseAmount10000);
+
+        String timeStamp = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1600)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp);
+        HashMap<String, String> map_attributes_1 = new HashMap<String, String>();
+        map_attributes_1.put("attributeId", "1");
+        map_attributes_1.put("value", null);
+
+        HashMap<String, String> map_attributes_2 = new HashMap<String, String>();
+        map_attributes_2.put("attributeId", "2");
+        map_attributes_2.put("value", null);
+
+        HashMap<String, String> map_attributes_3 = new HashMap<String, String>();
+        map_attributes_3.put("attributeId", "3");
+        map_attributes_3.put("value", null);
+
+        HashMap<String, String> map_attributes_15 = new HashMap<String, String>();
+        map_attributes_15.put("attributeId", "15");
+        map_attributes_15.put("value", null);
+
+        HashMap<String, String> map_attributes_30 = new HashMap<String, String>();
+        map_attributes_30.put("attributeId", "30");
+        map_attributes_30.put("value", null);
+
+        HashMap<String, String> map_attributes_31 = new HashMap<String, String>();
+        map_attributes_31.put("attributeId", "31");
+        map_attributes_31.put("value", null);
+
+        HashMap<String, String> map_attributes_33 = new HashMap<String, String>();
+        map_attributes_33.put("attributeId", "33");
+        map_attributes_33.put("value", null);
+
+        HashMap<String, String> map_attributes_34 = new HashMap<String, String>();
+        map_attributes_34.put("attributeId", "34");
+        map_attributes_34.put("value", null);
+
+        HashMap<String, String> map_attributes_35 = new HashMap<String, String>();
+        map_attributes_35.put("attributeId", "35");
+        map_attributes_35.put("value", null);
+
+        HashMap<String, String> map_attributes_36 = new HashMap<String, String>();
+        map_attributes_36.put("attributeId", "36");
+        map_attributes_36.put("value", null);
+
+        HashMap<String, String> map_attributes_4 = new HashMap<String, String>();
+        map_attributes_4.put("attributeId", "4");
+        map_attributes_4.put("value", null);
+
+        HashMap<String, String> map_attributes_37 = new HashMap<String, String>();
+        map_attributes_37.put("attributeId", "37");
+        map_attributes_37.put("value", null);
+
+
+        List<Map<String,String>> jsonArrayPayload_1600 = new ArrayList<>();
+
+        jsonArrayPayload_1600.add(map_attributes_1);
+        jsonArrayPayload_1600.add(map_attributes_2);
+        jsonArrayPayload_1600.add(map_attributes_3);
+        jsonArrayPayload_1600.add(map_attributes_4);
+        jsonArrayPayload_1600.add(map_attributes_30);
+        jsonArrayPayload_1600.add(map_attributes_31);
+        jsonArrayPayload_1600.add(map_attributes_33);
+        jsonArrayPayload_1600.add(map_attributes_34);
+        jsonArrayPayload_1600.add(map_attributes_35);
+        jsonArrayPayload_1600.add(map_attributes_36);
+        jsonArrayPayload_1600.add(map_attributes_37);
+
+
+        val body = setUpPutProductDataWithAttributesWithPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
+                "Q33", Product_1600, map_Pricing,  ProductTypeData_5, NewClientName, false, true,
+                timeStamp, Vendor103, "1", "1", "1", Vendor103);
+        System.out.println(body);
+        PutUpdateProduct(body)
+                .then().assertThat().statusCode(SC_OK);
+
+        Map<String, String> map_1601 = new Hashtable<>();
+        map_1601.put("productId", ProductLookupClient.Product_1601);
+
+
+        String timeStamp_1601 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1601)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp_1601);
+
+        List<Map<String,String>> jsonArrayPayload_1601 = new ArrayList<>();
+
+        jsonArrayPayload_1601.add(map_attributes_1);
+        jsonArrayPayload_1601.add(map_attributes_2);
+        jsonArrayPayload_1601.add(map_attributes_3);
+        jsonArrayPayload_1601.add(map_attributes_4);
+        jsonArrayPayload_1601.add(map_attributes_30);
+        jsonArrayPayload_1601.add(map_attributes_31);
+        jsonArrayPayload_1601.add(map_attributes_33);
+        jsonArrayPayload_1601.add(map_attributes_34);
+        jsonArrayPayload_1601.add(map_attributes_35);
+        jsonArrayPayload_1601.add(map_attributes_36);
+        jsonArrayPayload_1601.add(map_attributes_37);
+
+
+        val body_1601 = setUpPutProductDataWithAttributesWithPurchaseMedium(true, jsonArrayPayload_1601, UsersClient.country, NewClientName, NewClientName,
+                "UB31", Product_1600, map_Pricing,  ProductTypeData_5, NewClientName, false, true,
+                timeStamp, Vendor103, "1", "1", "1", Vendor103);
+        System.out.println(body_1601);
+        PutUpdateProduct(body_1601)
+                .then().assertThat().statusCode(SC_OK);
+
+//        Map<String, String> map_1602 = new Hashtable<>();
+//        map_1602.put("productId", ProductLookupClient.Product_1602);
+//
+//        String timeStamp_1602 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1602)
+//                .then().assertThat().statusCode(SC_OK)
+//                .extract().response().path("product.timeStamp");
+//        System.out.println(timeStamp_1602);
+//
+//
+//        val body_1602 = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
+//                null,Product_1602, map_Pricing, ProductTypeAirtime_3, NewClientName, false, false,
+//                timeStamp_1602, Vendor103,Vendor100);
+//        System.out.println(body_1602);
+//        PutUpdateProduct(body_1602)
+//                .then().assertThat().statusCode(SC_OK);
+
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId",ReserveAndTransactClient.TestClient3);
-        map.put("productId",ProductLookupClient.ProductAirtel_130);
+        map.put("vendorId",Vendor103);
+        map.put("targetIdentifier", "2348085767002");
+        map.put("clientId",Product_1600);
+        map.put("productTypeId",ProductTypeData_5);
+        map.put("includeInactive","true");
+        map.put("topSeller","true");
+        map.put("subscriberType","Converged");
+        map.put("topSellerPlatform","true");
+        map.put("purchaseMedium","Card");
+        map.put("channelId","2");
 
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
+        List<Integer> response2 =  getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)))
-                .body("[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)))
-                .body("[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
+                .extract().jsonPath().get("publicProduct.id");
+        System.out.println(response2);
 
-        getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
-                .then().assertThat().statusCode(SC_OK)
-                .body("[0].publicProduct.id", Matchers.is(Integer.parseInt(ProductLookupClient.ProductAirtel_130)),
-                        "[0].publicProduct.productTypeId", Matchers.is(Integer.parseInt(ProductLookupClient.ProductTypeAirtime_3)),
-                        "[0].publicProduct.productTypeName", Matchers.containsString(ProductLookupClient.ProductTypeNameAirtime));
-
+        if(response2.contains(1600)&response2.contains(1601))
+        {
+            System.out.println("Only expected products are being appeared");
+        }
+        else
+        {
+            fail("Expected products do not exist");
+        }
     }
 
 
@@ -242,7 +381,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body_1601 = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1601, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1601, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1601, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp_1601, Vendor100,Vendor103);
         System.out.println(body_1601);
         PutUpdateProduct(body_1601)
@@ -395,7 +534,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body_1601 = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1601, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1601, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1601, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp_1601, Vendor100,Vendor103);
         System.out.println(body_1601);
         PutUpdateProduct(body_1601)
@@ -547,7 +686,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body_1601 = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1601, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1601, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1601, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp_1601, Vendor100,Vendor103);
         System.out.println(body_1601);
         PutUpdateProduct(body_1601)
@@ -699,7 +838,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body_1601 = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1601, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1601, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1601, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp_1601, Vendor100,Vendor103);
         System.out.println(body_1601);
         PutUpdateProduct(body_1601)
@@ -820,7 +959,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                "Q33", Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                "Q33", Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103, Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -969,7 +1108,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                "Q33", Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                "Q33", Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103, Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -1347,10 +1486,81 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if invalid \"topSellerPlatform\" parameter is specified then none of the products are returned in the response")
     @TmsLink("TECH-115624")
     public void testProductInfoIfInvalidTopSellerPlatformSpecified() {
+        Map<String, String> map_1600 = new Hashtable<>();
+        map_1600.put("productId", ProductLookupClient.Product_1600);
+
+        Map<String, String> map_Pricing = new Hashtable<>();
+        map_Pricing.put("type", ProductType_Single);
+        map_Pricing.put("amount", ReserveAndTransactClient.PurchaseAmount10000);
+
+        String timeStamp = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1600)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp);
+        List<String> purchaseMediumIds = new ArrayList<String>();
+        purchaseMediumIds.add("1");
+        purchaseMediumIds.add("2");
+        purchaseMediumIds.add("3");
+        purchaseMediumIds.add("4");
+        purchaseMediumIds.add("5");
+
+        List<String> subscriberTypeIds = new ArrayList<String>();
+        subscriberTypeIds.add("1");
+        subscriberTypeIds.add("2");
+        subscriberTypeIds.add("3");
+        subscriberTypeIds.add("4");
+        subscriberTypeIds.add("5");
+        subscriberTypeIds.add("6");
+        subscriberTypeIds.add("7");
+
+        List<String> topSellerPlatformIds = new ArrayList<String>();
+        topSellerPlatformIds.add("1");
+        topSellerPlatformIds.add("2");
+        topSellerPlatformIds.add("3");
+
+        val body = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1600, map_Pricing, Product_1600, NewClientName, false, true,
+                timeStamp, Product_1600,purchaseMediumIds,subscriberTypeIds,topSellerPlatformIds,Product_1600);
+        System.out.println(body);
+        PutUpdateProduct(body)
+                .then().assertThat().statusCode(SC_OK);
+
+        Map<String, String> map_1601 = new Hashtable<>();
+        map_1601.put("productId", ProductLookupClient.Product_1601);
+
+        Map<String, String> map_Pricing_1601 = new Hashtable<>();
+        map_Pricing_1601.put("type", ProductType_Single);
+        map_Pricing_1601.put("amount", ReserveAndTransactClient.PurchaseAmount10000);
+
+        String timeStamp_1600 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1601)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp_1600);
+        val body_1601 = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1601, map_Pricing_1601, Product_1600, NewClientName, false, false,
+                timeStamp_1600, Product_1600,"2","2","2",Product_1600);
+        System.out.println(body_1601);
+        PutUpdateProduct(body_1601)
+                .then().assertThat().statusCode(SC_OK);
+
+        Map<String, String> map_1602 = new Hashtable<>();
+        map_1602.put("productId", ProductLookupClient.Product_1602);
+
+        String timeStamp_1602 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1602)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp_1600);
+
+        val body_1602 = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1602, map_Pricing_1601, Product_1600, NewClientName, false, false,
+                timeStamp_1602, Product_1600,Product_1600);
+        System.out.println(timeStamp_1602);
+        PutUpdateProduct(body_1602)
+                .then().assertThat().statusCode(SC_OK);
+
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId",ProductLookupClient.TestClient250);
-        map.put("includeInactive","true");
-        map.put("topSellerPlatform","invalidTest");
+        map.put("clientId",Product_1600);
+        map.put("topSellerPlatform",Product_1600);
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_NO_CONTENT);
@@ -1454,13 +1664,85 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if \"purchaseMedium\" parameter is specified and is invalid then none of the products are returned in the response")
     @TmsLink("TECH-115683")
     public void testProductInfoIfInvalidPurchaseMediumSpecified() {
+        Map<String, String> map_1600 = new Hashtable<>();
+        map_1600.put("productId", ProductLookupClient.Product_1600);
+
+        Map<String, String> map_Pricing = new Hashtable<>();
+        map_Pricing.put("type", ProductType_Single);
+        map_Pricing.put("amount", ReserveAndTransactClient.PurchaseAmount10000);
+
+        String timeStamp = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1600)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp);
+        List<String> purchaseMediumIds = new ArrayList<String>();
+        purchaseMediumIds.add("1");
+        purchaseMediumIds.add("2");
+        purchaseMediumIds.add("3");
+        purchaseMediumIds.add("4");
+        purchaseMediumIds.add("5");
+
+        List<String> subscriberTypeIds = new ArrayList<String>();
+        subscriberTypeIds.add("1");
+        subscriberTypeIds.add("2");
+        subscriberTypeIds.add("3");
+        subscriberTypeIds.add("4");
+        subscriberTypeIds.add("5");
+        subscriberTypeIds.add("6");
+        subscriberTypeIds.add("7");
+
+        List<String> topSellerPlatformIds = new ArrayList<String>();
+        topSellerPlatformIds.add("1");
+        topSellerPlatformIds.add("2");
+        topSellerPlatformIds.add("3");
+
+        val body = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1600, map_Pricing, Product_1600, NewClientName, false, true,
+                timeStamp, Product_1600,purchaseMediumIds,subscriberTypeIds,topSellerPlatformIds,Product_1600);
+        System.out.println(body);
+        PutUpdateProduct(body)
+                .then().assertThat().statusCode(SC_OK);
+
+        Map<String, String> map_1601 = new Hashtable<>();
+        map_1601.put("productId", ProductLookupClient.Product_1601);
+
+        Map<String, String> map_Pricing_1601 = new Hashtable<>();
+        map_Pricing_1601.put("type", ProductType_Single);
+        map_Pricing_1601.put("amount", ReserveAndTransactClient.PurchaseAmount10000);
+
+        String timeStamp_1600 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1601)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp_1600);
+        val body_1601 = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1601, map_Pricing_1601, Product_1600, NewClientName, false, false,
+                timeStamp_1600, Product_1600,"2","2","2",Product_1600);
+        System.out.println(body_1601);
+        PutUpdateProduct(body_1601)
+                .then().assertThat().statusCode(SC_OK);
+
+        Map<String, String> map_1602 = new Hashtable<>();
+        map_1602.put("productId", ProductLookupClient.Product_1602);
+
+        String timeStamp_1602 = getProductDetails(Port.PRODUCT_LOOKUP, Version.V2, map_1602)
+                .then().assertThat().statusCode(SC_OK)
+                .extract().response().path("product.timeStamp");
+        System.out.println(timeStamp_1600);
+
+        val body_1602 = setUpPutProductData(true, UsersClient.country, NewClientName, NewClientName,
+                null,Product_1602, map_Pricing_1601, Product_1600, NewClientName, false, false,
+                timeStamp_1602, Product_1600,Product_1600);
+        System.out.println(timeStamp_1602);
+        PutUpdateProduct(body_1602)
+                .then().assertThat().statusCode(SC_OK);
+
         Map <String, String> map = new Hashtable<>();
-        map.put("clientId",ProductLookupClient.TestClient250);
-        map.put("includeInactive","true");
-        map.put("purchaseMedium","InvalidTest");
+        map.put("clientId",Product_1600);
+        map.put("purchaseMedium",Product_1600);
 
         getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
                 .then().assertThat().statusCode(SC_NO_CONTENT);
+
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter is specified then only products with valid subscriberType are returned in the response")
@@ -1555,19 +1837,6 @@ public class ProductLookupInfoTest extends BaseApiTest {
         {
             fail("Expected products do not exist");
         }
-//        List<Integer> response3 =  getProductInfo(Port.PRODUCT_LOOKUP, Version.V3, map)
-//                .then().assertThat().statusCode(SC_OK)
-//                .extract().jsonPath().get("publicProduct.subscriberType");
-//        System.out.println(response3);
-//
-//        if(response3.contains(1500)&response3.contains(1501)&response3.contains(1502))
-//        {
-//            System.out.println("Products with all subscriber types are being appeared");
-//        }
-//        else
-//        {
-//            fail("Expected products do not exist");
-//        }
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter is specified and is invalid then none of the products are returned in the response")
@@ -2690,7 +2959,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
         jsonArrayPayload_1600.add(map_attributes_37);
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -2827,7 +3096,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -2979,7 +3248,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -3184,7 +3453,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -3678,7 +3947,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -3961,7 +4230,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                "Q33",Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                "Q33",Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -4110,7 +4379,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)
@@ -4258,7 +4527,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
 
         val body = setUpPutProductDataWithAttributesWithoutPurchaseMedium(true, jsonArrayPayload_1600, UsersClient.country, NewClientName, NewClientName,
-                null,Product_1600, map_Pricing, VendorManagementClient.ProductTypeData_5, NewClientName, false, false,
+                null,Product_1600, map_Pricing, ProductTypeData_5, NewClientName, false, false,
                 timeStamp, Vendor103,Vendor103);
         System.out.println(body);
         PutUpdateProduct(body)

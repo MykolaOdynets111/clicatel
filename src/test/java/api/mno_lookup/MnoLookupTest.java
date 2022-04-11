@@ -20,14 +20,13 @@ import static db.clients.HibernateBaseClient.executeCustomQueryAndReturnValue;
 import static db.custom_queries.MnoLookupQueries.GET_LOOKUP_RESPONSE_CODE;
 import static db.enums.Sessions.POSTGRES_SQL;
 import static java.lang.String.format;
-import static org.apache.http.HttpStatus.SC_NOT_FOUND;
-import static org.apache.http.HttpStatus.SC_OK;
+import static org.apache.http.HttpStatus.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.INT_ARRAY;
 
 public class MnoLookupTest extends BaseApiTest {
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30049 :: client-mno-lookup-service :: public internal :: GET /mnp/mnpLookup :: MNO Lookup (1.0)")
     @TmsLink("TECH-54461")
     public void testMnoLookupSuccess() {
@@ -82,6 +81,196 @@ public class MnoLookupTest extends BaseApiTest {
                 .body("responseMessage", Matchers.containsString(MnoLookupClient.responseMessageInvalidMsisdnMnoLookup))
                 .extract().body().as(MnoLookupResponse.class).getLookupRef();
 
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9010 \"Incorrect msisdn country combination\" scenario")
+    @TmsLink("TECH-169530")
+    public void testMnoLookupIncorrectMsisdnCountryCombination() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", ReserveAndTransactClient.IdentifierV3);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_27);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(MnoLookupClient.ResponseCode_9010))
+                .body("responseMessage", Matchers.containsString(MnoLookupClient.responseMessageIncorrectMsisdnCountryCombination))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9090 \"Unknown country code/prefix\" scenario")
+    @TmsLink("TECH-169533")
+    public void testMnoLookupUnknownCountryCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", ReserveAndTransactClient.IdentifierV3);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_999);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("responseCode", Matchers.containsString(MnoLookupClient.ResponseCode_9090))
+                .body("responseMessage", Matchers.containsString(MnoLookupClient.responseMessageUnknownCountryCode))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"MTN\" operatorCode")
+    @TmsLink("TECH-169546")
+    public void testMnoLookup0000SuccessForMtnOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdn);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_27);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdn))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_27))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_SOUMFB))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_MTN))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9090 \"Unknown country code/prefix\" scenario")
+    @TmsLink("TECH-169540")
+    public void testMnoLookupCountryCodeNotPresentInParams() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", ReserveAndTransactClient.IdentifierV3);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("status", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ProductMTN_ZA_400)))
+                .body("error", Matchers.containsString(MnoLookupClient.error_BadRequest))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 400 \"Required String parameter 'msisdn' is not present\" scenario ")
+    @TmsLink("TECH-169537")
+    public void testMnoLookupMsisdnNotPresentInParams() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_999);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("status", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ProductMTN_ZA_400)))
+                .body("error", Matchers.containsString(MnoLookupClient.error_BadRequest))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 400 \"Required int parameter 'clientId' is not present\" scenario")
+    @TmsLink("TECH-169535")
+    public void testMnoLookupClientIdNotPresent() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdn);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_27);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_BAD_REQUEST)
+                .body("status", Matchers.is(Integer.parseInt(ReserveAndTransactClient.ProductMTN_ZA_400)))
+                .body("error", Matchers.containsString(MnoLookupClient.error_BadRequest))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"Vodacom\" operatorCode")
+    @TmsLink("TECH-169545")
+    public void testMnoLookup0000SuccessForVodacomOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdnVodacom);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_27);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdnVodacom))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_27))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_SOUVXP))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_Vodacom))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"AIRTEL\" operatorCode")
+    @TmsLink("TECH-169544")
+    public void testMnoLookup0000SuccessForAirTelOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdnAirTel);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_234);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdnAirTel))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_234))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_AIRTEL))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_BhartiAirtelTelecommunicationsCompany))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"MTN-NG\" operatorCode")
+    @TmsLink("TECH-169541")
+    public void testMnoLookup0000SuccessForMTNNGOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdnMTNNG);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_234);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdnMTNNG))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_234))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_MTNNG))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_MobileTelecommunicationsNetworkNigeria))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"9MOBILE\" operatorCode")
+    @TmsLink("TECH-169542")
+    public void testMnoLookup0000SuccessFor9MobileOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdn9Mobile);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_234);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdn9Mobile))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_234))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_9MOBILE))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_9MobileTelecoms))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
+    }
+
+    @Test
+    @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"GLO\" operatorCode")
+    @TmsLink("TECH-169543")
+    public void testMnoLookup0000SuccessForGLOOperatorCode() {
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
+        queryParams.put("msisdn", MnoLookupClient.ValidMsisdnGLO);
+        queryParams.put("countryCallingCode", MnoLookupClient.countryCallingCode_234);
+
+        val lookupRef = getMnoInfo(Port.MNO_LOOKUP, queryParams)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("msisdn", Matchers.containsString(MnoLookupClient.ValidMsisdnGLO))
+                .body("countryCallingCode", Matchers.containsString(MnoLookupClient.countryCallingCode_234))
+                .body("operatorCode", Matchers.containsString(MnoLookupClient.OperatorCode_GLO))
+                .body("operatorName", Matchers.containsString(MnoLookupClient.OperatorName_GlobaComTelecommunicationsCompany))
+                .extract().body().as(MnoLookupResponse.class).getLookupRef();
     }
 }
 

@@ -30,7 +30,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class InFlightTransactionTest extends BaseApiTest {
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30433 :: transaction-lookup :: public internal :: POST /lookupservice/pendingTransactions :: In-Flight Transaction Lookup API (1.0)")
     @TmsLink("TECH-54418")
     public void testLookupPendingTransactionsSuccess() {

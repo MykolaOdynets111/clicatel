@@ -22,7 +22,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 
 public class NotificationTest extends BaseApiTest {
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30116 :: message-notifier :: public internal :: POST /notification :: Notifications API (1.0)")
     @TmsLink("TECH-53236")
     public void testSendNotificationSuccess() {

@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
+import java.util.Map;
+
 //@JsonIgnoreProperties(ignoreUnknown = true)
 @JsonInclude(JsonInclude.Include.NON_NULL)
 
@@ -65,5 +67,8 @@ public class ReserveAndTransactRequest {
 
     @JsonProperty("reserveFundsTxnRef")
     private String reserveFundsTxnRef;
+
+    @JsonProperty("additionalData")
+    private Map<String,Object> additionalData;
 
 }

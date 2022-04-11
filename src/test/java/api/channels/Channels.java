@@ -10,6 +10,7 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import static api.clients.ChannelsClient.getChannels;
+import static api.clients.ChannelsClient.getChannelsById;
 import static api.clients.FinancialTermsLookupClient.getFinancialTermDetails;
 import static org.apache.http.HttpStatus.SC_OK;
 
@@ -23,14 +24,28 @@ public class Channels{
         //get all channels
         getChannels()
                 .then().assertThat().statusCode(SC_OK)
-                .body("description[0]", Matchers.containsString(String.valueOf(ChannelName.POS)))
-                .body("id[0]", Matchers.is((Integer.parseInt(ChannelId.POS.getChannelId()))))
-                .body("description[1]", Matchers.containsString(String.valueOf(ChannelName.INTERNET.getChannelName())))
-                .body("id[1]", Matchers.is((Integer.parseInt(ChannelId.INTERNET.getChannelId()))))
-                .body("description[2]", Matchers.containsString(String.valueOf(ChannelName.MOBILE.getChannelName())))
-                .body("id[2]", Matchers.is((Integer.parseInt(ChannelId.MOBILE.getChannelId()))))
-                .body("description[3]", Matchers.containsString(String.valueOf(ChannelName.ATM)))
-                .body("id[3]", Matchers.is((Integer.parseInt(ChannelId.ATM.getChannelId()))))
-                .body("description[5]", Matchers.containsString(String.valueOf(ChannelName.SMS)));
+                .body("description", Matchers.hasItem(String.valueOf(ChannelName.POS)))
+                .body("id", Matchers.hasItem((Integer.parseInt(ChannelId.POS.getChannelId()))))
+                .body("description", Matchers.hasItem(String.valueOf(ChannelName.INTERNET.getChannelName())))
+                .body("id", Matchers.hasItem((Integer.parseInt(ChannelId.INTERNET.getChannelId()))))
+                .body("description", Matchers.hasItem(String.valueOf(ChannelName.MOBILE.getChannelName())))
+                .body("id", Matchers.hasItem((Integer.parseInt(ChannelId.MOBILE.getChannelId()))))
+                .body("description", Matchers.hasItem(String.valueOf(ChannelName.ATM)))
+                .body("id", Matchers.hasItem((Integer.parseInt(ChannelId.ATM.getChannelId()))))
+                .body("description", Matchers.hasItem(String.valueOf(ChannelName.SMS)));
+    }
+
+    @Test
+    @Description("GET /channels/{id} :: happy path")
+    @TmsLink("TECH-146579")
+    public void testGetChannelByID() {
+
+        //get all channels
+        String ChannelID = "7";
+        getChannelsById(ChannelID)
+                .then().assertThat().statusCode(SC_OK)
+                .body("description", Matchers.is(String.valueOf(ChannelName.USSD)))
+                .body("id", Matchers.is((Integer.parseInt(ChannelId.USSD.getChannelId()))));
     }
 }
+

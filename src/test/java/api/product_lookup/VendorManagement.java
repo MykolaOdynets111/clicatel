@@ -146,4 +146,13 @@ public class VendorManagement {
                 .then().assertThat().statusCode(SC_OK)
                 .body(Matchers.is("true"));
     }
+    @Test
+    @Description("GET /vendorProductType/getByInternalProductTypeId :: if \"Vendor Product Type\" is assigned to the \"Product Type\" then it should be returned in the response")
+    @TmsLink("TECH-115829")
+    public void testVendorProductTypeNotAssignedToProductType() {
+        Map<String, String> map = new Hashtable<>();
+        map.put("internalProductTypeId", ReserveAndTransactClient.PurchaseAmount20000);
+        GetVendorProductTypeGetByInternalTypeId(map)
+                .then().assertThat().statusCode(SC_OK);
+    }
 }

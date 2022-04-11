@@ -18,4 +18,13 @@ public class ChannelsClient extends BasedAPIClient {
                         .build());
     }
 
+    public static Response getChannelsById(String ID) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/channels/" + ID,ChannelLookup))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
 }

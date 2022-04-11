@@ -6,6 +6,9 @@ import api.enums.ChannelId;
 import api.enums.ChannelName;
 import api.enums.CurrencyCode;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import static util.DateProvider.getCurrentIsoDateTime;
 
 
@@ -2575,7 +2578,7 @@ public class TransactRequestRepo {
                 .targetIdentifier("a1")
                 .build();
     }
-    public static TransactRequest setUpTransactV2DataWithtargetIdentifierEmpty(String clientId, ChannelName channelName,
+    public static TransactRequest setUpTransactV2DataWithTargetIdentifierEmpty(String clientId, ChannelName channelName,
                                                                       ChannelId channelId, String productId, String TI) {
         return TransactRequest.builder()
                 .channelSessionId("d5d65725c1414446b8546c5fcd5-0002")
@@ -2608,6 +2611,42 @@ public class TransactRequestRepo {
                 .channelName(channelName.getChannelName()) //USSD
                 .sourceIdentifier("2341000000000")
                 .targetIdentifier("a1")
+                .build();
+    }
+    public static TransactRequest setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(String AuthCode,String AccountIdentifier, String clientTxnRef, String FundingSourceId, String ChannelSessionId, String clientId, CurrencyCode currencyCode, ChannelName channelName,
+                                                                                                     ChannelId channelId, String productId, String purchaseAmount, String feeAmount, String identifier, String ReserveFundsTxnRef) {
+        Map<String,Object> ProductId = new LinkedHashMap<>();
+        ProductId.put("productId", ReserveAndTransactClient.ProductAirtel_917);
+
+        Map<String,Object> FundingsourceId = new LinkedHashMap<>();
+        FundingsourceId.put("fundingSourceId", FundingSourceId);
+
+        Map<String,Object> ClientId = new LinkedHashMap<>();
+        ClientId.put("clientId", clientId);
+
+        Map<String,Object> AdditionalData = new LinkedHashMap<>();
+        AdditionalData.put("product", ProductId);
+        AdditionalData.put("fundingSource", FundingsourceId);
+        AdditionalData.put("client", ClientId);
+
+        return TransactRequest.builder()
+                .timestamp(getCurrentIsoDateTime())
+                .accountIdentifier(AccountIdentifier)
+                .authCode(AuthCode)
+                .clientTxnRef(clientTxnRef)
+                .channelSessionId(ChannelSessionId)
+                .reserveFundsTxnRef(ReserveFundsTxnRef) //"200831235610408740004"
+                .clientId(clientId)
+                .fundingSourceId(FundingSourceId)
+                .productId(productId)
+                .amount(purchaseAmount)
+                .feeAmount(feeAmount)
+                .currencyCode(currencyCode.getCurrencyCode())
+                .channelId(channelId.getChannelId())
+                .channelName(channelName.getChannelName())
+                .sourceIdentifier(identifier)
+                .targetIdentifier(identifier)
+                .additionalData(AdditionalData)
                 .build();
     }
 

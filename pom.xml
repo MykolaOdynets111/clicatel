@@ -110,6 +110,13 @@
                 <env>transdev</env>
             </properties>
         </profile>
+        <profile>
+            <id>awsdev</id>
+            <properties>
+                <env>awsdev</env>
+            </properties>
+        </profile>
+
     </profiles>
 
     <build>

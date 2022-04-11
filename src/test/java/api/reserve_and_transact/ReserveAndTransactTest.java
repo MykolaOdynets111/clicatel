@@ -20,8 +20,10 @@ import static api.clients.ReserveAndTransactClient.*;
 import static api.clients.SimulatorClient.*;
 import static api.clients.SimulatorClient.addMtnTestCases;
 import static api.clients.SupportUiClient.getRaasFlow;
+import static api.clients.SupportUiClient.getRaasInteractions;
 import static api.clients.TransactClient.executeTransact;
 import static api.clients.TransactionLookupClient.findTransaction;
+import static api.controls.TransactControl.getTransactionStatus;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpMtnSimData;
@@ -35,7 +37,7 @@ import static util.DateProvider.getCurrentIsoDateTime;
 public class ReserveAndTransactTest extends BaseApiTest {
 
     //SUCCESS :: v1-v4
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
     @TmsLink("TECH-68538")
     public void testReserveAndTransactV4Success() throws InterruptedException {
@@ -48,6 +50,8 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 //        //raas db check replaced with API check (TransactionLookup)
+//        getTransactionStatus(raasTxnRef);
+
 //        assertThat(getTransactionStatus(raasTxnRef))
 //                .as("Postgres SQL query : Transaction Status incorrect")
 //                .isTrue();
@@ -244,7 +248,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
 
     //SUCCESS :: VENDORS & CLIENTS
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 2 (CellC) SUCCESS")
     @TmsLink("TECH-69577")
     public void testReserveAndTransactVendor2CellCSuccess() throws InterruptedException {
@@ -257,7 +261,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("raasTxnRef", Matchers.notNullValue())
                 .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
 
-        //raas db check - being replaced by API transaction lookup check
+//        raas db check - being replaced by API transaction lookup check
 //        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
 //        assertThat(status)
 //                .as("Postgres SQL query result incorrect")
@@ -274,7 +278,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 3 (MTN_ZA) SUCCESS")
     @TmsLink("TECH-68400")
     public void testReserveAndTransactVendor3MtnZaSuccess() throws InterruptedException {
@@ -298,7 +302,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 4 (Vodacom) SUCCESS")
     @TmsLink("TECH-69575")
     public void testReserveAndTransactVendor4VodacomSuccess() throws InterruptedException {
@@ -321,7 +325,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 5 (Telkom) SUCCESS")
     @TmsLink("TECH-69580")
     public void testReserveAndTransactVendor5TelkomSuccess() throws InterruptedException {
@@ -344,7 +348,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 15 (3line, threeline, ClickatellBiller3) SUCCESS")
     @TmsLink("TECH-75095")
     public void testReserveAndTransactVendor15ThreelineSuccess() throws InterruptedException {
@@ -396,7 +400,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 21 (mwm) SUCCESS")
     @TmsLink("TECH-68398")
     public void testReserveAndTransactVendor21MwmSuccess() throws InterruptedException {
@@ -448,7 +452,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 23 (MTN_ZA_clickatell) SUCCESS")
     @TmsLink("TECH-68536")
     public void testReserveAndTransactVendor23MtnZaSuccess() throws InterruptedException {
@@ -500,7 +504,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 100 (MTN_NG) SUCCESS")
     @TmsLink("TECH-63683")
     public void testReserveAndTransactVendor100MtnNgSuccess() throws InterruptedException {
@@ -553,7 +557,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 101 (glo) SUCCESS")
     @TmsLink("TECH-68396")
     public void testReserveAndTransactVendor101GloSuccess() throws InterruptedException {
@@ -605,7 +609,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 102 (9mobile/etisalat) SUCCESS")
     @TmsLink("TECH-68397")
     public void testReserveAndTransactVendor1029MobileEtisalatSuccess() throws InterruptedException {
@@ -657,7 +661,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Airtime\" purchase")
     @TmsLink("TECH-57995")
     public void testReserveAndTransactVendor103AirtelAirtimeSuccess() throws InterruptedException {
@@ -709,7 +713,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Data\" purchase")
     @TmsLink("TECH-57989")
     public void testReserveAndTransactVendor103AirtelDataSuccess() {
@@ -760,7 +764,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test
+    @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: client 1003 (test client) SUCCESS (checksum)")
     @TmsLink("TECH-56890")
     public void testReserveAndTransactWithSignatureSuccess() throws InterruptedException {
@@ -833,10 +837,10 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .then().assertThat().statusCode(SC_OK);
 
         //raas db check --- transaction status is "FAILED" - replaced with API transactionlookup check
-        /*val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
-        assertThat(status)
-                .as("Postgres SQL query result incorrect")
-                .contains("FAILED");*/
+//        val status = executeCustomQueryAndReturnValue(POSTGRES_SQL, format(GET_TRANSACTION_STATUS, raasTxnRef));
+//        assertThat(status)
+//                .as("Postgres SQL query result incorrect")
+//                .contains("FAILED");
 
         //Verify transaction status is "FAILED"
         Map<String, String> queryParams = new Hashtable<>();
@@ -2804,5 +2808,82 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageHeaderSignatureInvalid))
                 .body("raasTxnRef", Matchers.nullValue())
                 .extract().body().as(TransactResponse.class).getRaasTxnRef();
+    }
+    @Test
+    @Description("GET /getRaasFlow :: happy path")
+    @TmsLink("TECH-146863")
+    public void testGetRaasFlowHappyPath() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(20000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+
+        //Verify against support tool API
+        getRaasFlow(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                //THEN "raas_request" parameter isn't empty
+                .body("raas_request.raasTxnRef", Matchers.is(raasTxnRef))
+                //"responseCode" in the "raas_response" equals to "0000"
+                .body("raas_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //"ctx_request" parameter isn't empty
+                .body("ctx_request", Matchers.notNullValue())
+                //Verify funds were successfully reserved (response_code equals to 0000)
+                .body("reserve_fund_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND ctx response code is SUCCESSFUL (0)
+                //"responseCode" in the "ctx_response" equals to "0"
+                .body("ctx_response[0].responseCode", Matchers.is(Integer.parseInt(ReserveAndTransactClient.responseCode0)))
+                //AND successful transaction result is sent (0000)
+                //"transaction_result_request" parameter isn't empty
+                .body("transaction_result_request.responseCode", Matchers.is(ReserveAndTransactClient.responseCode0000))
+                //AND success response code is received from the funding source (202)
+                //"responseCode" in the "transaction_result_response" equals to "202"
+                .body("transaction_result_response.responseCode", Matchers.is(ReserveAndTransactClient.responseCode202))
+                //AND transaction wasn't retried (no records found in the db)
+                .body("ctx_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)))
+                //AND transaction wasn't pending (no records found in the db)
+                .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.responseCode0000)));
+    }
+    @Test
+    @Description("GET /getRaasInteractions :: happy path")
+    @TmsLink("TECH-146861")
+    public void testGetRaasInteractionsHappyPath() throws InterruptedException {
+        val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(20000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+
+        //Verify against support tool API
+        getRaasInteractions(Port.RAAS_FLOW, raasTxnRef)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRefrence", Matchers.hasItem(raasTxnRef))
+                .body ("channelSessionId", Matchers.hasItem(ReserveAndTransactClient.channelSessionId))
+                .body("clientTxnRef", Matchers.notNullValue())
+                .body("sourceIdentifier", Matchers.hasItem(ReserveAndTransactClient.Identifier))
+                .body("responseMessage", Matchers.hasItem(responseMessageFundsReserved))
+                .body("amount", Matchers.hasItem((Integer.parseInt(PurchaseAmount10000))));
     }
 }

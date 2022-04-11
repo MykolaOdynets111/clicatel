@@ -61,7 +61,7 @@ public class TransactClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s:%d/raas/%s/transact",baseUrl,port.getPort(),version.getVersion()))
+                        .setBaseUri(String.format("%s/raas/%s/transact",baseUrl,version.getVersion()))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)

@@ -89,8 +89,8 @@ public class ProductLookupController extends BasedAPIClient {
     }
 
     @Test
-    @Description("GET /products/{clientId}/{vendorId} :: happy path")
-    @TmsLink("TECH-138810")
+    @Description("GET /productbyclientidproductid/{clientId},{productId} :: happy path")
+    @TmsLink("TECH-138816")
     public void testGetProductByClientIdProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
