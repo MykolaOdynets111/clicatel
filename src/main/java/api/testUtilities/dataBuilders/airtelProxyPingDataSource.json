@@ -1,7 +1,0 @@
-{
-  "airtelProxyPingTestSuite": {
-    "successcase": {
-      "expectedHTTPResponseCode": "200"
-    }
-  }
-}

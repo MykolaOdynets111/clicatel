@@ -1,7 +1,0 @@
-HTTP/1.1 200 
-X-Application-Context: payd-raas-transaction-history:uat:8080
-Content-Type: text/plain;charset=UTF-8
-Content-Length: 2
-Date: Mon, 07 Dec 2020 07:06:52 GMT
-
-ok

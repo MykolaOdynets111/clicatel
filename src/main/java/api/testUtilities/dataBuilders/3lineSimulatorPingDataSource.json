@@ -1,8 +1,0 @@
-{
-  "3lineSimulatorPingTestSuite": {
-    "successcase": {
-      "expectedHTTPResponseCode": "200",
-      "expectedHTTPResponseBody": "ok"
-    }
-  }
-}

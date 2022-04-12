@@ -18,16 +18,7 @@
 
         <webdriver.manager.version>4.1.0</webdriver.manager.version>
 
-        <selenium.remote.driver.version>3.141.59</selenium.remote.driver.version>
-        <selenium.support.version>3.141.0</selenium.support.version>
-        <selenium.api.version>3.141.0</selenium.api.version>
-
-        <extentreports.version>4.0.6</extentreports.version>
         <jackson.databind.version>2.9.9.3</jackson.databind.version>
-        <jeckson.core.version>2.9.9</jeckson.core.version>
-        <jackson.dataformat.xml.version>2.9.8</jackson.dataformat.xml.version>
-        <jaxb.api>2.2.11</jaxb.api>
-        <json.simple.version>1.1.1</json.simple.version>
 
         <log4j.version>1.2.17</log4j.version>
         <slf4j.api.version>1.7.28</slf4j.api.version>
@@ -41,8 +32,8 @@
         <hibernate.search.orm.version>5.11.3.Final</hibernate.search.orm.version>
         <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
         <hibernate.validator.validator.version>6.0.1.Final</hibernate.validator.validator.version>
-        <hibernate.c3p0.version>5.4.10.Final</hibernate.c3p0.version>
         <persistence.api.version>1.0.2</persistence.api.version>
+        <hibernate.c3p0.version>5.4.10.Final</hibernate.c3p0.version>
 
         <lombok.version>1.18.10</lombok.version>
         <javafaker.version>1.0.1</javafaker.version>
@@ -62,92 +53,171 @@
         <allure.maven-plugin.version>2.10.0</allure.maven-plugin.version>
         <allure.version>2.13.0</allure.version>
         <allure.selenide.version>2.13.1</allure.selenide.version>
+        <allure.rest.assured.version>2.13.1</allure.rest.assured.version>
         <allure.tms.link>https://jira.clickatell.com/browse/{}</allure.tms.link>
         <allure.issue.link>https://jira.clickatell.com/browse/{}</allure.issue.link>
+
         <jira.rest.java.client.core.version>5.1.6</jira.rest.java.client.core.version>
         <fugue.version>4.7.2</fugue.version>
 
-        <suite>SuiteofSuites</suite>
-
+        <suite>smoke</suite>
     </properties>
+
+    <repositories>
+        <repository>
+            <id>atlassian-public</id>
+            <url>https://packages.atlassian.com/maven/repository/public</url>
+        </repository>
+    </repositories>
 
     <profiles>
         <profile>
             <id>qa</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
             <properties>
                 <env>qa</env>
             </properties>
         </profile>
         <profile>
             <id>dev</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
             <properties>
                 <env>dev</env>
             </properties>
         </profile>
         <profile>
             <id>uat</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
             <properties>
                 <env>uat</env>
             </properties>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
         </profile>
         <profile>
-            <id>testing</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
+            <id>transqa</id>
             <properties>
-                <env>testing</env>
+                <env>transqa</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>trans_uat</id>
+            <properties>
+                <env>trans_uat</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>transdev</id>
+            <properties>
+                <env>transdev</env>
             </properties>
         </profile>
         <profile>
             <id>awsdev</id>
-            <activation>
-                <activeByDefault>false</activeByDefault>
-            </activation>
             <properties>
                 <env>awsdev</env>
             </properties>
         </profile>
+
     </profiles>
 
-    <repositories>
-        <repository>
-            <id>gitlab-maven</id>
-            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/groups/102/-/packages/maven</url>
-        </repository>
-        <repository>
-            <id>atlassian-public</id>
-            <url>https://packages.atlassian.com/maven/repository/public</url>
-        </repository>
-    </repositories>
-    <distributionManagement>
-        <repository>
-            <id>gitlab-maven</id>
-            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/projects/308/packages/maven</url>
-        </repository>
-        <snapshotRepository>
-            <id>gitlab-maven</id>
-            <url>http://gitlab1a.prod.eu-west-1.aws.clickatell.com/api/v4/projects/308/packages/maven</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <build>
+        <filters>
+            <filter>src${file.separator}test${file.separator}resources${file.separator}config.${env}.properties</filter>
+        </filters>
+        <testResources>
+            <testResource>
+                <directory>src${file.separator}test${file.separator}resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.properties</include>
+                </includes>
+            </testResource>
+        </testResources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <argLine>-Xms512m -Xmx8192m</argLine>
+                    <testFailureIgnore>true</testFailureIgnore>
+                    <argLine>${surefire.argline}</argLine>
+                    <suiteXmlFiles>
+                        <suiteXmlFile>${surefire.suiteXmlFiles}</suiteXmlFile>
+                    </suiteXmlFiles>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>${surefire.useDefaultListeners}</value>
+                        </property>
+                    </properties>
+                    <systemPropertyVariables>
+                        <allure.results.directory>${project.build.directory}${file.separator}allure-results
+                        </allure.results.directory>
+                        <allure.link.tms.pattern>${allure.tms.link}</allure.link.tms.pattern>
+                        <allure.link.issue.pattern>${allure.issue.link}</allure.link.issue.pattern>
+                    </systemPropertyVariables>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven-plugin.version}</version>
+                <configuration>
+                    <reportDirectory>${project.basedir}${file.separator}allure-report</reportDirectory>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <configuration>
+                            <target>
+                                <copy
+                                        file="src${file.separator}test${file.separator}resources${file.separator}environment.properties"
+                                        overwrite="true"
+                                        todir="${project.build.directory}${file.separator}allure-results"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>${testng.version}</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
         <dependency>
             <groupId>io.rest-assured</groupId>
             <artifactId>rest-assured</artifactId>
@@ -155,36 +225,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.aventstack</groupId>
-            <artifactId>extentreports</artifactId>
-            <version>${extentreports.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-core</artifactId>
-            <version>${jeckson.core.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
-        <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
             <version>${jackson.databind.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.dataformat</groupId>
-            <artifactId>jackson-dataformat-xml</artifactId>
-            <version>${jackson.dataformat.xml.version}</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>${jaxb.api}</version>
         </dependency>
 
         <dependency>
@@ -194,9 +237,10 @@
         </dependency>
 
         <dependency>
-            <groupId>com.googlecode.json-simple</groupId>
-            <artifactId>json-simple</artifactId>
-            <version>${json.simple.version}</version>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>${assertj.core}</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -242,6 +286,12 @@
         </dependency>
 
         <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>${hibernate.c3p0.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.connector.java.version}</version>
@@ -254,7 +304,6 @@
         </dependency>
 
         <!--library needs to avoid console log4g trash-->
-        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
@@ -273,17 +322,23 @@
             <version>${slf4j.log4j12.version}</version>
         </dependency>
 
-
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-testng</artifactId>
             <version>${allure.version}</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>io.qameta.allure</groupId>
             <artifactId>allure-selenide</artifactId>
             <version>${allure.selenide.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-rest-assured</artifactId>
+            <version>${allure.rest.assured.version}</version>
         </dependency>
 
         <dependency>
@@ -297,7 +352,6 @@
             <artifactId>jira-rest-java-client-core</artifactId>
             <version>${jira.rest.java.client.core.version}</version>
         </dependency>
-
 
         <dependency>
             <groupId>io.atlassian.fugue</groupId>
@@ -313,27 +367,9 @@
         </dependency>
 
         <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>1.7.1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20180813</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.jcraft</groupId>
-            <artifactId>jsch</artifactId>
-            <version>0.1.55</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-configuration</groupId>
-            <artifactId>commons-configuration</artifactId>
-            <version>1.10</version>
+            <groupId>com.fasterxml.jackson.dataformat</groupId>
+            <artifactId>jackson-dataformat-csv</artifactId>
+            <version>2.8.8</version>
         </dependency>
 
         <dependency>
@@ -345,102 +381,7 @@
         <dependency>
             <groupId>net.sf.cssbox</groupId>
             <artifactId>pdf2dom</artifactId>
-            <version>1.6</version>
+            <version>1.9</version>
         </dependency>
-
     </dependencies>
-
-    <build>
-        <filters>
-            <filter>src${file.separator}test${file.separator}resources${file.separator}config.${env}.properties</filter>
-        </filters>
-        <testResources>
-            <testResource>
-                <directory>src${file.separator}test${file.separator}resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>*.properties</include>
-                </includes>
-            </testResource>
-        </testResources>
-
-
-        <plugins>
-            <!-- https://maven.apache.org/plugins/maven-compiler-plugin/examples/set-compiler-source-and-target.html -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>${maven.compiler.plugin.version}</version>
-                <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                </configuration>
-            </plugin>
-
-            <!-- https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>${maven.surefire.plugin.version}</version>
-                <configuration>
-                    <argLine>-Xms512m -Xmx8192m</argLine>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <argLine>${surefire.argline}</argLine>
-                    <suiteXmlFiles>
-                        <suiteXmlFile>${surefire.suiteXmlFiles}</suiteXmlFile>
-                    </suiteXmlFiles>
-                    <properties>
-                        <property>
-                            <name>usedefaultlisteners</name>
-                            <value>${surefire.useDefaultListeners}</value>
-                        </property>
-                    </properties>
-                    <systemPropertyVariables combine.children="append">
-                        <allure.results.directory>${project.build.directory}${file.separator}allure-results
-                        </allure.results.directory>
-                        <allure.link.tms.pattern>${allure.tms.link}</allure.link.tms.pattern>
-                        <allure.link.issue.pattern>${allure.issue.link}</allure.link.issue.pattern>
-                    </systemPropertyVariables>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
-            </plugin>
-
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>${allure.maven-plugin.version}</version>
-                <configuration>
-                    <reportDirectory>${project.basedir}${file.separator}allure-report</reportDirectory>
-                    <reportVersion>${allure.version}</reportVersion>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>test</phase>
-                        <configuration>
-                            <target>
-                                <copy
-                                        file="src${file.separator}test${file.separator}resources${file.separator}environment.properties"
-                                        overwrite="true"
-                                        todir="${project.build.directory}${file.separator}allure-results"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
 </project>

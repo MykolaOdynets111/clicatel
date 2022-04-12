@@ -3,6 +3,7 @@ package util;
 import lombok.extern.java.Log;
 import lombok.var;
 
+import java.io.InputStream;
 import java.util.Properties;
 
 import static java.lang.String.format;
@@ -29,11 +30,11 @@ public final class PropertiesReader {
         if (PROPERTIES == null) {
             synchronized (PropertiesReader.class) {
                 if (PROPERTIES == null) {
-                    try (var reader = PropertiesReader.class
+                    try (InputStream reader = PropertiesReader.class
                             .getClassLoader()
                             .getResourceAsStream(CONFIG_PROPERTIES)) {
 
-                        var properties = new Properties();
+                        Properties properties = new Properties();
                         properties.load(reader);
                         PROPERTIES = properties;
                     } catch (Exception ex) {
@@ -43,7 +44,7 @@ public final class PropertiesReader {
             }
         }
 
-        var systemProperty = System.getProperty(propertyName);
+        String systemProperty = System.getProperty(propertyName);
 
         return systemProperty == null
                 ? PROPERTIES.getProperty(propertyName, "Wrong config.properties name was set !!")

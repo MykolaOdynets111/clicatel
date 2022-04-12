@@ -12,24 +12,23 @@ import org.hibernate.SessionFactory;
 
 public class HibernateConnection {
 
-    private static ThreadLocal<SessionFactory> myConnection = new ThreadLocal<>();
+    private static final ThreadLocal<SessionFactory> myConnection = new ThreadLocal<>();
 
     private static SessionFactory getInitializeConnection(final Sessions session) {
         return new HibernateFactory().getSessionFactory(session);
     }
 
-    public static SessionFactory getConnectionAs(final Sessions session) {
+    public static SessionFactory getDBConnectionAs(final Sessions session) {
         if (myConnection.get() == null) {
             myConnection.set(getInitializeConnection(session));
         }
-
         return myConnection.get();
     }
 
-    public static void closeConnection() {
+    public static void closeDBConnection() {
         if (myConnection.get() != null) {
             myConnection.get().close();
-            myConnection.set(null);
+            myConnection.remove();
         }
     }
 }
