@@ -22,7 +22,6 @@ public enum Port {
     PRODUCT_LOOKUP (80),
     CUSTOMER_ACCOUNT_VALIDATION_V2 (80);
 
-
     private final int port;
 
 }

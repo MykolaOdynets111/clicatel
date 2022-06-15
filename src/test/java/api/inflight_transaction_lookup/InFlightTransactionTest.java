@@ -16,10 +16,10 @@ import util.base_test.BaseApiTest;
 
 import java.util.Arrays;
 
-import static api.clients.InFlightTransactionLookupClient.lookupPendingTransactions;
+import static api.clients.InFlightTransactionLookupClient.*;
 import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
-import static api.clients.SimulatorClient.addAirtelTestCases;
-import static api.clients.SimulatorClient.removeAllAirtelTestCases;
+import static api.clients.SimulatorClient.*;
+import static api.clients.SimulatorClient.*;
 import static api.domains.inflight_transaction.repo.InFlightTransactionRequestRepo.setUpInFlightTransactionData;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4Data;
 import static api.domains.simulator.repo.SimulatorRequestRepo.setUpAirtelSimData;

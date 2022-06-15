@@ -43,6 +43,11 @@ public class BasedAPIClient {
     protected static String PaydVelocity;
     protected static String ControlBackend;
     protected static String PwmSimulator;
+    protected static String ControlApiAdaptor;
+    protected static String EnvPort;
+    protected static String CtxUrl;
+    protected static String CtxPort;
+    protected static String VendorApiBehavior;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -72,6 +77,11 @@ public class BasedAPIClient {
         PaydVelocity= getProperty("api.PaydVelocity.url");
         ControlBackend= getProperty("api.ControlBackend.url");
         PwmSimulator= getProperty("api.PwmSimulator.url");
+        ControlApiAdaptor= getProperty("api.ControlApiAdaptor.url");
+        EnvPort=getProperty("EnvPort");
+        CtxUrl=getProperty("api.CtxUrl.url");
+        CtxPort=getProperty("CtxPort");
+        VendorApiBehavior=getProperty("VendorApiBehavior");
     }
 
     private void logResponse(final Response response) {

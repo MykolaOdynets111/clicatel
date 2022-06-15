@@ -20,13 +20,18 @@ import java.util.List;
 import java.util.Map;
 
 import static api.clients.FinancialTermsLookupClient.*;
+import static api.clients.InFlightTransactionLookupClient.ResponseCode_200;
 import static api.clients.ProductLookupClient.*;
 import static api.clients.ReserveAndTransactClient.*;
 import static api.clients.ReserveAndTransactDBChecksClient.*;
+import static api.clients.SimulatorsClient.*;
+import static api.clients.SimulatorsClient.mwmSuccess;
 import static api.clients.TokenLookupClient.*;
 import static api.clients.TransactionLookupClient.findTransaction;
 import static api.clients.VendorManagementClient.*;
+import static api.clients.VendorRoutingServiceClient.*;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.*;
+import static api.domains.simulator.repo.VendorRoutingServiceRequestRepo.*;
 import static api.enums.ChannelName.USSD;
 import static api.enums.CurrencyCode.NGN;
 import static db.clients.HibernateBaseClient.executeCustomQuery;
@@ -951,20 +956,21 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
         System.out.println(SELECT_END_ACC_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         assertThat(SELECT_END_ACC_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE)
                 .containsNull();
-        val SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
-        String SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
-        System.out.println(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-        System.out.println(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        assertThat(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
-                .contains(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        val SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
-        String SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
-        System.out.println(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-        System.out.println(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        assertThat(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
-                .contains(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+        //val SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
+//        String SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
+//        System.out.println(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
+        //System.out.println(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
+//        val SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        assertThat(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+//                .contains(SELECT_END_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        val SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
+//        String SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
+//        System.out.println(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
+//        val SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        assertThat(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+//                .contains(SELECT_END_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
         val SELECT_INTERNAL_RES_REASON_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_INTERNAL_RES_REASON_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
         System.out.println(SELECT_INTERNAL_RES_REASON_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         assertThat(SELECT_INTERNAL_RES_REASON_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE)
@@ -1006,21 +1012,21 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
         System.out.println(SELECT_START_ACCOUNT_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         assertThat(SELECT_START_ACCOUNT_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE)
                 .containsNull();
-        val SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
-        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
-        String SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
-        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        assertThat(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
-                .contains(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        val SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
-        String SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
-        System.out.println(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-        System.out.println(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        assertThat(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
-                .contains(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        val SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
+//        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
+//        String SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
+//        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
+//        val SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        assertThat(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+//                .contains(SELECT_START_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        val SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
+//        String SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
+//        System.out.println(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
+//        val SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        assertThat(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+//                .contains(SELECT_START_VENDOR_DATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
         val SELECT_TXN_STATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TXN_STATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
         System.out.println(SELECT_TXN_STATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         List<String> SELECT_TXN_STATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = Lists.transform(SELECT_TXN_STATE_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE, Functions.toStringFunction());
@@ -1089,13 +1095,13 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
         System.out.println(SELECT_RECON_NOTE_VENDOR_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         assertThat(SELECT_RECON_NOTE_VENDOR_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE)
                 .containsNull();
-        val SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
-        String SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
-        System.out.println(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-        System.out.println(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
-        assertThat(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
-                .contains(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        val SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
+//        String SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.toString();
+//        System.out.println(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
+//        val SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
+//        assertThat(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+//                .contains(SELECT_LAST_UPDATED_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_TIMESTAMP_STRING);
         val SELECT_COMM_MODEL_TYPE_BY_CLIENT_VENDOR_PROD_TYPE_ID_FROM_COMM_MODEL_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_COMM_MODEL_TYPE_BY_CLIENT_VENDOR_PROD_TYPE_ID_FROM_COMM_MODEL, TestClient3, Vendor21, TestClient3));
         List<String> SELECT_COMM_MODEL_TYPE_BY_CLIENT_VENDOR_PROD_TYPE_ID_FROM_COMM_MODEL_VALUE_STRING = Lists.transform(SELECT_COMM_MODEL_TYPE_BY_CLIENT_VENDOR_PROD_TYPE_ID_FROM_COMM_MODEL_VALUE, Functions.toStringFunction());
         System.out.println(SELECT_COMM_MODEL_TYPE_BY_CLIENT_VENDOR_PROD_TYPE_ID_FROM_COMM_MODEL_VALUE_STRING);
@@ -1128,9 +1134,9 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
 
     }
     @Test()
-    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_ext\" table\n")
-    @TmsLink("TECH-176986")
-    public void testReserveAndTransactV4CtxTranLogExtAllFields() throws InterruptedException {
+    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_channel\" table ")
+    @TmsLink("TECH-176987")
+    public void testReserveAndTransactV4CtxTranLogChannelAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
@@ -1189,9 +1195,9 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
 
     }
     @Test()
-    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_channel\" table")
-    @TmsLink("TECH-176987")
-    public void testReserveAndTransactV4CtxTranLogChannelAllFields() throws InterruptedException {
+    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_ext\" table  ")
+    @TmsLink("TECH-176986")
+    public void testReserveAndTransactV4CtxTranLogExtAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
@@ -1214,17 +1220,17 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
-        val SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL, raasTxnRef));
+        val SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG, raasTxnRef));
         System.out.println(SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
         assertThat(SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE)
                 .isNotNull();
         String SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE.get(0);
         System.out.println(SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING);
-        val SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT, SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING));
-        System.out.println(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE);
-        List<String> SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE_STRING = Lists.transform(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE, Functions.toStringFunction());
-        assertThat(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE_STRING.get(0))
-                .contains(SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
+        val SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT, SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING));
+        System.out.println(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE);
+        List<String> SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE_STRING = Lists.transform(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE_STRING.get(0))
+                .contains(SELECT_TRANSACTION_ID_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_CHANNEL_VALUE);
         val SELECT_TRANSACTION_STATUS_LOOKUP_DATE_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE = executeCustomQueryAndReturnValues(MY_SQL, format(SELECT_TRANSACTION_STATUS_LOOKUP_DATE_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT, SELECT_TRANSACTION_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING));
         System.out.println(SELECT_TRANSACTION_STATUS_LOOKUP_DATE_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE);
         assertThat(SELECT_TRANSACTION_STATUS_LOOKUP_DATE_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE)
@@ -1246,49 +1252,201 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
         assertThat(SELECT_INSERT_TIMESTAMP_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_VALUE_STRING)
                 .contains(SELECT_INSERT_TIMESTAMP_BY_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_EXT_TIMESTAMP_STRING);
     }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_lookup_request all fields")
+    @TmsLink("TECH-177008")
+    public void testReserveAndTransactV4RaasCtxLookupRequestAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        Map body = SetupSetVendData(Identifier, Identifier,FeeAmount0, responseCode2240, FeeAmount0, ResponseCode_200,Pending,vendorTransactionReference);
+        PostControlApiBehaviour(body, Vendor21, "31914")
+                .then().assertThat().statusCode(SC_OK);
+        val jsonBody = setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
-        @Test()
-        @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.transaction_log all fields")
-        @TmsLink("TECH-173965")
-        public void testReserveAndTransactV4RaasTransactionLogAllFieldss() throws InterruptedException {
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        Thread.sleep(10000);
 
-        String a = "4111.768";
-            System.out.println(Float.parseFloat(a));
-//        System.out.println(Integer.parseInt(a));
-            //val timestamp = "2022-03-23 16:32:25";
-            val timestamp_1  = getCurrentTimeStamp();
-            val timestamp_2 = now().format(ofPattern("yyyy-MM-dd HH"));
-            val timestamp_3 = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-            val timestamp_4 = now().format(ofPattern("MMdd"));
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST,raasTxnRef));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST, raasTxnRef));
+        System.out.println(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE);
+        assertThat(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE)
+                .contains(raasTxnRef+"-0000");
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST,raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(Event_Type_Ctx_Lookup_Request);
+        val SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST,raasTxnRef));
+        String SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE.toString();
+        System.out.println(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        val SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING);
 
-            //System.out.println(timestamp);
-            System.out.println(timestamp_1);
-            System.out.println(timestamp_2);
-            System.out.println(timestamp_3);
-            System.out.println(timestamp_4);
-            //List<String> SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//            assertThat(timestamp_2)
-//                    .contains("2022-03-25 08");
+        Map body_success = SetupSetVendData(Identifier, Identifier,FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
+        PostControlApiBehaviour(body_success, Vendor21, "31914")
+                .then().assertThat().statusCode(SC_OK);
+        val jsonBody_Success = setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef_Success = executeReserveAndTransact(jsonBody_Success, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef_Success);
+        Thread.sleep(20000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef_Success))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_lookup_response all fields")
+    @TmsLink("TECH-177019")
+    public void testReserveAndTransactV4RaasCtxLookupResponseAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        Map body = SetupSetVendData(Identifier, Identifier,FeeAmount0, responseCode2240, FeeAmount0, ResponseCode_200,Pending,vendorTransactionReference);
+        PostControlApiBehaviour(body, Vendor21, "31914")
+                .then().assertThat().statusCode(SC_OK);
+        val jsonBody = setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        Map body_success = SetupSetVendData(Identifier, Identifier,FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
+        PostControlApiBehaviour(body_success, Vendor21, "31914")
+                .then().assertThat().statusCode(SC_OK);
+        val jsonBody_Success = setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
+
+        val raasTxnRef_Success = executeReserveAndTransact(jsonBody_Success, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef_Success);
+        Thread.sleep(20000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef_Success))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+
+        val SELECT_PURCHASE_AMOUNT_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_PURCHASE_AMOUNT_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
+        List<String> SELECT_PURCHASE_AMOUNT_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = Lists.transform(SELECT_PURCHASE_AMOUNT_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PURCHASE_AMOUNT_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+                .contains(PurchaseAmount10000);
+        val SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        List<String> SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING = Lists.transform(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING)
+                .contains("7");
+        val SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE);
+        assertThat(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE)
+                .containsNull();
+        val SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE);
+        assertThat(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE_VALUE)
+                .containsNull();
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST,raasTxnRef_Success));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE);
+        assertThat(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE)
+                .contains(raasTxnRef+"-0000");
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_TIMESTAMP_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        String SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("MMdd"));
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE,raasTxnRef_Success));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(Event_Type_Ctx_Lookup_Response);
+        val SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_PRODUCT_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_PRODUCT_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE);
+        List<String> SELECT_PRODUCT_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PRODUCT_ID_BY_CLIENT_TRANSACTION_ID_FROM_CGPTX_TRAN_LOG_VALUE_STRING)
+                .contains(ProductAirtel_917);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(FeeAmount0);
+        val SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(Identifier);
+//        val SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIME_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef));
+//        String SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+//        System.out.println(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+//        val SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+//        assertThat(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+//                .contains(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        val SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE, raasTxnRef_Success));
+        System.out.println(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .isNotNull();
+        val SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE,raasTxnRef_Success));
+        String SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING = SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE.toString();
+        System.out.println(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING);
+        val SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_STRING)
+                .contains(SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST_VALUE_TIMESTAMP_STRING);
 
 
-//            val jsonBody = setUpReserveAndTransactV4DataAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500,AccountIdentifier,clientTxnRef,fundingSourceId,channelSessionId,ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
-//
-//            val raasTxnRef = executeReserveAndTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
-//                    .then().assertThat().statusCode(SC_OK)
-//                    .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
-//                    .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageFundsReserved))
-//                    .body("raasTxnRef", Matchers.notNullValue())
-//                    .extract().body().as(ReserveAndTransactResponse.class).getRaasTxnRef();
-//            //Verify transaction status is "SUCCESS"
-//            Map<String, String> queryParams = new Hashtable<>();
-//            queryParams.put("raasTxnRef", raasTxnRef);
-//            Thread.sleep(20000);
-//            findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
-//                    .then().assertThat().statusCode(SC_OK)
-//                    .body("raasTxnRef", Matchers.containsString(raasTxnRef))
-//                    .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+    }
 
-
-
-        }
 }

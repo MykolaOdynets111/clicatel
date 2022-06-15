@@ -4,16 +4,12 @@ import api.clients.BasedAPIClient;
 import api.clients.ReserveAndTransactClient;
 import static api.clients.VendorRoutingServiceClient.*;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
-    public static Map<String, Object> GetMinScenario()
-    {
-    //Converged
-    Map<String,Object> vasServices= new LinkedHashMap<>();
+    public static Map<String, Object> GetMinScenario() {
+        //Converged
+        Map<String, Object> vasServices = new LinkedHashMap<>();
         vasServices.put("saeeId", externalId_DATA_001_min);
         vasServices.put("bundleDescription", "productDescription :: test001 :: converged prepaid contract hybrid :: data :: min :: 001");
         vasServices.put("cost", "10");
@@ -45,19 +41,19 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         vasServices.put("customerFacingName", null);
         vasServices.put("partnerPlatform", null);
 
-    List<Map<String,Object>> VacServices = new ArrayList<>();
+        List<Map<String, Object>> VacServices = new ArrayList<>();
         VacServices.add(vasServices);
 
-    Map<String,Object> vas_converged= new LinkedHashMap<>();
-        vas_converged.put("bundleType",bundleType_Data);
-        vas_converged.put("vasServices",VacServices);
+        Map<String, Object> vas_converged = new LinkedHashMap<>();
+        vas_converged.put("bundleType", bundleType_Data);
+        vas_converged.put("vasServices", VacServices);
 
-    List<Map<String,Object>> vas_converged_List = new ArrayList<>();
+        List<Map<String, Object>> vas_converged_List = new ArrayList<>();
         vas_converged_List.add(vas_converged);
 
-    List<Map<String,Object>> topSellingBundlesList_Converged = new ArrayList<>();
+        List<Map<String, Object>> topSellingBundlesList_Converged = new ArrayList<>();
 
-    Map<String,Object> payload_converged= new LinkedHashMap<>();
+        Map<String, Object> payload_converged = new LinkedHashMap<>();
         payload_converged.put("statusCode", ReserveAndTransactClient.FeeAmount0);
         payload_converged.put("statusMessage", responseMessageStatusMessage);
         payload_converged.put("supportMessage", responseMessageStatusMessage);
@@ -65,16 +61,16 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         payload_converged.put("vas", vas_converged_List);
         payload_converged.put("topSellingBundles", topSellingBundlesList_Converged);
 
-    Map<String,Object> subscriberResponse_converged= new LinkedHashMap<>();
-        subscriberResponse_converged.put("httpStatusCode",ReserveAndTransactClient.PurchaseAmount200);
-        subscriberResponse_converged.put("payload",payload_converged);
+        Map<String, Object> subscriberResponse_converged = new LinkedHashMap<>();
+        subscriberResponse_converged.put("httpStatusCode", ReserveAndTransactClient.PurchaseAmount200);
+        subscriberResponse_converged.put("payload", payload_converged);
 
-    Map<String,Object> scenario_converged= new LinkedHashMap<>();
-        scenario_converged.put("subscriberType","Converged");
-        scenario_converged.put("subscriberResponse",subscriberResponse_converged);
+        Map<String, Object> scenario_converged = new LinkedHashMap<>();
+        scenario_converged.put("subscriberType", "Converged");
+        scenario_converged.put("subscriberResponse", subscriberResponse_converged);
 
-    //Prepaid
-    Map<String,Object> vasServices_Prepaid= new LinkedHashMap<>();
+        //Prepaid
+        Map<String, Object> vasServices_Prepaid = new LinkedHashMap<>();
         vasServices_Prepaid.put("saeeId", externalId_DATA_001_min);
         vasServices_Prepaid.put("bundleDescription", "productDescription :: test001 :: converged prepaid contract hybrid :: data :: min :: 001");
         vasServices_Prepaid.put("cost", "10");
@@ -106,19 +102,19 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         vasServices_Prepaid.put("customerFacingName", null);
         vasServices_Prepaid.put("partnerPlatform", null);
 
-    List<Map<String,Object>> VacServices_Prepaid = new ArrayList<>();
+        List<Map<String, Object>> VacServices_Prepaid = new ArrayList<>();
         VacServices_Prepaid.add(vasServices_Prepaid);
 
-    Map<String,Object> vas_Prepaid= new LinkedHashMap<>();
-        vas_Prepaid.put("bundleType",bundleType_Data);
-        vas_Prepaid.put("vasServices",VacServices_Prepaid);
+        Map<String, Object> vas_Prepaid = new LinkedHashMap<>();
+        vas_Prepaid.put("bundleType", bundleType_Data);
+        vas_Prepaid.put("vasServices", VacServices_Prepaid);
 
-    List<Map<String,Object>> vas_prepaid_List = new ArrayList<>();
+        List<Map<String, Object>> vas_prepaid_List = new ArrayList<>();
         vas_prepaid_List.add(vas_Prepaid);
 
-    List<Map<String,Object>> topSellingBundlesList_Prepaid = new ArrayList<>();
+        List<Map<String, Object>> topSellingBundlesList_Prepaid = new ArrayList<>();
 
-    Map<String,Object> payload_prepaid= new LinkedHashMap<>();
+        Map<String, Object> payload_prepaid = new LinkedHashMap<>();
         payload_prepaid.put("statusCode", ReserveAndTransactClient.FeeAmount0);
         payload_prepaid.put("statusMessage", responseMessageStatusMessage);
         payload_prepaid.put("supportMessage", responseMessageStatusMessage);
@@ -126,15 +122,15 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         payload_prepaid.put("vas", vas_prepaid_List);
         payload_prepaid.put("topSellingBundles", topSellingBundlesList_Prepaid);
 
-    Map<String,Object> subscriberResponse_prepaid= new LinkedHashMap<>();
-        subscriberResponse_prepaid.put("httpStatusCode",ReserveAndTransactClient.PurchaseAmount200);
-        subscriberResponse_prepaid.put("payload",payload_prepaid);
+        Map<String, Object> subscriberResponse_prepaid = new LinkedHashMap<>();
+        subscriberResponse_prepaid.put("httpStatusCode", ReserveAndTransactClient.PurchaseAmount200);
+        subscriberResponse_prepaid.put("payload", payload_prepaid);
 
-    Map<String,Object> scenario_prepaid= new LinkedHashMap<>();
-        scenario_prepaid.put("subscriberType","Prepaid");
-        scenario_prepaid.put("subscriberResponse",subscriberResponse_prepaid);
-    ////Contract
-    Map<String,Object> vasServices_Contract= new LinkedHashMap<>();
+        Map<String, Object> scenario_prepaid = new LinkedHashMap<>();
+        scenario_prepaid.put("subscriberType", "Prepaid");
+        scenario_prepaid.put("subscriberResponse", subscriberResponse_prepaid);
+        ////Contract
+        Map<String, Object> vasServices_Contract = new LinkedHashMap<>();
         vasServices_Contract.put("saeeId", externalId_DATA_001_min);
         vasServices_Contract.put("bundleDescription", "productDescription :: test001 :: converged prepaid contract hybrid :: data :: min :: 001");
         vasServices_Contract.put("cost", "10");
@@ -166,19 +162,19 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         vasServices_Contract.put("customerFacingName", null);
         vasServices_Contract.put("partnerPlatform", null);
 
-    List<Map<String,Object>> VacServices_Contract = new ArrayList<>();
+        List<Map<String, Object>> VacServices_Contract = new ArrayList<>();
         VacServices_Contract.add(vasServices_Contract);
 
-    Map<String,Object> vas_contract= new LinkedHashMap<>();
-        vas_contract.put("bundleType",bundleType_Data);
-        vas_contract.put("vasServices",VacServices_Contract);
+        Map<String, Object> vas_contract = new LinkedHashMap<>();
+        vas_contract.put("bundleType", bundleType_Data);
+        vas_contract.put("vasServices", VacServices_Contract);
 
-    List<Map<String,Object>> vas_contract_List = new ArrayList<>();
+        List<Map<String, Object>> vas_contract_List = new ArrayList<>();
         vas_contract_List.add(vas_contract);
 
-    List<Map<String,Object>> topSellingBundlesList_Contract = new ArrayList<>();
+        List<Map<String, Object>> topSellingBundlesList_Contract = new ArrayList<>();
 
-    Map<String,Object> payload_contract= new LinkedHashMap<>();
+        Map<String, Object> payload_contract = new LinkedHashMap<>();
         payload_contract.put("statusCode", ReserveAndTransactClient.FeeAmount0);
         payload_contract.put("statusMessage", responseMessageStatusMessage);
         payload_contract.put("supportMessage", responseMessageStatusMessage);
@@ -186,15 +182,15 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         payload_contract.put("vas", vas_contract_List);
         payload_contract.put("topSellingBundles", topSellingBundlesList_Contract);
 
-    Map<String,Object> subscriberResponse_contract= new LinkedHashMap<>();
-        subscriberResponse_contract.put("httpStatusCode",ReserveAndTransactClient.PurchaseAmount200);
-        subscriberResponse_contract.put("payload",payload_contract);
+        Map<String, Object> subscriberResponse_contract = new LinkedHashMap<>();
+        subscriberResponse_contract.put("httpStatusCode", ReserveAndTransactClient.PurchaseAmount200);
+        subscriberResponse_contract.put("payload", payload_contract);
 
-    Map<String,Object> scenario_contract= new LinkedHashMap<>();
-        scenario_contract.put("subscriberType","Contract");
-        scenario_contract.put("subscriberResponse",subscriberResponse_contract);
-    //Hybrid
-    Map<String,Object> vasServices_hybrid= new LinkedHashMap<>();
+        Map<String, Object> scenario_contract = new LinkedHashMap<>();
+        scenario_contract.put("subscriberType", "Contract");
+        scenario_contract.put("subscriberResponse", subscriberResponse_contract);
+        //Hybrid
+        Map<String, Object> vasServices_hybrid = new LinkedHashMap<>();
         vasServices_hybrid.put("saeeId", externalId_DATA_001_min);
         vasServices_hybrid.put("bundleDescription", "productDescription :: test001 :: converged prepaid contract hybrid :: data :: min :: 001");
         vasServices_hybrid.put("cost", "10");
@@ -226,19 +222,19 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         vasServices_hybrid.put("customerFacingName", null);
         vasServices_hybrid.put("partnerPlatform", null);
 
-    List<Map<String,Object>> VacServices_Hybrid = new ArrayList<>();
+        List<Map<String, Object>> VacServices_Hybrid = new ArrayList<>();
         VacServices_Hybrid.add(vasServices_hybrid);
 
-    Map<String,Object> vas_hybrid= new LinkedHashMap<>();
-        vas_hybrid.put("bundleType",bundleType_Data);
-        vas_hybrid.put("vasServices",VacServices);
+        Map<String, Object> vas_hybrid = new LinkedHashMap<>();
+        vas_hybrid.put("bundleType", bundleType_Data);
+        vas_hybrid.put("vasServices", VacServices);
 
-    List<Map<String,Object>> vas_Hybrid_List = new ArrayList<>();
+        List<Map<String, Object>> vas_Hybrid_List = new ArrayList<>();
         vas_Hybrid_List.add(vas_hybrid);
 
-    List<Map<String,Object>> topSellingBundlesList_Hybrid = new ArrayList<>();
+        List<Map<String, Object>> topSellingBundlesList_Hybrid = new ArrayList<>();
 
-    Map<String,Object> payload_hybrid= new LinkedHashMap<>();
+        Map<String, Object> payload_hybrid = new LinkedHashMap<>();
         payload_hybrid.put("statusCode", ReserveAndTransactClient.FeeAmount0);
         payload_hybrid.put("statusMessage", responseMessageStatusMessage);
         payload_hybrid.put("supportMessage", responseMessageStatusMessage);
@@ -246,25 +242,44 @@ public class VendorRoutingServiceRequestRepo extends BasedAPIClient {
         payload_hybrid.put("vas", vas_Hybrid_List);
         payload_hybrid.put("topSellingBundles", topSellingBundlesList_Hybrid);
 
-    Map<String,Object> subscriberResponse_hybrid= new LinkedHashMap<>();
-        subscriberResponse_hybrid.put("httpStatusCode",ReserveAndTransactClient.PurchaseAmount200);
-        subscriberResponse_hybrid.put("payload",payload_hybrid);
+        Map<String, Object> subscriberResponse_hybrid = new LinkedHashMap<>();
+        subscriberResponse_hybrid.put("httpStatusCode", ReserveAndTransactClient.PurchaseAmount200);
+        subscriberResponse_hybrid.put("payload", payload_hybrid);
 
-    Map<String,Object> scenario_hybrid= new LinkedHashMap<>();
-        scenario_hybrid.put("subscriberType","Hybrid");
-        scenario_hybrid.put("subscriberResponse",subscriberResponse_hybrid);
+        Map<String, Object> scenario_hybrid = new LinkedHashMap<>();
+        scenario_hybrid.put("subscriberType", "Hybrid");
+        scenario_hybrid.put("subscriberResponse", subscriberResponse_hybrid);
 //Add all scenarios together
 
-    List<Map<String,Object>> ScenariosList = new ArrayList<>();
+        List<Map<String, Object>> ScenariosList = new ArrayList<>();
         ScenariosList.add(scenario_converged);
         ScenariosList.add(scenario_prepaid);
         ScenariosList.add(scenario_contract);
         ScenariosList.add(scenario_hybrid);
 
-    Map<String,Object> Scenarios= new LinkedHashMap<>();
-        Scenarios.put("scenarioId",Scenario_min);
-        Scenarios.put("scenarios",ScenariosList);
+        Map<String, Object> Scenarios = new LinkedHashMap<>();
+        Scenarios.put("scenarioId", Scenario_min);
+        Scenarios.put("scenarios", ScenariosList);
 
         return Scenarios;
     }
+
+    public static Map<Object, Object> SetupSetVendData(String sourceIdentifier, String targetIdentifier, String ctxSystemResponseCode, String ctxTransactionResponseCode, String delayMs,
+                                                       String vendorResponseCode, String vendorResponseMessage, String vendorTransactionReference)
+    {
+
+        Map<Object, Object> jsonObjectPayload = new LinkedHashMap<>();
+        jsonObjectPayload.put("sourceIdentifier", sourceIdentifier);
+        jsonObjectPayload.put("targetIdentifier", targetIdentifier);
+        jsonObjectPayload.put("ctxSystemResponseCode", ctxSystemResponseCode);
+        jsonObjectPayload.put("ctxTransactionResponseCode", ctxTransactionResponseCode);
+        jsonObjectPayload.put("delayMs", delayMs);
+        jsonObjectPayload.put("vendorResponseCode", vendorResponseCode);
+        jsonObjectPayload.put("vendorResponseMessage", vendorResponseMessage);
+        jsonObjectPayload.put("vendorTransactionReference", vendorTransactionReference);
+
+        return jsonObjectPayload;
+
+    }
+
 }

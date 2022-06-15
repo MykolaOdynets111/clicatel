@@ -48,9 +48,9 @@ public class TransactDBChecks extends BaseApiTest {
     @TmsLink("TECH-174330")
     public void testTransactV4RaasTransactionLogAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
-//        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
-//        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
-//        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
         val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500,AccountIdentifier,clientTxnRef,fundingSourceId,channelSessionId,TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD,ProductAirtel_917, PurchaseAmount10000, FeeAmount0,Identifier,ReserveFundsTxnRef);
 
         val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
@@ -69,125 +69,125 @@ public class TransactDBChecks extends BaseApiTest {
                 .body("raasTxnRef", Matchers.containsString(raasTxnRef))
                 .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
 
-//        val SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
-//        assertThat(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE)
-//                .contains(AccountIdentifier);
-//        val SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING.get(0))
-//                .contains(PurchaseAmount10000);
-//        val SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        List<String> SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains("7");
-//        val SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        List<String> SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        System.out.println(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING);
-//        assertThat(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(channelSessionId);
-//        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING);
-//        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(TestClient3);
-//        val SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(clientTxnRef);
-//        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(Event_Type);
-//        val SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(ProductAirtel_917);
-//        val SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(Identifier);
-//        val SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(Identifier);
-//        val SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS,raasTxnRef));
-//        System.out.println(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE);
-//        List<String> SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING = Lists.transform(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING)
-//                .contains(ReserveFundsTxnRef);
-//        val SELECT_CHANNEL_NAME_BY_ID_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_ID,"7"));
-//        System.out.println(SELECT_CHANNEL_NAME_BY_ID_VALUE);
-//        List<String> SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING = Lists.transform(SELECT_CHANNEL_NAME_BY_ID_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING)
-//                .contains(String.valueOf(USSD));
-//        val SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(FeeAmount0);
-//        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(responseCode0000);
-//        val SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(responseMessageFundsReserved);
-//        val SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS,raasTxnRef));
-//        System.out.println(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE);
-//        List<String> SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING = Lists.transform(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE)
-//                .containsNull();
-//        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ,raasTxnRef));
-//        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE);
-//        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
-//                .contains(responseCode0000);
-//        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES,raasTxnRef));
-//        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE);
-//        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
-//                .contains(responseCode202);
-//        val SELECT_STATUS_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_STATUS_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_STATUS_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(Success);
-//        val SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        System.out.println(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING);
-//        assertThat(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains("{\"clientId\":\"3\"}");
-//        val SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains("{\"fundingSourceId\":\"3\"}");
-//        val SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains("{\"productId\":\"917\"}");
-//        val SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(String.valueOf(NGN));
-//        val SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE);
-//        List<String> SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
-//        assertThat(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE_STRING)
-//                .contains(fundingSourceId);
+        val SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
+        assertThat(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_VALUE)
+                .contains(AccountIdentifier);
+        val SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING.get(0))
+                .contains(PurchaseAmount10000);
+        val SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        List<String> SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains("7");
+        val SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        List<String> SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING);
+        assertThat(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(channelSessionId);
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(clientTxnRef);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(Event_Type);
+        val SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(ProductAirtel_917);
+        val SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS,raasTxnRef));
+        System.out.println(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE);
+        List<String> SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING = Lists.transform(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESERVE_FUNDS_TXN_REF_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING)
+                .contains(ReserveFundsTxnRef);
+        val SELECT_CHANNEL_NAME_BY_ID_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_ID,"7"));
+        System.out.println(SELECT_CHANNEL_NAME_BY_ID_VALUE);
+        List<String> SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING = Lists.transform(SELECT_CHANNEL_NAME_BY_ID_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING)
+                .contains(String.valueOf(USSD));
+        val SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(FeeAmount0);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(responseCode0000);
+        val SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(responseMessageFundsReserved);
+        val SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS,raasTxnRef));
+        System.out.println(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE);
+        List<String> SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE_STRING = Lists.transform(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESERVE_FUNDS_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TXN_LOGS_VALUE)
+                .containsNull();
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(responseCode0000);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(responseCode202);
+        val SELECT_STATUS_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_STATUS_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_STATUS_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_STATUS_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(Success);
+        val SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING);
+        assertThat(SELECT_ADD_DATA_CLIENT_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains("{\"clientId\":\"3\"}");
+        val SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_ADD_DATA_FUN_SOURCE_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains("{\"fundingSourceId\":\"3\"}");
+        val SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_ADD_DATA_PROD_ID_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains("{\"productId\":\"917\"}");
+        val SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CURRENCY_CODE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(String.valueOf(NGN));
+        val SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_FUNDING_SOURCE_ID_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(fundingSourceId);
 //        val SELECT_CREATED_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF,raasTxnRef));
 //        String SELECT_CREATED_BY_RAAS_TXN_REF_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_VALUE.toString();
 //        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_VALUE_STRING);
@@ -195,13 +195,13 @@ public class TransactDBChecks extends BaseApiTest {
 //        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_TIMESTAMP_STRING);
 //        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_VALUE_STRING)
 //                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_TIMESTAMP_STRING);
-//        val SELECT_TIMESTAMP_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIMESTAMP_BY_RAAS_TXN_REF,raasTxnRef));
-//        String TimeStamp = SELECT_TIMESTAMP_BY_RAAS_TXN_REF_VALUE.toString();
-//        System.out.println(TimeStamp);
-//        val timestamp_string = now().format(ofPattern("yyyy-MM-dd HH"));
-//        System.out.println(timestamp_string);
-//        assertThat(TimeStamp)
-//                .contains(timestamp_string);
+        val SELECT_TIMESTAMP_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIMESTAMP_BY_RAAS_TXN_REF,raasTxnRef));
+        String TimeStamp = SELECT_TIMESTAMP_BY_RAAS_TXN_REF_VALUE.toString();
+        System.out.println(TimeStamp);
+        val timestamp_string = now().format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(timestamp_string);
+        assertThat(TimeStamp)
+                .contains(timestamp_string);
 //        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF,raasTxnRef));
 //        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE.toString();
 //        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE_STRING);
@@ -209,42 +209,42 @@ public class TransactDBChecks extends BaseApiTest {
 //        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE_TIMESTAMP_STRING);
 //        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE_STRING)
 //                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_VALUE_TIMESTAMP_STRING);
-//        val SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
-//        String SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE.toString();
-//        System.out.println(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
-//        val SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-//        System.out.println(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
-//        assertThat(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
-//                .contains(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
-//        val SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE,raasTxnRef));
-//        String SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING = SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE.toString();
-//        System.out.println(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING);
-//        val SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-//        System.out.println(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
-//        assertThat(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING)
-//                .contains(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
-//        val SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE);
-//        assertThat(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE)
-//                .containsNull();
-//        val SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF,raasTxnRef));
-//        System.out.println(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE);
-//        assertThat(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE)
-//                .containsNull();
-//        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
-//        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE.toString();
-//        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING);
-//        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-//        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
-//        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
-//                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
-//        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
-//        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE.toString();
-//        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING);
-//        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
-//        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
-//        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
-//                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
+        val SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        String SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE.toString();
+        System.out.println(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
+        val SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(SELECT_RAAS_REQ_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
+        val SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE,raasTxnRef));
+        String SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING = SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING);
+        val SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING)
+                .contains(SELECT_RAAS_RES_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
+        val SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE);
+        assertThat(SELECT_RESERVE_FUND_REQUEST_CREATED_BY_RAAS_TXN_REF_VALUE)
+                .containsNull();
+        val SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE);
+        assertThat(SELECT_RESERVE_FUND_RESPONSE_CREATED_BY_RAAS_TXN_REF_VALUE)
+                .containsNull();
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
 
         getFinancialTermsCalculate(ProductAirtel_917,TestClient3,PurchaseAmount10000)
                 .then().assertThat().statusCode(SC_OK)
@@ -274,5 +274,496 @@ public class TransactDBChecks extends BaseApiTest {
                 .body("variables.CLIENT_SHARE_OF_TPV", Matchers.is(Float.parseFloat(value_0point1)));
                 //.body("variables.CLIENT_SHARE_AMOUNT", Matchers.is(Integer.parseInt(PurchaseAmount1000)));
 
+    }
+
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.raas_request all fields")
+    @TmsLink("TECH-174331")
+    public void testTransactV4RaasRequestAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        assertThat(SELECT_ACCOUNT_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE)
+                .contains(AccountIdentifier);
+        val SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING.get(0))
+                .contains(PurchaseAmount10000);
+        val SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        List<String> SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains("7");
+        val SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        List<String> SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
+        assertThat(SELECT_CHANNEL_SESSSION_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(channelSessionId);
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_CLIENT_TXN_REF_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TXN_REF_ID_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_CLIENT_TXN_REF_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_CLIENT_TXN_REF_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_CLIENT_TXN_REF_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CLIENT_TXN_REF_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(clientTxnRef);
+        val SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(ProductAirtel_917);
+        val SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_SOURCE_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_TARGET_IDENTIFIER_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(Event_Type_Raas_Request);
+        val SELECT_CHANNEL_NAME_BY_ID_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_ID,"7"));
+        System.out.println(SELECT_CHANNEL_NAME_BY_ID_VALUE);
+        List<String> SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING = Lists.transform(SELECT_CHANNEL_NAME_BY_ID_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING)
+                .contains(String.valueOf(USSD));
+        val SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_FEE_AMOUNT_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(FeeAmount0);
+        val SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        System.out.println(SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE);
+        List<String> SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = Lists.transform(SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_API_CALL_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(Api_Call_Transact);
+        val SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        String TimeStamp = SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE.toString();
+        System.out.println(TimeStamp);
+        val timestamp_string = now().format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(timestamp_string);
+        assertThat(TimeStamp)
+                .contains(timestamp_string);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_TIMESTAMP_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST,raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_REQUEST_VALUE_TIMESTAMP_STRING);
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.raas_response all fields")
+    @TmsLink("TECH-174332")
+    public void testTransactV4RaasResponseAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE,raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_TIMESTAMP_STRING);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE,raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING)
+                .contains(Event_Type_Raas_Response);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(responseCode0000);
+        val SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF,raasTxnRef));
+        System.out.println(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE);
+        List<String> SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING = Lists.transform(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_MESSAGE_BY_RAAS_TXN_REF_VALUE_STRING)
+                .contains(responseMessageFundsReserved);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE,raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_RAAS_RESPONSE_VALUE_TIMESTAMP_STRING);
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.ctx_request all fields")
+    @TmsLink("TECH-174335")
+    public void testTransactV4RaasCtxRequestAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ, raasTxnRef));
+        System.out.println(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE);
+        assertThat(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE)
+                .contains(raasTxnRef+"-0000");
+        val SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ, raasTxnRef));
+        System.out.println(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE);
+        List<String> SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING = Lists.transform(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING.get(0))
+                .contains(PurchaseAmount10000);
+        val SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ, raasTxnRef));
+        List<String> SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING = Lists.transform(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING)
+                .contains("7");
+        val SELECT_CHANNEL_NAME_BY_ID_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_ID, "7"));
+        System.out.println(SELECT_CHANNEL_NAME_BY_ID_VALUE);
+        List<String> SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING = Lists.transform(SELECT_CHANNEL_NAME_BY_ID_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_NAME_BY_ID_VALUE_STRING)
+                .contains(String.valueOf(USSD));
+        val SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ, raasTxnRef));
+        List<String> SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING = Lists.transform(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING);
+        assertThat(SELECT_CHANNEL_SESSION_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING)
+                .contains(channelSessionId);
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ, raasTxnRef));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQ_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        System.out.println(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE);
+        List<String> SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = Lists.transform(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(Event_Type_Ctx_Request);
+        val SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        System.out.println(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE);
+        List<String> SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(ProductAirtel_917);
+        val SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        System.out.println(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE);
+        List<String> SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = Lists.transform(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_TIMESTAMP_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+        String SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("MMdd"));
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+//        val SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST, raasTxnRef));
+//        String SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+//        System.out.println(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+//        val SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+//        System.out.println(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+//        assertThat(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+//                .contains(SELECT_TIME_LOCAL_TRANSACTION_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST,raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_REQUEST_VALUE_TIMESTAMP_STRING);
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.ctx_response all fields")
+    @TmsLink("TECH-174336")
+    public void testTransactV4RaasCtxResponseAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_RES, raasTxnRef));
+        System.out.println(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE);
+        assertThat(SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE)
+                .contains(raasTxnRef + "-0000");
+        val SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES, raasTxnRef));
+        System.out.println(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE);
+        List<String> SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING = Lists.transform(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_AMOUNT_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING.get(0))
+                .contains(PurchaseAmount10000);
+        val SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES, raasTxnRef));
+        List<String> SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING = Lists.transform(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING);
+        assertThat(SELECT_CHANNEL_INDICATOR_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING)
+                .contains("07");
+        val SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES, "7"));
+        System.out.println(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE);
+        List<String> SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING = Lists.transform(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_CHANNEL_NAME_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING)
+                .isEmpty();
+        val SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES, raasTxnRef));
+        List<String> SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING = Lists.transform(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE, Functions.toStringFunction());
+        System.out.println(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING);
+        assertThat(SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_RES_VALUE_STRING)
+                .contains(TestClient3);
+        val SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_ORIGIN_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(Event_Type_Ctx_Response);
+        val SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_PRODUCT_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(ProductAirtel_917);
+        val SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_SOURCE_ID_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(Identifier);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(FeeAmount0);
+        val SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        System.out.println(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE);
+        List<String> SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = Lists.transform(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_VENDOR_REFERENCE_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .isNotNull();
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_TIMESTAMP_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        String SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING);
+        val SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("MMdd"));
+        System.out.println(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(SELECT_DATE_LOCAL_TXN_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+        val SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        String SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING);
+        val SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("MMdd"));
+        System.out.println(SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(SELECT_TRANSMISSION_DATE_TIME_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE, raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_CTX_RESPONSE_VALUE_TIMESTAMP_STRING);
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.transaction_result_request all fields")
+    @TmsLink("TECH-174337")
+    public void testTransactV4RaasTransaction_Result_RequestAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(Event_Type_Transaction_Request);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(responseCode0000);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_TIMESTAMP_STRING);
+        val SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        String TimeStamp = SELECT_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE.toString();
+        System.out.println(TimeStamp);
+        val timestamp_string = now().format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(timestamp_string);
+        assertThat(TimeStamp)
+                .contains(timestamp_string);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ, raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_REQ_VALUE_TIMESTAMP_STRING);
+        getFinancialTermsCalculate(ProductAirtel_917,TestClient3,PurchaseAmount10000)
+                .then().assertThat().statusCode(SC_OK)
+                .body("terms.reserveAmount", Matchers.is(Integer.parseInt(PurchaseAmount10000)))
+                .body("terms.vendAmount", Matchers.is(Integer.parseInt(PurchaseAmount10000)))
+                .body("terms.feeAmount", Matchers.is(Integer.parseInt(FeeAmount0)))
+                .body("terms.settlementAmount", Matchers.is(Integer.parseInt(settlementAmount)))
+                .body("terms.clientShareAmount", Matchers.is(Integer.parseInt(PurchaseAmount1000)))
+                .body("terms.vendorShareAmount", Matchers.is(Integer.parseInt(FeeAmount0)));
+    }
+    @Test()
+    @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.transaction_result_response all fields")
+    @TmsLink("TECH-174338")
+    public void testTransactV4RaasTransaction_Result_ResponseAllFields() throws InterruptedException {
+        //Failing because of https://jira.clickatell.com/browse/TECH-176071
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_MODEL_SELECTION, Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, Vendor21, TestClient3, ProductAirtel_917));
+        executeCustomQuery(POSTGRES_SQL, format(UPDATE_TPV_CLIENT_SHARE, value_0point1, TestClient3, ProductAirtel_917));
+        val jsonBody = setUpTransactV4DataWithAdditionalDataWithProductFundSourceClientID(fundingSourceId_1500, AccountIdentifier, clientTxnRef, fundingSourceId, channelSessionId, TestClient3, CurrencyCode.NGN, USSD, ChannelId.USSD, ProductAirtel_917, PurchaseAmount10000, FeeAmount0, Identifier, ReserveFundsTxnRef);
+
+        val raasTxnRef = executeTransact(jsonBody, Port.TRANSACTIONS, Version.V4)
+                .then().assertThat().statusCode(SC_OK)
+                .body("responseCode", Matchers.containsString(ReserveAndTransactClient.responseCode0000))
+                .body("responseMessage", Matchers.containsString(ReserveAndTransactClient.responseMessageProcessingRequest))
+                .body("raasTxnRef", Matchers.notNullValue())
+                .extract().body().as(TransactResponse.class).getRaasTxnRef();
+
+        //Verify transaction status is "SUCCESS"
+        Map<String, String> queryParams = new Hashtable<>();
+        queryParams.put("raasTxnRef", raasTxnRef);
+        Thread.sleep(10000);
+        findTransaction(Port.TRANSACTION_LOOKUP_SERVICE, Integer.parseInt(ReserveAndTransactClient.TestClient3), queryParams, Version.V2)
+                .then().assertThat().statusCode(SC_OK)
+                .body("raasTxnRef", Matchers.containsString(raasTxnRef))
+                .body("transactionStatus", Matchers.containsString(ReserveAndTransactClient.Success));
+        val SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
+        System.out.println(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE);
+        List<String> SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = Lists.transform(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(Event_Type_Transaction_Response);
+        val SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
+        System.out.println(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE);
+        List<String> SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = Lists.transform(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE, Functions.toStringFunction());
+        assertThat(SELECT_RESPONSE_CODE_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(responseCode202);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
+        String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE.toString();
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING);
+        val SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
+        assertThat(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(SELECT_CREATED_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_TIMESTAMP_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE = executeCustomQueryAndReturnValues(POSTGRES_SQL, format(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES, raasTxnRef));
+        String SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING = SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE.toString();
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING);
+        val SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_TIMESTAMP_STRING = now().plusHours(6).format(ofPattern("yyyy-MM-dd HH"));
+        System.out.println(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_TIMESTAMP_STRING);
+        assertThat(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_STRING)
+                .contains(SELECT_CDC_UPDATE_TIMESTAMP_BY_RAAS_TXN_REF_FROM_TRANSACTION_RESULT_RES_VALUE_TIMESTAMP_STRING);
     }
 }

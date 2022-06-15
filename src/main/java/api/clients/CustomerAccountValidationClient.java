@@ -29,7 +29,7 @@ public class CustomerAccountValidationClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/magtipon3lineng/validateTransaction", cAccountValidation))
+                        .setBaseUri(String.format("%s:%s/magtipon3lineng/validateTransaction", cAccountValidation,EnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)

@@ -17,7 +17,7 @@ public class SimulatorClient extends BasedAPIClient {
     public static Response addAirtelTestCases(List<SimulatorRequest> body, Port port) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/airtelSimulator/addtestcases",airtelUrl))
+                        .setBaseUri(String.format("%s:%s/airtelSimulator/addtestcases",airtelUrl,EnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
@@ -27,7 +27,7 @@ public class SimulatorClient extends BasedAPIClient {
     public static Response removeAllAirtelTestCases(Port port) {
         return basedAPIClient.get()
                 .delete(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/airtelSimulator/removealltestcases",airtelUrl))
+                        .setBaseUri(String.format("%s:%s/airtelSimulator/removealltestcases",airtelUrl,EnvPort))
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
@@ -45,7 +45,7 @@ public class SimulatorClient extends BasedAPIClient {
     public static Response addMtnTestCases(List<SimulatorRequest> body, Port port) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/addtestcases",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/addtestcases",mtnUrl,EnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
@@ -57,7 +57,7 @@ public class SimulatorClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .delete(new RequestSpecBuilder()
                         //.setBaseUri(String.format("%s:%d/removealltestcases",mtnUrl,port.getPort()))
-                        .setBaseUri(String.format("%s/removealltestcases",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/removealltestcases",mtnUrl,EnvPort))
                         .setContentType(JSON)
                         .log(ALL)
                         .setRelaxedHTTPSValidation()
