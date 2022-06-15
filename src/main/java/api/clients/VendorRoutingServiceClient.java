@@ -46,6 +46,8 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
     public static String cdc_update_timestamp;
     public static String Product_1603;
     public static String Product_1604;
+    public static String Pending;
+    public static String vendorTransactionReference;
 
 
 
@@ -83,6 +85,8 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         cdc_update_timestamp = getProperty("cdc_update_timestamp");
         Product_1603 = getProperty("Product_1603");
         Product_1604 = getProperty("Product_1604");
+        Pending = getProperty("Pending");
+        vendorTransactionReference = getProperty("vendorTransactionReference");
     }
     public static Response DeleteScenario(String ScenarioId) {
         return basedAPIClient.get()

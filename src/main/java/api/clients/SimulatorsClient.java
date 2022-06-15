@@ -139,5 +139,14 @@ public class SimulatorsClient {
                         .log(ALL)
                         .build());
     }
+    public static Response PostControlApiBehaviour(Map map, String VendorId, String Port) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s:%s/api/VENDOR/"+VendorId+"/apiBehaviour/"+VendorApiBehavior+"/set/vend",ControlApiAdaptor, Port))
+                        .setBody(map)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
 
 }

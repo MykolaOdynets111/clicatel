@@ -38,7 +38,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findTransaction(Port port, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/lookupservice/transaction", transactionUrl))
+                        .setBaseUri(String.format("%s:%s/lookupservice/transaction", transactionUrl,EnvPort))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -48,7 +48,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findTransaction(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/lookupservice/transaction/%s", transactionUrl, version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/lookupservice/transaction/%s", transactionUrl, EnvPort,version.getVersion()))
                         .addQueryParam("clientId", clientId)
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
@@ -58,7 +58,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findInternalTransactionV2(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/lookupservice/internalTransactionLookup/%s", transactionUrl, version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/lookupservice/internalTransactionLookup/%s", transactionUrl,EnvPort, version.getVersion()))
 //                        .addQueryParam("clientId", clientId)
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
@@ -69,7 +69,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response getProductInfo(Port port, Version version, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/public/%s/productInfo", productLookupUrl, port.getPort(), version.getVersion()))
+                        .setBaseUri(String.format("%s:%d/public/%s/productInfo", productLookupUrl, EnvPort, version.getVersion()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

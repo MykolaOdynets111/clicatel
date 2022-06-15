@@ -20,6 +20,8 @@ public class ReserveAndTransactDBChecksClient extends BasedAPIClient{
     public static String Event_Type_Transaction_Request;
     public static String Event_Type_Transaction_Response;
     public static String CommissionModel;
+    public static String Event_Type_Ctx_Lookup_Request;
+    public static String Event_Type_Ctx_Lookup_Response;
 
     static {
         Event_Type = getProperty("Event_Type");
@@ -39,5 +41,7 @@ public class ReserveAndTransactDBChecksClient extends BasedAPIClient{
         Event_Type_Transaction_Request = getProperty("Event_Type_Transaction_Request");
         Event_Type_Transaction_Response = getProperty("Event_Type_Transaction_Response");
         CommissionModel = getProperty("CommissionModel");
+        Event_Type_Ctx_Lookup_Request = getProperty("Event_Type_Ctx_Lookup_Request");
+        Event_Type_Ctx_Lookup_Response = getProperty("Event_Type_Ctx_Lookup_Response");
     }
     }

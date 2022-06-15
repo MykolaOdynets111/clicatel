@@ -10,7 +10,7 @@ import io.qameta.allure.TmsLink;
 import lombok.val;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
-import static api.clients.ReserveAndTransactClient.executeReserveAndTransact;
+import static api.clients.ReserveAndTransactClient.*;
 import static api.domains.reserve_and_transact.repo.ReserveAndTransactRequestRepo.setUpReserveAndTransactV4DataWhenProductNotLinkedWithClient;
 import static api.enums.ChannelName.USSD;
 import static api.enums.CurrencyCode.NGN;

@@ -16,7 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static api.clients.FinancialTermsLookupClient.*;
-import static api.clients.FinancialTermsLookupClient.getFinancialTermDetails;
+import static api.clients.FinancialTermsLookupClient.*;
 import static api.clients.ProductLookupClient.*;
 import static api.clients.ProductLookupClient.fundingSourceId_1206;
 import static api.clients.ReserveAndTransactClient.*;

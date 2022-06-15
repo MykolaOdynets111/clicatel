@@ -356,17 +356,17 @@ public class ReserveAndTransactQueries extends BaseCustomQuery {
     public static final String SELECT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
             "select id from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s'";
     public static final String SELECT_CLIENT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select client_id from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s'";
+            "select client_id from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s' limit 1";
     public static final String SELECT_CLIENT_TRANSACTION_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select client_transaction_id from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s'";
+            "select client_transaction_id from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s' limit 1";
     public static final String SELECT_CREATED_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select Cast(created as varchar) from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref  = '%s'";
+            "select Cast(created as varchar) from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref  = '%s' limit 1";
     public static final String SELECT_EVENT_TYPE_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select event_type from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s'";
+            "select event_type from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s' limit 1";
     public static final String SELECT_RAAS_TXN_REF_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select raas_txn_ref from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s'";
+            "select raas_txn_ref from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref = '%s' limit 1";
     public static final String SELECT_UPDATED_TIMESTAMP_RAAS_TXN_REF_FROM_CTX_LOOKUP_REQUEST =
-            "select Cast(cdc_update_timestamp as varchar) from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref  = '%s'";
+            "select Cast(cdc_update_timestamp as varchar) from " + dBSuffixPostgres + ".raas.ctx_lookup_request where raas_txn_ref  = '%s' limit 1";
 
     //ctx_lookup_response  table queries
     public static final String SELECT_ID_BY_RAAS_TXN_REF_FROM_CTX_LOOKUP_RESPONSE =
