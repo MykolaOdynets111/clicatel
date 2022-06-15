@@ -116,6 +116,12 @@
                 <env>awsdev</env>
             </properties>
         </profile>
+        <profile>
+            <id>awsdqa</id>
+            <properties>
+                <env>awsqa</env>
+            </properties>
+        </profile>
 
     </profiles>
 

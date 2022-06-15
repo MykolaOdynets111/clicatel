@@ -51,7 +51,19 @@ public class UsersClient  extends BasedAPIClient  {
         }
         String saltStr = salt.toString();
         return saltStr;
-
     }
+
+    public static String getRandomNumbers(String Numbers, int Length) {
+        String SALTCHARS = Numbers;
+        StringBuilder salt = new StringBuilder();
+        Random rnd = new Random();
+        while (salt.length() < Length) { // length of the random string.
+            int index = (int) (rnd.nextFloat() * SALTCHARS.length());
+            salt.append(SALTCHARS.charAt(index));
+        }
+        String saltStr = salt.toString();
+        return saltStr;
+    }
+
 
 }

@@ -35,7 +35,7 @@ public class NotificationClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/notification-service/notification",notificationUrl))
+                        .setBaseUri(String.format("%s:%s/notification-service/notification",notificationUrl,EnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)

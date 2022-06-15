@@ -12,10 +12,6 @@ public class ProductManagementRepo {
         jsonObjectPayload.put("channelIds", Arrays.asList(ChannelIds));
         jsonObjectPayload.put("productId", ProductId);
 
-//        Map<String,Object> properties = new LinkedHashMap<>();
-//
-//        jsonObjectPayload.put("properties", properties);
-
         return jsonObjectPayload;
     }
 }

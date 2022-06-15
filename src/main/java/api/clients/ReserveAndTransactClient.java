@@ -125,6 +125,9 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String AccountIdentifier4;
     public static String responseMessageHeaderSignatureInvalid;
     public static String Product_1200;
+    public static String ResponseCode_9318;
+    public static String ResponseCode_9313;
+    public static String ResponseCode_3803;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -238,15 +241,17 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         AccountIdentifier4= getProperty("AccountIdentifier4");
         responseMessageHeaderSignatureInvalid= getProperty("responseMessageHeaderSignatureInvalid");
         Product_1200= getProperty("Product_1200");
+        ResponseCode_9318= getProperty("ResponseCode_9318");
+        ResponseCode_9313= getProperty("ResponseCode_9313");
+        ResponseCode_3803= getProperty("ResponseCode_3803");
 
     }
-
 
     public static Response executeReserveAndTransact(ReserveAndTransactRequest body, Port port, Version version) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/raas/%s/reserveAndTransact",baseUrl,version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/raas/%s/reserveAndTransact",baseUrl,EnvPort,version.getVersion()))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
@@ -257,13 +262,13 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setContentType(JSON)
-                        .setBaseUri(String.format("%s/raas/%s/reserveAndTransact",baseUrl,version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/raas/%s/reserveAndTransact",baseUrl,EnvPort,version.getVersion()))
                         .addHeader("Signature", String.valueOf(signature))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
                         .build());
     }
+    }
 
-}
 

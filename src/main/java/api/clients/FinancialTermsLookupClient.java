@@ -39,7 +39,7 @@ public class FinancialTermsLookupClient extends BasedAPIClient {
     public static Response getFinancialTermDetails(Port port, int clientId, int productId, int purchaseAmount) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/financialTerms",financialTerms))
+                        .setBaseUri(String.format("%s:%s/financialTerms",financialTerms,EnvPort))
                         .addQueryParam("clientId",clientId)
                         .addQueryParam("productId",productId)
                         .addQueryParam("purchaseAmount",purchaseAmount)

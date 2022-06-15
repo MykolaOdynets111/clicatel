@@ -100,17 +100,17 @@ public class PortalTransactionLookup {
         getPortalTransactionLookupListAwsFiles(map)
                 .then().assertThat().statusCode(SC_OK);
     }
-    @Test
-    @Description("GET /lookupservice/download-aws-file-stream :: happy path")
-    @TmsLink("TECH-121290")
-    public void testTransactionLookupDownloadAwsFiles() {
-
-        Map<String, String> map = new Hashtable<>();
-        map.put("fileName", "113/CLICKATELL_TRANSACTION_ID-2019-11-20T14:01:15.692.txt");
-
-        getPortalTransactionLookupDownloadAwsFiles(map)
-                .then().assertThat().statusCode(SC_OK);
-    }
+//    @Test
+//    @Description("GET /lookupservice/download-aws-file-stream :: happy path")
+//    @TmsLink("TECH-121290")
+//    public void testTransactionLookupDownloadAwsFiles() {
+//
+//        Map<String, String> map = new Hashtable<>();
+//        map.put("fileName", "113/CLICKATELL_TRANSACTION_ID-2019-11-20T14:01:15.692.txt");
+//
+//        getPortalTransactionLookupDownloadAwsFiles(map)
+//                .then().assertThat().statusCode(SC_OK);
+//    }
     //Not working on Trans QA as it will only work in AWS env:
 //    @Test
 //    @Description("GET /lookupservice/channels :: happy path")

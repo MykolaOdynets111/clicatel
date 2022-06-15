@@ -10,8 +10,9 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
 import static api.clients.ChannelsClient.getChannels;
-import static api.clients.ChannelsClient.getChannelsById;
-import static api.clients.FinancialTermsLookupClient.getFinancialTermDetails;
+import static api.clients.ChannelsClient.*;
+import static api.clients.FinancialTermsLookupClient.*;
+import static api.clients.ProductLookupClient.ChannelID_7;
 import static org.apache.http.HttpStatus.SC_OK;
 
 public class Channels{
@@ -41,7 +42,7 @@ public class Channels{
     public void testGetChannelByID() {
 
         //get all channels
-        String ChannelID = "7";
+        String ChannelID = ChannelID_7;
         getChannelsById(ChannelID)
                 .then().assertThat().statusCode(SC_OK)
                 .body("description", Matchers.is(String.valueOf(ChannelName.USSD)))
