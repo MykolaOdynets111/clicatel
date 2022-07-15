@@ -34,4 +34,22 @@ public class CTX {
             return requestBody;
         }
     }
+
+    public static String CreateCTXQueryTransactionBody(String ClientID,String AlternateClientID,String ClientTransactionId){
+        {
+            String requestBody= "<?xml version=" + "'1.0'" + "?>\r\n" +
+                    "<S:Envelope xmlns:S=" + "'http://schemas.xmlsoap.org/soap/envelope/'" + ">\r\n" +
+                    "<S:Body>\r\n" +
+                    "<queryTransaction xmlns=" + "'http://clickatell.com/types'" + ">\r\n" +
+                    "<clientId>"+ClientID+"</clientId>\r\n" +
+                    "<apiToken>tysJdLJ5anXynmfVx8DnuOaZXuWfwJMLUvxt3pId4Okzl9s0WcHQxwMt3FnzEyEf</apiToken>\r\n" +
+                    "<clientTransactionId>"+ClientTransactionId+"</clientTransactionId>\r\n" +
+                    "<alternateClientId>"+AlternateClientID+"</alternateClientId>\r\n" +
+                    "</queryTransaction>\r\n" +
+                    "</S:Body>\r\n" +
+                    "</S:Envelope>";
+            return requestBody;
+
+        }
+    }
 }

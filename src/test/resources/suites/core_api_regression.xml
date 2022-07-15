@@ -20,6 +20,8 @@
             <package name="api.ctxHistory"/>
             <package name="api.tokenServices"/>
             <package name="api.velocity"/>
+            <package name="api.CTX"/>
+            <package name="api.funding_source_config"/>
         </packages>
     </test>
 </suite>
