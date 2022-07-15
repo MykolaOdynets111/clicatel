@@ -175,4 +175,16 @@ public class CTX extends BasedAPIClient{
 
     }
 
+   public static Response queryTransactionRequest(String body){
+       return basedAPIClient.get()
+               .post(new RequestSpecBuilder()
+                       .setUrlEncodingEnabled(false)
+                       .setBaseUri(String.format("%s:%s/WebClient/service", CtxUrl,CtxPort))
+                       .setBody(body)
+                       .setContentType(XML)
+                       .addHeader("Soapaction","queryTransaction")
+                       .addHeader("Accept","ContentType.XML")
+                       .log(ALL)
+                       .build());
+   }
 }

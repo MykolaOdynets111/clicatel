@@ -43,5 +43,6 @@ public class FundingSourceQueries extends BaseCustomQuery{
             "insert into " + dBSuffixPostgres + ".velocity.velocity_config (funding_source_id, properties, cdc_update_timestamp) values ('%s', %s, '%s')";
     public static final String SELECT_FUNDING_SOURCE_BY_FUNDING_SOURCE_ID =
             "select funding_source_id from " + dBSuffixPostgres + ".payd_common.client_funding_source where funding_source_id='%s' and client_id ='%s'";
+    public static final String SELECT_FUNDING_SOURCE_NAME_BY_ACTIVE = "select funding_source_name from " + dBSuffixPostgres + ".payd_common.funding_source where active ='%s'";
 
 }

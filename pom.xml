@@ -10,7 +10,6 @@
 
     <properties>
         <java.version>1.8</java.version>
-
         <testng.version>7.0.0-beta3</testng.version>
         <selenide.version>5.13.0</selenide.version>
         <assertj.core>3.14.0</assertj.core>
@@ -266,6 +265,11 @@
             <artifactId>javafaker</artifactId>
             <version>${javafaker.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.jcraft</groupId>
+            <artifactId>jsch</artifactId>
+            <version>0.1.50</version></dependency>
 
         <dependency>
             <groupId>org.springframework</groupId>

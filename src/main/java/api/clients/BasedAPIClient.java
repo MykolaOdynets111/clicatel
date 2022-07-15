@@ -48,6 +48,7 @@ public class BasedAPIClient {
     protected static String CtxUrl;
     protected static String CtxPort;
     protected static String VendorApiBehavior;
+    protected static String fundingSourceConfig;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -58,6 +59,7 @@ public class BasedAPIClient {
         cAccountValidation= getProperty("api.cAccountValidation.url");
         cAccountValidation2= getProperty("api.cAccountValidationv2.url");
         financialTerms= getProperty("api.financialterms.url");
+        fundingSourceConfig = getProperty("api.fundingSourceConfig.url");
         lookupTransactionUrl = getProperty("api.lookupTransaction.url");
         mnoLookupUrl= getProperty("api.mnolookup.url");
         notificationUrl= getProperty("api.notification.url");
