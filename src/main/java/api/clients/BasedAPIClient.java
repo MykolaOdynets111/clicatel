@@ -49,6 +49,8 @@ public class BasedAPIClient {
     protected static String CtxPort;
     protected static String VendorApiBehavior;
     protected static String fundingSourceConfig;
+    protected static String AirtelEnvPort;
+    protected static String MTNEnvPort;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -84,6 +86,8 @@ public class BasedAPIClient {
         CtxUrl=getProperty("api.CtxUrl.url");
         CtxPort=getProperty("CtxPort");
         VendorApiBehavior=getProperty("VendorApiBehavior");
+        AirtelEnvPort=getProperty("AirtelEnvPort");
+        MTNEnvPort=getProperty("MTNEnvPort");
     }
 
     private void logResponse(final Response response) {

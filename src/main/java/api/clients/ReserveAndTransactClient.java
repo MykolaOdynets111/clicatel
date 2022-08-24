@@ -71,6 +71,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String StartTransactionCode;
     public static String responseCode2201;
     public static String ResponseCode_206;
+    public static String ResponseCode_503;
     public static String Airtel_delay_3000;
     public static String ResponseCode_2510;
     public static String PurchaseAmount1000000001;
@@ -143,6 +144,7 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         Success= getProperty("Success");
         responseCode0= getProperty("responseCode0");
         responseCode202= getProperty("responseCode202");
+        ResponseCode_503=getProperty("ResponseCode_503");
         FirstTransactionCode= getProperty("FirstTransactionCode");
         ProductAirtel_100= getProperty("ProductAirtel_100");
         ProductAirtel_917= getProperty("ProductAirtel_917");

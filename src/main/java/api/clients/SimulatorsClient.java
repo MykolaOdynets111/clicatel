@@ -29,6 +29,7 @@ public class SimulatorsClient {
     public static String mwmMessage;
     public static String mwmSuccess;
     public static String Successful;
+    public static String Identifier_19;
 
 
     static {
@@ -47,6 +48,7 @@ public class SimulatorsClient {
         mwmMessage = getProperty("mwmMessage");
         mwmSuccess = getProperty("mwmSuccess");
         Successful = getProperty("Successful");
+        Identifier_19=getProperty("Identifier_19");
     }
 
     public static Response Ping3Line() {
@@ -143,6 +145,16 @@ public class SimulatorsClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setBaseUri(String.format("%s:%s/api/VENDOR/"+VendorId+"/apiBehaviour/"+VendorApiBehavior+"/set/vend",ControlApiAdaptor, Port))
+                        .setBody(map)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response PostControlApiBehaviourLookup(Map map, String VendorId, String Port) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s:%s/api/VENDOR/"+VendorId+"/apiBehaviour/"+VendorApiBehavior+"/set/lookup",ControlApiAdaptor, Port))
                         .setBody(map)
                         .setContentType(JSON)
                         .log(ALL)
