@@ -48,6 +48,7 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
     public static String Product_1604;
     public static String Pending;
     public static String vendorTransactionReference;
+    public static String vendorTransactionRefLookup;
 
 
 
@@ -87,6 +88,7 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         Product_1604 = getProperty("Product_1604");
         Pending = getProperty("Pending");
         vendorTransactionReference = getProperty("vendorTransactionReference");
+        vendorTransactionRefLookup=getProperty("vendorTransactionRefLookup");
     }
     public static Response DeleteScenario(String ScenarioId) {
         return basedAPIClient.get()

@@ -78,6 +78,7 @@ public class CTX extends BasedAPIClient{
     public static String ChannelID_07;
     public static String alternateClientId;
     public static String channelSessionId_3133827176;
+    public static String channelSessionId_3133827170;
     public static String ResponseCode_2236;
     public static String ResponseCode_2203;
     public static String ResponseCode_2202;
@@ -156,6 +157,7 @@ public class CTX extends BasedAPIClient{
         ChannelID_07 = getProperty("ChannelID_07");
         alternateClientId = getProperty("alternateClientId");
         channelSessionId_3133827176 = getProperty("channelSessionId_3133827176");
+        channelSessionId_3133827170=getProperty("channelSessionId_3133827170");
         ResponseCode_2236 = getProperty("ResponseCode_2236");
         ResponseCode_2203 = getProperty("ResponseCode_2203");
         ResponseCode_2202 = getProperty("ResponseCode_2202");
