@@ -19,4 +19,15 @@ public class FinancialTermsLookupTestRepo {
 
         return jsonObjectPayload;
     }
+
+    public static Map<String,Object> setUpFinancialTermsVendorDiscountData(List productIds,String value,String validFrom,String vendorId){
+
+        Map<String,Object> jsonObjectPayload = new LinkedHashMap<>();
+        jsonObjectPayload.put("productIds", productIds);
+        jsonObjectPayload.put("value", value);
+        jsonObjectPayload.put("validFrom", validFrom);
+        jsonObjectPayload.put("vendorId", vendorId);
+
+        return jsonObjectPayload;
+    }
 }

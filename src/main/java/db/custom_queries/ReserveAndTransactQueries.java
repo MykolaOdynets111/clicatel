@@ -230,6 +230,16 @@ public class ReserveAndTransactQueries extends BaseCustomQuery {
             "select Cast(cdc_update_timestamp as varchar) from " + dBSuffixPostgres + ".raas.transaction_result_request where raas_txn_ref  = '%s'";
     public static final String SELECT_RESULT_REQUEST_RESPONSE_CODE_BY_RAAS_TXN_REF =
             "select response_code from " + dBSuffixPostgres + ".raas.transaction_result_request where raas_txn_ref = '%s'";
+    public static final String SELECT_Reserve_Amount_BY_RAAS_TXN_REF  =
+            "select reserve_amount from " + dBSuffixPostgres + ".raas.transaction_log where raas_txn_ref  = '%s'";
+    public static final String SELECT_Client_Share_Amount_BY_RAAS_TXN_REF  =
+            "select client_share_amount from " + dBSuffixPostgres + ".raas.transaction_log where raas_txn_ref  = '%s'";
+    public static final String SELECT_Settlement_Amount_BY_RAAS_TXN_REF  =
+            "select settlement_amount from " + dBSuffixPostgres + ".raas.transaction_log where raas_txn_ref  = '%s'";
+    public static final String SELECT_Vend_Amount_BY_RAAS_TXN_REF  =
+            "select vend_amount from " + dBSuffixPostgres + ".raas.transaction_log where raas_txn_ref  = '%s'";
+    public static final String SELECT_Vendor_Share_Amount_BY_RAAS_TXN_REF  =
+            "select vendor_share_amount from " + dBSuffixPostgres + ".raas.transaction_log where raas_txn_ref  = '%s'";
 
     //raas.transaction_result_response table queries
 

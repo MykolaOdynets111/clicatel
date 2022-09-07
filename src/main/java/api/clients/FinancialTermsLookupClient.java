@@ -23,6 +23,10 @@ public class FinancialTermsLookupClient extends BasedAPIClient {
     public static String created_TimeStamp;
     public static String validFrom_TimeStamp;
     public static String dateAndTime;
+    public static String financialTermsValue10;
+    public static String Vendor_1206;
+    public static String validTo_TimeStamp;
+    public static String validFrom_Response;
 
     static {
         Client_Product_Insert_Timestamp = getProperty("Client_Product_Insert_Timestamp");
@@ -33,13 +37,17 @@ public class FinancialTermsLookupClient extends BasedAPIClient {
         valid_to_TimeStamp = getProperty("valid_to_TimeStamp");
         created_TimeStamp = getProperty("created_TimeStamp");
         validFrom_TimeStamp = getProperty("validFrom_TimeStamp");
+        validFrom_Response=getProperty("validFrom_Response");
         dateAndTime = getProperty("dateAndTime");
+        financialTermsValue10=getProperty("financialTermsValue10");
+        Vendor_1206=getProperty("Vendor_1206");
+        validTo_TimeStamp=getProperty("validTo_TimeStamp");
     }
 
-    public static Response getFinancialTermDetails(Port port, int clientId, int productId, int purchaseAmount) {
+    public static Response getFinancialTermDetails(int clientId, int productId, int purchaseAmount) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/financialTerms",financialTerms,EnvPort))
+                        .setBaseUri(String.format("%s/financialTerms",financialTerms))
                         .addQueryParam("clientId",clientId)
                         .addQueryParam("productId",productId)
                         .addQueryParam("purchaseAmount",purchaseAmount)
@@ -61,7 +69,7 @@ public class FinancialTermsLookupClient extends BasedAPIClient {
     public static Response getFinancialTermsCalculateAtTime(String productId, String clientId, String purchaseAmount, String dateAndTime) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/financialTerms",financialTerms))
+                        .setBaseUri(String.format("%s/financial-terms/calculateAtTime",financialTerms))
                         .addQueryParam("productId",productId)
                         .addQueryParam("clientId",clientId)
                         .addQueryParam("purchaseAmount",purchaseAmount)
@@ -82,4 +90,27 @@ public class FinancialTermsLookupClient extends BasedAPIClient {
                         .build());
     }
 
+    public static Response getTerms(String clientId,String productId){
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/terms",financialTerms))
+                        .addQueryParam("clientId",clientId)
+                        .addQueryParam("productId",productId)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+
+    }
+
+    public static Response postFinancialTermsVendorDiscount(Map body){
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBody(body)
+                        .setBaseUri(String.format("%s/financial-terms/vendorDiscount",financialTerms))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+
+    }
 }

@@ -51,6 +51,7 @@ public class BasedAPIClient {
     protected static String fundingSourceConfig;
     protected static String AirtelEnvPort;
     protected static String MTNEnvPort;
+    protected static String RAndTPort;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -88,6 +89,7 @@ public class BasedAPIClient {
         VendorApiBehavior=getProperty("VendorApiBehavior");
         AirtelEnvPort=getProperty("AirtelEnvPort");
         MTNEnvPort=getProperty("MTNEnvPort");
+        RAndTPort=getProperty("RAndTPort");
     }
 
     private void logResponse(final Response response) {
