@@ -28,6 +28,7 @@ public class MnoLookupClient extends BasedAPIClient {
     public static String ResponseCode_9090;
     public static String ValidMsisdn;
     public static String CountryCode_ZA;
+    public static String CountryCodeNGN;
     public static String OperatorCode_SOUMFB;
     public static String OperatorName_MTN;
     public static String error_BadRequest;
@@ -64,6 +65,7 @@ public class MnoLookupClient extends BasedAPIClient {
         ResponseCode_9090= getProperty("ResponseCode_9090");
         ValidMsisdn= getProperty("ValidMsisdn");
         CountryCode_ZA= getProperty("CountryCode_ZA");
+        CountryCodeNGN=getProperty("CountryCodeNGN");
         OperatorCode_SOUMFB= getProperty("OperatorCode_SOUMFB");
         OperatorName_MTN= getProperty("OperatorName_MTN");
         error_BadRequest= getProperty("error_BadRequest");
