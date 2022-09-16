@@ -24,7 +24,7 @@ import static org.testng.AssertJUnit.fail;
 public class ProductLookupInfoV4 {
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with dec value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150503")
+    @TmsLink("MKP-622")
     public void testAttributeFilterWithFalseFilterWithDecValue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -158,7 +158,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150508")
+    @TmsLink("MKP-587")
     public void testAttributeFilterWithFalseFilterWithNullValue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -292,7 +292,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with null value works as \"AND\" query with the another \"attributesFilter\" with null value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150512")
+    @TmsLink("MKP-687")
     public void testAttributeFilterWithNullFilterWithNullValueWithIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -426,7 +426,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with dec value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150610")
+    @TmsLink("MKP-601")
     public void testAttributeFilterWithDescFilterWithNullValueWithIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -560,7 +560,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with dec value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150609")
+    @TmsLink("MKP-705")
     public void testAttributeFilterWithDescFilterWithNullValueWithIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -694,7 +694,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with char value with null value products and \"include\" \"true\" filter")
-    @TmsLink("TECH-150607")
+    @TmsLink("MKP-607")
     public void testAttributeFilterWithCharFilterWithNullValueWithIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -828,7 +828,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with char value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150608")
+    @TmsLink("MKP-603")
     public void testAttributeFilterWithCharFilterWithNullValueWithIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -962,7 +962,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
-    @TmsLink("TECH-150506")
+    @TmsLink("MKP-597")
     public void testAttributeFilterWithCharFilterWithQuantityNullValueWithIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1096,7 +1096,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with dec value with null value products and \"include\" \"true\" filter")
-    @TmsLink("TECH-150409")
+    @TmsLink("MKP-533")
     public void testAttributeFilterWithDecFilterWithQuantityNullValueWithIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1230,7 +1230,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" \"include\": false works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-150617")
+    @TmsLink("MKP-542")
     public void testAttributeFilterWithAllParametersIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1316,7 +1316,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" \"include\": false works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-150617")
+    @TmsLink("MKP-542")
     public void testAttributeFilterWithAllParametersIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1402,7 +1402,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"vendorId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138983")
+    @TmsLink("MKP-910")
     public void testVendorIdWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1488,7 +1488,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"channelId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138982")
+    @TmsLink("MKP-821")
     public void testChannelIdWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1575,7 +1575,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"purchaseMedium\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138981")
+    @TmsLink("MKP-745")
     public void testPurchaseMediumWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1662,7 +1662,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"topSellerPlatform\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138980")
+    @TmsLink("MKP-852")
     public void testTopSellerPlatformWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1749,7 +1749,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"subscriberType\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138977")
+    @TmsLink("MKP-863")
     public void testSubscriberTypeWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1836,7 +1836,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"topSeller\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138976")
+    @TmsLink("MKP-744")
     public void testTopSellerWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1923,7 +1923,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"includeInactive\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138975")
+    @TmsLink("MKP-779")
     public void testIncludeInactiveWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2010,7 +2010,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"productTypeId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138973")
+    @TmsLink("MKP-730")
     public void testProductTypeIdWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2097,7 +2097,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"productId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138970")
+    @TmsLink("MKP-825")
     public void testProductIdWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2185,7 +2185,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"targetIdentifier\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138967")
+    @TmsLink("MKP-894")
     public void testTargetIdentifierWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2272,7 +2272,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"clientId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138966")
+    @TmsLink("MKP-836")
     public void testClientIdWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2358,7 +2358,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with valid value works as \"OR\" query with the same \"attributesFilter\" param with valid value and \"include\" filter is set to \"false\"")
-    @TmsLink("TECH-150570")
+    @TmsLink("MKP-598")
     public void testAttributeFilterValidValueWithParamWithValidIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2463,7 +2463,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with valid value works as \"OR\" query with the same \"attributesFilter\" param with valid value and \"include\" filter is set to \"true\"")
-    @TmsLink("TECH-150571")
+    @TmsLink("MKP-703")
     public void testAttributeFilterValidValueWithParamWithValidIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2568,7 +2568,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with valid value works as \"OR\" query with the same \"attributesFilter\" param with null value and \"include\" filter is set to \"true\"")
-    @TmsLink("TECH-150405")
+    @TmsLink("MKP-621")
     public void testAttributeFilterValidValueWithParamWithNullIncludeTrue() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2673,7 +2673,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with valid value works as \"OR\" query with the same \"attributesFilter\" param with null value and \"include\" filter is set to \"false\"")
-    @TmsLink("TECH-150407")
+    @TmsLink("MKP-602")
     public void testAttributeFilterValidValueWithParamWithNullIncludeFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2778,7 +2778,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: happy path")
-    @TmsLink("TECH-139376")
+    @TmsLink("MKP-1470")
     public void testProductInfoV4HappyPath() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2893,7 +2893,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: if invalid \"attributesFilter\" parameter is specified then none of the products are returned in the response")
-    @TmsLink("TECH-138963")
+    @TmsLink("MKP-789")
     public void testAttributeFilterValidValueWithInvalidParamNoResponse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2980,7 +2980,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: if \"attributesFilter\" isn't specified then all the products are returned in the response")
-    @TmsLink("TECH-138327")
+    @TmsLink("MKP-878")
     public void testAttributeFilterValidValueWithAttributeParamsNotSpecifiedAllProducts() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3043,7 +3043,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"false\" then all the \"attributeNameValuePairList\" parameters works as the \"NOT IN\" query with null values")
-    @TmsLink("TECH-150304")
+    @TmsLink("MKP-701")
     public void testIncludeFalseAttributeNameValuePairListNotInQueryWithNullValues() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3141,7 +3141,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"true\" then all the \"attributeNameValuePairList\" parameters works as the \"AND\" query with null values")
-    @TmsLink("TECH-150305")
+    @TmsLink("MKP-525")
     public void testIncludeTrueAttributeNameValuePairListAndQueryWithNullValues() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3246,7 +3246,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"true\" then all the \"attributeNameValuePairList\" parameters works as the \"AND\" query with valid values")
-    @TmsLink("TECH-150302")
+    @TmsLink("MKP-669")
     public void testIncludeTrueAttributeNameValuePairListAndQueryWithValidValues() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3351,7 +3351,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"false\" then all the \"attributeNameValuePairList\" parameters works as the \"NOT IN\" query with valid values")
-    @TmsLink("TECH-150303")
+    @TmsLink("MKP-610")
     public void testIncludeFalseAttributeNameValuePairListNotInQueryWithValidValues() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3456,7 +3456,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with null value works as \"AND\" query with the another \"attributesFilter\" with null value with null value products and \"include\" \"true\" filter")
-    @TmsLink("TECH-150511")
+    @TmsLink("MKP-556")
     public void testIncludeTrueAttributeNameValueNullPairListAndQueryWithNullValues() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3590,7 +3590,7 @@ public class ProductLookupInfoV4 {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-138331")
+    @TmsLink("MKP-897")
     public void testAttributeFiltersAndQueryParametersWithAllParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
