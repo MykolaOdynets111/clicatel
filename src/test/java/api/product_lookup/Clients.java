@@ -35,7 +35,7 @@ public class Clients {
 
     @Test
     @Description("POST /clients :: happy path")
-    @TmsLink("TECH-34251")
+    @TmsLink("MKP-1085")
     public void testCreateNewClient() {
     //Pre conditions: Deleting client configurations
         executeCustomQuery(MY_SQL, format(DELETE_CLIENT_MODULE_CONFIG, ProductLookupClient.fundingSourceId_1206));
@@ -141,7 +141,7 @@ public class Clients {
 
     @Test
     @Description("GET \u200B/clients\u200B/{clientId} :: happy path")
-    @TmsLink("TECH-143710")
+    @TmsLink("MKP-588")
     public void testGetNewClient() {
 
 //        List<Integer> response2 = getClients()
@@ -286,7 +286,7 @@ public class Clients {
     }
     @Test
     @Description("PUT \u200B/clients\u200B/{clientId} :: happy path")
-    @TmsLink("TECH-143694")
+    @TmsLink("MKP-662")
     public void testUpdateNewClient() {
 
         //Pre conditions: Deleting client configurations

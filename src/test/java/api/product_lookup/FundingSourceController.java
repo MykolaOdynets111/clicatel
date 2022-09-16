@@ -34,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class FundingSourceController {
     @Test()
     @Description("POST \u200B/fundingSources\u200B/create :: happy path")
-    @TmsLink("TECH-143732")
+    @TmsLink("MKP-619")
     public void testCreateFundingSource() {
 
         //Delete funding source country and funding source // Pre conditions
@@ -122,7 +122,7 @@ public class FundingSourceController {
     }
     @Test()
     @Description("POST \u200B/fundingSources\u200B/create :: happy path")
-    @TmsLink("TECH-143740")
+    @TmsLink("MKP-688")
     public void testCreateAndGetFundingSource() {
 
         //Delete funding source country and funding source // Pre conditions
@@ -231,7 +231,7 @@ public class FundingSourceController {
     }
     @Test()
     @Description("PUT \u200B/fundingSources\u200B/update :: happy path")
-    @TmsLink("TECH-143745")
+    @TmsLink("MKP-668")
     public void testCreateGetAndUpdateFundingSource() {
 
         //Delete funding source country and funding source // Pre conditions
@@ -369,7 +369,7 @@ public class FundingSourceController {
 
     @Test()
     @Description("32000-payd-product-lookup :: POST \u200B/clients\u200B/{clientId}\u200B/fundingSource\u200B/{fundingSourceId} :: happy path")
-    @TmsLink("TECH-171727")
+    @TmsLink("MKP-570")
     public void testCreateFundingSourceHappyPath() {
 
         //Pre conditions

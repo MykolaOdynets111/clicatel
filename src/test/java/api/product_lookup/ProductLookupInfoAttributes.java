@@ -41,7 +41,7 @@ import static org.testng.AssertJUnit.fail;
 public class ProductLookupInfoAttributes {
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if product_attribute_value is assigned it should be returned in the response")
-    @TmsLink("TECH-141142")
+    @TmsLink("MKP-646")
     public void testAttributeValueAssignedAndReturned() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -71,7 +71,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if the same product_attribute_value is assigned to the two products it should be returned in the response only once")
-    @TmsLink("TECH-141157")
+    @TmsLink("MKP-560")
     public void testSameAttributeValueAssignedToTwoProducts() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -119,7 +119,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if the two different product_attribute_value are assigned to the two products both should be returned in the response")
-    @TmsLink("TECH-141158")
+    @TmsLink("MKP-596")
     public void testDifferentAttributeValueAssignedToTwoProducts() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -169,7 +169,7 @@ public class ProductLookupInfoAttributes {
 }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if client id is specified, then only product_attribute_value which are assigned to client the should be returned in the response")
-    @TmsLink("TECH-141168")
+    @TmsLink("MKP-586")
     public void testDifferentAttributeValueAssignedToDifferentClients() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -234,7 +234,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if the \"vendor id\" is specified, then only the \"product_attribute_value\" which are assigned to the \"vendor\" should be returned in the response")
-    @TmsLink("TECH-141169")
+    @TmsLink("MKP-540")
     public void testDifferentAttributeValueAssignedToDifferentVendors() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -287,7 +287,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if the \"active true\" is specified, then only the \"product_attribute_value\" which are assigned to the active products should be returned in the response")
-    @TmsLink("TECH-141170")
+    @TmsLink("MKP-567")
     public void testDifferentAttributeValueAssignedToOneActiveOneInactive() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -340,7 +340,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: if the \"active false\" is specified, then only the \"product_attribute_value\" which are assigned to the inactive products should be returned in the response")
-    @TmsLink("TECH-141171")
+    @TmsLink("MKP-697")
     public void testDifferentAttributeValueAssignedToOneInactiveOneActive() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -393,7 +393,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: check the \"client id\" parameter works as and query with other parameters")
-    @TmsLink("TECH-141172")
+    @TmsLink("MKP-538")
     public void testDifferentAttributeValueAssignedToDifferentClientsClientIDQueryParameter() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -465,7 +465,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: GET \u200B/attributes\u200B/distinctAttributeValues\u200B/{attributeId} :: check the \"vendor id\" parameter works as and query with other parameters")
-    @TmsLink("TECH-141174")
+    @TmsLink("MKP-699")
     public void testDifferentAttributeValueAssignedToDifferentVendorsQueryVendorParameter() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -520,7 +520,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value with char value by default sorting")
-    @TmsLink("TECH-139031")
+    @TmsLink("MKP-763")
     public void testCheckSortingBasedOnDecimalAttribute() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -552,7 +552,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: if \"sortBy\" parameter isn't specified then products should be sorted based on the productId asc")
-    @TmsLink("TECH-139017")
+    @TmsLink("MKP-725")
     public void testCheckSortingBasedOnProductIdAsc() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -580,7 +580,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"productTypeId\" value by default sroting")
-    @TmsLink("TECH-139020")
+    @TmsLink("MKP-828")
     public void testCheckSortingBasedOnProductTypeIdDefault() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -614,7 +614,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"productTypeId\" value by desc sorting")
-    @TmsLink("TECH-150582")
+    @TmsLink("MKP-679")
     public void testCheckSortingBasedOnProductTypeIdByDesc() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -649,7 +649,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"productTypeId\" value by asc sorting")
-    @TmsLink("TECH-150581")
+    @TmsLink("MKP-712")
     public void testCheckSortingBasedOnProductTypeIdByAsc() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -684,7 +684,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"singlePrice\" value by desc sorting")
-    @TmsLink("TECH-150603")
+    @TmsLink("MKP-700")
     public void testCheckSortingBasedOnSinglePriceByDesc() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -718,7 +718,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"string attribute\" value by desc sorting")
-    @TmsLink("TECH-150587")
+    @TmsLink("MKP-641")
     public void testCheckSortingBasedOnSingleAttributeDesc() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -753,7 +753,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"string attribute\" value by default sorting")
-    @TmsLink("TECH-139028")
+    @TmsLink("MKP-754")
     public void testCheckSortingBasedOnSingleAttributeDefaultSorting() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -787,7 +787,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"string attribute\" value by asc sorting")
-    @TmsLink("TECH-150585")
+    @TmsLink("MKP-719")
     public void testCheckSortingBasedOnSingleAttributeASC() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -822,7 +822,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"singlePrice\" value by asc sorting")
-    @TmsLink("TECH-150602")
+    @TmsLink("MKP-584")
     public void testCheckSortingBasedOnSinglePriceByASC() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -856,7 +856,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"singlePrice\" value by default sorting")
-    @TmsLink("TECH-139026")
+    @TmsLink("MKP-904")
     public void testCheckSortingBasedOnSinglePriceByDefault() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
@@ -890,7 +890,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value with char value by asc sorting")
-    @TmsLink("TECH-150596")
+    @TmsLink("MKP-595")
     public void testCheckSortingBasedOnDecimalAttributeByAscCharVal() {
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
         executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
@@ -922,7 +922,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value with char value by desc sorting")
-    @TmsLink("TECH-150597")
+    @TmsLink("MKP-609")
     public void testCheckSortingBasedOnDecimalAttributeByDescCharVal() {
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
         executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
@@ -954,7 +954,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value by asc sorting")
-    @TmsLink("TECH-150592")
+    @TmsLink("MKP-655")
     public void testCheckSortingBasedOnDecimalAttributeByAsc() {
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
         executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
@@ -985,7 +985,7 @@ public class ProductLookupInfoAttributes {
     }
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value by desc sorting")
-    @TmsLink("TECH-150593")
+    @TmsLink("MKP-690")
     public void testCheckSortingBasedOnDecimalAttributeByDesc() {
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
         executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
@@ -1017,7 +1017,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: PUT /public/v4/productInfo :: check sorting based on the \"decimal attribute\" value by default sorting")
-    @TmsLink("TECH-139029")
+    @TmsLink("MKP-776")
     public void testCheckSortingBasedOnDecimalAttributeDefaultSorting() {
         executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
         executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
@@ -1048,7 +1048,7 @@ public class ProductLookupInfoAttributes {
 
     @Test
     @Description("32000-payd-product-lookup :: POST \u200B/clients\u200B/{clientId}\u200B/products :: happy path")
-    @TmsLink("TECH-171726")
+    @TmsLink("MKP-614")
     public void testCreateProductWithVendorHappyPath() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_PRODUCT_BY_PRODUCT_ID, ResponseCode_206));

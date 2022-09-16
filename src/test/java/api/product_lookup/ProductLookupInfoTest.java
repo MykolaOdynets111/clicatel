@@ -47,7 +47,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/productInfo :: Product Lookup API (1.0)")
-    @TmsLink("TECH-50880")
+    @TmsLink("MKP-1460")
     public void testProductLookupInformationV1Success() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -70,7 +70,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/v2/productInfo :: Product Lookup API (2.0)")
-    @TmsLink("TECH-54434")
+    @TmsLink("MKP-1518")
     public void testProductLookupInformationV2Success() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -93,7 +93,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("32000 :: public internal :: GET /public/v3/productInfo :: Product Lookup API (3.0)")
-    @TmsLink("TECH-66575")
+    @TmsLink("MKP-1484")
     public void testProductLookupInformationV3Success() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -273,7 +273,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN and mtn_ng vendor id is provided then all vendor products should be returned in the response")
-    @TmsLink("TECH-117587")
+    @TmsLink("MKP-1001")
     public void testProductLookupIfUnknownMSISDNAndVendorIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -426,7 +426,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN and mtn_ng vendorId are provided then only vendor products should be returned in the response")
-    @TmsLink("TECH-117589")
+    @TmsLink("MKP-935")
     public void testProductInfoIfAirtellMSISDNAndVendorIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -578,7 +578,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN and mtn_ng vendorId is provided then all mtn_ng products should be returned in the response")
-    @TmsLink("TECH-117590")
+    @TmsLink("MKP-1081")
     public void testProductInfoIfmtn_ngMSISDNAndVendorIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -730,7 +730,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN is provided and vendor_id isn't provided then all mtn_ng products should be returned in the response")
-    @TmsLink("TECH-117594")
+    @TmsLink("MKP-961")
     public void testProductInfoIfmtn_ngMSISDNisProvidedAndVendorIdIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -881,7 +881,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if airtel MSISDN and airtel vendor id are provided then all products should be returned in the response")
-    @TmsLink("TECH-117595")
+    @TmsLink("MKP-1018")
     public void testProductInfoIfMSISDNandAirTelVendorisProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1030,7 +1030,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if airtel MSISDN is provided and vendor_id isn't provided then all airtel products should be returned in the response")
-    @TmsLink("TECH-117596")
+    @TmsLink("MKP-1123")
     public void testProductInfoIfAirTelMSISDNIsProvidedAndVendorIDisNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1178,7 +1178,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET /public/v3/productInfo :: if topSeller isn't specified then all products with topSeller true or false")
-    @TmsLink("TECH-115191")
+    @TmsLink("MKP-1023")
     public void testProductInfoIfTopSellerIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1237,7 +1237,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET /public/v3/productInfo :: if \"topSeller\" parameter is set to false then only products with \"topSeller\" false are returned in the response")
-    @TmsLink("TECH-115273")
+    @TmsLink("MKP-1032")
     public void testProductInfoIfTopSellerFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1296,7 +1296,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"topSellerPlatform\" parameter isn't specified then all the products are returned in the response")
-    @TmsLink("TECH-115493")
+    @TmsLink("MKP-1045")
     public void testProductInfoIfTopSellerPlatformIsNotProvidedAllProducts() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1389,7 +1389,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"topSellerPlatform\" parameter is specified then only products with valid topSellerPlatform are returned in the response")
-    @TmsLink("TECH-115623")
+    @TmsLink("MKP-1006")
     public void testProductInfoIfValidTopSellerPlatformProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1484,7 +1484,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if invalid \"topSellerPlatform\" parameter is specified then none of the products are returned in the response")
-    @TmsLink("TECH-115624")
+    @TmsLink("MKP-1093")
     public void testProductInfoIfInvalidTopSellerPlatformSpecified() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1568,7 +1568,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter isn't specified then all the products are returned in the response")
-    @TmsLink("TECH-115274")
+    @TmsLink("MKP-1067")
     public void testProductInfoIfSubscriberTypeIsNotProvided() {//Can be added more validations for all subscriber types
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1662,7 +1662,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"purchaseMedium\" parameter is specified and is invalid then none of the products are returned in the response")
-    @TmsLink("TECH-115683")
+    @TmsLink("MKP-1099")
     public void testProductInfoIfInvalidPurchaseMediumSpecified() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1746,7 +1746,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter is specified then only products with valid subscriberType are returned in the response")
-    @TmsLink("TECH-115276")
+    @TmsLink("MKP-1089")
     public void testProductInfoIfValidSubscriberTypeIsNotProvided() {//Completed but more validations could be added.
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1840,7 +1840,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter is specified and is invalid then none of the products are returned in the response")
-    @TmsLink("TECH-115277")
+    @TmsLink("MKP-925")
     public void testProductInfoIfInvalidSubscriberTypeSpecified() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ProductLookupClient.TestClient250);
@@ -1852,7 +1852,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"purchaseMedium\" parameter isn't specified then all the products are returned in the response")
-    @TmsLink("TECH-115625")
+    @TmsLink("MKP-1119")
     public void testProductInfoIfPurchaseMediumIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -1946,7 +1946,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"purchaseMedium\" parameter is specified then only products with valid purchaseMedium are returned in the response")
-    @TmsLink("TECH-115626")
+    @TmsLink("MKP-1105")
     public void testProductInfoIfValidPurchaseMediumIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2041,7 +2041,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET /public/v3/productInfo :: if \"includeInactive\" parameter isn't sent then only active products are returned in the response")
-    @TmsLink("TECH-116776")
+    @TmsLink("MKP-946")
     public void testProductInfoIfIncludeInactiveParameterIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2098,7 +2098,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"productTypeId\" is specified then product is returned in the response")
-    @TmsLink("TECH-116763")
+    @TmsLink("MKP-1090")
     public void testProductInfoIfProductTypeIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2156,7 +2156,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"product_Id\" is specified for the product which doesn't exist in the system then empty response is returned")
-    @TmsLink("TECH-116758")
+    @TmsLink("MKP-1061")
     public void testProductInfoIfInvalidProductIdIsProvided() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ProductLookupClient.TestClient250);
@@ -2168,7 +2168,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the invalid \"vendorId\" is specified then empty response is returned")
-    @TmsLink("TECH-116772")
+    @TmsLink("MKP-1084")
     public void testProductInfoIfInvalidProductTypeId() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2198,7 +2198,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"includeInactive\" parameter is set to false then only active products are returned in the response")
-    @TmsLink("TECH-116774")
+    @TmsLink("MKP-928")
     public void testProductInfoIfIncludeInactiveParameterIsFalse() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2257,7 +2257,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET /public/v3/productInfo :: if \"includeInactive\" parameter is set to true then active and inactive products are returned in the response")
-    @TmsLink("TECH-116775")
+    @TmsLink("MKP-1047")
     public void testProductInfoIfIncludeInactiveParameterIsTrue() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2279,7 +2279,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"channelId\" is specified then product is returned in the response")
-    @TmsLink("TECH-116766")
+    @TmsLink("MKP-938")
     public void testProductInfoIfChannelIdIsProvided() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2302,7 +2302,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"client_id\" isn't specified then the request should fail")
-    @TmsLink("TECH-116754")
+    @TmsLink("MKP-933")
     public void testProductInfoIfClientIdIsNotProvided() {
         Map <String, String> map = new Hashtable<>();
         //map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2314,7 +2314,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the invalid \"channelId\" is specified then empty response is returned")
-    @TmsLink("TECH-116768")
+    @TmsLink("MKP-1075")
     public void testProductInfoIfInvalidChannelIDIsProvided() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ProductLookupClient.TestClient250);
@@ -2325,7 +2325,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"product_Id\" isn't specified then all valid products are returned in the response")
-    @TmsLink("TECH-116762")
+    @TmsLink("MKP-1079")
     public void testProductInfoIfProductIdIsNotSpecified() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2347,7 +2347,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"product_Id\" is specified of the product which isn't linked to the client then empty response is returned")
-    @TmsLink("TECH-116756")
+    @TmsLink("MKP-988")
     public void testProductInfoIfProductIdIsSpecifiedButNotLinkedToClient() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2357,7 +2357,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"product_Id\" is specified then product is returned in the response")
-    @TmsLink("TECH-116755")
+    @TmsLink("MKP-1069")
     public void testProductInfoIfProductIdIsSpecifiedAndLinedToClient() { //Marko feedback required
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2415,7 +2415,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"client_id\" is specified and there is not product linked to the client then no product is returned in the response")
-    @TmsLink("TECH-116753")
+    @TmsLink("MKP-1027")
     public void testProductInfoIfClientIdSpecifiedButNoProductLInkedToClient() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId","1503");
@@ -2424,7 +2424,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"client_id\" is specified then product is returned in the response")
-    @TmsLink("TECH-116751")
+    @TmsLink("MKP-1087")
     public void testProductInfoIfValidClientIdIsSpecified() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2446,7 +2446,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"vendorId\" isn't specified then all valid products are returned in the response")
-    @TmsLink("TECH-116773")
+    @TmsLink("MKP-1060")
     public void testProductInfoIfVendorIdIsNotSpecified() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2467,7 +2467,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and product \"external_product_id\" is null then product shouldn't be returned in the response")
-    @TmsLink("TECH-117440")
+    @TmsLink("MKP-987")
     public void testProductInfoIfAirtelMsisdnIsProvidedAndExternalProductIdIsNull() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2489,7 +2489,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and product \"external_product_id\" doesn't match hardcoded for the msisdn then product shouldn't be returned in the response")
-    @TmsLink("TECH-117439")
+    @TmsLink("MKP-1044")
     public void testProductInfoIfAirtelMsisdnIsProvidedAndExternalProductIdDoesNotMatchWithHardCodedValue() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2511,7 +2511,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"productTypeId\" is specified but no products with the \"productTypeId\" is configured to the client then empty response is returned")
-    @TmsLink("TECH-116764")
+    @TmsLink("MKP-1038")
     public void testProductInfoIfProductTypeIdIsSpecifiedButNoTLinkedToClient() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2522,7 +2522,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if not existed \"productTypeId\" is specified then error is returned")
-    @TmsLink("TECH-128071")
+    @TmsLink("MKP-785")
     public void testProductInfoIfInvalidProductTypeIdIsProvided() {
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
@@ -2535,7 +2535,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"productTypeId\" isn't specified then all valid products are returned in the response")
-    @TmsLink("TECH-116765")
+    @TmsLink("MKP-1118")
     public void testProductTypeIsNotSpecified() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2592,7 +2592,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"topSeller\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118337")
+    @TmsLink("MKP-937")
     public void testTopSellerAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2657,7 +2657,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"topSellerPlatform\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118339")
+    @TmsLink("MKP-1082")
     public void testTopSellerPlatformAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2722,7 +2722,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"channelId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118341")
+    @TmsLink("MKP-1055")
     public void testChannelIdAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -2787,7 +2787,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and product \"product_type\" isn't data then product should be returned in the response")
-    @TmsLink("TECH-117441")
+    @TmsLink("MKP-1121")
     public void testAirtelMsisdnProvidedAndProductTypeIsNot() {
 
         Map<String, String> map_1601 = new Hashtable<>();
@@ -2882,7 +2882,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN without hardcoded data products is provided then only not data product should be returned in the response")
-    @TmsLink("TECH-117443")
+    @TmsLink("MKP-1103")
     public void testAirtelMsisdnProvidedWithoutHardCodedData() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3018,7 +3018,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN and Airtel vendor id are provided then only not data product should be returned in the response")
-    @TmsLink("TECH-117580")
+    @TmsLink("MKP-1058")
     public void testMtnNgAndAirtelMsisdnProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3170,7 +3170,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
 
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"vendorId\" is specified then product is returned in the response")
-    @TmsLink("TECH-116771")
+    @TmsLink("MKP-1097")
     public void testValidVendorIdIsProvided() { //Marko feedback is needed.
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3318,7 +3318,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"channelId\" isn't specified then all valid products are returned in the response")
-    @TmsLink("TECH-116767")
+    @TmsLink("MKP-1053")
     public void testChannelIdIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3375,7 +3375,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN and Airtel vendor id is provided then only not data products should be returned in the response")
-    @TmsLink("TECH-117586")
+    @TmsLink("MKP-944")
     public void testInValidMsisdnAndAirTelVendorIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3525,7 +3525,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"subscriberType\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118338")
+    @TmsLink("MKP-1050")
     public void testSubscriberTypeAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3590,7 +3590,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"vendorId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118342")
+    @TmsLink("MKP-1005")
     public void testVendorIdAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3656,7 +3656,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"productTypeId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118335")
+    @TmsLink("MKP-1056")
     public void testProductTypeIdAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3736,7 +3736,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"includeInactive\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118336")
+    @TmsLink("MKP-1064")
     public void testIncludeInactiveAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3802,7 +3802,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"productId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118334")
+    @TmsLink("MKP-1017")
     public void testProductIdAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -3869,7 +3869,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN and Airtel vendor id are provided then product should be returned in the response")
-    @TmsLink("TECH-117442")
+    @TmsLink("MKP-1021")
     public void testAirtelVendorIdIsProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -4020,7 +4020,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"clientId\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118332")
+    @TmsLink("MKP-1083")
     public void testClientIdAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -4086,7 +4086,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"purchaseMedium\" works as \"AND\" query parameter with all other parameters")
-    @TmsLink("TECH-118340")
+    @TmsLink("MKP-940")
     public void testPurchaseMediumAndQueryParameters() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -4152,7 +4152,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and data product \"external_product_id\" matches hardcoded for the msisdn then product should be returned in the response")
-    @TmsLink("TECH-117438")
+    @TmsLink("MKP-945")
     public void testAirtelMsisdnIsProvidedAndDataProductMatchedWithMsisdn() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -4302,7 +4302,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"vendorId\" isn't specified then all valid products are returned in the response")
-    @TmsLink("TECH-116773")
+    @TmsLink("MKP-1060")
     public void testIfVendorIdIsNotProvided() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -4449,7 +4449,7 @@ public class ProductLookupInfoTest extends BaseApiTest {
     }
     @Test
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN is provided and vendor id isn't sent then all products configured for the client should be returned in the response")
-    @TmsLink("TECH-117585")
+    @TmsLink("MKP-1033")
     public void testIfUnknownMsisdnProvidedWithoutVendorId() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);

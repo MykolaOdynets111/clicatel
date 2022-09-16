@@ -41,7 +41,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : SUCCESS scenario (Vendor 103; Airtel)")
-    @TmsLink("TECH-178553")
+    @TmsLink("MKP-367")
     public void testAirtelSuccessScenario(){
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_200, InFlightTransactionLookupClient.AirTel_purchase);
@@ -66,7 +66,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : NonRetryableDecline scenario (Vendor 103; Airtel)")
-    @TmsLink("TECH-177977")
+    @TmsLink("MKP-405")
     public void testAirtelNonretryableDeclineScenario(){
 
         val addTestCase = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
@@ -89,7 +89,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : Pending To SUCCESS (Vendor 103; Airtel)")
-    @TmsLink("TECH-178555")
+    @TmsLink("MKP-478")
     public void testAirtelPendingToSuccessScenario() throws InterruptedException {
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
@@ -124,7 +124,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : Pending To RetryableDecline To SUCCESS scenario (Vendor 103; Airtel)")
-    @TmsLink("TECH-178856")
+    @TmsLink("MKP-391")
     public void testAirtelPendingToRDtoSuccessScenario() throws InterruptedException{
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
@@ -182,7 +182,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline To SUCCESS (Vendor 103; Airtel)")
-    @TmsLink("TECH-178718")
+    @TmsLink("MKP-519")
     public void testAirtelRDtoSuccessScenario(){
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_503, InFlightTransactionLookupClient.AirTel_purchase);
@@ -224,7 +224,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline to NonRetryableDecline scenario (Vendor 103; Airtel)")
-    @TmsLink("TECH-178855")
+    @TmsLink("MKP-369")
     public void testAirtelRDtoNonRetryableDeclineScenario(){
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_2238, InFlightTransactionLookupClient.AirTel_purchase);
@@ -270,7 +270,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline To Pending To Success scenario (vendor 103; Airtel)")
-    @TmsLink("TECH-178857")
+    @TmsLink("MKP-377")
     public void testAirtelRDToPendingToSuccessScenario() throws InterruptedException {
 
         val addTestCase1 = setUpAirtelSimData(ResponseCode_2238, InFlightTransactionLookupClient.AirTel_purchase);
@@ -328,7 +328,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : NonRetryableDecline scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180046")
+    @TmsLink("MKP-354")
     public void testMWMNRDScenario(){
         Map body = SetupSetVendData(Identifier, Identifier,FeeAmount0,responseCode2213 , FeeAmount0, ResponseCode_200,Failed,vendorTransactionReference);
         PostControlApiBehaviour(body, Vendor21, EnvPort)
@@ -349,7 +349,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : SUCCESS scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180045")
+    @TmsLink("MKP-484")
     public void testMWMSuccessScenario(){
         Map body = SetupSetVendData(Identifier, Identifier,FeeAmount0,FeeAmount0 , FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
         PostControlApiBehaviour(body, Vendor21, EnvPort)
@@ -366,7 +366,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : Pending To Success scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180047")
+    @TmsLink("MKP-429")
     public void testMWMPendingToSuccessScenario() throws InterruptedException {
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,responseCode2240 , FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -404,7 +404,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : Pending to NRD scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180731")
+    @TmsLink("MKP-411")
     public void testMWMPendingToNRDScenario() throws InterruptedException {
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,responseCode2240 , FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -446,7 +446,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : Pending to RetryableDecline to Success scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180202")
+    @TmsLink("MKP-387")
     public void testMWMPendingToRDToSuccessScenario() throws InterruptedException {
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,responseCode2240 , FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -506,7 +506,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline to Success scenario(Vendor 21; mwm)")
-    @TmsLink("TECH-180203")
+    @TmsLink("MKP-390")
     public void testMWMRDToSuccessScenario(){
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,ResponseCode_2238, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -548,7 +548,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline to NonRetryableDecline scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180204")
+    @TmsLink("MKP-497")
     public void testMWMRDToNRDScenario(){
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,ResponseCode_2238, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -594,7 +594,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase : RetryableDecline to Pending to Success scenario (Vendor 21; mwm)")
-    @TmsLink("TECH-180540")
+    @TmsLink("MKP-359")
     public void testMWMRDToPendingToSuccessScenario() throws InterruptedException {
 
         Map bodyVend = SetupSetVendData(Identifier, Identifier,FeeAmount0,ResponseCode_2238, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
@@ -654,7 +654,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: Success scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-180991")
+    @TmsLink("MKP-436")
     public void testMTNNGSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorMTNNGSuccess);
@@ -671,7 +671,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: Non-Retryable decline scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-180992")
+    @TmsLink("MKP-475")
     public void testMTNNGNRDScenario() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorServer);
@@ -690,7 +690,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: Pending To Success scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-180993")
+    @TmsLink("MKP-485")
     public void testMTNNGPendingToSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -719,7 +719,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: Pending To NonRetryableDecline scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-180994")
+    @TmsLink("MKP-358")
     public void testMTNNGPendingToNRDScenario() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -749,7 +749,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: RetryableDecline to Success scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-181009")
+    @TmsLink("MKP-364")
     public void testMTNNGRDToSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorMTNNGErrorINVORIGACC);
@@ -786,7 +786,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: RetryableDecline to NonRetryableDecline scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-181011")
+    @TmsLink("MKP-363")
     public void testMTNNGRDToNRDScenario() throws Exception {
 
         setSimulatorExpectedState(vendorMTNNGErrorINVORIGACC);
@@ -823,7 +823,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Purchase :: RetryableDecline>>Pending>>Success scenario (vendor 100; MTN-NG)")
-    @TmsLink("TECH-181367")
+    @TmsLink("MKP-399")
     public void testMTNNGRDToPendingToSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorMTNNGErrorINVORIGACC);
@@ -876,7 +876,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Success scenario (vendor 101; glo)")
-    @TmsLink("TECH-181368")
+    @TmsLink("MKP-355")
     public void testGLOSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorGLOSuccess);
@@ -893,7 +893,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Non-Retryable Decline Scenario (vendor 101; glo)")
-    @TmsLink("TECH-181369")
+    @TmsLink("MKP-415")
     public void testGLONRDScenario() throws Exception {
 
         setSimulatorExpectedState(vendorGLOErrorDUPTRANAPROV);
@@ -912,7 +912,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: RetryableDecline to Success scenario (Vendor 101; GLO)")
-    @TmsLink("TECH-181824")
+    @TmsLink("MKP-385")
     public void testGLORDToSuccessScenario() throws Exception {
 
         setSimulatorExpectedState(vendorGLOErrorProtocol);
@@ -948,7 +948,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: RetryableDecline to Non-Retryable decline scenario (Vendor 101; GLO)")
-    @TmsLink("TECH-181825")
+    @TmsLink("MKP-410")
     public void testGLORDToNRDScenario() throws Exception {
 
         setSimulatorExpectedState(vendorGLOErrorProtocol);
@@ -985,7 +985,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Success scenario (vendor 102; 9mobile; etisalat)")
-    @TmsLink("TECH-181988")
+    @TmsLink("MKP-403")
     public void testETISALATSuccessScenario() throws Exception {
         setSimulatorExpectedState(vendorETISALATSuccess);
         String request = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,Product_Etisalat_120,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -1019,7 +1019,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: RetryableDecline to Success Scenario (vendor 102; 9mobile; etisalat)")
-    @TmsLink("TECH-181991")
+    @TmsLink("MKP-428")
     public void testETISALATRDToSuccessScenario() throws Exception {
         setSimulatorExpectedState(vendorETISALATErrorSYSVOL);
         String request = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,Product_Etisalat_120,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -1054,7 +1054,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: RetryableDecline to Non-RetryableDecline Scenario (vendor 102; 9mobile; etisalat)")
-    @TmsLink("TECH-182085")
+    @TmsLink("MKP-344")
     public void testETISALATRDToNRDScenario() throws Exception {
 
         setSimulatorExpectedState(vendorETISALATErrorSYSVOL);
@@ -1091,7 +1091,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Success scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-182760")
+    @TmsLink("MKP-365")
     public void testMTNZASuccessScenario(){
 
         val addTestCase1 = setUpMtnSimData("0", "27837640171", "virtual_recharge", 200);
@@ -1115,7 +1115,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Non-Retryable Decline scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-182761")
+    @TmsLink("MKP-383")
     public void testMTNZA_NRDScenario(){
 
         val addTestCase1 = setUpMtnSimData("9313", "27837640171", "virtual_recharge", 200);
@@ -1142,7 +1142,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Pending to Success scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184004")
+    @TmsLink("MKP-373")
     public void testMTNZAPendingToSuccessScenario() throws InterruptedException {
 
         val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
@@ -1179,7 +1179,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Pending to NonRetryableDecline scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184007")
+    @TmsLink("MKP-487")
     public void testMTNZAPendingToNRDScenario() throws InterruptedException {
 
         val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
@@ -1215,7 +1215,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Pending to RetryableDecline to Success scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184394")
+    @TmsLink("MKP-510")
     public void testMTNZAPendingToRDToSuccessScenario() throws InterruptedException {
 
         val addTestCase1 = setUpMtnSimData("9318", "27837640171", "virtual_recharge", 200);
@@ -1276,7 +1276,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Retryable Decline to Success scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184017")
+    @TmsLink("MKP-454")
     public void testMTNZARDToSuccessScenario(){
 
         val addTestCase1 = setUpMtnSimData("9306", "27837640171", "virtual_recharge", 200);
@@ -1320,7 +1320,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Retryable Decline to Non-RetryableDeclinescenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184018")
+    @TmsLink("MKP-466")
     public void testMTNZARDToNRDScenario(){
 
         val addTestCase1 = setUpMtnSimData("9306", "27837640171", "virtual_recharge", 200);
@@ -1372,7 +1372,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: RetryableDecline to Pending to Success scenario (vendor 3; MTNZA)")
-    @TmsLink("TECH-184396")
+    @TmsLink("MKP-512")
     public void testMTNZARDToPendingToSuccessScenario() throws InterruptedException {
         val addTestCase1 = setUpMtnSimData("3803", "27837640171", "virtual_recharge", 200);
         val addTestCase2 = setUpMtnSimData("3803", "27837640171", "bundle_recharge", 200);

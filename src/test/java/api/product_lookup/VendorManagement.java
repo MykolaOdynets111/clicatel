@@ -19,7 +19,7 @@ public class VendorManagement {
 
     @Test
     @Description("GET /vendors/vendorByIdExpanded :: happy path")
-    @TmsLink("TECH-34258")
+    @TmsLink("MKP-1020")
     public void testVendorIdByExpandedHappyPath() {
         Map<String, String> map = new Hashtable<>();
         map.put("id", ProductLookupClient.Vendor100);
@@ -33,7 +33,7 @@ public class VendorManagement {
 
     @Test
     @Description("GET /vendors/vendorByIdExpanded :: happy path")
-    @TmsLink("TECH-62347")
+    @TmsLink("MKP-1077")
     public void testVendorProductTypeListAllHappyPath() {
         GetVendorProductTypes()
                 .then().assertThat().statusCode(SC_OK)
@@ -45,7 +45,7 @@ public class VendorManagement {
 
     @Test
     @Description("GET /ctx/vendorProduct :: check if 'externalProductTypeId' is returned in the response")
-    @TmsLink("TECH-118377")
+    @TmsLink("MKP-1104")
     public void testVendorCtxVendorProduct() {
         Map<String, String> map = new Hashtable<>();
         map.put("id", ProductAirtel_130);
@@ -58,7 +58,7 @@ public class VendorManagement {
     }
     @Test
     @Description("GET /vendorProductType/getByInternalProductTypeId :: if \"Vendor Product Type\" is assigned to the \"Product Type\" then it should be returned in the response")
-    @TmsLink("TECH-116097")
+    @TmsLink("MKP-1036")
     public void testVendorProductTypAssignedToProductType() {
         Map<String, String> map = new Hashtable<>();
         map.put("internalProductTypeId", VendorManagementClient.ProductTypeData_5);
@@ -71,7 +71,7 @@ public class VendorManagement {
     }
     @Test
     @Description("POST /vendorProductType/ :: user can't assign more then one \"Vendor Product Type\" to the \"Product Type\" for the same vendor")
-    @TmsLink("TECH-116094")
+    @TmsLink("MKP-1042")
     public void testVendorProductTypCannotBeAssignedToSameVendor() {
         Map<String, String> body = new Hashtable<>();
         body.put("externalProductTypeId", VendorManagementClient.ProductTypeData_5);
@@ -84,7 +84,7 @@ public class VendorManagement {
     }
     @Test
     @Description("GET /vendorProductType/getVendorProductTypeByIds :: happy path")
-    @TmsLink("TECH-62344")
+    @TmsLink("MKP-1039")
     public void testVendorProductTypeHappyPath() {
         Map<String, String> body = new Hashtable<>();
         body.put("externalProductTypeId", VendorManagementClient.ProductTypeData_5);
@@ -97,7 +97,7 @@ public class VendorManagement {
     }
     @Test
     @Description("GET /vendorProductType/getByInternalProductTypeId :: if \"Vendor Product Type\" is assigned to the \"Product Type\" then it should be returned in the response")
-    @TmsLink("TECH-116097")
+    @TmsLink("MKP-1036")
     public void testVendorProductTypeAssignedToProductType() {
         Map<String, String> map = new Hashtable<>();
         map.put("internalProductTypeId", ProductTypeData_5);
@@ -109,7 +109,7 @@ public class VendorManagement {
     }
     @Test
     @Description("POST /vendorProductType/ :: happy path")
-    @TmsLink("TECH-62333")
+    @TmsLink("MKP-992")
     public void testVendorProductTypeCreate() {
         Map<String, String> map = new Hashtable<>();
         map.put("externalProductTypeId", NewClientName);
@@ -124,7 +124,7 @@ public class VendorManagement {
     }
     @Test
     @Description("PUT /vendorProductType/ :: happy path")
-    @TmsLink("TECH-62348")
+    @TmsLink("MKP-950")
     public void testVendorProductTypeUpdate() {
         Map<String, String> map = new Hashtable<>();
         map.put("externalProductTypeId", UpdatedClientName);
@@ -137,7 +137,7 @@ public class VendorManagement {
     }
     @Test
     @Description("DELETE /vendorProductType/ :: happy path")
-    @TmsLink("TECH-62349")
+    @TmsLink("MKP-1066")
     public void testVendorProductTypeDelete() {
         Map<String, String> map = new Hashtable<>();
         map.put("internalProductTypeId", ReserveAndTransactClient.FeeAmount10);
@@ -148,7 +148,7 @@ public class VendorManagement {
     }
     @Test
     @Description("GET /vendorProductType/getByInternalProductTypeId :: if \"Vendor Product Type\" is assigned to the \"Product Type\" then it should be returned in the response")
-    @TmsLink("TECH-115829")
+    @TmsLink("MKP-1022")
     public void testVendorProductTypeNotAssignedToProductType() {
         Map<String, String> map = new Hashtable<>();
         map.put("internalProductTypeId", ReserveAndTransactClient.PurchaseAmount20000);
