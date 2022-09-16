@@ -33,7 +33,7 @@ public class ProductManagement {
 
     @Test
     @Description("GET /product_management/productDetails :: for the airtime airtel products and externalVendorProductTypeId should be hardcoded")
-    @TmsLink("TECH-116734")
+    @TmsLink("MKP-1034")
     public void testAirtimeAirTelProductsExternalVendorProductTypeId() {
         Map<String, String> map = new Hashtable<>();
         map.put("productId", ProductLookupClient.ProductAirtel_130);
@@ -45,7 +45,7 @@ public class ProductManagement {
 
     @Test
     @Description("GET /product_management/productDetails :: for the data airtel products and externalVendorProductTypeId should be hardcoded")
-    @TmsLink("TECH-116736")
+    @TmsLink("MKP-942")
     public void testDataAirTelProductsExternalVendorProductTypeId() {
         Map<String, String> map = new Hashtable<>();
         map.put("productId", ReserveAndTransactClient.Product_Airtel_189);
@@ -58,7 +58,7 @@ public class ProductManagement {
 
     @Test
     @Description("32000-payd-product-lookup :: POST \u200B/clients\u200B/{clientId}\u200B/products :: happy path")
-    @TmsLink("TECH-171726")
+    @TmsLink("MKP-614")
     public void testCreateProductWithVendorHappyPath() {
 
         //Pre conditions

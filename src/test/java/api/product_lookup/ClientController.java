@@ -18,7 +18,7 @@ import static org.apache.http.HttpStatus.*;
 public class ClientController {
     @Test
     @Description("POST /clients/createClientForTouchFlow :: if unknown timezoneId code is sent then valid error message should be returned")
-    @TmsLink("TECH-120826")
+    @TmsLink("MKP-1113")
     public void testInvalidTimezoneTouchFlowClient() {
         val body = setUpPostClientTouchFLow(ProductLookupClient.ChannelID_8,ProductLookupClient.NewClientName,ReserveAndTransactClient.AccountIdentifier,ProductLookupClient.CountryCode_710,ProductLookupClient.clickatellAccountId_TouchFlowClient);
 
@@ -28,7 +28,7 @@ public class ClientController {
    }
     @Test
     @Description("POST /clients/createClientForTouchFlow :: if unknown country code is sent then valid error message should be returned")
-    @TmsLink("TECH-120825")
+    @TmsLink("MKP-964")
     public void testInvalidCountryCodeTouchFlowClient() {
         val body = setUpPostClientTouchFLow(ProductLookupClient.ChannelID_8,ProductLookupClient.NewClientName,ProductLookupClient.TimeZone_UTC, TokenLookupClient.Limit_1,ProductLookupClient.clickatellAccountId_TouchFlowClient);
 
@@ -38,7 +38,7 @@ public class ClientController {
     }
     @Test
     @Description("POST /clients/createClientForTouchFlow :: if not suported channel is sent then valid error message should be returned")
-    @TmsLink("TECH-120806")
+    @TmsLink("MKP-943")
     public void testInvalidChannelTouchFlowClient() {
         val body = setUpPostClientTouchFLow(ProductLookupClient.CountryCode_710,ProductLookupClient.NewClientName,ProductLookupClient.TimeZone_UTC, TokenLookupClient.Limit_1,ProductLookupClient.clickatellAccountId_TouchFlowClient);
 
@@ -48,7 +48,7 @@ public class ClientController {
     }
     @Test
     @Description("POST /clients/createClientForTouchFlow :: if required field isn't sent then valid error message should be returned")
-    @TmsLink("TECH-120824")
+    @TmsLink("MKP-1086")
     public void testRequiredFieldsTouchFlowClient() {
         //NUllClientName
         val body = setUpPostClientTouchFLowNullClientName(ProductLookupClient.CountryCode_710,ProductLookupClient.TimeZone_UTC, TokenLookupClient.Limit_1,ProductLookupClient.clickatellAccountId_TouchFlowClient);
@@ -78,7 +78,7 @@ public class ClientController {
     }
     @Test
     @Description("POST /clients/createClientForTouchFlow :: if not unique client name is sent then valid error message should be returned")
-    @TmsLink("TECH-120821")
+    @TmsLink("MKP-965")
     public void testUniqueClientNameTouchFlowClient() {
         val body = setUpPostClientTouchFLow(ProductLookupClient.ChannelID_8,ProductLookupClient.NewClientName,ProductLookupClient.TimeZone_UTC, ProductLookupClient.CountryCode_710,ProductLookupClient.clickatellAccountId_TouchFlowClient);
 
@@ -127,7 +127,7 @@ public class ClientController {
 //    }
     @Test
     @Description("POST /clients/addNewTouchflowClientChannels :: check if the request with the invalid clientId is sent, then error is returned")
-    @TmsLink("TECH-131848")
+    @TmsLink("MKP-752")
     public void testCreateChannelsForInvalidTouchFlowClient() {
 
         val body = setUpPostChannelsForClientTouchFLow(ProductLookupClient.ChannelID_7, ReserveAndTransactClient.ClientIdInvalid);
@@ -138,7 +138,7 @@ public class ClientController {
     }
     @Test
     @Description("POST /clients/addNewTouchflowClientChannels :: check if the request with the invalid channel is sent, then error is returned")
-    @TmsLink("TECH-131847")
+    @TmsLink("MKP-777")
     public void testCreateChannelsForInvalidTouchFlowChannelId() {
 
         val body = setUpPostChannelsForClientTouchFLow(ReserveAndTransactClient.PurchaseAmount99, Product_1600);
@@ -149,7 +149,7 @@ public class ClientController {
     }
     @Test
     @Description("POST /clients/addNewTouchflowClientChannels :: check if the request with the onboarded channel is sent, then success response if returned")
-    @TmsLink("TECH-131845")
+    @TmsLink("MKP-728")
     public void testCreateChannelsForOnboardedChannel() {
         List <String> response2 = getClientsFromBackend(Product_1600)
                 .then().assertThat().statusCode(SC_OK)

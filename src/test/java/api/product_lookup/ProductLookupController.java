@@ -17,7 +17,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/{clientId}/{vendorId} :: happy path")
-    @TmsLink("TECH-138810")
+    @TmsLink("MKP-761")
     public void testGetProductsClientVendor() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -31,7 +31,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productsdetails/client/{clientId}/product/{productId} :: happy path")
-    @TmsLink("TECH-138811")
+    @TmsLink("MKP-812")
     public void testGetProductsdetailsClientIdProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -44,7 +44,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /vendor/{clientId} :: happy path")
-    @TmsLink("TECH-138812")
+    @TmsLink("MKP-770")
     public void testGetVendorClientId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -56,7 +56,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productType/{productId} :: happy path")
-    @TmsLink("TECH-138813")
+    @TmsLink("MKP-802")
     public void testGetProductTypeProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("productId", ProductAirtel_917);
@@ -68,7 +68,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /getActiveProductsByCountryCode :: happy path")
-    @TmsLink("TECH-138814")
+    @TmsLink("MKP-807")
     public void testGetActiveProductsByCountryCode() {
         Map <String, String> map = new Hashtable<>();
         map.put("countryCode", country);
@@ -80,7 +80,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/ :: happy path")
-    @TmsLink("TECH-138815")
+    @TmsLink("MKP-764")
     public void testGetProducts() {
 
         GetProducts()
@@ -90,7 +90,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productbyclientidproductid/{clientId},{productId} :: happy path")
-    @TmsLink("TECH-138816")
+    @TmsLink("MKP-804")
     public void testGetProductByClientIdProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -103,7 +103,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /toppick/{clientId},{vendorId} :: happy path")
-    @TmsLink("TECH-138817")
+    @TmsLink("MKP-742")
     public void testGetToppickClientIdVendorId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -117,7 +117,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /GetgetProduct :: happy path")
-    @TmsLink("TECH-138818")
+    @TmsLink("MKP-746")
     public void testGetgetProduct() {
         Map <String, String> map = new Hashtable<>();
         map.put("id", ProductAirtel_917);
@@ -129,7 +129,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productsdetails/client/{clientId}/product/{productId} :: happy path")
-    @TmsLink("TECH-138819")
+    @TmsLink("MKP-845")
     public void testGetProductsClientIdVendorIdProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -143,7 +143,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /vendorsMap :: happy path")
-    @TmsLink("TECH-138820")
+    @TmsLink("MKP-865")
     public void testGetVendorsMap() {
 
         GetVendorsMap()
@@ -153,7 +153,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /clientsMap :: happy path")
-    @TmsLink("TECH-138821")
+    @TmsLink("MKP-862")
     public void testClientsMap() {
 
         GetClientsMap()
@@ -163,7 +163,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/productType/{productTypeId}/{clientId}/{vendorId} :: happy path")
-    @TmsLink("TECH-138822")
+    @TmsLink("MKP-833")
     public void testGetProductsProductTypeIDClientIdVendorId() {
         Map <String, String > map = new Hashtable<>();
         map.put("productTypeId", ProductTypeAirtime_3);
@@ -177,7 +177,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/{productTypeId} :: happy path")
-    @TmsLink("TECH-138826")
+    @TmsLink("MKP-788")
     public void testGetProductsProductTypeId() {
         Map <String, String > map = new Hashtable<>();
         map.put("productTypeId", ProductTypeAirtime_3);
@@ -189,7 +189,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/vendorProductIds/{vendorId} :: happy path")
-    @TmsLink("TECH-138827")
+    @TmsLink("MKP-755")
     public void testGetProductsVendorProductIdsVendorId() {
         Map <String, String > map = new Hashtable<>();
         map.put("vendorId", VendorManagementClient.Vendor21);
@@ -201,7 +201,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET  /products/vendorProductsByProductType/{vendorId}/{productTypeId}/ :: happy path")
-    @TmsLink("TECH-138828")
+    @TmsLink("MKP-846")
     public void testGetVendorProductsByProductType() {
         Map <String, String > map = new Hashtable<>();
         map.put("vendorId", VendorManagementClient.Vendor21);
@@ -214,7 +214,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/clientProductAssociation/{countryCode}/{clientId} :: happy path")
-    @TmsLink("TECH-138829")
+    @TmsLink("MKP-900")
     public void testGetClientProductAssociationCountryCode() {
         Map <String, String > map = new Hashtable<>();
         map.put("countryCode", CountryCode_710);
@@ -227,7 +227,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /products/clientVendorProductIds/{clientId}/{vendorId} :: happy path")
-    @TmsLink("TECH-138830")
+    @TmsLink("MKP-877")
     public void testProductsClientVendorProductIds() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -240,7 +240,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productsdetails/{clientId},{vendorId} :: happy path")
-    @TmsLink("TECH-138831")
+    @TmsLink("MKP-901")
     public void testGetProductsdetailsClientIdVendorId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -253,7 +253,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /clientProducts/{clientId} :: happy path")
-    @TmsLink("TECH-138832")
+    @TmsLink("MKP-861")
     public void testGetClientProducts() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);
@@ -265,7 +265,7 @@ public class ProductLookupController extends BasedAPIClient {
 
     @Test
     @Description("GET /productsdetails/client/{clientId}/product/{vendorId}/product/{productId} :: happy path")
-    @TmsLink("TECH-138834")
+    @TmsLink("MKP-843")
     public void testGetProductsdetailsClientIdCendorIdProductId() {
         Map <String, String > map = new Hashtable<>();
         map.put("clientId", TestClient3);

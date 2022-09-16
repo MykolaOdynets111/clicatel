@@ -22,7 +22,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG SUCCESS 0")
-    @TmsLink("TECH-193458")
+    @TmsLink("MKP-491")
     public void testMTNNGLookupSuccessCode0 () throws Exception {
         CTXSimulatorClient.setSimulatorExpectedState(vendorMTNNGException);
         String ExceptionRequest = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,ProductAirtel_100,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -49,7 +49,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNG ERROR_NO_TRX 2201")
-    @TmsLink("TECH-193475")
+    @TmsLink("MKP-360")
     public void testMTNNGLookupErrorNoTRX2201() throws Exception {
         CTXSimulatorClient.setSimulatorExpectedState(vendorMTNNGException);
         String requestException = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,ProductAirtel_100,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -77,7 +77,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_FORMAT 2201")
-    @TmsLink("TECH-193474")
+    @TmsLink("MKP-516")
     public void testMTNNGLookupErrorFormat2201() throws Exception {
         CTXSimulatorClient.setSimulatorExpectedState(vendorMTNNGException);
         String requestException = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,ProductAirtel_100,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -105,7 +105,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_TEMP_INV_MSISDN 2213")
-    @TmsLink("TECH-193473")
+    @TmsLink("MKP-375")
     public void testMTNNGLookupErrorTempINVMSISDN2213() throws Exception {
         CTXSimulatorClient.setSimulatorExpectedState(vendorMTNNGException);
         String requestException = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,ProductAirtel_100,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);
@@ -133,7 +133,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_INV_MSISDN 2213")
-    @TmsLink("TECH-193472")
+    @TmsLink("MKP-476")
     public void testMTNNGLookupErrorINVMSISDN2213() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -162,7 +162,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_MSISDN_BARRED 2201")
-    @TmsLink("TECH-193471")
+    @TmsLink("MKP-408")
     public void testMTNNGLookupErrorMSISDNBarred2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -191,7 +191,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_PPAS_NO_CONNECT 2201")
-    @TmsLink("TECH-193470")
+    @TmsLink("MKP-450")
     public void testMTNNGLookupErrorPPASNoConnect2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -221,7 +221,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_PPAS_FAIL 2201")
-    @TmsLink("TECH-193469")
+    @TmsLink("MKP-459")
     public void testMTNNGLookupErrorPPASFail2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -250,7 +250,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_DEF_PPAS_MSG 2201")
-    @TmsLink("TECH-193468")
+    @TmsLink("MKP-448")
     public void testMTNNGLookupErrorDEFPPASMSG2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -280,7 +280,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_INV_DEST_ACC 2201")
-    @TmsLink("TECH-193464")
+    @TmsLink("MKP-401")
     public void testMTNNGLookupErrorINVDestACC2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -309,7 +309,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_INV_ORIG_ACC 2201")
-    @TmsLink("TECH-193463")
+    @TmsLink("MKP-380")
     public void testMTNNGLookupErrorINVORIGACC2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -338,7 +338,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_INSUF_AIRTIME 2237")
-    @TmsLink("TECH-193462")
+    @TmsLink("MKP-396")
     public void testMTNNGLookupErrorINSUFAirtime2237() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -367,7 +367,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG EXCEPTION 2240")
-    @TmsLink("TECH-193461")
+    @TmsLink("MKP-452")
     public void testMTNNGLookupException2240() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -394,7 +394,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: lookup :: MTNNG ERROR_SERVER 2228")
-    @TmsLink("TECH-193459")
+    @TmsLink("MKP-406")
     public void testMTNNGLookupErrorServer2228() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -423,7 +423,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_VENDOR_SYSTEM 2201")
-    @TmsLink("TECH-193417")
+    @TmsLink("MKP-483")
     public void testMTNNGPurchaseErrorVendorSystem2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorVendorSystem);
@@ -442,7 +442,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_FORMAT 2201")
-    @TmsLink("TECH-193416")
+    @TmsLink("MKP-356")
     public void testMTNNGPurchaseErrorFormat2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorFORMAT);
@@ -461,7 +461,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_NO_TRX 2240")
-    @TmsLink("TECH-193413")
+    @TmsLink("MKP-462")
     public void testMTNNGPurchaseErrorNoTrx2240() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorNO_TRX);
@@ -480,7 +480,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_TEMP_INV_MSISDN 2213")
-    @TmsLink("TECH-193412")
+    @TmsLink("MKP-474")
     public void testMTNNGPurchaseErrorTempINVMSISDN2213() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorTempINVMSISDN);
@@ -499,7 +499,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_INV_MSISDN 2213")
-    @TmsLink("TECH-193411")
+    @TmsLink("MKP-486")
     public void testMTNNGPurchaseErrorINVMSISDN2213() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorINVMSISDN);
@@ -518,7 +518,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_MSISDN_BARRED 2201")
-    @TmsLink("TECH-193409")
+    @TmsLink("MKP-372")
     public void testMTNNGPurchaseErrorMSISDNBARRED2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorMsisdnBarred);
@@ -537,7 +537,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_PPAS_NO_CONNECT 2201")
-    @TmsLink("TECH-193408")
+    @TmsLink("MKP-370")
     public void testMTNNGPurchaseErrorPPASNoConnect2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorPPASNoConnect);
@@ -556,7 +556,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_PPAS_FAIL 2201")
-    @TmsLink("TECH-193407")
+    @TmsLink("MKP-451")
     public void testMTNNGPurchaseErrorPPASFail2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorPpasFail);
@@ -575,7 +575,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_DEF_PPAS_MSG 2201")
-    @TmsLink("TECH-193405")
+    @TmsLink("MKP-376")
     public void testMTNNGPurchaseErrorDEFPPASMSG2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorDEFPPASMSG);
@@ -594,7 +594,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_INV_TAR_CLS 2210")
-    @TmsLink("TECH-193403")
+    @TmsLink("MKP-348")
     public void testMTNNGPurchaseErrorINVTARCLS2210() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorINVTARCLS);
@@ -613,7 +613,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_INV_DEST_ACC 2201")
-    @TmsLink("TECH-193402")
+    @TmsLink("MKP-444")
     public void testMTNNGPurchaseErrorINVDESTAcc2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorINVDestAcc);
@@ -632,7 +632,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_INV_ORIG_ACC 2201")
-    @TmsLink("TECH-193401")
+    @TmsLink("MKP-515")
     public void testMTNNGPurchaseErrorINVORIGAcc2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorINVORIGACC);
@@ -651,7 +651,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_INSUF_AIRTIME 2237")
-    @TmsLink("TECH-193400")
+    @TmsLink("MKP-469")
     public void testMTNNGPurchaseErrorINSUFAirtime2237() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorINSUFAirtime);
@@ -670,7 +670,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG ERROR_SERVER 2228")
-    @TmsLink("TECH-193399")
+    @TmsLink("MKP-460")
     public void testMTNNGPurchaseErrorServer2228() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGErrorServer);
@@ -689,7 +689,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: SMOKE :: purchase :: MTNNG SUCCESS 0")
-    @TmsLink("TECH-160866")
+    @TmsLink("MKP-645")
     public void testMTNNGPurchaseSuccess0() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGSuccess);
@@ -706,7 +706,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG EXCEPTION 2240")
-    @TmsLink("TECH-193396")
+    @TmsLink("MKP-488")
     public void testMTNNGPurchaseMTNNGException2240() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGException);
@@ -725,7 +725,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: MTNNG DELAY 2201")
-    @TmsLink("TECH-193398")
+    @TmsLink("MKP-398")
     public void testMTNNGPurchaseMTNNGDelay2201() throws Exception{
 
         setSimulatorExpectedState(vendorMTNNGDelay5000);
@@ -746,7 +746,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: SMOKE :: purchase :: GLO SUCCESS 0")
-    @TmsLink("TECH-193418")
+    @TmsLink("MKP-402")
     public void testPurchaseGLOSuccess0() throws Exception{
 
         setSimulatorExpectedState(vendorGLOSuccess);
@@ -763,7 +763,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO EXCEPTION 2240")
-    @TmsLink("TECH-193419")
+    @TmsLink("MKP-482")
     public void testPurchaseGLOException2240() throws Exception{
 
         setSimulatorExpectedState(vendorGLOException);
@@ -782,7 +782,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO DELAY 2240")
-    @TmsLink("TECH-193420")
+    @TmsLink("MKP-493")
     public void testPurchaseGLODelay2240() throws Exception{
 
         setSimulatorExpectedState(vendorGLODelay5000);
@@ -801,7 +801,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_PROTOCOL 2201")
-    @TmsLink("TECH-193421")
+    @TmsLink("MKP-453")
     public void testPurchaseGLOErrorProtocol2201() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorProtocol);
@@ -820,7 +820,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_DUP_TRAN_APROV 2222")
-    @TmsLink("TECH-193422")
+    @TmsLink("MKP-421")
     public void testPurchaseGLOErrorDUPTRANAPROV2222() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorDUPTRANAPROV);
@@ -839,7 +839,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_INV_TRAN 2226")
-    @TmsLink("TECH-193423")
+    @TmsLink("MKP-351")
     public void testPurchaseGLOErrorINVTRAN2226() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorINVTRAN);
@@ -859,7 +859,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_INV_AMT 2212")
-    @TmsLink("TECH-193424")
+    @TmsLink("MKP-461")
     public void testPurchaseGLOErrorINVAMT2212() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorINVAMT);
@@ -878,7 +878,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_VER_FAILED 2223")
-    @TmsLink("TECH-193425")
+    @TmsLink("MKP-507")
     public void testPurchaseGLOErrorVerFailed2223() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorVERFailed);
@@ -897,7 +897,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_SUB_LIMITS 2219")
-    @TmsLink("TECH-193426")
+    @TmsLink("MKP-425")
     public void testPurchaseGLOErrorSUBLIMITS2219() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorSubLimits);
@@ -916,7 +916,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_DUP_TRAN_DECL 2222")
-    @TmsLink("TECH-193427")
+    @TmsLink("MKP-433")
     public void testPurchaseGLOErrorDUPTranDECL2222() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorDUPTranDECL);
@@ -935,7 +935,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_TRAN_PROC 2226")
-    @TmsLink("TECH-193428")
+    @TmsLink("MKP-509")
     public void testPurchaseGLOErrorTranPROC2226() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorTranPROC);
@@ -954,7 +954,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_TRAN_LIMIT 2218")
-    @TmsLink("TECH-193429")
+    @TmsLink("MKP-438")
     public void testPurchaseGLOErrorTranLimit2218() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorTRANLimit);
@@ -973,7 +973,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_INV_MSISDN 2213")
-    @TmsLink("TECH-193430")
+    @TmsLink("MKP-492")
     public void testPurchaseGLOErrorINVMSISDN2213() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorINVMSISDN);
@@ -992,7 +992,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: GLO ERROR_INV_STATUS 2217")
-    @TmsLink("TECH-193431")
+    @TmsLink("MKP-468")
     public void testPurchaseGLOErrorINVStatus2217() throws Exception{
 
         setSimulatorExpectedState(vendorGLOErrorINVStatus);
@@ -1011,7 +1011,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_INV_MSISDN 2213")
-    @TmsLink("TECH-193448")
+    @TmsLink("MKP-504")
     public void testPurchaseETISALATErrorINVMSISDN2213() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorINVMSISDN);
@@ -1030,7 +1030,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_INV_AMT 2212")
-    @TmsLink("TECH-193447")
+    @TmsLink("MKP-437")
     public void testPurchaseETISALATErrorINVAMT2212() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorINVAMT);
@@ -1049,7 +1049,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_SERV_PROV 2227")
-    @TmsLink("TECH-193446")
+    @TmsLink("MKP-353")
     public void testPurchaseETISALATErrorSERVPROV2227() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorSERVPROV);
@@ -1068,7 +1068,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_RECHARGE_NOT_ALLOW 2214")
-    @TmsLink("TECH-193444")
+    @TmsLink("MKP-389")
     public void testPurchaseETISALATErrorRechargeNotAllow2214() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorRechargeNotAllow);
@@ -1087,7 +1087,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_AUTH_FAILED 2223")
-    @TmsLink("TECH-193443")
+    @TmsLink("MKP-494")
     public void testPurchaseETISALATErrorAUTHFAILED2223() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorAuthFailed);
@@ -1106,7 +1106,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_NO_RECHARGE 2214")
-    @TmsLink("TECH-193442")
+    @TmsLink("MKP-501")
     public void testPurchaseETISALATErrorNoRecharge2214() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorNoRecharge);
@@ -1125,7 +1125,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_NO_FUNDS 2221")
-    @TmsLink("TECH-193441")
+    @TmsLink("MKP-412")
     public void testPurchaseETISALATErrorNoFunds2221() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorNoFunds);
@@ -1144,7 +1144,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_RECHARGE_NOT_AUTH 2214")
-    @TmsLink("TECH-193440")
+    @TmsLink("MKP-347")
     public void testPurchaseETISALATErrorRechargeNotAuth2214() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorRechargeNotAuth);
@@ -1163,7 +1163,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_TRAN_DUP 2222")
-    @TmsLink("TECH-193438")
+    @TmsLink("MKP-456")
     public void testPurchaseETISALATErrorTRANDUP2222() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorTRANDUP);
@@ -1182,7 +1182,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_SYS_VOL 2225")
-    @TmsLink("TECH-193437")
+    @TmsLink("MKP-417")
     public void testPurchaseETISALATErrorSYSVOL2225() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorSYSVOL);
@@ -1201,7 +1201,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT ERROR_TIME_OUT 2224")
-    @TmsLink("TECH-193435")
+    @TmsLink("MKP-495")
     public void testPurchaseETISALATErrorTimeOUT2224() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATErrorTimeOUT);
@@ -1220,7 +1220,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT DELAY 0")
-    @TmsLink("TECH-193434")
+    @TmsLink("MKP-394")
     public void testPurchaseETISALATDelay0() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATDelay5000);
@@ -1239,7 +1239,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: purchase :: ETISALAT EXCEPTION 2240")
-    @TmsLink("TECH-193433")
+    @TmsLink("MKP-381")
     public void testPurchaseETISALATException2240() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATException);
@@ -1258,7 +1258,7 @@ public class CTXSimulatorTest extends BasedAPIClient {
 
     @Test
     @Description("ctx-simulator :: SMOKE :: purchase :: ETISALAT SUCCESS 0")
-    @TmsLink("TECH-193432")
+    @TmsLink("MKP-386")
     public void testPurchaseETISALATSUCCESS0() throws Exception{
 
         setSimulatorExpectedState(vendorETISALATSuccess);
