@@ -15,7 +15,7 @@ public class SimulatorHealthChecks {
 
     @Test
     @Description("30113 :: 3line-simulator :: GET /ping")
-    @TmsLink("TECH-53921")
+    @TmsLink("MKP-338")
     public void testPing3LineSimulator() {
         Ping3Line()
                 .then().assertThat().statusCode(SC_OK);
@@ -23,7 +23,7 @@ public class SimulatorHealthChecks {
 
     @Test
     @Description("32755 :: raas-bank-simulators-v3 :: GET /health")
-    @TmsLink("TECH-79752")
+    @TmsLink("MKP-1009")
     public void testPingRaasBankV3Simulator() {
         PingRaasV3Simulator()
                 .then().assertThat().statusCode(SC_OK);
@@ -31,7 +31,7 @@ public class SimulatorHealthChecks {
 
     @Test
     @Description("30117 :: airtel-proxy :: GET /ping")
-    @TmsLink("TECH-60268")
+    @TmsLink("MKP-1071")
     public void testPingAirTelProxySimulator() {
         PingAirTelProxySimulator()
                 .then().assertThat().statusCode(SC_OK);
@@ -39,14 +39,14 @@ public class SimulatorHealthChecks {
 
     @Test
     @Description("GET /testresponse")
-    @TmsLink("TECH-60264")
+    @TmsLink("MKP-1025")
     public void testmwmTestResponse() {
         PingMWMSimulator(Identifier_18)
                 .then().assertThat().statusCode(SC_OK);
     }
     @Test
     @Description("30091-magtipon3lineng-rest :: GET \u200B/magtipon3lineng\u200B/ping :: happy path")
-    @TmsLink("TECH-149979")
+    @TmsLink("MKP-667")
     public void testMagtipon3LinengResponse() {
         Pingmagtipon3linengSimulator()
                 .then().assertThat().statusCode(SC_OK);

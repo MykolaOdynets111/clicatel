@@ -17,7 +17,7 @@ public class TokenServices {
 
     @Test
     @Description("31926 :: payd-raas-token-service :: GET /tokenservice/lookup")
-    @TmsLink("TECH-43159")
+    @TmsLink("MKP-968")
     public void testRaasTokenServiceLookup() {
 
         Map<String, String> map = new Hashtable<>();

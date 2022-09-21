@@ -21,7 +21,7 @@ public class CustomerAccountValidationTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30091 :: magtipon3lineng-rest :: public internal :: POST /magtipon3lineng/validateTransaction :: Customer Account Validation (1.0)")
-    @TmsLink("TECH-54463")
+    @TmsLink("MKP-1040")
     public void testValidateCustomerAccountSuccess() {
 
         //validate customers account number
@@ -44,7 +44,7 @@ public class CustomerAccountValidationTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("32050 :: vendor-routing-service :: public internal :: POST /validate :: Customer Account Validation (2.0)")
-    @TmsLink("TECH-54473")
+    @TmsLink("MKP-1051")
     public void testValidateCustomerAccountV2Success() {
 
         //validate customers account number

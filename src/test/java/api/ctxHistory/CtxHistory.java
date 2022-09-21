@@ -27,7 +27,7 @@ public class CtxHistory {
 
     @Test
     @Description("30177 :: ctx-history :: GET /findSuccessful")
-    @TmsLink("TECH-78538")
+    @TmsLink("MKP-1076")
     public void testFindSuccessful() {
 
         Map<String, String> map = new Hashtable<>();
@@ -38,7 +38,7 @@ public class CtxHistory {
     }
     @Test
     @Description("30177 :: ctx-history :: GET /findByClientTransactionIdAndClientId")
-    @TmsLink("TECH-149009")
+    @TmsLink("MKP-565")
     public void testFindByClientTransactionIdAndClient() {
 
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -84,7 +84,7 @@ public class CtxHistory {
     }
     @Test
     @Description("30177 :: ctx-history :: GET /findLastSuccessful")
-    @TmsLink("TECH-78538")
+    @TmsLink("MKP-1076")
     public void testFindLastSuccessful() {
 
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
