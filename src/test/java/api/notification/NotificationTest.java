@@ -24,7 +24,7 @@ public class NotificationTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30116 :: message-notifier :: public internal :: POST /notification :: Notifications API (1.0)")
-    @TmsLink("TECH-53236")
+    @TmsLink("MKP-1002")
     public void testSendNotificationSuccess() {
 
         //send notification
@@ -37,7 +37,7 @@ public class NotificationTest extends BaseApiTest {
 
     @Test
     @Description("30299 :: payd-sim-sms :: POST /rest/messageNotifier")
-    @TmsLink("TECH-77508")
+    @TmsLink("MKP-1112")
     public void testRestMessageNotifierSuccess() {
 
         val body = setUpRestMessageNotifierPostData(NotificationClient.RestMessageNotifiers_to, NotificationClient.RestMessageNotifiers_from, NotificationClient.RestMessageNotifiers_text);

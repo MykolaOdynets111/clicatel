@@ -32,7 +32,7 @@ public class TransactionLookupTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30433 :: transaction-lookup :: public internal :: GET /lookupservice/transaction :: Transaction Lookup API (1.0)")
-    @TmsLink("TECH-54420")
+    @TmsLink("MKP-1115")
     public void testLookupTransactionsApiV1Success() throws InterruptedException {
         // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -68,7 +68,7 @@ public class TransactionLookupTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30433 :: transaction-lookup :: public internal :: GET / lookupservice/transaction/v2 :: Transaction Lookup API (2.0)")
-    @TmsLink("TECH-54422")
+    @TmsLink("MKP-1043")
     public void testLookupTransactionsApiV2Success() throws InterruptedException {
         // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -102,7 +102,7 @@ public class TransactionLookupTest extends BaseApiTest {
     }
     @Test()
     @Description("GET \u200B/lookupservice\u200B/internalTransactionLookup\u200B/v2 :: the \"additionalData\" values should be returned as null in the response is them weren't sent with transact call")
-    @TmsLink("TECH-128469")
+    @TmsLink("MKP-906")
     public void testLookupInternalTransactionsApiV2Success() throws InterruptedException {
         // Perform purchase
         jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
@@ -134,7 +134,7 @@ public class TransactionLookupTest extends BaseApiTest {
     }
     @Test()
     @Description("30433-transaction-lookup :: GET \u200B/lookupservice\u200B/internalTransactionLookup\u200B/v2 :: the \"additionalData\" values should be returned in the response")
-    @TmsLink("TECH-128432")
+    @TmsLink("MKP-731")
     public void testLookupInternalTransactionsApiV2AdditionalData() throws InterruptedException {
         // Perform purchase
         jsonBody = setUpReserveAndTransactV4DataAdditionalData(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);

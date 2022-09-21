@@ -18,7 +18,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 public class PWM {
     @Test
     @Description("31990 :: pwm-simulator :: happy path")
-    @TmsLink("TECH-153375")
+    @TmsLink("MKP-720")
     public void testValidRequestHappyPath() {
 
         Map<String,Object> jsonObjectPayload = new LinkedHashMap<>();

@@ -53,7 +53,7 @@ import static util.DateProvider.getCurrentTimeStamp;
 public class ReserveAndTransactDBChecks extends BaseApiTest {
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.transaction_log all fields")
-    @TmsLink("TECH-173965")
+    @TmsLink("MKP-615")
     public void testReserveAndTransactV4RaasTransactionLogAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -284,7 +284,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.raas_request all fields")
-    @TmsLink("TECH-174321")
+    @TmsLink("MKP-566")
     public void testReserveAndTransactV4RaasRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -395,7 +395,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.raas_response all fields")
-    @TmsLink("TECH-174322")
+    @TmsLink("MKP-680")
     public void testReserveAndTransactV4RaasResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -451,7 +451,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.reserve_fund_request all fields")
-    @TmsLink("TECH-174323")
+    @TmsLink("MKP-590")
     public void testReserveAndTransactV4RaasReserveFundRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -545,7 +545,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.reserve_fund_response all fields")
-    @TmsLink("TECH-174324")
+    @TmsLink("MKP-548")
     public void testReserveAndTransactV4RaasReserveFundResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -600,7 +600,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_request all fields")
-    @TmsLink("TECH-174325")
+    @TmsLink("MKP-537")
     public void testReserveAndTransactV4RaasCtxRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -702,7 +702,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_response all fields")
-    @TmsLink("TECH-174326")
+    @TmsLink("MKP-623")
     public void testReserveAndTransactV4RaasCtxResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -810,7 +810,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.transaction_result_request all fields")
-    @TmsLink("TECH-174327")
+    @TmsLink("MKP-675")
     public void testReserveAndTransactV4RaasTransactionResultRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -868,7 +868,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.transaction_result_response all fields")
-    @TmsLink("TECH-174328")
+    @TmsLink("MKP-529")
     public void testReserveAndTransactV4RaasTransactionResultResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -919,7 +919,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log\" table")
-    @TmsLink("TECH-176901")
+    @TmsLink("MKP-418")
     public void testReserveAndTransactV4CtxTranLogAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -1135,7 +1135,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_channel\" table ")
-    @TmsLink("TECH-176987")
+    @TmsLink("MKP-502")
     public void testReserveAndTransactV4CtxTranLogChannelAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -1196,7 +1196,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: check all fields in the \"ctx\" DB \"tran_log_ext\" table  ")
-    @TmsLink("TECH-176986")
+    @TmsLink("MKP-384")
     public void testReserveAndTransactV4CtxTranLogExtAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -1254,7 +1254,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_lookup_request all fields")
-    @TmsLink("TECH-177008")
+    @TmsLink("MKP-470")
     public void testReserveAndTransactV4RaasCtxLookupRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -1324,7 +1324,7 @@ public class ReserveAndTransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/reserveAndTransact :: raas.ctx_lookup_response all fields")
-    @TmsLink("TECH-177019")
+    @TmsLink("MKP-464")
     public void testReserveAndTransactV4RaasCtxLookupResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));

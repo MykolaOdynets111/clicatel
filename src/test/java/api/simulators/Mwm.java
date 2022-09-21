@@ -17,7 +17,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 public class Mwm {
     @Test
     @Description("32051-mwm-simulator :: POST /validaterequest :: happy path")
-    @TmsLink("TECH-146593")
+    @TmsLink("MKP-574")
     public void testValidRequestHappyPath() {
 
         Map<String,Object> jsonObjectPayload = new LinkedHashMap<>();

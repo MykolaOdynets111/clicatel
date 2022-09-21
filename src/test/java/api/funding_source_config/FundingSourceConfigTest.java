@@ -30,7 +30,7 @@ public class FundingSourceConfigTest extends BasedAPIClient {
 
     @Test
     @Description("GET /fundingSources :: happy path")
-    @TmsLink("TECH-157599")
+    @TmsLink("MKP-337")
     public void testGetFundingSources(){
         //Delete funding source country and funding source // Pre conditions
         executeCustomQuery(POSTGRES_SQL, format(DELETE_FUNDING_SOURCE_COUNTRY_BY_FUNDING_SOURCE_ID, ProductLookupClient.fundingSourceId_1206));

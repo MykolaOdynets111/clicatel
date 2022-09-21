@@ -52,7 +52,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30309 :: financial-terms-lookup :: public internal :: GET /financialTerms :: Financial Terms Lookup API (1.0)")
-    @TmsLink("TECH-50897")
+    @TmsLink("MKP-1540")
     public void testFinancialTermsLookupSuccess() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_DISCOUNT_PERCENTAGE_BY_PRODUCT_ID, ResponseCode_206));
@@ -164,7 +164,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: POST \u200B/financial-terms\u200B/financialModels\u200B/configureFinTermsForClient :: happy path")
-    @TmsLink("TECH-156845")
+    @TmsLink("MKP-684")
     public void testFinancialTermsConfigureFinTermsForClient() throws InterruptedException {
 
         //Pre conditions
@@ -239,7 +239,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: GET /terms :: SMOKE test case for the service")
-    @TmsLink("TECH-197217")
+    @TmsLink("MKP-1448")
     public void testFinancialTermsGETTermsSmokeCase() {
 
         getTerms(TestClient3,ProductAirtel_917)
@@ -248,7 +248,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: POST /financial-terms/vendorDiscount :: happy path")
-    @TmsLink("TECH-171707")
+    @TmsLink("MKP-1441")
     public void testPostFinancialTermsVendorDiscount() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_DISCOUNT_PERCENTAGE_BY_PRODUCT_ID, ResponseCode_206));
@@ -302,7 +302,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: GET /financial-terms/calculate :: happy path")
-    @TmsLink("TECH-149973")
+    @TmsLink("MKP-1525")
     public void testGETFinancialTermsCalculate() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_DISCOUNT_PERCENTAGE_BY_PRODUCT_ID, ResponseCode_206));
@@ -356,7 +356,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: GET \u200B/financial-terms/calculateAtTime :: happy path")
-    @TmsLink("TECH-149970")
+    @TmsLink("MKP-1513")
     public void testGETFinancialTermsCalculateAtTime() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_DISCOUNT_PERCENTAGE_BY_PRODUCT_ID, ResponseCode_206));
@@ -410,7 +410,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     @Test()
     @Description("30309-financial-terms-lookup :: REGRESSION :: POST /raas/v4/reserveAndTransact")
-    @TmsLink("TECH-149976")
+    @TmsLink("MKP-1559")
     public void testPOSTV4ReserveAndTransactFinancialTermsLookup() {
 
         executeCustomQuery(POSTGRES_SQL, format(DELETE_VENDOR_DISCOUNT_PERCENTAGE_BY_PRODUCT_ID, ResponseCode_206));

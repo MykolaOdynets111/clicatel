@@ -38,7 +38,7 @@ public class MTN {
 
     @Test
     @Description("31943 :: mtn-simulator :: happy path")
-    @TmsLink("TECH-149982")
+    @TmsLink("MKP-661")
     public void testMtnSimulatorHappyPath() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpMtnSimData("9313", "27837640171", "virtual_recharge", 200);
@@ -92,7 +92,7 @@ public class MTN {
 
     @Test
     @Description("31943 :: mtn-simulator :: GET /mtn/test-scenarios :: happy path")
-    @TmsLink("TECH-113937")
+    @TmsLink("MKP-1048")
     public void testMtnSimulatorGetAllScenarios() throws InterruptedException
     {
         GetAllScenarios()
@@ -102,7 +102,7 @@ public class MTN {
     }
     @Test
     @Description("31943 :: mtn-simulator :: GET /mtn/current-test-scenario :: happy path")
-    @TmsLink("TECH-91848")
+    @TmsLink("MKP-1031")
     public void testMtnGetCurrentScenario() throws InterruptedException
     {
         Map<String,Object> CurrentScenario_sample= new LinkedHashMap<>();
@@ -118,7 +118,7 @@ public class MTN {
     }
     @Test
     @Description("31943 :: mtn-simulator :: PUT /mtn/current-test-scenario :: happy path")
-    @TmsLink("TECH-113930")
+    @TmsLink("MKP-951")
     public void testMtnPutCurrentScenario() throws InterruptedException
     {
         Map<String,Object> CurrentScenario_sample= new LinkedHashMap<>();
@@ -135,7 +135,7 @@ public class MTN {
 
     @Test
     @Description("31943 :: mtn-simulator :: GET /mtn/test-scenario :: happy path")
-    @TmsLink("TECH-113932")
+    @TmsLink("MKP-1102")
     public void testGetTestScenarioHappyPath() {
 
         DeleteScenario("min")
@@ -168,7 +168,7 @@ public class MTN {
 
     @Test
     @Description("31943 :: mtn-simulator :: GET /application-management/bundle-catalogue/enterprise/proxy/api/v6/vas :: happy path ")
-    @TmsLink("TECH-113938")
+    @TmsLink("MKP-993")
     public void testMtnGetApplicationManagementBundleV6() throws InterruptedException
     {
         Map<String,Object> CurrentScenario_sample= new LinkedHashMap<>();

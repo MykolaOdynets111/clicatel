@@ -19,7 +19,7 @@ public class Channels{
 
     @Test
     @Description("30254 :: payd-channel-lookup :: GET /channels")
-    @TmsLink("TECH-45212")
+    @TmsLink("MKP-1041")
     public void testGetChannelsSuccess() {
 
         //get all channels
@@ -38,7 +38,7 @@ public class Channels{
 
     @Test
     @Description("GET /channels/{id} :: happy path")
-    @TmsLink("TECH-146579")
+    @TmsLink("MKP-594")
     public void testGetChannelByID() {
 
         //get all channels

@@ -17,7 +17,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 public class RaasVelocity {
     @Test
     @Description("POST /raas/verifyAndRecord :: happy path")
-    @TmsLink("TECH-51788")
+    @TmsLink("MKP-972")
     public void testRaasVerifyRecordHappyPath() {
 
         val body = setUpRaasVerifyAndRecordData(ReserveAndTransactClient.fundingSourceId_1500, ReserveAndTransactClient.PurchaseAmount1000, VelocityClients.sourceMsisdn, VelocityClients.transactionId);

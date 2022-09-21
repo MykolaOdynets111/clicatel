@@ -25,7 +25,7 @@ public class PortalTransactionLookup {
 
     @Test
     @Description("GET /lookupservice/transaction-lookup-core :: happy path")
-    @TmsLink("TECH-47963")
+    @TmsLink("MKP-963")
     public void testTransactionLookupCoreHappyPath() {
         Map<String, String> map = new Hashtable<>();
         map.put("clientId", TransactionLookupClient.TestClient143);
@@ -91,7 +91,7 @@ public class PortalTransactionLookup {
 
     @Test
     @Description("GET /lookupservice/list-aws-files :: happy path")
-    @TmsLink("TECH-121288")
+    @TmsLink("MKP-1008")
     public void testTransactionLookupListAwsFiles() {
 
         Map<String, String> map = new Hashtable<>();
