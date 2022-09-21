@@ -23,7 +23,7 @@ import static org.apache.http.HttpStatus.*;
 public class ReserveAndTransactMSISDNbasedOnProductTypeTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testReserveAndTransactV4SuccessDataMSISDNProducType() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataMSISDNProducType(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -36,7 +36,7 @@ public class ReserveAndTransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testReserveAndTransactV3SuccessDataMSISDNProducType() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataDataMSISDNProducType(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 

@@ -32,7 +32,7 @@ public class InFlightTransactionTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30433 :: transaction-lookup :: public internal :: POST /lookupservice/pendingTransactions :: In-Flight Transaction Lookup API (1.0)")
-    @TmsLink("TECH-54418")
+    @TmsLink("MKP-959")
     public void testLookupPendingTransactionsSuccess() {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_200, InFlightTransactionLookupClient.AirTel_lookup);

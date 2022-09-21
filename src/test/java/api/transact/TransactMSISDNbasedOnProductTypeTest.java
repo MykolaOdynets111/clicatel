@@ -17,7 +17,7 @@ import static org.apache.http.HttpStatus.*;
 public class TransactMSISDNbasedOnProductTypeTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testTransactV4Success() throws InterruptedException {
         val jsonBody = setUpTransactV4DataMSISDNProducType(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -31,7 +31,7 @@ public class TransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testTransactV3Success() throws InterruptedException {
         val jsonBody = setUpTransactV3DataMSISDNProducType(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -45,7 +45,7 @@ public class TransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testTransactV2Success() throws InterruptedException {
         val jsonBody = setUpTransactV2DataMSISDNProducType(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -59,7 +59,7 @@ public class TransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testTransactV1Success() throws InterruptedException {
         val jsonBody = setUpTransactV1DataMSISDNProducType(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 

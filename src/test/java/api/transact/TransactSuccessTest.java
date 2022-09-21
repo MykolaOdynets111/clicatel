@@ -22,7 +22,7 @@ import static org.apache.http.HttpStatus.SC_OK;
 public class TransactSuccessTest extends BaseApiTest {
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: POST v4/transact :: SUCCESS :: Transact API (4.0)")
-    @TmsLink("TECH-54338")
+    @TmsLink("MKP-1010")
     public void testTransactV4Success() throws InterruptedException {
         val jsonBody = setUpTransactV4Data(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -70,7 +70,7 @@ public class TransactSuccessTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v3/transact :: SUCCESS")
-    @TmsLink("TECH-54339")
+    @TmsLink("MKP-1012")
     public void testTransactV3Success() throws InterruptedException {
         val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -118,7 +118,7 @@ public class TransactSuccessTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v2/transact :: SUCCESS")
-    @TmsLink("TECH-54340")
+    @TmsLink("MKP-931")
     public void testTransactV2Success() throws InterruptedException {
         val jsonBody = setUpTransactV2Data(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -166,7 +166,7 @@ public class TransactSuccessTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v1/transact SUCCESS")
-    @TmsLink("TECH-54341")
+    @TmsLink("MKP-1107")
     public void testTransactV1Success() throws InterruptedException {
         val jsonBody = setUpTransactV1Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 

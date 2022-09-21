@@ -57,12 +57,6 @@ public class DbTest extends BaseApiTest {
         .then()
                 .log()
                 .all();
-
-
-
-
     }
-
-
 
 }

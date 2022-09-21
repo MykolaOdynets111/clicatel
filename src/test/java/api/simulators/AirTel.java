@@ -32,7 +32,7 @@ public class AirTel {
 
     @Test
     @Description("GET /dataoffer :: if valid airtle msisdn is provided as request parameter then hardcoded airtel product should be returned in the response")
-    @TmsLink("TECH-116731")
+    @TmsLink("MKP-979")
     public void testValidMsisdnAirtelWithProducts() {
 
         Map<String, String> map = new Hashtable<>();
@@ -47,7 +47,7 @@ public class AirTel {
 
     @Test
     @Description("GET /dataoffer :: if airtel msisdn without products is provided as request parameter then none of products should be returned in the response")
-    @TmsLink("TECH-116732")
+    @TmsLink("MKP-960")
     public void testValidMsisdnAirtelWithoutProducts() {
 
         Map<String, String> map = new Hashtable<>();
@@ -62,7 +62,7 @@ public class AirTel {
 
     @Test
     @Description("GET /dataoffer :: if not airtel msisdn is provided as request parameter then none of products should be returned in the response")
-    @TmsLink("TECH-116733")
+    @TmsLink("MKP-975")
     public void testInValidMsisdnAirtelWithoutProducts() {
 
         Map<String, String> map = new Hashtable<>();
@@ -76,14 +76,14 @@ public class AirTel {
     }
     @Test
     @Description("30118-airtel-simulator :: GET /responsecodes :: happy path")
-    @TmsLink("TECH-147791")
+    @TmsLink("MKP-626")
     public void testGetResponseCodesAirtelSimulator() {
         GetAirTelSimulatorResponseCodes()
                 .then().assertThat().statusCode(SC_OK);
     }
     @Test
     @Description("30118-airtel-simulator :: happy path")
-    @TmsLink("TECH-147789")
+    @TmsLink("MKP-715")
     public void testAirtelSimulatorHappyPath() throws InterruptedException {
 
         val addTestCase = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);

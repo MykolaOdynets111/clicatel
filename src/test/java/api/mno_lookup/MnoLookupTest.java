@@ -28,7 +28,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30049 :: client-mno-lookup-service :: public internal :: GET /mnp/mnpLookup :: MNO Lookup (1.0)")
-    @TmsLink("TECH-54461")
+    @TmsLink("MKP-999")
     public void testMnoLookupSuccess() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -54,7 +54,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049 :: client-mno-lookup-service :: GET  /mnp/lookupCountryPrefix")
-    @TmsLink("TECH-43153")
+    @TmsLink("MKP-1046")
     public void testMnoLookupCountryPrefix() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("countryCode", String.valueOf(CountryCode.NG));
@@ -68,7 +68,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049 :: client-mno-lookup-service :: GET /mnp/mnpLookup :: 9020 'Unable to identify operator' scenario")
-    @TmsLink("TECH-79997")
+    @TmsLink("MKP-1062")
     public void testMnoLookupInvalidMsisdn() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -85,7 +85,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9010 \"Incorrect msisdn country combination\" scenario")
-    @TmsLink("TECH-169530")
+    @TmsLink("MKP-714")
     public void testMnoLookupIncorrectMsisdnCountryCombination() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -101,7 +101,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9090 \"Unknown country code/prefix\" scenario")
-    @TmsLink("TECH-169533")
+    @TmsLink("MKP-580")
     public void testMnoLookupUnknownCountryCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -117,7 +117,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"MTN\" operatorCode")
-    @TmsLink("TECH-169546")
+    @TmsLink("MKP-528")
     public void testMnoLookup0000SuccessForMtnOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -136,7 +136,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 9090 \"Unknown country code/prefix\" scenario")
-    @TmsLink("TECH-169540")
+    @TmsLink("MKP-652")
     public void testMnoLookupCountryCodeNotPresentInParams() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -151,7 +151,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 400 \"Required String parameter 'msisdn' is not present\" scenario ")
-    @TmsLink("TECH-169537")
+    @TmsLink("MKP-716")
     public void testMnoLookupMsisdnNotPresentInParams() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -166,7 +166,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 400 \"Required int parameter 'clientId' is not present\" scenario")
-    @TmsLink("TECH-169535")
+    @TmsLink("MKP-534")
     public void testMnoLookupClientIdNotPresent() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("msisdn", MnoLookupClient.ValidMsisdn);
@@ -181,7 +181,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"Vodacom\" operatorCode")
-    @TmsLink("TECH-169545")
+    @TmsLink("MKP-707")
     public void testMnoLookup0000SuccessForVodacomOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -200,7 +200,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"AIRTEL\" operatorCode")
-    @TmsLink("TECH-169544")
+    @TmsLink("MKP-638")
     public void testMnoLookup0000SuccessForAirTelOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -219,7 +219,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"MTN-NG\" operatorCode")
-    @TmsLink("TECH-169541")
+    @TmsLink("MKP-577")
     public void testMnoLookup0000SuccessForMTNNGOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -237,7 +237,7 @@ public class MnoLookupTest extends BaseApiTest {
     }
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"9MOBILE\" operatorCode")
-    @TmsLink("TECH-169542")
+    @TmsLink("MKP-634")
     public void testMnoLookup0000SuccessFor9MobileOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);
@@ -256,7 +256,7 @@ public class MnoLookupTest extends BaseApiTest {
 
     @Test
     @Description("30049-client-mno-lookup-service :: GET \u200B/mnp\u200B/mnpLookup :: 0000 success for the \"GLO\" operatorCode")
-    @TmsLink("TECH-169543")
+    @TmsLink("MKP-695")
     public void testMnoLookup0000SuccessForGLOOperatorCode() {
         Map<String, String> queryParams = new Hashtable<>();
         queryParams.put("clientId", ReserveAndTransactClient.TestClient3);

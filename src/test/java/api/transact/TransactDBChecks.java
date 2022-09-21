@@ -45,7 +45,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TransactDBChecks extends BaseApiTest {
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.transaction_log all fields")
-    @TmsLink("TECH-174330")
+    @TmsLink("MKP-648")
     public void testTransactV4RaasTransactionLogAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -278,7 +278,7 @@ public class TransactDBChecks extends BaseApiTest {
 
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.raas_request all fields")
-    @TmsLink("TECH-174331")
+    @TmsLink("MKP-579")
     public void testTransactV4RaasRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1,Vendor21));
@@ -388,7 +388,7 @@ public class TransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.raas_response all fields")
-    @TmsLink("TECH-174332")
+    @TmsLink("MKP-612")
     public void testTransactV4RaasResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -443,7 +443,7 @@ public class TransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.ctx_request all fields")
-    @TmsLink("TECH-174335")
+    @TmsLink("MKP-686")
     public void testTransactV4RaasCtxRequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -545,7 +545,7 @@ public class TransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.ctx_response all fields")
-    @TmsLink("TECH-174336")
+    @TmsLink("MKP-606")
     public void testTransactV4RaasCtxResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -653,7 +653,7 @@ public class TransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.transaction_result_request all fields")
-    @TmsLink("TECH-174337")
+    @TmsLink("MKP-651")
     public void testTransactV4RaasTransaction_Result_RequestAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));
@@ -718,7 +718,7 @@ public class TransactDBChecks extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST v4/transact :: raas.transaction_result_response all fields")
-    @TmsLink("TECH-174338")
+    @TmsLink("MKP-696")
     public void testTransactV4RaasTransaction_Result_ResponseAllFields() throws InterruptedException {
         //Failing because of https://jira.clickatell.com/browse/TECH-176071
         executeCustomQuery(POSTGRES_SQL, format(UPDATE_VENDOR_DISCOUNT_PERCENTAGE_BY_VENDOR_ID, value_0point1, Vendor21));

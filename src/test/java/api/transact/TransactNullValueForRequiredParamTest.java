@@ -20,7 +20,7 @@ public class TransactNullValueForRequiredParamTest {
     //V4 Transact NULL Cases
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-93277")
+    @TmsLink("MKP-1000")
     public void testTransactV4WithChannelSessionIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCSIDNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -34,7 +34,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139689")
+    @TmsLink("MKP-768")
     public void testTransactV4WithTimeStampNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithTSNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -48,7 +48,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139690")
+    @TmsLink("MKP-750")
     public void testTransactV4WithReserveFundsTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithRFTRNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -62,7 +62,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139691")
+    @TmsLink("MKP-875")
     public void testTransactV4WithReserveClientIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCINull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -76,7 +76,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139692")
+    @TmsLink("MKP-883")
     public void testTransactV4WithReserveFundingSourceIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithFSNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -90,7 +90,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139693")
+    @TmsLink("MKP-858")
     public void testTransactV4WithReserveProductIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithPIDNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -104,7 +104,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139694")
+    @TmsLink("MKP-832")
     public void testTransactV4WithReservePurchaseAmountNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithPANull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -118,7 +118,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139695")
+    @TmsLink("MKP-747")
     public void testTransactV4WithReserveFeeAmountNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithFANull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -132,7 +132,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139696")
+    @TmsLink("MKP-913")
     public void testTransactV4WithReserveCurrencyCodeNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCCNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -147,7 +147,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139697")
+    @TmsLink("MKP-842")
     public void testTransactV4WithtReserveChannelIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCIDnull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -162,7 +162,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139698")
+    @TmsLink("MKP-918")
     public void testTransactV4WithReserveChannelNameNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCNNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN,null, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -176,7 +176,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139699")
+    @TmsLink("MKP-839")
     public void testTransactV4WithReserveSourceIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithSINull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -190,7 +190,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/transact :: null value for required parameters")
-    @TmsLink("TECH-139700")
+    @TmsLink("MKP-855")
     public void testTransactV4WithReserveTargetIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithCTINull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -203,7 +203,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v4/transact :: null value for the clientTxnRef")
-    @TmsLink("TECH-139904")
+    @TmsLink("MKP-903")
     public void testTransactV4WithReserveClientTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataClientTxnRefMaxLimit(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -216,7 +216,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v4/transact :: null value for the authCode")
-    @TmsLink("TECH-139901")
+    @TmsLink("MKP-737")
     public void testTransactV4WithReserveAuthCodeNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataAuthCodeMaxLimit(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -229,7 +229,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v4/transact :: null value for the accountIdentifier")
-    @TmsLink("TECH-139898")
+    @TmsLink("MKP-787")
     public void testTransactV4WithReserveAccountIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV4DataWithAuthCodeNull(ReserveAndTransactClient.TestClient3, CurrencyCode.NGN, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -244,7 +244,7 @@ public class TransactNullValueForRequiredParamTest {
     //V3 Transact Null Casses
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-93345")
+    @TmsLink("MKP-1037")
     public void testTransactV3SuccessWithChannelSessionIDNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithChannelSessionIDNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -258,7 +258,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140100")
+    @TmsLink("MKP-824")
     public void testTransactV3SuccessWitTimeStampIDNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WitTimeStampIDNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -272,7 +272,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140101")
+    @TmsLink("MKP-733")
     public void testTransactV3SuccessWithCreserveFundsTxnRefNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithreserveFundsTxnRefNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -286,7 +286,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140102")
+    @TmsLink("MKP-899")
     public void testTransactV3SuccessWithclientIdNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithclientIdNull(null, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -299,7 +299,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140103")
+    @TmsLink("MKP-853")
     public void testTransactV3SuccessWithproductIdNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithproductIdNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, null);
 
@@ -313,7 +313,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140104")
+    @TmsLink("MKP-922")
     public void testTransactV3SuccessWithpurchaseAmountNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithpurchaseAmountNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -327,7 +327,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140105")
+    @TmsLink("MKP-908")
     public void testTransactV3SuccessWithfeeAmountNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithfeeAmountNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -341,7 +341,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140106")
+    @TmsLink("MKP-582")
     public void testTransactV3SuccessWithchannelIdisNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithchannelIdisNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, null, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -354,7 +354,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140107")
+    @TmsLink("MKP-658")
     public void testTransactV3SuccessWithchannelNameNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithchannelNameNull(ReserveAndTransactClient.TestClient3, null, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -368,7 +368,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140108")
+    @TmsLink("MKP-710")
     public void testTransactV3SuccessWithsourceIdentifierNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithsourceIdentifierNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -381,7 +381,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/transact :: null value for required parameters")
-    @TmsLink("TECH-140109")
+    @TmsLink("MKP-561")
     public void testTransactV3SuccessWithtargetIdentifierNull() throws InterruptedException {
         val jsonBody = SetupBodyForTransactV3WithtargetIdentifierNull(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -394,7 +394,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v3/transact :: null value for the clientTxnRef")
-    @TmsLink("TECH-140135")
+    @TmsLink("MKP-693")
     public void testTransactV3SuccessWithClientTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV3DataClientTxnRefMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -407,7 +407,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v3/transact :: null value for the authCode")
-    @TmsLink("TECH-140131")
+    @TmsLink("MKP-585")
     public void testTransactV3SuccessWithAuthCodeNull() throws InterruptedException {
         val jsonBody = setUpTransactV3DataAuthCodeMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -420,7 +420,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v3/transact :: null value for the accountIdentifier")
-    @TmsLink("TECH-140129")
+    @TmsLink("MKP-532")
     public void testTransactV3Success() throws InterruptedException {
         val jsonBody = setUpTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INTERNET, ChannelId.INTERNET, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -436,7 +436,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-93351")
+    @TmsLink("MKP-977")
     public void testTransactV2WithChannelSessionIDNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithChannelSessionIDEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -450,7 +450,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140825")
+    @TmsLink("MKP-702")
     public void testTransactV2WithTimestampNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithtimestampEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917,null);
 
@@ -463,7 +463,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140826")
+    @TmsLink("MKP-592")
     public void testTransactV2WithReserveFundsTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithreserveFundsTxnRefEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -476,7 +476,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140827")
+    @TmsLink("MKP-550")
     public void testTransactV2WithClientIdNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithclientIdEmpty(null, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -489,7 +489,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140828")
+    @TmsLink("MKP-526")
     public void testTransactV2WithProductIdNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithproductIdEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, null);
 
@@ -502,7 +502,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140829")
+    @TmsLink("MKP-639")
     public void testTransactV2WithPurchaseAmountNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DatapurchaseAmountEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -515,7 +515,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140830")
+    @TmsLink("MKP-576")
     public void testTransactV2WithChannelIdisNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithchannelIdisEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, null, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -528,7 +528,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters")
-    @TmsLink("TECH-140824")
+    @TmsLink("MKP-713")
     public void testTransactV2WithChannelNameNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithchannelNameEmpty(ReserveAndTransactClient.TestClient3, null, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -542,7 +542,7 @@ public class TransactNullValueForRequiredParamTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters (targetIdentifierEmpty)")
-    @TmsLink("TECH-123398")
+    @TmsLink("MKP-801")
     public void testTransactV2WithTargetIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithTargetIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -555,7 +555,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/transact :: null value for required parameters (sourceIdentifierEmpty)")
-    @TmsLink("TECH-123353")
+    @TmsLink("MKP-952")
     public void testTransactV2WithSourceIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataWithsourceIdentifierEmpty(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -568,7 +568,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v2/transact :: null value for clientTxnRef")
-    @TmsLink("TECH-140923")
+    @TmsLink("MKP-616")
     public void testTransactV2WithClientTxnRefNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataClientTxnRefMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -581,7 +581,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v2/transact :: null value for authCode")
-    @TmsLink("TECH-140921")
+    @TmsLink("MKP-631")
     public void testTransactV2WithAuthCodeNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataAuthCodeIdMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 
@@ -594,7 +594,7 @@ public class TransactNullValueForRequiredParamTest {
     }
     @Test
     @Description("POST /raas/v2/transact :: null value for accountIdentifier")
-    @TmsLink("TECH-140919")
+    @TmsLink("MKP-656")
     public void testTransactV2WithAccIdentifierNull() throws InterruptedException {
         val jsonBody = setUpTransactV2DataAccountIdentifierMaxLimit(ReserveAndTransactClient.TestClient3, ChannelName.USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, null);
 

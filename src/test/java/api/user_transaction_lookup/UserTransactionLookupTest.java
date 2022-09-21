@@ -20,7 +20,7 @@ public class UserTransactionLookupTest extends BaseApiTest {
 
     @Test
     @Description("30065 :: profile-management :: public internal :: GET /userTransactions :: User Transaction Lookup API (1.0)")
-    @TmsLink("TECH-54469")
+    @TmsLink("MKP-1054")
     public void testUserTransactionLookupSuccess() {
         Map <String, String> queryParams = new Hashtable<>();
         queryParams.put("userIdentifier", TokenLookupClient.Identifier_1);

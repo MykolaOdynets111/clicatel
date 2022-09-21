@@ -20,7 +20,7 @@ public class TokenLookupTest extends BaseApiTest {
 
     @Test
     @Description("30065 :: profile-management :: public internal :: GET /user/tokens :: Token Lookup API (1.0)")
-    @TmsLink("TECH-54465")
+    @TmsLink("MKP-1101")
     public void testTokenLookupSuccess() {
         Map <String, String> queryParams = new Hashtable<>();
         queryParams.put("sourceIdentifier", TokenLookupClient.Identifier_1);

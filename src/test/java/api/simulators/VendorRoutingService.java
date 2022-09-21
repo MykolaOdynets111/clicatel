@@ -36,7 +36,7 @@ import static api.clients.ReserveAndTransactClient.*;
 public class VendorRoutingService {
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: happy path")
-    @TmsLink("TECH-106758")
+    @TmsLink("MKP-1562")
     public void testMTNSyncInvokeHappyPath() {
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -220,7 +220,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("31943 :: mtn-simulator :: POST /mtn/test-scenario :: happy path")
-    @TmsLink("TECH-109381")
+    @TmsLink("MKP-1091")
     public void testPostMTNSyncHappyPath() {
 //        Map<String, String> map_1600 = new Hashtable<>();
 //        map_1600.put("productId", ProductLookupClient.Product_1600);
@@ -408,7 +408,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("31943 :: mtn-simulator :: GET /mtn/test-scenario/{scenarioId} :: happy path")
-    @TmsLink("TECH-113935")
+    @TmsLink("MKP-1057")
     public void testGetTestScenarioByScenarioId() {
 
         DeleteScenario("min")
@@ -441,7 +441,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("31943 :: mtn-simulator :: DELETE /mtn/test-scenario/{scenarioId} :: happy path")
-    @TmsLink("TECH-113934")
+    @TmsLink("MKP-974")
     public void testDeleteTestScenarioByScenarioId() {
 
         DeleteScenario("min")
@@ -477,7 +477,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"period\"(attribute 3)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153221")
+    @TmsLink("MKP-682")
     public void testAttribute3CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -575,7 +575,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: (ChargeType) Verify that duplicate values get transformed and saved")
-    @TmsLink("TECH-154214")
+    @TmsLink("MKP-562")
     public void testChargeTypeDuplicateValuesGetTransformedAndSaved() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -659,7 +659,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: (ChargeType) Verify that values provided without hyphen in Payload for (Autorenew , Onceoff) should get transformed and saved with hyphen in DB For ex: (Auto-renew , Once-off)")
-    @TmsLink("TECH-107933")
+    @TmsLink("MKP-1098")
     public void testChargeTypeWithoutHyphenValuesGetTransformedAndSaved() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -745,7 +745,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"period\"(attribute 3)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90464")
+    @TmsLink("MKP-1106")
     public void testAttribute3CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -840,7 +840,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the value(attribute 2)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-113233")
+    @TmsLink("MKP-939")
     public void testAttribute2CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -934,7 +934,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the value(attribute 2)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153220")
+    @TmsLink("MKP-553")
     public void testAttribute2CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1031,7 +1031,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the bundleUOM(attribute 1)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153206")
+    @TmsLink("MKP-589")
     public void testAttribute1CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1129,7 +1129,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the bundleUOM(attribute 1)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90465")
+    @TmsLink("MKP-983")
     public void testAttribute1CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1225,7 +1225,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"productPrompt\"(attribute 30)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90403")
+    @TmsLink("MKP-969")
     public void testAttribute30CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1324,7 +1324,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"productPrompt\"(attribute 30)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153259")
+    @TmsLink("MKP-571")
     public void testAttribute30CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1423,7 +1423,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"chargeable\"(attribute 31)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90461")
+    @TmsLink("MKP-949")
     public void testAttribute31CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1519,7 +1519,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"chargeable\"(attribute 31)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153263")
+    @TmsLink("MKP-546")
     public void testAttribute31CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1616,7 +1616,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"me2uAllowed\"(attribute 33)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153273")
+    @TmsLink("MKP-624")
     public void testAttribute33CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1713,7 +1713,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"me2uAllowed\"(attribute 33)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-113231")
+    @TmsLink("MKP-956")
     public void testAttribute33CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1809,7 +1809,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"recurringVasCode\"(attribute 34)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90462")
+    @TmsLink("MKP-967")
     public void testAttribute34CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -1906,7 +1906,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"recurringVasCode\"(attribute 34)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153275")
+    @TmsLink("MKP-673")
     public void testAttribute34CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2003,7 +2003,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"allPlatforms\"(attribute 35)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90463")
+    @TmsLink("MKP-1122")
     public void testAttribute35CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2100,7 +2100,7 @@ public class VendorRoutingService {
 
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"allPlatforms\"(attribute 35)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153276")
+    @TmsLink("MKP-676")
     public void testAttribute35CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2193,7 +2193,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"onceOffVasCode\"(attribute 36)(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90402")
+    @TmsLink("MKP-970")
     public void testAttribute36CreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2289,7 +2289,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"onceOffVasCode\"(attribute 36)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153278")
+    @TmsLink("MKP-613")
     public void testAttribute36CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2386,7 +2386,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: \"bundleIndicator\" (attribute 37)(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-151910")
+    @TmsLink("MKP-723")
     public void testAttribute37CreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2483,7 +2483,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"isTopSeller\"(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90466")
+    @TmsLink("MKP-989")
     public void testIsTopSellerCreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2581,7 +2581,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"isTopSeller\"(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153289")
+    @TmsLink("MKP-654")
     public void testIsTopSellerCreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2680,7 +2680,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"topSellerOn\"(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90470")
+    @TmsLink("MKP-971")
     public void testTopSellerOnCreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2780,7 +2780,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"topSellerOn\"(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153291")
+    @TmsLink("MKP-633")
     public void testTopSellerOnCreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2881,7 +2881,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"purchaseMedium\"(optional) the \"create\" scenario for the \"valid\" value and the \"update\" scenario for the \"empty\" value")
-    @TmsLink("TECH-90468")
+    @TmsLink("MKP-1059")
     public void testPurchaseMediumCreateForValidAndUpdateForEmpty() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -2993,7 +2993,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: GET \u200B/mtn\u200B/sync\u200B/invoke :: the \"purchaseMedium\"(optional) the \"create\" scenario for the \"empty\" value and the \"update\" scenario for the \"valid\" value")
-    @TmsLink("TECH-153293")
+    @TmsLink("MKP-691")
     public void testPurchaseMediumCreateForEmptyAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);
@@ -3106,7 +3106,7 @@ public class VendorRoutingService {
     }
     @Test
     @Description("32050-vendor-routing-service :: GET \u200B/mtn\u200B/sync\u200B/invoke :: Verify that BundleDescription from MTN response is mapped to \"shortDescription\"")
-    @TmsLink("TECH-108436")
+    @TmsLink("MKP-1768")
     public void testBundleDescriptionCreateForValidAndUpdateForValid() throws InterruptedException {
 
         executeCustomQuery(POSTGRES_SQL, DELETE_VENDOR_PRODUCT);

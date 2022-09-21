@@ -48,7 +48,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //SUCCESS :: v1-v4
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: POST v4/reserveAndTransact :: SUCCESS :: Reserve and Transact API (4.0)")
-    @TmsLink("TECH-68538")
+    @TmsLink("MKP-1548")
     public void testReserveAndTransactV4Success() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -103,7 +103,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v3/reserveAndTransact :: SUCCESS")
-    @TmsLink("TECH-54334")
+    @TmsLink("MKP-973")
     public void testReserveAndTransactV3Success() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -155,7 +155,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v2/reserveAndTransact :: SUCCESS")
-    @TmsLink("TECH-54335")
+    @TmsLink("MKP-955")
     public void testReserveAndTransactV2Success() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -206,7 +206,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: POST v1/reserveAndTransact :: SUCCESS")
-    @TmsLink("TECH-58612")
+    @TmsLink("MKP-1063")
     public void testReserveAndTransactV1Success() throws InterruptedException {
         val jsonBody = setUpTransactV1Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -259,7 +259,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //SUCCESS :: VENDORS & CLIENTS
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 2 (CellC) SUCCESS")
-    @TmsLink("TECH-69577")
+    @TmsLink("MKP-1015")
     public void testReserveAndTransactVendor2CellCSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductCellC_60, ReserveAndTransactClient.PurchaseAmount1000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_3);
 
@@ -289,7 +289,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 3 (MTN_ZA) SUCCESS")
-    @TmsLink("TECH-68400")
+    @TmsLink("MKP-1553")
     public void testReserveAndTransactVendor3MtnZaSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductMTN_ZA_400, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_4);
 
@@ -313,7 +313,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 4 (Vodacom) SUCCESS")
-    @TmsLink("TECH-69575")
+    @TmsLink("MKP-1094")
     public void testReserveAndTransactVendor4VodacomSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductVodacom_ZA_40, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_5);
 
@@ -336,7 +336,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 5 (Telkom) SUCCESS")
-    @TmsLink("TECH-69580")
+    @TmsLink("MKP-991")
     public void testReserveAndTransactVendor5TelkomSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductTelkom_5_50, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_3);
 
@@ -359,7 +359,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 15 (3line, threeline, ClickatellBiller3) SUCCESS")
-    @TmsLink("TECH-75095")
+    @TmsLink("MKP-1095")
     public void testReserveAndTransactVendor15ThreelineSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_3line_15_505, ReserveAndTransactClient.PurchaseAmount50000, ReserveAndTransactClient.FeeAmount0, NotificationClient.Identifier_6);
 
@@ -410,7 +410,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 23 (MTN_ZA_clickatell) SUCCESS")
-    @TmsLink("TECH-68536")
+    @TmsLink("MKP-1016")
     public void testReserveAndTransactVendor23MtnZaSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2, ZAR, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_MTN_ZA_Clickatell_30, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_4);
 
@@ -462,7 +462,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 100 (MTN_NG) SUCCESS")
-    @TmsLink("TECH-63683")
+    @TmsLink("MKP-1611")
     public void testReserveAndTransactVendor100MtnNgSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -515,7 +515,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 101 (glo) SUCCESS")
-    @TmsLink("TECH-68396")
+    @TmsLink("MKP-1096")
     public void testReserveAndTransactVendor101GloSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Glo_110, ReserveAndTransactClient.PurchaseAmount50000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.IdentifierV2);
 
@@ -567,7 +567,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 102 (9mobile/etisalat) SUCCESS")
-    @TmsLink("TECH-68397")
+    @TmsLink("MKP-1014")
     public void testReserveAndTransactVendor1029MobileEtisalatSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Etisalat_120, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.IdentifierV2);
 
@@ -619,7 +619,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Airtime\" purchase")
-    @TmsLink("TECH-57995")
+    @TmsLink("MKP-981")
     public void testReserveAndTransactVendor103AirtelAirtimeSuccess() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ProductLookupClient.ProductAirtel_130, "10000", "0", "2348038382067");
 
@@ -671,7 +671,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Data\" purchase")
-    @TmsLink("TECH-57989")
+    @TmsLink("MKP-953")
     public void testReserveAndTransactVendor103AirtelDataSuccess() {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Airtel_189, PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -722,7 +722,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test(groups = {"smokeTest"})
     @Description("30100 :: payd-raas-gateway :: client 1003 (test client) SUCCESS (checksum)")
-    @TmsLink("TECH-56890")
+    @TmsLink("MKP-1088")
     public void testReserveAndTransactWithSignatureSuccess() throws InterruptedException {
         //Creating signature
         val jsonBody = setUpReserveAndTransactV3DataWtihSignature(ReserveAndTransactClient.TestClient1003, MOBILE,
@@ -762,7 +762,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     //PENDING :: RD :: NRD
     @Test
     @Description("30100 :: payd-raas-gateway :: NonRetryableDecline")
-    @TmsLink("TECH-57167")
+    @TmsLink("MKP-1108")
     public void testReserveAndTransactNonRetryableDecline() throws InterruptedException {
         //add test case to simulate a NON_RETRYABLE_DECLINE
         val addTestCase = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_17017, InFlightTransactionLookupClient.AirTel_purchase);
@@ -832,7 +832,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Pending To SUCCESS (airtel)")
-    @TmsLink("TECH-46759")
+    @TmsLink("MKP-1521")
     public void testReserveAndTransactPendingToSuccess() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
@@ -913,7 +913,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Pending To NonRetryableDecline (mtn_za)")
-    @TmsLink("TECH-57302")
+    @TmsLink("MKP-1100")
     public void testReserveAndTransactPendingToNonRetryableDecline() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpMtnSimData(ResponseCode_9318, Identifier_4, "virtual_recharge", Integer.parseInt(ResponseCode_200));
@@ -978,7 +978,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: RetryableDecline to SUCCESS (airtel)")
-    @TmsLink("TECH-57171")
+    @TmsLink("MKP-1116")
     public void testReserveAndTransactRetryableDeclineToSuccess() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData("503", InFlightTransactionLookupClient.AirTel_purchase);
@@ -1062,7 +1062,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: RetryableDecline to NonRetryableDecline (airtel)")
-    @TmsLink("TECH-57170")
+    @TmsLink("MKP-1074")
     public void testReserveAndTransactRetryableDeclineToNonRetryableDecline() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_2238, InFlightTransactionLookupClient.AirTel_purchase);
@@ -1145,7 +1145,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Pending To RetryableDecline To SUCCESS (airtel)")
-    @TmsLink("TECH-57169")
+    @TmsLink("MKP-1004")
     public void testReserveAndTransactPendingToRetryableDeclineToSuccess() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(InFlightTransactionLookupClient.ResponseCode_500, InFlightTransactionLookupClient.AirTel_purchase);
@@ -1321,7 +1321,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To SUCCESS (airtel)")
-    @TmsLink("TECH-57303")
+    @TmsLink("MKP-966")
     public void testReserveAndTransactRetryableDeclineToPendingToSuccess() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(ReserveAndTransactClient.ResponseCode_2238, InFlightTransactionLookupClient.AirTel_purchase);
@@ -1409,7 +1409,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100-payd-raas-gateway :: POST /v4/reserveAndTransact :: Success scenario (vendor 103; Airtel)")
-    @TmsLink("TECH-174908")
+    @TmsLink("MKP-465")
     public void testReserveAndTransactSuccessScenarioAirtel() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpAirtelSimData(ResponseCode_200, InFlightTransactionLookupClient.AirTel_purchase);
@@ -1491,7 +1491,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: RetryableDecline To Pending To NonRetryableDecline (mtn_za)")
-    @TmsLink("TECH-57304")
+    @TmsLink("MKP-1114")
     public void testReserveAndTransactRetryableDeclineToPendingToNonRetryableDecline() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpMtnSimData(ResponseCode_3803, Identifier_4, "virtual_recharge", Integer.parseInt(ResponseCode_200));
@@ -1576,7 +1576,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100-payd-raas-gateway :: POST /v4/reserveAndTransact :: Pending to RetryableDecline to Success scenario (vendor 3; MTN_ZA)")
-    @TmsLink("TECH-178200")
+    @TmsLink("MKP-416")
     public void testReserveAndTransactPendingToRetryableDeclineToSuccessMtN() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpMtnSimData(ResponseCode_9318, Identifier_4, "virtual_recharge", Integer.parseInt(ResponseCode_200));
@@ -1658,7 +1658,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100-payd-raas-gateway :: POST /v4/reserveAndTransact :: Pending To Success scenario (vendor 3; MTN_ZA)")
-    @TmsLink("TECH-175877")
+    @TmsLink("MKP-518")
     public void testReserveAndTransactPendingToSuccessScenario() throws InterruptedException {
         //add test cases
         val addTestCase1 = setUpMtnSimData(ResponseCode_9318, Identifier_4, "virtual_recharge", Integer.parseInt(ResponseCode_200));
@@ -1744,7 +1744,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: 2510 Purchase amount exceeds allowed maximum product price amount")
-    @TmsLink("TECH-69564")
+    @TmsLink("MKP-1073")
     public void testReserveAndTransactV4PurchaseAmountExceedsAllowedMaximumPrice() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_1200, ReserveAndTransactClient.PurchaseAmount1000000001, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -1786,7 +1786,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: 2509 Purchase amount below allowed minimum product price amount")
-    @TmsLink("TECH-69567")
+    @TmsLink("MKP-1019")
     public void testReserveAndTransactV4PurchaseAmountBelowAllowedMaximumPrice() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount99, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -1828,7 +1828,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: 2511 Purchase amount does not use correct increment for product")
-    @TmsLink("TECH-69569")
+    @TmsLink("MKP-978")
     public void testReserveAndTransactV4PurchaseAmountIncorrectIncrement() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10001, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -1879,7 +1879,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Transaction request not valid\" error")
-    @TmsLink("TECH-93004")
+    @TmsLink("MKP-1124")
     public void testReserveAndTransactInvalidJsonBody() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmountInvalid, ReserveAndTransactClient.FeeAmount10, ReserveAndTransactClient.Identifier);
 
@@ -1893,7 +1893,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: 2506 Purchase amount does not correspond to product price amount")
-    @TmsLink("TECH-69571")
+    @TmsLink("MKP-1029")
     public void testReserveAndTransactV4PurchaseAmountNotCorrespondToPriceAmount() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9);
 
@@ -1944,7 +1944,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Reserve Funds transaction Reference was not expected error")
-    @TmsLink("TECH-92973")
+    @TmsLink("MKP-962")
     public void testReserveAndTransactV4ReserveFundsTransactionReferenceError() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9, clientTxnRef);
 
@@ -1958,7 +1958,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Invalid Fee Amount\" error")
-    @TmsLink("TECH-93001")
+    @TmsLink("MKP-1013")
     public void testReserveAndTransactV4InvalidFeeAmount() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount10, ReserveAndTransactClient.Identifier_9);
 
@@ -1989,7 +1989,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Reserve Funds transaction Reference was not expected error")
-    @TmsLink("TECH-92973")
+    @TmsLink("MKP-962")
     public void testReserveAndTransactV3ReserveFundsTransactionReferenceError() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, clientTxnRef);
 
@@ -2004,7 +2004,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Reserve Funds transaction Reference was not expected error")
-    @TmsLink("TECH-92973")
+    @TmsLink("MKP-962")
     public void testReserveAndTransactV2ReserveFundsTransactionReferenceError() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, clientTxnRef);
 
@@ -2019,7 +2019,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Funding Source not linked to Client error")
-    @TmsLink("TECH-92991")
+    @TmsLink("MKP-996")
     public void testReserveAndTransactV4FundingSourceNotLinked() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9, clientTxnRef, fundingSourceId_4);
 
@@ -2033,7 +2033,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: error when financial terms are missed for vendor, client and product")
-    @TmsLink("TECH-74564")
+    @TmsLink("MKP-1070")
     public void testReserveAndTransactV4FinancialTermsMissed() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_1201, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9);
 
@@ -2048,7 +2048,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: 4000 error when product doesn't exist in the system")
-    @TmsLink("TECH-74597")
+    @TmsLink("MKP-926")
     public void testReserveAndTransactWhenProductIDdoesNotExists() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_11, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2062,7 +2062,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: 0001 Service temporarily unavailable error")
-    @TmsLink("TECH-93007")
+    @TmsLink("MKP-1109")
     public void testReserveAndTransactWithErrorServiceUnavailable() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataToTestServiceUnavailable(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, NotificationClient.Identifier_6);
 
@@ -2076,7 +2076,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93384")
+    @TmsLink("MKP-980")
     public void testReserveAndTransactV2AccountIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataAccIdentifierMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.AccountIdentifierV2MaxLimit);
 
@@ -2091,7 +2091,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140782")
+    @TmsLink("MKP-722")
     public void testReserveAndTransactV2ClientTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataClientTxnRefMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2106,7 +2106,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140783")
+    @TmsLink("MKP-539")
     public void testReserveAndTransactV2ChannelSessionIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataChannelSessionIDMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.channelSessionIdV2MaxLimit);
 
@@ -2121,7 +2121,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140784")
+    @TmsLink("MKP-593")
     public void testReserveAndTransactV2AuthCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataAuthCodeMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2136,7 +2136,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140785")
+    @TmsLink("MKP-573")
     public void testReserveAndTransactV2TimeStampMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataTimeStampMaxLimit(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.timeStampMaxLimit);
 
@@ -2151,7 +2151,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140786")
+    @TmsLink("MKP-670")
     public void testReserveAndTransactV2ClientIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(ReserveAndTransactClient.ClientIdInvalid, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2166,7 +2166,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140787")
+    @TmsLink("MKP-718")
     public void testReserveAndTransactV2ProductIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_Invalid);
 
@@ -2181,7 +2181,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140788")
+    @TmsLink("MKP-678")
     public void testReserveAndTransactV2PurchaseAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataPurchaseAmountMaxLimit(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, ReserveAndTransactClient.PurchaseAmountMaxLimit);
 
@@ -2196,7 +2196,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140789")
+    @TmsLink("MKP-551")
     public void testReserveAndTransactV2ChannelIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, USSD, ChannelId.INVALID, ProductAirtel_917);
 
@@ -2211,7 +2211,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
         @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters (SourceIdentifierMaxLimit)")
-    @TmsLink("TECH-123386")
+    @TmsLink("MKP-874")
     public void testReserveAndTransactV2SourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataSourceIdentifier(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, SourceIdentifierMaxLimit);
 
@@ -2226,7 +2226,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-140790")
+    @TmsLink("MKP-653")
     public void testReserveAndTransactV2TargetIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataTargetIdentifier(TestClient3, USSD, ChannelId.USSD, ProductAirtel_917, TargetIdentifierMaxLimit);
 
@@ -2240,7 +2240,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v2/reserveAndTransact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
-    @TmsLink("TECH-123385")
+    @TmsLink("MKP-774")
     public void testReserveAndTransactV2ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2Data(TestClient3, INVALID, ChannelId.USSD, ProductAirtel_917);
 
@@ -2255,7 +2255,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93383")
+    @TmsLink("MKP-954")
     public void testReserveAndTransactV3AccIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataAccIdentifier(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.AccountIdentifierV2MaxLimit);
 
@@ -2270,7 +2270,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139906")
+    @TmsLink("MKP-917")
     public void testReserveAndTransactV3ClientTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataClientTxnRef(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2285,7 +2285,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139907")
+    @TmsLink("MKP-810")
     public void testReserveAndTransactV3channelSessionIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataChannelSessionId(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.channelSessionIdV2MaxLimit);
 
@@ -2300,7 +2300,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139908")
+    @TmsLink("MKP-769")
     public void testReserveAndTransactV3authCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataAuthCode(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2315,7 +2315,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139909")
+    @TmsLink("MKP-806")
     public void testReserveAndTransactV3timestampMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataTimestamp(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.timeStampMaxLimit);
 
@@ -2330,7 +2330,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139911")
+    @TmsLink("MKP-822")
     public void testReserveAndTransactV3ClientIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.ClientIdInvalid, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2345,7 +2345,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139912")
+    @TmsLink("MKP-778")
     public void testReserveAndTransactV3productIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.Product_Invalid);
 
@@ -2360,7 +2360,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139913")
+    @TmsLink("MKP-915")
     public void testReserveAndTransactV3purchaseAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataPurchaseAmount(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmountMaxLimit);
 
@@ -2375,7 +2375,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139914")
+    @TmsLink("MKP-838")
     public void testReserveAndTransactV3feeAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataFeeAmount(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2390,7 +2390,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139915")
+    @TmsLink("MKP-756")
     public void testReserveAndTransactV3channelIDMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.INVALID, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2404,7 +2404,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139916")
+    @TmsLink("MKP-841")
     public void testReserveAndTransactV3sourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataSourceIdentifier(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.SourceIdentifierMaxLimit);
 
@@ -2419,7 +2419,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139917")
+    @TmsLink("MKP-881")
     public void testReserveAndTransactV3targetIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3DataTargetIdentifier(ReserveAndTransactClient.TestClient3, ChannelName.MOBILE, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.TargetIdentifierMaxLimit);
 
@@ -2433,7 +2433,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters (channelNameMaxLimit)")
-    @TmsLink("TECH-123383")
+    @TmsLink("MKP-923")
     public void testReserveAndTransactV3channelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV3Data(ReserveAndTransactClient.TestClient3, ChannelName.INVALID, ChannelId.MOBILE, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -2448,7 +2448,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-93370")
+    @TmsLink("MKP-1120")
     public void testReserveAndTransactV4AccountIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataAccountIdentifier(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.AccountIdentifierV2MaxLimit);
 
@@ -2462,7 +2462,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139614")
+    @TmsLink("MKP-879")
     public void testReserveAndTransactV4ClientTxnRefMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataClientTxnRef(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.clientTxnRefV2MaxLimit);
 
@@ -2476,7 +2476,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139616")
+    @TmsLink("MKP-798")
     public void testReserveAndTransactV4channelSessionIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataChannelSessionId(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.channelSessionIdV2MaxLimit);
 
@@ -2490,7 +2490,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (AuthCodeMaxLimit)")
-    @TmsLink("TECH-123392")
+    @TmsLink("MKP-893")
     public void testReserveAndTransactV4AuthCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataAuthCode(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2504,7 +2504,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139617")
+    @TmsLink("MKP-783")
     public void testReserveAndTransactV4TimeStampMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataTimeStamp(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, ReserveAndTransactClient.authCodeV2MaxLimit);
 
@@ -2518,7 +2518,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139618")
+    @TmsLink("MKP-887")
     public void testReserveAndTransactV4ClientIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ClientIdInvalid, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2532,7 +2532,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139619")
+    @TmsLink("MKP-851")
     public void testReserveAndTransactV4FundingSourceMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9, ReserveAndTransactClient.clientTxnRef, ReserveAndTransactClient.ClientIdInvalid);
 
@@ -2546,7 +2546,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139622")
+    @TmsLink("MKP-775")
     public void testReserveAndTransactV4PurchaseAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmountMaxLimit, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier_9);
 
@@ -2560,7 +2560,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139623")
+    @TmsLink("MKP-780")
     public void testReserveAndTransactV4FeeAmountMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_919, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.clientTxnRef, ReserveAndTransactClient.Identifier_9);
 
@@ -2574,7 +2574,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139624")
+    @TmsLink("MKP-820")
     public void testReserveAndTransactV4CurrencyCodeMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, INVALIDCC, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2588,7 +2588,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (ChannelIdMaxLimit)")
-    @TmsLink("TECH-123393")
+    @TmsLink("MKP-817")
     public void testReserveAndTransactV4ChannelIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.INVALID, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2603,7 +2603,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139625")
+    @TmsLink("MKP-919")
     public void testReserveAndTransactV4SourceIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataSourceIdentifier(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.SourceIdentifierMaxLimit);
 
@@ -2617,7 +2617,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139626")
+    @TmsLink("MKP-773")
     public void testReserveAndTransactV4TargetIdentifierMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataTargetIdentifier(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.TargetIdentifierMaxLimit);
 
@@ -2630,7 +2630,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v4/reserveAndTransact :: char limit exceeded value for request parameters (ChannelNameMaxLimit)")
-    @TmsLink("TECH-123381")
+    @TmsLink("MKP-799")
     public void testReserveAndTransactV4ChannelNameMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, INVALID, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2643,7 +2643,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("30100 :: payd-raas-gateway :: v3/reserveAndTransact :: char limit exceeded value for request parameters")
-    @TmsLink("TECH-139621")
+    @TmsLink("MKP-758")
     public void testReserveAndTransactV4productIdMaxLimit() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, INVALID, ChannelId.USSD, Product_Invalid, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2658,7 +2658,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: perform successful transaction when test client id matches funding source id")
-    @TmsLink("TECH-57952")
+    @TmsLink("MKP-1068")
     public void testReserveAndTransactV4ClientIdFundingSourceSame() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_100, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2710,7 +2710,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: Funding Source not linked to Client error")
-    @TmsLink("TECH-57981")
+    @TmsLink("MKP-1030")
     public void testReserveAndTransactV4FundingSourceClientIdDifferent() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataClientAndFundingDiff(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount200, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier, fundingSourceId_1500);
 
@@ -2907,7 +2907,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: ctx :: transaction with amount higher than \"topup_amount\" client in ctx should be successful")
-    @TmsLink("TECH-79013")
+    @TmsLink("MKP-948")
     public void testReserveAndTransactV4AmountHigherThanTopUpAmount() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD,ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount20000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -2959,7 +2959,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
     @Test
     @Description("POST /raas/v4/reserveAndTransact :: if body for the request is changed then the \"Header Signature invalid\" error should be returned in the response")
-    @TmsLink("TECH-92994")
+    @TmsLink("MKP-929")
     public void testReserveAndTransactV3WithHeaderSignatureInvalidError() throws InterruptedException {
         //Creating signature
         val jsonBody = setUpReserveAndTransactV3DataWtihSignature(ReserveAndTransactClient.TestClient1003, MOBILE,
@@ -2992,7 +2992,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("POST /raas/v4/reserveAndTransact :: if the \"Signature\" value is changed then the \"Header Signature invalid\" error should be returned in the response")
-    @TmsLink("TECH-139599")
+    @TmsLink("MKP-902")
     public void testReserveAndTransactV3WithHeaderSignatureInvalidErrorInvalidSignature() throws InterruptedException {
         //Creating signature
         val jsonBody = setUpReserveAndTransactV3DataWtihSignature(ReserveAndTransactClient.TestClient1003, MOBILE,
@@ -3022,7 +3022,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("POST /raas/v4/reserveAndTransact :: if the \"Signature\" is not sent then the \"Header Signature invalid\" error should be returned in the response")
-    @TmsLink("TECH-139600")
+    @TmsLink("MKP-912")
     public void testReserveAndTransactV3WithHeaderSignatureInvalidErrorNoSignature() throws InterruptedException {
         //Creating signature
         val jsonBody = setUpReserveAndTransactV3DataWtihSignature(ReserveAndTransactClient.TestClient1003, MOBILE,
@@ -3052,7 +3052,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("GET /getRaasFlow :: happy path")
-    @TmsLink("TECH-146863")
+    @TmsLink("MKP-554")
     public void testGetRaasFlowHappyPath() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -3098,7 +3098,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test
     @Description("GET /getRaasInteractions :: happy path")
-    @TmsLink("TECH-146861")
+    @TmsLink("MKP-683")
     public void testGetRaasInteractionsHappyPath() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4Data(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.Identifier);
 
@@ -3129,7 +3129,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
     @Test()
     @Description("30100-payd-raas-gateway :: POST /v4/reserveAndTransact :: Success scenario (vendor 21; mwm)")
-    @TmsLink("TECH-68398")
+    @TmsLink("MKP-1024")
     public void testReserveAndTransactV4SuccessScenarioVendor21MWM() throws InterruptedException {
         Map body_success = SetupSetVendData(Identifier, Identifier,FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200,mwmSuccess,vendorTransactionReference);
         PostControlApiBehaviour(body_success, Vendor21, "31914")

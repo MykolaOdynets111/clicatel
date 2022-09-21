@@ -19,7 +19,7 @@ import static org.apache.http.HttpStatus.SC_INTERNAL_SERVER_ERROR;
 public class ReserveAndTransactProductNotLinkedWithClientTest {
     @Test
     @Description("30100 :: payd-raas-gateway :: 4000 error when product isn't linked to the client\t\n")
-    @TmsLink("TECH-74601")
+    @TmsLink("MKP-930")
     public void testReserveAndTransactV4SuccessWhenProductIsNotLinked() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV4DataWhenProductNotLinkedWithClient(ReserveAndTransactClient.TestClient3, NGN, USSD, ChannelId.USSD, ReserveAndTransactClient.Product_1585, ReserveAndTransactClient.PurchaseAmount10000, ReserveAndTransactClient.FeeAmount0, ReserveAndTransactClient.IdentifierV2);
 
