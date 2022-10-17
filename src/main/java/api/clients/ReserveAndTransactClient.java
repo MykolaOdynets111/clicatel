@@ -129,6 +129,9 @@ public class ReserveAndTransactClient extends BasedAPIClient {
     public static String ResponseCode_9318;
     public static String ResponseCode_9313;
     public static String ResponseCode_3803;
+    public static String SecondTransactionCode;
+    public static String TxnStatusPending;
+    public static String ResponseCode_2404;
 
     static {
         AccountIdentifier = getProperty("AccountIdentifier");
@@ -246,6 +249,9 @@ public class ReserveAndTransactClient extends BasedAPIClient {
         ResponseCode_9318= getProperty("ResponseCode_9318");
         ResponseCode_9313= getProperty("ResponseCode_9313");
         ResponseCode_3803= getProperty("ResponseCode_3803");
+        TxnStatusPending= getProperty("TxnStatusPending");
+        SecondTransactionCode=getProperty("SecondTransactionCode");
+        ResponseCode_2404=getProperty("ResponseCode_2404");
 
     }
 

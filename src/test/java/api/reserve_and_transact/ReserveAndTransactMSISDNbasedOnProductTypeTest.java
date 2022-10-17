@@ -50,7 +50,7 @@ public class ReserveAndTransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testReserveAndTransactV2SuccessDataMSISDNProducType() throws InterruptedException {
         val jsonBody = setUpReserveAndTransactV2DataDataMSISDNProducType(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 
@@ -64,7 +64,7 @@ public class ReserveAndTransactMSISDNbasedOnProductTypeTest {
 
     @Test
     @Description("30100 :: payd-raas-gateway :: \"Target Identifier expected to be an MSISDN based on the product type\" error\t")
-    @TmsLink("TECH-92975")
+    @TmsLink("MKP-947")
     public void testReserveAndTransactV1SuccessDataMSISDNProducType() throws InterruptedException {
         val jsonBody = setUpTransactV1DataMSISDNProducType(ReserveAndTransactClient.TestClient3, USSD, ChannelId.USSD, ReserveAndTransactClient.ProductAirtel_917);
 

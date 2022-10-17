@@ -1001,7 +1001,7 @@ public class CTXCombinationTest extends BasedAPIClient{
 
     @Test
     @Description("CTX :: Non-Retryable Decline Scenario (vendor 102; 9mobile; etisalat)")
-    @TmsLink("TECH-181989")
+    @TmsLink("MKP-439")
     public void testETISALATNRDScenario() throws Exception {
         setSimulatorExpectedState(vendorETISALATErrorTimeOUT);
         String request = CtxCreateBody(TestClient3,PurchaseAmount10000,Identifier_6,Product_Etisalat_120,ChannelID_07,alternateClientId,Identifier_6,channelSessionId_3133827176);

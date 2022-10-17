@@ -21,6 +21,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static String TestClient101;
     public static String DateRangeFrom_transaction_lookup_ctx;
     public static String DateRangeTo_transaction_lookup_ctx;
+    public static String TransactionPort;
 
     static {
         TestClient143 = getProperty("TestClient143");
@@ -32,13 +33,13 @@ public class TransactionLookupClient extends BasedAPIClient {
         TestClient101 = getProperty("TestClient101");
         DateRangeFrom_transaction_lookup_ctx = getProperty("DateRangeFrom_transaction_lookup_ctx");
         DateRangeTo_transaction_lookup_ctx = getProperty("DateRangeTo_transaction_lookup_ctx");
-
+        TransactionPort=getProperty("TransactionPort");
     }
 
     public static Response findTransaction(Port port, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/lookupservice/transaction", transactionUrl,EnvPort))
+                        .setBaseUri(String.format("%s:%s/lookupservice/transaction", transactionUrl,TransactionPort))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -48,7 +49,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findTransaction(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/lookupservice/transaction/%s", transactionUrl, EnvPort,version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/lookupservice/transaction/%s", transactionUrl, TransactionPort,version.getVersion()))
                         .addQueryParam("clientId", clientId)
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
@@ -58,7 +59,7 @@ public class TransactionLookupClient extends BasedAPIClient {
     public static Response findInternalTransactionV2(Port port, int clientId, Map<String, String> queryParams, Version version) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/lookupservice/internalTransactionLookup/%s", transactionUrl,EnvPort, version.getVersion()))
+                        .setBaseUri(String.format("%s:%s/lookupservice/internalTransactionLookup/%s", transactionUrl,TransactionPort, version.getVersion()))
 //                        .addQueryParam("clientId", clientId)
                         .addQueryParams(queryParams)
                         .setContentType(JSON)

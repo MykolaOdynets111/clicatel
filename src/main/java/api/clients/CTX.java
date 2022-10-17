@@ -82,6 +82,7 @@ public class CTX extends BasedAPIClient{
     public static String ResponseCode_2236;
     public static String ResponseCode_2203;
     public static String ResponseCode_2202;
+    public static String ResponseCode_2204;
 
 
     static
@@ -161,6 +162,7 @@ public class CTX extends BasedAPIClient{
         ResponseCode_2236 = getProperty("ResponseCode_2236");
         ResponseCode_2203 = getProperty("ResponseCode_2203");
         ResponseCode_2202 = getProperty("ResponseCode_2202");
+        ResponseCode_2204=getProperty("ResponseCode_2204");
     }
 
     public static Response validateCustomerAccount(String body) {
