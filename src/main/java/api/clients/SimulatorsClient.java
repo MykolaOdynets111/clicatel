@@ -1,7 +1,5 @@
 package api.clients;
 
-import api.domains.customer_account_validation.model.CustomerAccountValidationRequest;
-import api.enums.Port;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.response.Response;
 
@@ -30,7 +28,7 @@ public class SimulatorsClient {
     public static String mwmSuccess;
     public static String Successful;
     public static String Identifier_19;
-
+    public static String Identifier_20;
 
     static {
         ValidAirtelMsisdnWithProducts = getProperty("ValidAirtelMsisdnWithProducts");
@@ -49,6 +47,7 @@ public class SimulatorsClient {
         mwmSuccess = getProperty("mwmSuccess");
         Successful = getProperty("Successful");
         Identifier_19=getProperty("Identifier_19");
+        Identifier_20=getProperty("Identifier_20");
     }
 
     public static Response Ping3Line() {
