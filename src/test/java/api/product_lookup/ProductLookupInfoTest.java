@@ -17,7 +17,13 @@ import static api.clients.ReserveAndTransactClient.Product_Invalid;
 import static api.clients.SimulatorsClient.ValidAirtelMsisdnWithProducts;
 import static api.clients.SimulatorsClient.ValidAirtelMsisdnWithoutProducts;
 import static api.clients.VendorManagementClient.ProductTypeData_5;
+import static api.clients.VendorRoutingServiceClient.*;
 import static api.domains.product_lookup.repo.ProductLookupRequestRepo.*;
+import static db.clients.HibernateBaseClient.executeCustomQuery;
+import static db.custom_queries.VendorRoutingServiceQueries.DELETE_PRODUCT_BY_CLIENTID;
+import static db.custom_queries.VendorRoutingServiceQueries.INSERT_PRODUCT;
+import static db.enums.Sessions.POSTGRES_SQL;
+import static java.lang.String.format;
 import static org.apache.http.HttpStatus.*;
 import static org.testng.AssertJUnit.fail;
 
@@ -95,6 +101,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("32000 :: public internal :: GET /public/v3/productInfo :: Product Lookup API (3.0)")
     @TmsLink("MKP-1484")
     public void testProductLookupInformationV3Success() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -275,6 +288,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN and mtn_ng vendor id is provided then all vendor products should be returned in the response")
     @TmsLink("MKP-1001")
     public void testProductLookupIfUnknownMSISDNAndVendorIdIsProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -428,6 +448,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN and mtn_ng vendorId are provided then only vendor products should be returned in the response")
     @TmsLink("MKP-935")
     public void testProductInfoIfAirtellMSISDNAndVendorIdIsProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -580,6 +607,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN and mtn_ng vendorId is provided then all mtn_ng products should be returned in the response")
     @TmsLink("MKP-1081")
     public void testProductInfoIfmtn_ngMSISDNAndVendorIdIsProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -732,6 +766,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN is provided and vendor_id isn't provided then all mtn_ng products should be returned in the response")
     @TmsLink("MKP-961")
     public void testProductInfoIfmtn_ngMSISDNisProvidedAndVendorIdIsNotProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -883,6 +924,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if airtel MSISDN and airtel vendor id are provided then all products should be returned in the response")
     @TmsLink("MKP-1018")
     public void testProductInfoIfMSISDNandAirTelVendorisProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1032,6 +1080,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if airtel MSISDN is provided and vendor_id isn't provided then all airtel products should be returned in the response")
     @TmsLink("MKP-1123")
     public void testProductInfoIfAirTelMSISDNIsProvidedAndVendorIDisNotProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1180,6 +1235,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if topSeller isn't specified then all products with topSeller true or false")
     @TmsLink("MKP-1023")
     public void testProductInfoIfTopSellerIsNotProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1239,6 +1301,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if \"topSeller\" parameter is set to false then only products with \"topSeller\" false are returned in the response")
     @TmsLink("MKP-1032")
     public void testProductInfoIfTopSellerFalse() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1298,6 +1367,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if \"topSellerPlatform\" parameter isn't specified then all the products are returned in the response")
     @TmsLink("MKP-1045")
     public void testProductInfoIfTopSellerPlatformIsNotProvidedAllProducts() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1570,6 +1646,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if \"subscriberType\" parameter isn't specified then all the products are returned in the response")
     @TmsLink("MKP-1067")
     public void testProductInfoIfSubscriberTypeIsNotProvided() {//Can be added more validations for all subscriber types
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1854,6 +1937,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET /public/v3/productInfo :: if \"purchaseMedium\" parameter isn't specified then all the products are returned in the response")
     @TmsLink("MKP-1119")
     public void testProductInfoIfPurchaseMediumIsNotProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -2448,6 +2538,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"vendorId\" isn't specified then all valid products are returned in the response")
     @TmsLink("MKP-1060")
     public void testProductInfoIfVendorIdIsNotSpecified() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map <String, String> map = new Hashtable<>();
         map.put("clientId",ReserveAndTransactClient.TestClient3);
 
@@ -2537,6 +2634,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"productTypeId\" isn't specified then all valid products are returned in the response")
     @TmsLink("MKP-1118")
     public void testProductTypeIsNotSpecified() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -2724,6 +2828,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"channelId\" works as \"AND\" query parameter with all other parameters")
     @TmsLink("MKP-1055")
     public void testChannelIdAndQueryParameters() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -2789,6 +2900,12 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and product \"product_type\" isn't data then product should be returned in the response")
     @TmsLink("MKP-1121")
     public void testAirtelMsisdnProvidedAndProductTypeIsNot() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
 
         Map<String, String> map_1601 = new Hashtable<>();
         map_1601.put("productId", ProductLookupClient.Product_1601);
@@ -2884,6 +3001,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN without hardcoded data products is provided then only not data product should be returned in the response")
     @TmsLink("MKP-1103")
     public void testAirtelMsisdnProvidedWithoutHardCodedData() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3020,6 +3144,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if mtn_ng MSISDN and Airtel vendor id are provided then only not data product should be returned in the response")
     @TmsLink("MKP-1058")
     public void testMtnNgAndAirtelMsisdnProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3172,6 +3303,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the valid \"vendorId\" is specified then product is returned in the response")
     @TmsLink("MKP-1097")
     public void testValidVendorIdIsProvided() { //Marko feedback is needed.
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3320,6 +3458,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if the \"channelId\" isn't specified then all valid products are returned in the response")
     @TmsLink("MKP-1053")
     public void testChannelIdIsNotProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3377,6 +3522,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN and Airtel vendor id is provided then only not data products should be returned in the response")
     @TmsLink("MKP-944")
     public void testInValidMsisdnAndAirTelVendorIdIsProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3871,6 +4023,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN and Airtel vendor id are provided then product should be returned in the response")
     @TmsLink("MKP-1021")
     public void testAirtelVendorIdIsProvided() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -4022,6 +4181,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: check the \"clientId\" works as \"AND\" query parameter with all other parameters")
     @TmsLink("MKP-1083")
     public void testClientIdAndQueryParameters() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -4154,6 +4320,14 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if aritel MSISDN is provided and data product \"external_product_id\" matches hardcoded for the msisdn then product should be returned in the response")
     @TmsLink("MKP-945")
     public void testAirtelMsisdnIsProvidedAndDataProductMatchedWithMsisdn() {
+
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -4451,6 +4625,13 @@ public class ProductLookupInfoTest extends BaseApiTest {
     @Description("GET \u200B/public\u200B/v3\u200B/productInfo :: if unknown MSISDN is provided and vendor id isn't sent then all products configured for the client should be returned in the response")
     @TmsLink("MKP-1033")
     public void testIfUnknownMsisdnProvidedWithoutVendorId() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
