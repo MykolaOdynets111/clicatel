@@ -90,7 +90,7 @@ public class MnoLookupClient extends BasedAPIClient {
     public static Response getMnoInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/mnp/mnpLookup",mnoLookupUrl,EnvPort))
+                        .setBaseUri(String.format("%s/mnp/mnpLookup",mnoLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -99,7 +99,7 @@ public class MnoLookupClient extends BasedAPIClient {
     public static Response getMnoCountryInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/mnp/lookupCountryPrefix",mnoLookupUrl,EnvPort))
+                        .setBaseUri(String.format("%s/mnp/lookupCountryPrefix",mnoLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

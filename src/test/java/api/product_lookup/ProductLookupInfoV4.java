@@ -15,9 +15,16 @@ import java.util.*;
 
 import static api.clients.ProductLookupClient.*;
 import static api.clients.ProductLookupInfoV4Client.putProductInfo;
+import static api.clients.VendorRoutingServiceClient.*;
+import static api.clients.VendorRoutingServiceClient.cdc_update_timestamp;
 import static api.domains.product_lookup.repo.ProductLookupInfoV4Repo.GetAttributes;
 import static api.domains.product_lookup.repo.ProductLookupRequestRepo.setUpPutProductDataWithAttributesWithPurchaseMedium;
 import static api.domains.product_lookup.repo.ProductLookupRequestRepo.setUpPutProductDataWithAttributesWithoutPurchaseMedium;
+import static db.clients.HibernateBaseClient.executeCustomQuery;
+import static db.custom_queries.VendorRoutingServiceQueries.DELETE_PRODUCT_BY_CLIENTID;
+import static db.custom_queries.VendorRoutingServiceQueries.INSERT_PRODUCT;
+import static db.enums.Sessions.POSTGRES_SQL;
+import static java.lang.String.format;
 import static org.apache.http.HttpStatus.*;
 import static org.testng.AssertJUnit.fail;
 
@@ -26,6 +33,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with dec value with null value products and \"include\" \"false\" filter")
     @TmsLink("MKP-622")
     public void testAttributeFilterWithFalseFilterWithDecValue() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -160,6 +174,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
     @TmsLink("MKP-587")
     public void testAttributeFilterWithFalseFilterWithNullValue() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -294,6 +315,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with null value works as \"AND\" query with the another \"attributesFilter\" with null value with null value products and \"include\" \"false\" filter")
     @TmsLink("MKP-687")
     public void testAttributeFilterWithNullFilterWithNullValueWithIncludeFalse() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -428,6 +456,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with dec value works as \"AND\" query with the another \"attributesFilter\" param with null value with null value products and \"include\" \"false\" filter")
     @TmsLink("MKP-601")
     public void testAttributeFilterWithDescFilterWithNullValueWithIncludeFalse() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -830,6 +865,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" param with char value works as \"AND\" query with the another \"attributesFilter\" param with char value with null value products and \"include\" \"false\" filter")
     @TmsLink("MKP-603")
     public void testAttributeFilterWithCharFilterWithNullValueWithIncludeFalse() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -1232,6 +1274,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" \"include\": false works as \"AND\" query parameter with all other parameters")
     @TmsLink("MKP-542")
     public void testAttributeFilterWithAllParametersIncludeFalse() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -2465,6 +2514,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: check the \"attributesFilter\" with valid value works as \"OR\" query with the same \"attributesFilter\" param with valid value and \"include\" filter is set to \"true\"")
     @TmsLink("MKP-703")
     public void testAttributeFilterValidValueWithParamWithValidIncludeTrue() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -2780,6 +2836,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: happy path")
     @TmsLink("MKP-1470")
     public void testProductInfoV4HappyPath() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3045,6 +3108,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"false\" then all the \"attributeNameValuePairList\" parameters works as the \"NOT IN\" query with null values")
     @TmsLink("MKP-701")
     public void testIncludeFalseAttributeNameValuePairListNotInQueryWithNullValues() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 
@@ -3353,6 +3423,13 @@ public class ProductLookupInfoV4 {
     @Description("32000-payd-product-lookup :: PUT \u200B/public\u200B/v4\u200B/productInfo :: if the \"include\" parameter is set to \"false\" then all the \"attributeNameValuePairList\" parameters works as the \"NOT IN\" query with valid values")
     @TmsLink("MKP-610")
     public void testIncludeFalseAttributeNameValuePairListNotInQueryWithValidValues() {
+        executeCustomQuery(POSTGRES_SQL, format(DELETE_PRODUCT_BY_CLIENTID, Product_1600));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1600,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1601,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1602,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1603,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+        executeCustomQuery(POSTGRES_SQL, format(INSERT_PRODUCT,Product_1600,Product_1604,ReserveAndTransactClient.Clickatell_Test_ZA_2_PaydWhitelistFundingSource_2,cdc_update_timestamp));
+
         Map<String, String> map_1600 = new Hashtable<>();
         map_1600.put("productId", ProductLookupClient.Product_1600);
 

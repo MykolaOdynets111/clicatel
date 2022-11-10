@@ -350,7 +350,7 @@ public class CTX extends BasedAPIClient {
         assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.clientTransactionId"), notNullValue());
 
         Map body_Success = SetupSetVendData(Identifier, Identifier, FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
-        PostControlApiBehaviour(body, Vendor21, EnvPort)
+        PostControlApiBehaviour(body_Success, Vendor21, EnvPort)
                 .then().statusCode(200);
     }
 
@@ -974,7 +974,7 @@ public class CTX extends BasedAPIClient {
     @Description("CTX :: Verify \"COMPLETED_VENDOR_ERROR_INVALID_AMOUNT\" for Transaction code 2212")
     @TmsLink("MKP-393")
     public void testVerifyCTxCode2212() throws InterruptedException {
-        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, ResponseCode_2212, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
+        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, ResponseCode_2220, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
         PostControlApiBehaviour(body, Vendor21, EnvPort)
                 .then().statusCode(200);
         String requestBody = CtxCreateBody(ProductTypeAirtime_3, PurchaseAmount10000, Identifier, ProductAirtel_917, ChannelID_07, alternateClientId, Identifier, channelSessionId_3133827176);
@@ -984,7 +984,7 @@ public class CTX extends BasedAPIClient {
         System.out.println(Response.getBody().asString());
 
         XmlPath xmlPath = new XmlPath(Response.getBody().asString()).using(xmlPathConfig().namespaceAware(false));
-        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(ResponseCode_2212));
+        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(ResponseCode_2220));
         assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.clientTransactionId"), notNullValue());
 
         Map body_Success = SetupSetVendData(Identifier, Identifier, FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
@@ -996,7 +996,7 @@ public class CTX extends BasedAPIClient {
     @Description("CTX :: Verify \"COMPLETED_VENDOR_ERROR_INVALID_MERCHANT\" for Transaction code 2220")
     @TmsLink("MKP-366")
     public void testVerifyCTxCode2220() throws InterruptedException {
-        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, ResponseCode_2212, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
+        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, ResponseCode_2220, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
         PostControlApiBehaviour(body, Vendor21, EnvPort)
                 .then().statusCode(200);
         String requestBody = CtxCreateBody(ProductTypeAirtime_3, PurchaseAmount10000, Identifier, ProductAirtel_917, ChannelID_07, alternateClientId, Identifier, channelSessionId_3133827176);
@@ -1006,7 +1006,7 @@ public class CTX extends BasedAPIClient {
         System.out.println(Response.getBody().asString());
 
         XmlPath xmlPath = new XmlPath(Response.getBody().asString()).using(xmlPathConfig().namespaceAware(false));
-        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(ResponseCode_2212));
+        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(ResponseCode_2220));
         assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.clientTransactionId"), notNullValue());
 
         Map body_Success = SetupSetVendData(Identifier, Identifier, FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
@@ -1763,8 +1763,8 @@ public class CTX extends BasedAPIClient {
     @Test
     @Description("CTX :: Success :: Verify \"COMPLETED_SUCCESS\" for System code 0")
     @TmsLink("MKP-374")
-    public void testVerifyCTxCode02201() throws InterruptedException {
-        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, responseCode2201, FeeAmount0, FeeAmount0, mwmSuccess, vendorTransactionReference);
+    public void testVerifySystemCode0() throws InterruptedException {
+        Map body = SetupSetVendData(Identifier, Identifier, FeeAmount0, FeeAmount0, FeeAmount0, ResponseCode_200, mwmSuccess, vendorTransactionReference);
         PostControlApiBehaviour(body, Vendor21, EnvPort)
                 .then().statusCode(200);
         String requestBody = CtxCreateBody(ProductTypeAirtime_3, PurchaseAmount10000, Identifier, ProductAirtel_917, ChannelID_07, alternateClientId, Identifier, channelSessionId_3133827176);
@@ -1774,7 +1774,7 @@ public class CTX extends BasedAPIClient {
         System.out.println(Response.getBody().asString());
 
         XmlPath xmlPath = new XmlPath(Response.getBody().asString()).using(xmlPathConfig().namespaceAware(false));
-        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(responseCode2201));
+        assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.responseCode"), is(FeeAmount0));
         assertThat(xmlPath.getString("soapenv:Envelope.soapenv:Body.purchaseResponse.clientTransactionId"), notNullValue());
         String ClientTransactionID = xmlPath.get("soapenv:Envelope.soapenv:Body.purchaseResponse.clientTransactionId");
         System.out.println(ClientTransactionID);

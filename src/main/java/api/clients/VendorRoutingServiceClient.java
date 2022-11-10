@@ -94,16 +94,17 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         return basedAPIClient.get()
                 .delete(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/mtn/test-scenario/"+ScenarioId,mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/test-scenario/"+ScenarioId,mtnUrl,MTNEnvPort))
                         .setContentType(JSON)
                         .addHeader("Authorization","bearer")
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
     public static Response PostScenario(Map body) {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/mtn/test-scenario/",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/test-scenario/",mtnUrl,MTNEnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
@@ -113,7 +114,7 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
     public static Response PutCurrentScenario(Map body) {
         return basedAPIClient.get()
                 .put(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/mtn/current-test-scenario/",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/current-test-scenario/",mtnUrl,MTNEnvPort))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
@@ -135,8 +136,9 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/mtn/test-scenarios",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/test-scenarios",mtnUrl,MTNEnvPort))
                         .setContentType(JSON)
+                        .setRelaxedHTTPSValidation()
                         .log(ALL)
                         .build());
 
@@ -145,18 +147,20 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/mtn/current-test-scenario",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/current-test-scenario",mtnUrl,MTNEnvPort))
                         .setContentType(JSON)
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
     public static Response GetSpecificScenario(String ScenarioID) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/mtn/test-scenario/"+ ScenarioID,mtnUrl))
+                        .setBaseUri(String.format("%s:%s/mtn/test-scenario/"+ ScenarioID,mtnUrl,MTNEnvPort))
                         .setContentType(JSON)
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
 
@@ -313,10 +317,11 @@ public class VendorRoutingServiceClient extends BasedAPIClient{
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/application-management/bundle-catalogue/enterprise/proxy/api/v6/vas",mtnUrl))
+                        .setBaseUri(String.format("%s:%s/application-management/bundle-catalogue/enterprise/proxy/api/v6/vas",mtnUrl,MTNEnvPort))
                         .setContentType(JSON)
                         .addQueryParams(queryParams)
                         .log(ALL)
+                        .setRelaxedHTTPSValidation()
                         .build());
     }
 
