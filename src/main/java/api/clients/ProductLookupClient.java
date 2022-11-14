@@ -142,7 +142,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static Response getProductInfo(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/public/productInfo",productLookupUrl,EnvPort))
+                        .setBaseUri(String.format("%s/public/productInfo",productLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -152,7 +152,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static Response getProductInfo(Port port, Version version, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/public/%s/productInfo",productLookupUrl,EnvPort,version.getVersion()))
+                        .setBaseUri(String.format("%s/public/%s/productInfo",productLookupUrl,version.getVersion()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -173,7 +173,7 @@ public class ProductLookupClient extends BasedAPIClient {
     public static Response getProductDetails(Port port, Version version, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%s/product_management/productDetails",productLookupUrl,EnvPort))
+                        .setBaseUri(String.format("%s/product_management/productDetails",productLookupUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

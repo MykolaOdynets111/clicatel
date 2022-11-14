@@ -28,7 +28,7 @@ public class InFlightTransactionLookupClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s:%s/lookupservice/pendingTransactions",lookupTransactionUrl,EnvPort))
+                        .setBaseUri(String.format("%s/lookupservice/pendingTransactions",lookupTransactionUrl))
                         .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)

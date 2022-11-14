@@ -26,7 +26,7 @@ public class UserTransactionLookupClient extends BasedAPIClient {
     public static Response getUserTransactions(Port port, Map <String,String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/userTransactions",userTransactionUrl,EnvPort))
+                        .setBaseUri(String.format("%s/userTransactions",userTransactionUrl))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)

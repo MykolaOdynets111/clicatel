@@ -35,7 +35,7 @@ public class SimulatorClient extends BasedAPIClient {
     public static Response GetAirTelSimulatorResponseCodes() {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s/airtelSimulator/responsecodes",airtelUrl))
+                        .setBaseUri(String.format("%s:%s/airtelSimulator/responsecodes",airtelUrl,AirtelEnvPort))
 //                        .setBody(body)
                         .setContentType(JSON)
                         .log(ALL)
