@@ -133,7 +133,7 @@ public class MTN {
 
     }
 
-    @Test
+    @Test(groups = {"healthCheckTest"})
     @Description("31943 :: mtn-simulator :: GET /mtn/test-scenario :: happy path")
     @TmsLink("MKP-1102")
     public void testGetTestScenarioHappyPath() {

@@ -29,4 +29,13 @@ public class SupportUiClient extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
+
+    public static Response getSupportUIRaasInteractions() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/supportui/api/getRaasInteractions",supportUrl))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
 }

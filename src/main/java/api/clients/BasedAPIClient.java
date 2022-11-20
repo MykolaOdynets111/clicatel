@@ -52,6 +52,11 @@ public class BasedAPIClient {
     protected static String AirtelEnvPort;
     protected static String MTNEnvPort;
     protected static String RAndTPort;
+    protected static String paydFundingSourceProxy;
+    protected static String distributedDistributionURL;
+    protected static String mtnProxyURL;
+    protected static String vendorConfigURL;
+    protected static String paydFundingSourceConfig;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -83,6 +88,7 @@ public class BasedAPIClient {
         ControlBackend= getProperty("api.ControlBackend.url");
         PwmSimulator= getProperty("api.PwmSimulator.url");
         ControlApiAdaptor= getProperty("api.ControlApiAdaptor.url");
+        paydFundingSourceProxy= getProperty("api.fundingSourceProxy.url");
         EnvPort=getProperty("EnvPort");
         CtxUrl=getProperty("api.CtxUrl.url");
         CtxPort=getProperty("CtxPort");
@@ -90,6 +96,10 @@ public class BasedAPIClient {
         AirtelEnvPort=getProperty("AirtelEnvPort");
         MTNEnvPort=getProperty("MTNEnvPort");
         RAndTPort=getProperty("RAndTPort");
+        distributedDistributionURL=getProperty("api.distributedDistribution.url");
+        mtnProxyURL=getProperty("api.mtnProxy.url");
+        vendorConfigURL=getProperty("api.vendorConfig.url");
+        paydFundingSourceConfig=getProperty("api.paydFundingSourceConfig.url");
     }
 
     private void logResponse(final Response response) {
