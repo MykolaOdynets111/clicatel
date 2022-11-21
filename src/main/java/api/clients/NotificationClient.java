@@ -45,11 +45,20 @@ public class NotificationClient extends BasedAPIClient {
         return basedAPIClient.get()
                 .post(new RequestSpecBuilder()
                         .setUrlEncodingEnabled(false)
-                        .setBaseUri(String.format("%s/rest/messageNotifier",RestMessageNotifier))
+                        .setBaseUri(String.format("%s/rest/messageNotifier", RestMessageNotifier))
                         .setBody(body)
                         .setContentType(JSON)
-                        .addHeader("Authorization","bearer")
+                        .addHeader("Authorization", "bearer")
                         .log(ALL)
                         .build());
+    }
+
+        public static Response getSMSStatusCallback() {
+            return basedAPIClient.get()
+                    .get(new RequestSpecBuilder()
+                            .setBaseUri(String.format("%s/notification-service/sms-status-callback",notificationUrl))
+                            .setContentType(JSON)
+                            .log(ALL)
+                            .build());
     }
 }

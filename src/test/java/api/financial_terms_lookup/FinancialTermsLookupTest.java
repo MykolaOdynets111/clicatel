@@ -237,7 +237,7 @@ public class FinancialTermsLookupTest extends BaseApiTest {
 
     }
 
-    @Test()
+    @Test(groups = {"healthCheckTest"})
     @Description("30309-financial-terms-lookup :: GET /terms :: SMOKE test case for the service")
     @TmsLink("MKP-1448")
     public void testFinancialTermsGETTermsSmokeCase() {

@@ -257,7 +257,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
 
 
     //SUCCESS :: VENDORS & CLIENTS
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 2 (CellC) SUCCESS")
     @TmsLink("MKP-1015")
     public void testReserveAndTransactVendor2CellCSuccess() throws InterruptedException {
@@ -311,7 +311,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 4 (Vodacom) SUCCESS")
     @TmsLink("MKP-1094")
     public void testReserveAndTransactVendor4VodacomSuccess() throws InterruptedException {
@@ -334,7 +334,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 5 (Telkom) SUCCESS")
     @TmsLink("MKP-991")
     public void testReserveAndTransactVendor5TelkomSuccess() throws InterruptedException {
@@ -408,7 +408,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("ctx_lookup_response.clientTransactionId", Matchers.not(raasTxnRef.concat(ReserveAndTransactClient.FirstTransactionCode)));
     }
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 23 (MTN_ZA_clickatell) SUCCESS")
     @TmsLink("MKP-1016")
     public void testReserveAndTransactVendor23MtnZaSuccess() throws InterruptedException {
@@ -460,7 +460,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 100 (MTN_NG) SUCCESS")
     @TmsLink("MKP-1611")
     public void testReserveAndTransactVendor100MtnNgSuccess() throws InterruptedException {
@@ -513,7 +513,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 101 (glo) SUCCESS")
     @TmsLink("MKP-1096")
     public void testReserveAndTransactVendor101GloSuccess() throws InterruptedException {
@@ -565,7 +565,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor 102 (9mobile/etisalat) SUCCESS")
     @TmsLink("MKP-1014")
     public void testReserveAndTransactVendor1029MobileEtisalatSuccess() throws InterruptedException {
@@ -617,7 +617,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Airtime\" purchase")
     @TmsLink("MKP-981")
     public void testReserveAndTransactVendor103AirtelAirtimeSuccess() throws InterruptedException {
@@ -669,7 +669,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
     }
 
 
-    @Test(groups = {"smokeTest"})
+    @Test(groups = {"smokeTest","healthCheckTest"})
     @Description("30100 :: payd-raas-gateway :: vendor103 (Airtel) SUCCESS \"Data\" purchase")
     @TmsLink("MKP-953")
     public void testReserveAndTransactVendor103AirtelDataSuccess() {
@@ -3127,7 +3127,7 @@ public class ReserveAndTransactTest extends BaseApiTest {
                 .body("responseMessage", Matchers.hasItem(responseMessageFundsReserved))
                 .body("amount", Matchers.hasItem((Integer.parseInt(PurchaseAmount10000))));
     }
-    @Test()
+    @Test(groups = {"healthCheckTest"})
     @Description("30100-payd-raas-gateway :: POST /v4/reserveAndTransact :: Success scenario (vendor 21; mwm)")
     @TmsLink("MKP-1024")
     public void testReserveAndTransactV4SuccessScenarioVendor21MWM() throws InterruptedException {

@@ -52,7 +52,7 @@ public class MnoLookupTest extends BaseApiTest {
 //                .contains("0000");
     }
 
-    @Test
+    @Test(groups = {"healthCheckTest"})
     @Description("30049 :: client-mno-lookup-service :: GET  /mnp/lookupCountryPrefix")
     @TmsLink("MKP-1046")
     public void testMnoLookupCountryPrefix() {

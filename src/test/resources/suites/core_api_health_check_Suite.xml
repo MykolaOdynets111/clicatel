@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Health Check test suite">
+    <groups>
+        <run>
+            <include name = "healthCheckTest"></include>
+        </run>
+    </groups>
+    <test name="Health Check tests">
+       <packages>
+           <package name="api.channels"/>
+           <package name="api.mno_lookup"></package>
+           <package name="api.notification"></package>
+           <package name="api.simulators"></package>
+           <package name="api.reserve_and_transact"></package>
+           <package name="api.financial_terms_lookup"></package>
+       </packages>
+    </test>
+</suite>

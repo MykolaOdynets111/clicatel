@@ -65,5 +65,16 @@ public class UsersClient  extends BasedAPIClient  {
         return saltStr;
     }
 
+    public static Response getUser(Map<String,String> queryParams)
+    {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/user",Users))
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
 
 }

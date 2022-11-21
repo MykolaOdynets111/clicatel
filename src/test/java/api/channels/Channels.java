@@ -36,7 +36,7 @@ public class Channels{
                 .body("description", Matchers.hasItem(String.valueOf(ChannelName.SMS)));
     }
 
-    @Test
+    @Test(groups = {"healthCheckTest"})
     @Description("GET /channels/{id} :: happy path")
     @TmsLink("MKP-594")
     public void testGetChannelByID() {
