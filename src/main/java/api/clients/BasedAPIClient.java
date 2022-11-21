@@ -57,6 +57,7 @@ public class BasedAPIClient {
     protected static String mtnProxyURL;
     protected static String vendorConfigURL;
     protected static String paydFundingSourceConfig;
+    protected static String bulkLoaderURL;
 
     static {
         baseUrl = getProperty("api.base.url");
@@ -100,6 +101,7 @@ public class BasedAPIClient {
         mtnProxyURL=getProperty("api.mtnProxy.url");
         vendorConfigURL=getProperty("api.vendorConfig.url");
         paydFundingSourceConfig=getProperty("api.paydFundingSourceConfig.url");
+        bulkLoaderURL=getProperty("api.bulkloader.url");
     }
 
     private void logResponse(final Response response) {

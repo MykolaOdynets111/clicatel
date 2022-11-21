@@ -15,6 +15,7 @@ import org.testng.annotations.Test;
 import java.util.Hashtable;
 import java.util.Map;
 
+import static api.clients.BulkLoaderClient.getCampaigns;
 import static api.clients.CustomerAccountValidationClient.validateCustomerAccountV2;
 import static api.clients.DistributedDistributionClient.getMessageDistributionTemplates;
 import static api.clients.FundingSourceProxyClient.*;
@@ -228,5 +229,15 @@ public class SimulatorHealthChecks {
                 .then().assertThat().statusCode(SC_OK);
     }
 
+    @Test(groups = {"healthCheckTest"})
+    @Description("30228-bulkloader :: health-check")
+    @TmsLink("MKP-3671")
+    public void testBulkLoaderHealth(){
+        // Currently not working for UAT as service is not deployed there
+        Map<String, String> map = new Hashtable<>();
+        map.put("clientId", TestClient3);
+        getCampaigns(map)
+                .then().assertThat().statusCode(SC_OK);
+    }
 }
 
