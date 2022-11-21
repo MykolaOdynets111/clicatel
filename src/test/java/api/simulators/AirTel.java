@@ -74,7 +74,7 @@ public class AirTel {
                 .body("MESSAGE", Matchers.is(SimulatorsClient.responseMessageGetOfferAirTelInvalidMsisdn))
                 .body("OFFERDETAILS", Matchers.nullValue());
     }
-    @Test
+    @Test(groups = {"healthCheckTest"})
     @Description("30118-airtel-simulator :: GET /responsecodes :: happy path")
     @TmsLink("MKP-626")
     public void testGetResponseCodesAirtelSimulator() {

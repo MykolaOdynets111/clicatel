@@ -67,10 +67,21 @@ public class TransactionLookupClient extends BasedAPIClient {
                         .build());
     }
 
+    public static Response findInternalTransaction(Port port, int clientId, Map<String, String> queryParams) {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s:%s/lookupservice/internalTransactionLookup", transactionUrl, TransactionPort))
+//                        .addQueryParam("clientId", clientId)
+                        .addQueryParams(queryParams)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
+
     public static Response getProductInfo(Port port, Version version, Map<String, String> queryParams) {
         return basedAPIClient.get()
                 .get(new RequestSpecBuilder()
-                        .setBaseUri(String.format("%s:%d/public/%s/productInfo", productLookupUrl, EnvPort, version.getVersion()))
+                        .setBaseUri(String.format("%s/public/%s/productInfo", productLookupUrl, version.getVersion()))
                         .addQueryParams(queryParams)
                         .setContentType(JSON)
                         .log(ALL)
@@ -129,6 +140,15 @@ public class TransactionLookupClient extends BasedAPIClient {
                         .setBaseUri(String.format("%s/lookupservice/transaction-lookup-ctx", PortalTransactionLookup))
                         .setContentType(JSON)
                         .addQueryParams(map)
+                        .log(ALL)
+                        .build());
+    }
+
+    public static Response portalTransactionLookupHealthCheck() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/lookupservice/healthcheck", PortalTransactionLookup))
+                        .setContentType(JSON)
                         .log(ALL)
                         .build());
     }

@@ -29,6 +29,7 @@ public class SimulatorsClient {
     public static String Successful;
     public static String Identifier_19;
     public static String Identifier_20;
+    public static String Identifier_21;
 
     static {
         ValidAirtelMsisdnWithProducts = getProperty("ValidAirtelMsisdnWithProducts");
@@ -48,6 +49,7 @@ public class SimulatorsClient {
         Successful = getProperty("Successful");
         Identifier_19=getProperty("Identifier_19");
         Identifier_20=getProperty("Identifier_20");
+        Identifier_21=getProperty("Identifier_21");
     }
 
     public static Response Ping3Line() {
@@ -104,6 +106,17 @@ public class SimulatorsClient {
                         .log(ALL)
                         .build());
 
+    }
+
+    public static Response PingMTNProxy(Map<String,Object> body) {
+        return basedAPIClient.get()
+                .post(new RequestSpecBuilder()
+                        .setUrlEncodingEnabled(false)
+                        .setBaseUri(String.format("%s/mtn-proxy/ping",mtnProxyURL))
+                        .setBody(body)
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
     }
     public static Response PostMWMSimulator(Map map, String Identifier) {
         return basedAPIClient.get()

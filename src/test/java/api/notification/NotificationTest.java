@@ -35,7 +35,7 @@ public class NotificationTest extends BaseApiTest {
 
     }
 
-    @Test
+    @Test(groups = {"healthCheckTest"})
     @Description("30299 :: payd-sim-sms :: POST /rest/messageNotifier")
     @TmsLink("MKP-1112")
     public void testRestMessageNotifierSuccess() {

@@ -32,4 +32,13 @@ public class VelocityClients extends BasedAPIClient {
                         .log(ALL)
                         .build());
     }
+
+    public static Response getVelocityRaasReload() {
+        return basedAPIClient.get()
+                .get(new RequestSpecBuilder()
+                        .setBaseUri(String.format("%s/raas/reload", PaydVelocity))
+                        .setContentType(JSON)
+                        .log(ALL)
+                        .build());
+    }
 }
