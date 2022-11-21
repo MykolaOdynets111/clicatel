@@ -68,7 +68,7 @@ public class SimulatorHealthChecks {
                 .then().assertThat().statusCode(SC_OK);
     }
 
-    @Test(groups = {"healthCheckTest"})
+    @Test
     @Description("32051-mwm-simulator :: health-check")
     @TmsLink("MKP-1025")
     public void testmwmTestResponse() {
@@ -194,7 +194,7 @@ public class SimulatorHealthChecks {
                 .then().assertThat().statusCode(SC_OK);
     }
 
-    @Test(groups = {"healthCheckTest"})
+    @Test
     @Description("30444-clickatell-portal-transaction-lookup :: health-check")
     @TmsLink("MKP-1424")
     public void testClickatellPortalTransactionLookupHealth(){
@@ -229,7 +229,7 @@ public class SimulatorHealthChecks {
                 .then().assertThat().statusCode(SC_OK);
     }
 
-    @Test(groups = {"healthCheckTest"})
+    @Test
     @Description("30228-bulkloader :: health-check")
     @TmsLink("MKP-3671")
     public void testBulkLoaderHealth(){
